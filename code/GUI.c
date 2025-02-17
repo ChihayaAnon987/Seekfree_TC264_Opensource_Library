@@ -12,7 +12,7 @@ Parameter_set Parameter_set0=
     {2.0, 0.0, 1.0},            // 舵机PID
     {1.0, 0.0, 0.0},            // 速度PID
     3000,                       // 调试的速度
-    2.5,                        // 换点距离
+    1.5,                        // 换点距离
     SERVO_MOTOR_MID             // 舵机机械可调中值
 };
 
@@ -516,7 +516,8 @@ void Task_Select()
     ips200_show_float(  80, 16 *  6, Delta_Lat, 3, 6);
     ips200_show_string(  0, 16 *  7, "Delta_Lon:");
     ips200_show_float(  80, 16 *  7, Delta_Lon, 3, 6);
-
+    ips200_show_float(  0,  16 *  8, gnss.latitude, 3, 6);
+    ips200_show_float( 96,  16 *  8, gnss.longitude, 3, 6);
     ips200_show_string(  0, 16 *  9, "KEY1:Task1");
     ips200_show_string(120, 16 *  9, "KEY2:Task2");
     ips200_show_string(  0, 16 * 10, "KEY3:Task3");

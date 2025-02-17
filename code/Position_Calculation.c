@@ -16,24 +16,10 @@ int16  Target_Encoder =   0;       // 转速
 
 void Stright_Some_Distance()
 {
-    Start_Lat = gnss.latitude;
-    Start_Lon = gnss.longitude;
-
-    Delta_Lat = Start_Lat - GPS_GET_LAT[0];
-    Delta_Lon = Start_Lon - GPS_GET_LOT[0];
-
-    double distance = 0;
-    Angle_Error = -2 * angle[2];
-    Target_Encoder = 2000;
-
-    distance = get_two_points_distance(Start_Lat, Start_Lon, gnss.latitude, gnss.longitude);
-
-    Straight_Lat = gnss.latitude;
-    Straight_Lon = gnss.longitude;
-    Delta_Angle = get_two_points_azimuth(Start_Lat, Start_Lon, Straight_Lat, Straight_Lon);
-
-    if (distance > 8)
+    Angle_Error = -angle[2];
+    if (Distance > 8)
     {
+        Delta_Angle = get_two_points_azimuth(Start_Lat, Start_Lon, gnss.latitude, gnss.longitude);
         Track_Points_NUM = 1;
     }
 }
@@ -125,8 +111,8 @@ void Track_Follow()
     switch(Track_Points_NUM)
     {
         case 0:
-//            Stright_Some_Distance();
-            Target_Encoder = 1000;
+            Stright_Some_Distance();
+            Target_Encoder = 1500;
             break;
         case 1:
             Target_Encoder = 1500;
@@ -135,18 +121,8 @@ void Track_Follow()
             Target_Encoder = 1500;
             break;
         case 3:
-            Target_Encoder = 1500;
-            break;
         case 4:
-            Target_Encoder = 1500;
-            break;
         case 5:
-            Target_Encoder = 0;
-            break;
-        case 6:
-            Target_Encoder = 0;
-            break;
-        case 7:
             Target_Encoder = 0;
             break;
 
@@ -169,47 +145,24 @@ void Track_Follow()
 // 切换点位
 void Point_Switch()
 {
-
     switch(Track_Points_NUM)
     {
         // 暂时假定科目一采5个点，其中下标0是发车点
         case 0:
             break;
         case 1:
-            if(Distance < 2)
-            {
-                Track_Points_NUM = 2;
-                LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
-            }
-            break;
         case 2:
-            if(Distance < 2)
+            if(Distance < Parameter_set0.Distance)
             {
-                Track_Points_NUM = 3;
+                Track_Points_NUM ++;
                 LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
             }
             break;
         case 3:
-            if(Distance < 2)
-            {
-                Track_Points_NUM = 4;
-                LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
-            }
-            break;
-        case 4:
-            if(Distance < 2)
-            {
-                Track_Points_NUM = 5;
-                LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
-            }
-            break;
+        case 4:    
         case 5:
-            if(Distance <2)
-            {
-                Track_Points_NUM = 5;
-                LED_Buzzer_Flag_Ctrl(LED3);
-            }
             break;
+
 
         default:
             break;

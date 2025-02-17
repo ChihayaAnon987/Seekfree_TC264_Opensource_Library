@@ -85,12 +85,10 @@ float invSqrt(float x)
 ****************************************************************************************************/
 void AHRS_init()
 {
-    // imu963ra_init();
-
     // ÍÓÂÝÒÇÆ«²î
-    // w1 = Gyro_Offset.Xdata; // 0.095f;
-    // w2 = Gyro_Offset.Ydata; // 0.078f;
-    // w3 = Gyro_Offset.Zdata; // -0.014f;
+    // w1 = Gyro_Offset.Xdata;
+    // w2 = Gyro_Offset.Ydata;
+    // w3 = Gyro_Offset.Zdata;
     w1 = 0;
     w2 = 0;
     w3 = 0;

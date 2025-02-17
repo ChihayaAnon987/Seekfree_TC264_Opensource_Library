@@ -66,24 +66,13 @@ int core0_main(void)
         {
             break;
         }
-        if(1 == uart_receiver.finsh_flag)                            // 帧完成标志判断
+        else
         {
-            if(1 == uart_receiver.state)                             // 遥控器失控状态判断
-            {
-                printf("CH1-CH6 data: ");
-                for(int i = 0; i < 6; i++)
-                {
-                    printf("%d ", uart_receiver.channel[i]);         // 串口输出6个通道数据
-                }
-                printf("\r\n");
-            }
-            else
-            {
-                printf("Remote control has been disconnected.\r\n"); // 串口输出失控提示
-            }
-            uart_receiver.finsh_flag = 0;                            // 帧完成标志复位
+            Start_Lat = gnss.latitude;
+            Start_Lon = gnss.longitude;
+            Delta_Lat = gnss.latitude - GPS_GET_LAT[0];
+            Delta_Lon = gnss.longitude - GPS_GET_LOT[0];
         }
-
     }
 
     while (TRUE)

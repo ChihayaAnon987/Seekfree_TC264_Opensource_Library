@@ -78,7 +78,6 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
     }
 
     // Get_Gps_Yaw();
-     Point_Switch();
     // Encoder_Get();
 
 
@@ -90,7 +89,8 @@ IFX_INTERRUPT(cc61_pit_ch0_isr, 0, CCU6_1_CH0_ISR_PRIORITY)
     pit_clear_flag(CCU61_CH0);
 
     // 0.1s÷–∂œ£¨10Hz
-    Get_Gps();
+    Point_Switch();
+    Get_Gps();  
 
 
 }
