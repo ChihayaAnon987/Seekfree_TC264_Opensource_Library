@@ -463,6 +463,8 @@ void Imu963_menu()
     ips200_show_string( 0, 16 * 3, "angle[0]:");
     ips200_show_string( 0, 16 * 4, "angle[1]:");
     ips200_show_string( 0, 16 * 5, "angle[2]:");
+    ips200_show_string( 0, 16 * 6, "Kp_Ah:");
+    ips200_show_string( 0, 16 * 7, "Ki_Ah:");
 
     ips200_show_float( 80, 16 * 0, Z_360 > 180 ? Z_360 - 360 : Z_360, 3, 3);
     ips200_show_float(128, 16 * 1, IMU_Data.gyro_z, 3, 3);
@@ -470,10 +472,12 @@ void Imu963_menu()
     ips200_show_float( 72, 16 * 3, angle[0], 3, 3);
     ips200_show_float( 72, 16 * 4, angle[1], 3, 3);
     ips200_show_float( 72, 16 * 5, angle[2], 3, 3);
+    ips200_show_float( 48, 16 * 6, Kp_Ah, 3, 3);
+    ips200_show_float( 48, 16 * 7, Ki_Ah, 3, 3);
 
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
     oscilloscope_data.data[0] = IMU_Data.gyro_z;
-    oscilloscope_data.data[1] = MAX_IMU_Data_gyro_z;
+    oscilloscope_data.data[1] = Z_360 > 180 ? Z_360 - 360 : Z_360;
     oscilloscope_data.data[2] = imu963ra_mag_x;
     oscilloscope_data.data[3] = imu963ra_mag_y;
     oscilloscope_data.data[4] = imu963ra_mag_z;
@@ -1006,7 +1010,19 @@ void Key_Ctrl_Menu()
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
-                MAX_IMU_Data_gyro_z = 0;
+                Kp_Ah += 0.1;
+            }
+            if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
+            {
+                Kp_Ah -= 0.1;
+            }
+            if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
+            {
+                Ki_Ah += 0.01;
+            }
+            if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
+            {
+                Ki_Ah -= 0.01;
             }
         }
 

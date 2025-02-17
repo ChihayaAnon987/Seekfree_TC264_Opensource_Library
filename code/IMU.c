@@ -67,7 +67,7 @@ void IMU_YAW_integral()
 void IMU_Init()
 {
     imu963ra_init();
-    // IMU_gyro_Offset_Init();         // 零飘初始化
+    IMU_gyro_Offset_Init();         // 零飘初始化
 }
 
 

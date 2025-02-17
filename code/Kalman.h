@@ -20,6 +20,9 @@ typedef struct                                                 // 卡尔曼零偏参数
 
 //===================================================全局变量BEG===================================================
 extern float angle[3];
+extern float Ki_Ah;
+extern float Kp_Ah;
+extern volatile float w1, w2, w3;
 extern kalman_param_t Kalman_Offset;
 extern float kalman_Offset_flag;
 //===================================================全局变量END===================================================

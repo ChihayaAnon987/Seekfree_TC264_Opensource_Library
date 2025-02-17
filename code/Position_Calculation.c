@@ -23,17 +23,19 @@ void Stright_Some_Distance()
     Delta_Lon = Start_Lon - GPS_GET_LOT[0];
 
     double distance = 0;
-    Angle_Error = 0;
-    Target_Encoder = 1500;
-    while(distance < 8)
-    {
-        distance = get_two_points_distance(Start_Lat, Start_Lon, gnss.latitude, gnss.longitude);
-    }
+    Angle_Error = -2 * angle[2];
+    Target_Encoder = 2000;
+
+    distance = get_two_points_distance(Start_Lat, Start_Lon, gnss.latitude, gnss.longitude);
 
     Straight_Lat = gnss.latitude;
     Straight_Lon = gnss.longitude;
     Delta_Angle = get_two_points_azimuth(Start_Lat, Start_Lon, Straight_Lat, Straight_Lon);
-    Track_Points_NUM = 1;
+
+    if (distance > 8)
+    {
+        Track_Points_NUM = 1;
+    }
 }
 
 /****************************************************************************************************
@@ -95,6 +97,18 @@ void Track_Follow()
     {
         Angle_Error = Angle - angle[2];
     }
+    // if((Angle - Z_360) > 180)
+    // {
+    //     Angle_Error = Angle - Z_360 - 360;
+    // }
+    // else if((Angle - Z_360) < -180)
+    // {
+    //     Angle_Error = Angle - Z_360 + 360;
+    // }
+    // else
+    // {
+    //     Angle_Error = Angle - Z_360;
+    // }
     // 改进点
     // 1.Angle是GPS的方向角，通过对GPS的滤波，可以得到更加准确的方向角
     // 2.Z_360是IMU的航向角，通过对IMU的滤波，可以得到更加准确的航向角（卡尔曼滤波和四元数，上面这两点是数据处理）

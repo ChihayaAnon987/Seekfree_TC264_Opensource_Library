@@ -53,10 +53,10 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
 //    {
 //        Kalman_Offset_Init();
 //    }
-//     if(gyro_Offset_flag == 1)
-//     {
-//         IMU_YAW_integral();  //积分出角度值
-//     }
+    if(gyro_Offset_flag == 1)
+    {
+        IMU_YAW_integral();  //积分出角度值
+    }
  
 
 }
