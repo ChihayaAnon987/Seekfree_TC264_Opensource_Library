@@ -145,8 +145,8 @@ void Get_Gps()
         gnss_data_parse();           //开始解析数据
         FilterPoint_Lat = K_Gps * FilterPoint_Lat + (1 - K_Gps) * gnss.latitude;
         FilterPoint_Lon = K_Gps * FilterPoint_Lon + (1 - K_Gps) * gnss.longitude;
-//        Angle = get_two_points_azimuth(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM] - Delta_Lat, GPS_GET_LOT[Track_Points_NUM] - Delta_Lon);
-        Angle = get_two_points_azimuth(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
+        Angle = get_two_points_azimuth(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM] - Delta_Lat, GPS_GET_LOT[Track_Points_NUM] - Delta_Lon);
+//        Angle = get_two_points_azimuth(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
 
         Angle -= Delta_Angle;
         if(Angle > 180)
@@ -157,18 +157,18 @@ void Get_Gps()
         {
             Angle += 360;
         }
-//        Distance = get_two_points_distance(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM] - Delta_Lat, GPS_GET_LOT[Track_Points_NUM] - Delta_Lon);
-        Distance = get_two_points_distance(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
+        Distance = get_two_points_distance(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM] - Delta_Lat, GPS_GET_LOT[Track_Points_NUM] - Delta_Lon);
+//        Distance = get_two_points_distance(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
 
-        // if(gnss.direction < 180)
-        // {
-        //     Gps_Yaw = gnss.direction;
-        // }
-        // if(gnss.direction > 180)
-        // {
-        //     Gps_Yaw = gnss.direction - 360;
-        // }
-        // Gps_Yaw_Flag = 1;
+        if(gnss.direction < 180)
+        {
+            Gps_Yaw = gnss.direction;
+        }
+        if(gnss.direction > 180)
+        {
+            Gps_Yaw = gnss.direction - 360;
+        }
+        Gps_Yaw_Flag = 1;
     }
     FilterPoint_Lat += (Delta_y * QS * 0.000000001 * Lat_Fix);
     FilterPoint_Lon += (Delta_x * QS * 0.000000001 * Lon_Fix) / (cos(FilterPoint_Lat * PI / 180));
@@ -184,7 +184,7 @@ void Get_Gps_Yaw()
     }
     if(Yaw_Times == 10)
     {
-        Gps_Yaw = Gps_Yaw2 / 10;
+        Yaw = Gps_Yaw2 / 10;
         Gps_Yaw2 = 0;
         Yaw_Times = 0;
     }

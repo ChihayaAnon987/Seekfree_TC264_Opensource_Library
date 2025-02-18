@@ -41,9 +41,9 @@ menu_table table[31]=
     { 5,  7,  6,  3,  5, ServoP_menu},      // ServoP
     { 6,  5,  7,  3,  6, ServoI_menu},      // ServoI
     { 7,  6,  5,  3,  7, ServoD_menu},      // ServoD
-    { 8,  9, 10,  4,  8, MotorP_menu},      // MotorP
-    { 9, 10,  8,  4,  9, MotorD_menu},      // MotorI
-    {10,  8,  9,  4, 10, MotorI_menu},      // MotorD
+    { 8, 10,  9,  4,  8, MotorP_menu},      // MotorP
+    { 9,  8, 10,  4,  9, MotorI_menu},      // MotorI
+    {10,  9,  8,  4, 10, MotorD_menu},      // MotorD
 
     // 菜单2
     {11,  2, 13, 11, 12, main_menu2},        // 运行GPS显示一层
@@ -337,6 +337,7 @@ void GPS_menu(void)
    oscilloscope_data.data[0] = gnss.latitude;
    oscilloscope_data.data[1] = gnss.longitude;
    oscilloscope_data.data[2] = Angle;
+   oscilloscope_data.data[3] = gnss.direction;
 }
 
 void spd_menu(void)
@@ -344,8 +345,8 @@ void spd_menu(void)
     ips200_show_string( 0, 16 * 0, "-->Duty    :");
     ips200_show_string( 0, 16 * 1, "   Distance:");
     ips200_show_string( 0, 16 * 2, "   ServeMid:");
-    ips200_show_string( 0, 16 * 3, "KEY1:Duty+1000");
-    ips200_show_string( 0, 16 * 4, "KEY2:Duty-1000");
+    ips200_show_string( 0, 16 * 3, "KEY1:Enco+100");
+    ips200_show_string( 0, 16 * 4, "KEY2:Enco-100");
     ips200_show_string( 0, 16 * 5, "KEY3:Save");
     ips200_show_int(   96, 16 * 0, Parameter_set0.Speed_Duty, 5);
     ips200_show_float( 96, 16 * 1, Parameter_set0.Distance, 2, 2);
@@ -458,12 +459,12 @@ void  Points_menu(void)
 
 void ZongZuanF(void)
 {
-   if(mt9v03x_finish_flag)
-   {
+    if(mt9v03x_finish_flag)
+    {
         mt9v03x_finish_flag = 0;
         memcpy(image_copy[0], mt9v03x_image[0], MT9V03X_IMAGE_SIZE);
         seekfree_assistant_camera_send();
-   }
+    }
 
    ips200_show_uint  (184, 16 * 0, LeftLineNum > 0 ? CameraPoint + 1 : CameraPoint, 3);
    ips200_show_string(208, 16 * 0, "/");
@@ -586,9 +587,9 @@ void ServoP_menu(void)
     ips200_show_string(120, 16 * 8, "KEY2:P-0.1");
     ips200_show_string(  0, 16 * 9, "KEY3:Angle+10");
     ips200_show_string(120, 16 * 9, "KEY4:Angle-10");
-    ips200_show_float ( 80, 16 * 0,Parameter_set0.ServePID[0], 2, 3);
-    ips200_show_float ( 80, 16 * 1,Parameter_set0.ServePID[1], 2, 3);
-    ips200_show_float ( 80, 16 * 2,Parameter_set0.ServePID[2], 2, 3);
+    ips200_show_float ( 80, 16 * 0, Parameter_set0.ServePID[0], 2, 3);
+    ips200_show_float ( 80, 16 * 1, Parameter_set0.ServePID[1], 2, 3);
+    ips200_show_float ( 80, 16 * 2, Parameter_set0.ServePID[2], 2, 3);
     ips200_show_float ( 48, 16 * 3, Angle, 4, 6);
     ips200_show_float ( 48, 16 * 4, Z_360 > 180 ? Z_360 - 360 : Z_360, 3, 3);
     ips200_show_float ( 96, 16 * 5, Angle_Error, 3, 6);
@@ -617,9 +618,9 @@ void ServoI_menu(void)
     ips200_show_string(120, 16 * 8, "KEY2:I-0.1");
     ips200_show_string(  0, 16 * 9, "KEY3:Save");
     ips200_show_string(120, 16 * 9, "KEY4:Get PID");
-    ips200_show_float ( 80, 16 * 0,Parameter_set0.ServePID[0], 2, 3);
-    ips200_show_float ( 80, 16 * 1,Parameter_set0.ServePID[1], 2, 3);
-    ips200_show_float ( 80, 16 * 2,Parameter_set0.ServePID[2], 2, 3);
+    ips200_show_float ( 80, 16 * 0, Parameter_set0.ServePID[0], 2, 3);
+    ips200_show_float ( 80, 16 * 1, Parameter_set0.ServePID[1], 2, 3);
+    ips200_show_float ( 80, 16 * 2, Parameter_set0.ServePID[2], 2, 3);
     ips200_show_float ( 48, 16 * 3, Angle, 4, 6);
     ips200_show_float ( 48, 16 * 4, Z_360 > 180 ? Z_360 - 360 : Z_360, 3, 3);
     ips200_show_float ( 96, 16 * 5, Angle_Error, 3, 6);
@@ -646,9 +647,9 @@ void ServoD_menu(void)
     ips200_show_string(120, 16 * 8, "KEY2:D-0.1");
     ips200_show_string(  0, 16 * 9, "KEY3:Angle+10");
     ips200_show_string(120, 16 * 9, "KEY4:Angle-10");
-    ips200_show_float ( 80, 16 * 0,Parameter_set0.ServePID[0], 2, 3);
-    ips200_show_float ( 80, 16 * 1,Parameter_set0.ServePID[1], 2, 3);
-    ips200_show_float ( 80, 16 * 2,Parameter_set0.ServePID[2], 2, 3);
+    ips200_show_float ( 80, 16 * 0, Parameter_set0.ServePID[0], 2, 3);
+    ips200_show_float ( 80, 16 * 1, Parameter_set0.ServePID[1], 2, 3);
+    ips200_show_float ( 80, 16 * 2, Parameter_set0.ServePID[2], 2, 3);
     ips200_show_float ( 48, 16 * 3, Angle, 4, 6);
     ips200_show_float ( 48, 16 * 4, Z_360 > 180 ? Z_360 - 360 : Z_360, 3, 3);
     ips200_show_float ( 96, 16 * 5, Angle_Error, 3, 6);
@@ -673,11 +674,11 @@ void MotorP_menu(void)
     ips200_show_string(  0, 16 * 6, "PID.output:");
     ips200_show_string(  0, 16 * 7, "KEY1:P+0.1");
     ips200_show_string(120, 16 * 7, "KEY2:P-0.1");
-    ips200_show_string(  0, 16 * 8, "KEY3:Duty+1000");
-    ips200_show_string(120, 16 * 8, "KEY4:Duty-1000");
-    ips200_show_float ( 80, 16 * 0,Parameter_set0.SpeedPID[0], 2, 3);
-    ips200_show_float ( 80, 16 * 1,Parameter_set0.SpeedPID[1], 2, 3);
-    ips200_show_float ( 80, 16 * 2,Parameter_set0.SpeedPID[2], 2, 3);
+    ips200_show_string(  0, 16 * 8, "KEY3:Enco+100");
+    ips200_show_string(120, 16 * 8, "KEY4:Enco-100");
+    ips200_show_float ( 80, 16 * 0, Parameter_set0.SpeedPID[0], 2, 3);
+    ips200_show_float ( 80, 16 * 1, Parameter_set0.SpeedPID[1], 2, 3);
+    ips200_show_float ( 80, 16 * 2, Parameter_set0.SpeedPID[2], 2, 3);
     ips200_show_uint  (104, 16 * 3, Test_Encoder, 5);
     ips200_show_int   ( 64, 16 * 4, Encoder, 5);
     ips200_show_float ( 80, 16 * 5, PID_MOTOR.current_error, 3, 3);
@@ -698,13 +699,13 @@ void MotorI_menu(void)
     ips200_show_string(  0, 16 * 4, "Encoder:");
     ips200_show_string(  0, 16 * 5, "PID.error:");
     ips200_show_string(  0, 16 * 6, "PID.output:");
-    ips200_show_string(  0, 16 * 7, "KEY1:P+0.1");
-    ips200_show_string(120, 16 * 7, "KEY2:P-0.1");
-    ips200_show_string(  0, 16 * 8, "KEY3:Duty+1000");
-    ips200_show_string(120, 16 * 8, "KEY4:Duty-1000");
-    ips200_show_float ( 80, 16 * 0,Parameter_set0.SpeedPID[0], 2, 3);
-    ips200_show_float ( 80, 16 * 1,Parameter_set0.SpeedPID[1], 2, 3);
-    ips200_show_float ( 80, 16 * 2,Parameter_set0.SpeedPID[2], 2, 3);
+    ips200_show_string(  0, 16 * 7, "KEY1:I+0.1");
+    ips200_show_string(120, 16 * 7, "KEY2:I-0.1");
+    ips200_show_string(  0, 16 * 8, "KEY3:Enco+100");
+    ips200_show_string(120, 16 * 8, "KEY4:Enco-100");
+    ips200_show_float ( 80, 16 * 0, Parameter_set0.SpeedPID[0], 2, 3);
+    ips200_show_float ( 80, 16 * 1, Parameter_set0.SpeedPID[1], 2, 3);
+    ips200_show_float ( 80, 16 * 2, Parameter_set0.SpeedPID[2], 2, 3);
     ips200_show_uint  (104, 16 * 3, Test_Encoder, 5);
     ips200_show_int   ( 64, 16 * 4, Encoder, 5);
     ips200_show_float ( 80, 16 * 5, PID_MOTOR.current_error, 3, 3);
@@ -726,10 +727,10 @@ void MotorD_menu(void)
     ips200_show_string(  0, 16 * 4, "Encoder:");
     ips200_show_string(  0, 16 * 5, "PID.error:");
     ips200_show_string(  0, 16 * 6, "PID.output:");
-    ips200_show_string(  0, 16 * 7, "KEY1:P+0.1");
-    ips200_show_string(120, 16 * 7, "KEY2:P-0.1");
-    ips200_show_string(  0, 16 * 8, "KEY3:Duty+1000");
-    ips200_show_string(120, 16 * 8, "KEY4:Duty-1000");
+    ips200_show_string(  0, 16 * 7, "KEY1:D+0.1");
+    ips200_show_string(120, 16 * 7, "KEY2:D-0.1");
+    ips200_show_string(  0, 16 * 8, "KEY3:Enco+100");
+    ips200_show_string(120, 16 * 8, "KEY4:Enco-100");
     ips200_show_float ( 80, 16 * 0,Parameter_set0.SpeedPID[0], 2, 3);
     ips200_show_float ( 80, 16 * 1,Parameter_set0.SpeedPID[1], 2, 3);
     ips200_show_float ( 80, 16 * 2,Parameter_set0.SpeedPID[2], 2, 3);
@@ -854,14 +855,14 @@ void Key_Ctrl_Menu()
             {
                 if(Test_Encoder < PWM_DUTY_MAX)
                 {
-                    Test_Encoder += 1000;
+                    Test_Encoder += 100;
                 }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
                 if(Test_Encoder > -PWM_DUTY_MAX)
                 {
-                    Test_Encoder -= 1000;
+                    Test_Encoder -= 100;
                 }
             }
         }
@@ -881,14 +882,14 @@ void Key_Ctrl_Menu()
             {
                 if(Test_Encoder < PWM_DUTY_MAX)
                 {
-                    Test_Encoder += 1000;
+                    Test_Encoder += 100;
                 }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
                 if(Test_Encoder > -PWM_DUTY_MAX)
                 {
-                    Test_Encoder -= 1000;
+                    Test_Encoder -= 100;
                 }
             }
         }
@@ -908,14 +909,14 @@ void Key_Ctrl_Menu()
             {
                 if(Test_Encoder < PWM_DUTY_MAX)
                 {
-                    Test_Encoder += 1000;
+                    Test_Encoder += 100;
                 }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
                 if(Test_Encoder > -PWM_DUTY_MAX)
                 {
-                    Test_Encoder -= 1000;
+                    Test_Encoder -= 100;
                 }
             }
         }
@@ -1141,7 +1142,7 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                Track_Points_NUM = 20;
+                Track_Points_NUM = 10;
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {

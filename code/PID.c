@@ -147,8 +147,8 @@ void PIDIncMotorCtrl(int16 TARGET_MOTOR_ENCODER)
 {
     PID_MOTOR.lastlast_error = PID_MOTOR.last_error;
     PID_MOTOR.last_error     = PID_MOTOR.current_error;
-    // PID_MOTOR.current_error  = TARGET_MOTOR_ENCODER - Encoder;
-    PID_MOTOR.current_error  = TARGET_MOTOR_ENCODER - 0;
+    PID_MOTOR.current_error  = TARGET_MOTOR_ENCODER - Encoder;
+    // PID_MOTOR.current_error  = TARGET_MOTOR_ENCODER - 0;
 
     PID_MOTOR.output += Parameter_set0.SpeedPID[0] * (PID_MOTOR.current_error - PID_MOTOR.last_error) +
                         Parameter_set0.SpeedPID[1] * PID_MOTOR.current_error +
