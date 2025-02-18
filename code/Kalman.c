@@ -326,91 +326,63 @@ void AHRS_init()
 
 
 
-void AHRS_AHRSupdate(float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz) {
+void AHRS_AHRSupdate(float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz)
+{
+    float norm;
+    float vx, vy, vz;
+    float ex, ey, ez;
 
-        float norm;
+    float q0q0 = q0*q0;
+    float q0q1 = q0*q1;
+    float q0q2 = q0*q2;
+    float q1q1 = q1*q1;
+    float q1q3 = q1*q3;
+    float q2q2 = q2*q2;
+    float q2q3 = q2*q3;
+    float q3q3 = q3*q3;
 
-        float vx, vy, vz;
+    float exInt = 0;
+    float eyInt = 0;
+    float ezInt = 0;
+    float halfT = 0.0025;
 
-        float ex, ey, ez;
-
-        float q0q0 = q0*q0;
-
-        float q0q1 = q0*q1;
-
-        float q0q2 = q0*q2;
-
-        float q1q1 = q1*q1;
-
-        float q1q3 = q1*q3;
-
-        float q2q2 = q2*q2;
-
-        float q2q3 = q2*q3;
-
-        float q3q3 = q3*q3;
-
-        float exInt=0,eyInt=0,ezInt=0;
-
-
-
-        float halfT=0.0025;
-
-        if(ax*ay*az==0)
-
-            return;
-
-        // 第一步：对加速度数据进行归一化
-
-        norm = sqrt(ax*ax + ay*ay + az*az);
-
-        ax = ax / norm;
-
-        ay = ay / norm;
-
-        az = az / norm;
-
-        // 第二步：DCM矩阵旋转
-
-        vx = 2*(q1q3 - q0q2);
-
-        vy = 2*(q0q1 + q2q3);
-
-        vz = q0q0 - q1q1 - q2q2 + q3q3 ;
-
-        // 第三步：在机体坐标系下做向量叉积得到补偿数据
-
-        ex = ay*vz - az*vy ;
-
-        ey = az*vx - ax*vz ;
-
-        ez = ax*vy - ay*vx ;
-
-        // 第四步：对误差进行PI计算，补偿角速度
-
-        exInt = exInt + ex * Ki_Ah;
-
-        eyInt = eyInt + ey * Ki_Ah;
-
-        ezInt = ezInt + ez * Ki_Ah;
-
-        gx = gx + Kp_Ah*ex + exInt;
-
-        gy = gy + Kp_Ah*ey + eyInt;
-
-        gz = gz + Kp_Ah*ez + ezInt;
-
-        // 第五步：按照四元数微分公式进行四元数更新
-
-        q0 = q0 + (-q1*gx - q2*gy - q3*gz)*halfT;
-
-        q1 = q1 + (q0*gx + q2*gz - q3*gy)*halfT;
-
-        q2 = q2 + (q0*gy - q1*gz + q3*gx)*halfT;
-
-        q3 = q3 + (q0*gz + q1*gy - q2*gx)*halfT;
-
+    if(ax*ay*az==0)
+    {
+        return;
     }
+
+    // 第一步：对加速度数据进行归一化
+    norm = invSqrt(ax*ax + ay*ay + az*az);
+    ax = ax * norm;
+    ay = ay * norm;
+    az = az * norm;
+
+    // 第二步：DCM矩阵旋转
+    vx = 2 * (q1q3 - q0q2);
+    vy = 2 * (q0q1 + q2q3);
+    vz = q0q0 - q1q1 - q2q2 + q3q3 ;
+
+    // 第三步：在机体坐标系下做向量叉积得到补偿数据
+    ex = ay * vz - az * vy ;
+    ey = az * vx - ax * vz ;
+    ez = ax * vy - ay * vx ;
+
+    // 第四步：对误差进行PI计算，补偿角速度
+    exInt = exInt + ex * Ki_Ah;
+    eyInt = eyInt + ey * Ki_Ah;
+    ezInt = ezInt + ez * Ki_Ah;
+
+    gx = gx + Kp_Ah * ex + exInt;
+    gy = gy + Kp_Ah * ey + eyInt;
+    gz = gz + Kp_Ah * ez + ezInt;
+
+    // 第五步：按照四元数微分公式进行四元数更新
+    q0 = q0 + (-q1*gx - q2*gy - q3*gz)*halfT;
+    q1 = q1 + (q0*gx + q2*gz - q3*gy)*halfT;
+    q2 = q2 + (q0*gy - q1*gz + q3*gx)*halfT;
+    q3 = q3 + (q0*gz + q1*gy - q2*gx)*halfT;
+
+}
 
 
 /****************************************************************************************************

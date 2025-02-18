@@ -79,6 +79,7 @@ int core0_main(void)
     {
         // 此处编写需要循环执行的代码
         Track_Follow();
+        Process_Image();
         // 此处编写需要循环执行的代码
     }
 }

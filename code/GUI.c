@@ -19,6 +19,7 @@ Parameter_set Parameter_set0=
 int    func_index   = 0;
 int    key_value;
 int    Point        = 0;    // 菜单点位
+int    CameraPoint  = 0;
 double Test_Angle   = 0;    // 调试用
 int16  Test_Encoder = 0;    // 调试用
 uint8  Start_Flag   = 0;    // 发车标志
@@ -421,7 +422,7 @@ void  Points_menu(void)
 {
     ips200_show_string( 16, 16 * 0, "Lat:");
     ips200_show_string(128, 16 * 0, "Lon:");
-    ips200_show_uint  (184, 16 * 0, Point + 1, 3);
+    ips200_show_uint  (184, 16 * 0, Point_NUM > 0 ? Point + 1 : Point, 3);
     ips200_show_string(208, 16 * 0, "/");
     ips200_show_uint  (216, 16 * 0, Point_NUM, 3);
 
@@ -455,6 +456,40 @@ void  Points_menu(void)
 
 }
 
+void ZongZuanF(void)
+{
+   if(mt9v03x_finish_flag)
+   {
+        mt9v03x_finish_flag = 0;
+        memcpy(image_copy[0], mt9v03x_image[0], MT9V03X_IMAGE_SIZE);
+        seekfree_assistant_camera_send();
+   }
+
+   ips200_show_uint  (184, 16 * 0, LeftLineNum > 0 ? CameraPoint + 1 : CameraPoint, 3);
+   ips200_show_string(208, 16 * 0, "/");
+   ips200_show_uint  (216, 16 * 0, LeftLineNum, 3);
+   int Page = CameraPoint / Page_Point_Num;
+   int RightArrow = CameraPoint % Page_Point_Num + 1;
+
+   if(LeftLineNum > 0)
+   {
+        ips200_show_string(0, 16 * RightArrow, "->");
+        for(int i = 1; i <= Page_Point_Num; i++)
+        {
+            ips200_show_uint( 16, 16 * i, LeftLine_x[i - 1 + Page * Page_Point_Num], 3);
+            ips200_show_uint(128, 16 * i, LeftLine_y[i - 1 + Page * Page_Point_Num], 3);
+            if(i  + Page * 10 == LeftLineNum)
+            {
+                break;
+            }
+        }
+   }
+   ips200_show_string(  0, 16 *  9, "1:Point-1");
+   ips200_show_string(  0, 16 * 10, "2:Point+1");
+   ips200_show_string(120, 16 *  9, "3:");
+   ips200_show_string(120, 16 * 10, "4:");
+
+}
 void Imu963_menu()
 {
     ips200_show_string( 0, 16 * 0, "IMU_Angle:");
@@ -709,14 +744,7 @@ void MotorD_menu(void)
     oscilloscope_data.data[2] = Test_Encoder;
 }
 
-void ZongZuanF(void)
-{
-//   if(mt9v03x_finish_flag)
-//   {
-//        ips200_displayimage03x(mt9v03x_image[0], MT9V03X_W, MT9V03X_H);
-//        mt9v03x_finish_flag = 0;
-//   }
-}
+
 
 void Key_Ctrl_Menu()
 {
@@ -1005,6 +1033,32 @@ void Key_Ctrl_Menu()
                 }
             }
 
+        }
+
+        if(func_index == 22)
+        {
+            if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
+            {
+                if(LeftLineNum > 0)
+                {
+                    if(CameraPoint > 0)
+                    {
+                        CameraPoint += 1;
+                        ips200_clear();
+                    }
+                }
+            }
+            if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
+            {
+                if(LeftLineNum > 0)
+                {
+                    if(CameraPoint < LeftLineNum - 1)
+                    {
+                        CameraPoint -= 1;
+                        ips200_clear();
+                    }
+                }
+            }
         }
 
         if(func_index == 24)

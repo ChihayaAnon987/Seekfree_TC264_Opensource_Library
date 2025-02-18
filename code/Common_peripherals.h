@@ -45,7 +45,6 @@
 #define SERVO_MOTOR_LMAX            (115)                    // 左，定义主板上舵机活动范围 角度
 #define SERVO_MOTOR_LMIN_DUTY       (SERVO_MOTOR_DUTY(SERVO_MOTOR_LMAX))     // 左，定义主板上舵机活动范围 占空比(fre=300)
 #define SERVO_MOTOR_DUTY(x)         ((float)PWM_DUTY_MAX/(1000.0/(float)SERVO_MOTOR_FREQ)*(0.5+(float)(x)/90.0))
-
 //===================================================宏定义END===================================================
 
 
