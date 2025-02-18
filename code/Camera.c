@@ -8,7 +8,7 @@
 #include "zf_common_headfile.h"
 
 uint8 block_size = 7;
-float clip_value = 7;
+float clip_value = 15;
 
 
 
@@ -72,19 +72,21 @@ void Process_Image()
     LeftLineNum = sizeof(LeftLine) / sizeof(LeftLine[0]);
     for (; x1 > (block_size / 2 + 1); x1++)
     {
-        if (adaptiveThresholdPoint(x1 + 1, y1, block_size, clip_value) == IMG_WHITE) 
+        if (adaptiveThresholdPoint(x1 + 1, y1, block_size, clip_value) == IMG_BLACK) 
         {
             break;
         }
     }
 
     // 迷宫法求左边线
-    if (adaptiveThresholdPoint(x1, y1, block_size, clip_value) == IMG_BLACK)
+    if (adaptiveThresholdPoint(x1, y1, block_size, clip_value) == IMG_WHITE)
     {
-        findline_righthand_adaptive(x1, y1, block_size, clip_value, LeftLine, &LeftLineNum);
+//        printf("Begin Left Line");
+//        findline_righthand_]adaptive(x1, y1, block_size, clip_value, LeftLine, &LeftLineNum);
     }
     else
     {
+//        printf("No Left Line");
         for(int i = 0; i < LeftLineNum; i++)
         {
             LeftLine[i][0] = MT9V03X_W / 2;
@@ -218,3 +220,34 @@ void findline_righthand_adaptive(int x, int y, int block_size, int clip_value, i
     *num = step;
 }
 
+//-------------------------------------------------------------------------------------------------------------------
+//  @brief      获取偏差角数组
+//  @param      pts_in[][2]            中线数组
+//  @param      num1                   中线数组大小
+//  @param      angle_out[]            偏差角数组
+//  @param      *num2                  偏差角数组大小
+//  @return     void
+//  @since      
+//  Sample usage:
+//-------------------------------------------------------------------------------------------------------------------
+void get_error(float pts_in[][2],int num1, float angle_out[])
+{
+    // 获取起点坐标
+    float begin_x = pts_in[0][0];
+    float begin_y = pts_in[0][1];
+    // 计算偏差角
+    for (int i = 0; i < num1; i++)
+    {
+        if (pts_in[i][0] != 0 && pts_in[i][1] != 0)
+        {
+            float dx = pts_in[i][0] - begin_x;
+            float dy = pts_in[i][1] - begin_y;
+            angle_out[i] = atan2(dx, -dy) * 180 / PI;
+        }
+        else
+        {
+            angle_out[i] = 0;
+        }
+    }
+
+}

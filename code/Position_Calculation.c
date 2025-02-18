@@ -17,10 +17,10 @@ int16  Target_Encoder =   0;       // 转速
 void Stright_Some_Distance()
 {
     Angle_Error = -angle[2];
-    if (Distance > 8)
+    if (Distance > 6)
     {
         Delta_Angle = get_two_points_azimuth(Start_Lat, Start_Lon, gnss.latitude, gnss.longitude);
-        Track_Points_NUM = 1;
+        Track_Points_NUM++;
     }
 }
 
@@ -64,9 +64,6 @@ void Track_Follow()
     // 计算从第一个点到第二个点的方位角(单位：°)
     // 计算从第一个点到第二个点的距离(单位：m)
     // Distance 作为切换点位的依据
-    // 默认对北发车  IMU规划为+180和-180
-    // 如果点位在正北，那么方向角未经处理的值是0
-    //Angle += 180;  // 原来默认对北发车，把这句话加上，表示对南发车
 
     // 调试用
     // Angle = Test_Angle;
@@ -83,18 +80,6 @@ void Track_Follow()
     {
         Angle_Error = Angle - angle[2];
     }
-    // if((Angle - Z_360) > 180)
-    // {
-    //     Angle_Error = Angle - Z_360 - 360;
-    // }
-    // else if((Angle - Z_360) < -180)
-    // {
-    //     Angle_Error = Angle - Z_360 + 360;
-    // }
-    // else
-    // {
-    //     Angle_Error = Angle - Z_360;
-    // }
     // 改进点
     // 1.Angle是GPS的方向角，通过对GPS的滤波，可以得到更加准确的方向角
     // 2.Z_360是IMU的航向角，通过对IMU的滤波，可以得到更加准确的航向角（卡尔曼滤波和四元数，上面这两点是数据处理）
@@ -112,15 +97,17 @@ void Track_Follow()
     {
         case 0:
             Stright_Some_Distance();
-            Target_Encoder = 1500;
+            Target_Encoder = 3000;
             break;
         case 1:
-            Target_Encoder = 1500;
+            Target_Encoder = 3000;
             break;
         case 2:
             Target_Encoder = 1500;
             break;
         case 3:
+            Target_Encoder = 3000;
+            break;
         case 4:
         case 5:
             Target_Encoder = 0;
@@ -128,9 +115,28 @@ void Track_Follow()
 
 
 
-        case 20:
+        case 10:
+            Stright_Some_Distance();
+            Target_Encoder = 1500;
             break;
-
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+        case 20:
+        case 21:
+        case 22:
+            Target_Encoder = 1500;
+            break;
+        
+        case 23:
+            Target_Encoder = 0;
+            break;
         case 50:
             break;
 
@@ -145,6 +151,7 @@ void Track_Follow()
 // 切换点位
 void Point_Switch()
 {
+    Distance = get_two_points_distance(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM] - Delta_Lat, GPS_GET_LOT[Track_Points_NUM] - Delta_Lon);
     switch(Track_Points_NUM)
     {
         // 暂时假定科目一采5个点，其中下标0是发车点
@@ -152,18 +159,41 @@ void Point_Switch()
             break;
         case 1:
         case 2:
+        case 3:
             if(Distance < Parameter_set0.Distance)
             {
                 Track_Points_NUM ++;
                 LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
             }
             break;
-        case 3:
-        case 4:    
+
+        case 4:
         case 5:
             break;
 
-
+        case 10:
+            break;
+        case 11:
+        case 12:
+        case 13:
+        case 14:
+        case 15:
+        case 16:
+        case 17:
+        case 18:
+        case 19:
+        case 20:
+        case 21:
+        case 22:
+            if(Distance < 1)
+            {
+                Track_Points_NUM ++;
+                LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+            }
+            break;
+        
+        case 23:
+            break;
         default:
             break;
 
