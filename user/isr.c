@@ -72,9 +72,13 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
     if(Control_Flag == 0)
     {
         PDLocServoCtrl();                              // 舵机 PD位置式控制
-//        PIDIncMotorCtrl(Test_Encoder);                 // 电机 PID增量式控制
+        // PIDIncMotorCtrl(Test_Encoder);                 // 电机 PID增量式控制
         // PIDIncMotorCtrl(Target_Encoder);               // 电机 PID增量式控制
-         DRV8701_MOTOR_DRIVER(Target_Encoder);            // 电机驱动
+        DRV8701_MOTOR_DRIVER(Target_Encoder);          // 电机驱动
+    }
+    if(Control_Flag == 1 && Center_Flag == 1)
+    {
+        PDLocServoCtrl();
     }
     Encoder_Get();
     Point_Switch();
@@ -98,8 +102,7 @@ IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
     interrupt_global_enable(0);                     // 开启中断嵌套
     pit_clear_flag(CCU61_CH1);
 
-
-
+    RemoteCtrl_Program();
 
 }
 // **************************** PIT中断函数 ****************************

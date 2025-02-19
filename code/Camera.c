@@ -7,7 +7,7 @@
 
 #include "zf_common_headfile.h"
 
-uint8 block_size = 7;
+uint8 block_size = 5;
 float clip_value = 15;
 
 
@@ -68,33 +68,33 @@ uint8_t adaptiveThresholdPoint(int x, int y, float block_size, float clip_value)
 
 void Process_Image()
 {
-    int x1 = 10, y1 = 110;
+    int x1 = MT9V03X_W / 2, y1 = MT9V03X_W - 10;
     LeftLineNum = sizeof(LeftLine) / sizeof(LeftLine[0]);
-    for (; x1 > (block_size / 2 + 1); x1++)
+    for (; x1 > (block_size / 2 + 1); x1--)
     {
-        if (adaptiveThresholdPoint(x1 + 1, y1, block_size, clip_value) == IMG_BLACK) 
+        if (adaptiveThresholdPoint(x1 - 1, y1, block_size, clip_value) == IMG_BLACK) 
         {
             break;
         }
     }
-
+    if (x1 == (block_size / 2 + 1))
+    {
+        for (; y1 > (block_size / 2 + 1); y1--)
+        {
+            if (adaptiveThresholdPoint(x1, y1 - 1, block_size, clip_value) == IMG_BLACK) break; // 左边线没有找到，则向上方寻找
+        }
+    }
     // 迷宫法求左边线
     if (adaptiveThresholdPoint(x1, y1, block_size, clip_value) == IMG_WHITE)
     {
-//        printf("Begin Left Line");
-//        findline_righthand_]adaptive(x1, y1, block_size, clip_value, LeftLine, &LeftLineNum);
+        findline_lefthand_adaptive(x1, y1, block_size, clip_value, LeftLine, &LeftLineNum);
     }
     else
     {
-//        printf("No Left Line");
-        for(int i = 0; i < LeftLineNum; i++)
-        {
-            LeftLine[i][0] = MT9V03X_W / 2;
-            LeftLine[i][1] = 110 - i;
-        }
         LeftLineNum = 0;
-        
     }
+    // findline_lefthand_adaptive(x1, y1, block_size, clip_value, LeftLine, &LeftLineNum);
+
 
     for(int i = 0; i < LeftLineNum; i++)
     {
@@ -108,25 +108,27 @@ void Process_Image()
 const int dir_front[4][2]      = {{0,  -1},  {1,  0},  {0,  1},  {-1,  0}};
 const int dir_frontleft[4][2]  = {{-1, -1},  {1, -1},  {1,  1},  {-1,  1}};
 const int dir_frontright[4][2] = {{1,  -1},  {1,  1},  {-1, 1},  {-1, -1}};
+
+
 //-------------------------------------------------------------------------------------------------------------------
 //  @brief      左手迷宫巡线
 //  @param      x                     起始点横坐标
 //  @param      y                     起始点纵坐标
 //  @param      block_size            巡线区域大小
-//  @param      clip_value            阈值修正值
+//  @param      clip_value            阈值修正值 
 //  @param      pts[][2]              左边线数组
 //  @param      *num                  左边线数组大小
 //  @return     void
 //  @since      
 //  Sample usage:
 //-------------------------------------------------------------------------------------------------------------------
-void findline_lefthand_adaptive(int x, int y, int block_size, int clip_value, int pts[][2], int *num)
-{
+void findline_lefthand_adaptive(int x, int y, int block_size, int clip_value, int pts[][2], int *num) {
+
     // 计算局部阈值
     int half = block_size / 2;
     int step = 0, dir = 0, turn = 0;
 
-	while (step < *num && half < x && x <  MT9V03X_W - half - 1 && half < y && y < MT9V03X_H - half - 1 && turn < 4) {
+    while (step < *num && half < x && x <  MT9V03X_W - half - 1 && half < y && y < MT9V03X_H - half - 1 && turn < 4) {
         // 计算局部阈值
         int local_thres = 0;
         for (int dy = -half; dy <= half; dy++) {
@@ -137,7 +139,7 @@ void findline_lefthand_adaptive(int x, int y, int block_size, int clip_value, in
         local_thres /= (block_size * block_size);
         local_thres -= clip_value;
 
-//        int current_value = AT_IMAGE(x, y);
+        int current_value = AT_IMAGE(x, y);
         int front_value = AT_IMAGE(x + dir_front[dir][0], y + dir_front[dir][1]);
         int frontleft_value = AT_IMAGE(x + dir_frontleft[dir][0], y + dir_frontleft[dir][1]);
         if (front_value < local_thres) {
@@ -159,25 +161,24 @@ void findline_lefthand_adaptive(int x, int y, int block_size, int clip_value, in
             step++;
             turn = 0;
         }
-    }
+    } 
     *num = step;
-}
 
+}
 
 //-------------------------------------------------------------------------------------------------------------------
 //  @brief      右手迷宫巡线
 //  @param      x                     起始点横坐标
 //  @param      y                     起始点纵坐标
 //  @param      block_size            巡线区域大小
-//  @param      clip_value            阈值修正值
+//  @param      clip_value            阈值修正值 
 //  @param      pts[][2]              右边线数组
 //  @param      *num                  右边线数组大小
 //  @return     void
 //  @since      
 //  Sample usage:
 //-------------------------------------------------------------------------------------------------------------------
-void findline_righthand_adaptive(int x, int y, int block_size, int clip_value, int pts[][2], int *num)
-{
+void findline_righthand_adaptive(int x, int y, int block_size, int clip_value, int pts[][2], int *num) {
 
     // 计算局部阈值
     int half = block_size / 2;
@@ -194,7 +195,7 @@ void findline_righthand_adaptive(int x, int y, int block_size, int clip_value, i
         local_thres /= (block_size * block_size);
         local_thres -= clip_value;
         
-//        int current_value = AT_IMAGE(x, y);
+        int current_value = AT_IMAGE(x, y);
         int front_value = AT_IMAGE(x + dir_front[dir][0], y + dir_front[dir][1]);
         int frontright_value = AT_IMAGE(x + dir_frontright[dir][0], y + dir_frontright[dir][1]);
         if (front_value < local_thres) {
@@ -218,6 +219,7 @@ void findline_righthand_adaptive(int x, int y, int block_size, int clip_value, i
         }
     }
     *num = step;
+
 }
 
 //-------------------------------------------------------------------------------------------------------------------

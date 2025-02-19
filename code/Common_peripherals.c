@@ -20,6 +20,7 @@ void CPU0_Init()
     pit_ms_init(CCU60_CH0, 5);                                      // 中断，IMU数据采集
     pit_ms_init(CCU60_CH1, 5);                                      // 中断 编码器、舵机电机PID
     pit_ms_init(CCU61_CH0, 100);                                    // 中断 GPS数据解析
+    pit_ms_init(CCU61_CH1, 5);                                      // 中断 遥控器
     encoder_dir_init(ENCODER1_TIM, ENCODER1_PLUS, ENCODER1_DIR);    // 编码器初始化
     uart_receiver_init();                                           // sbus接收机初始化
 //    wireless_uart_init();                                           // 初始化无线串口
@@ -32,11 +33,19 @@ void CPU1_Init()
     KEY_Init();                                                     // 按键初始化
     mt9v03x_init();                                                 // 总钻风初始化
     key_init(10);                                                   // 按键初始化
-    ips200_init(IPS200_TYPE);                                       // 屏幕初始化
-    ips200_set_color(RGB565_WHITE, RGB565_BLACK);                   // 护眼模式
+    ips200_Init();                                                  // 屏幕初始化
     Buzzer_Check(200);                                              // 自检，表示初始化成功
 }
 
+void ips200_Init()
+{
+    ips200_init(IPS200_TYPE);
+//    if(gnss.time.hour > 18)
+//    {
+        ips200_set_color(RGB565_WHITE, RGB565_BLACK);                   // 护眼模式
+        ips200_full(RGB565_BLACK);
+//    }
+}
 void Oscilloscope_Init(uint8 Channel_Num)
 {
     seekfree_assistant_interface_init(SEEKFREE_ASSISTANT_WIRELESS_UART); // 逐飞助手初始化

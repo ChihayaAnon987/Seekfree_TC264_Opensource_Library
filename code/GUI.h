@@ -70,7 +70,7 @@ void MotorPID(void);                                           // 菜单：MotorPID
 void GPS_menu(void);                                           // 菜单：GPS
 void spd_menu(void);                                           // 菜单：速度
 void Distance_menu(void);                                      // 菜单：换点距离
-void serve_mid_menu(void);                                     // 菜单：舵机中值测试
+void TaskPoint(void);                                          // 菜单：任务点设置
 void RemoteCtrl_menu(void);                                    // 菜单：遥控
 void Points_menu(void);                                        // 菜单：点
 void ZongZuanF(void);                                          // 菜单：总钻风

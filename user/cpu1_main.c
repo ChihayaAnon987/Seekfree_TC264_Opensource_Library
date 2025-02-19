@@ -57,10 +57,13 @@ void core1_main(void)
     {
         // 此处编写需要循环执行的代码
         LED_Buzzer_Ctrl();
-        RemoteCtrl_Program();
+        Is_Channal_3_Press();
+        Is_Channal_5_Press();
+        Is_Channal_6_Press();
         Menu_Control();
         key_scanner();
         Key_Ctrl_Menu();
+        ips200_draw_line(0, 185, 239, 185, RGB565_PURPLE);
         ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 
         // 此处编写需要循环执行的代码

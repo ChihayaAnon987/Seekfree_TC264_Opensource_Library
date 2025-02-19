@@ -10,6 +10,9 @@
 
 //===================================================宏定义BEG===================================================
 #define NUM_GPS_DATA        (     100     )                  // GPS 采集点数
+#define Task1_Start_Point   (      0      )                  // 科目一起始点位
+#define Task2_Start_Point   (     10      )                  // 科目二起始点位
+#define Task3_Start_Point   (     50      )                  // 科目三起始点位
 #define QS                  (   8.99266   )                  // 坐标变换常数
 //===================================================宏定义END===================================================
 
@@ -39,6 +42,11 @@ extern double Delta_x;                                         // 位移
 extern double Delta_y;                                         // 位移
 extern double GPS_GET_LAT[NUM_GPS_DATA];                       // 存储纬度数据的数组
 extern double GPS_GET_LOT[NUM_GPS_DATA];                       // 存储经度数据的数组
+extern int8   Task1_Points;                                    // 科目一所用点位数量
+extern int8   Task2_Points;                                    // 科目二所用点位数量
+extern int8   Task3_Points;                                    // 科目三所用点位数量
+extern float  GpsDistance[NUM_GPS_DATA];                       // 存储换点距离的数组
+extern int16  GpsTgtEncod[NUM_GPS_DATA];                       // 存储点位速度的数组
 //===================================================全局变量END===================================================
 
 

@@ -78,8 +78,35 @@ double Delta_y    = 0;              // 位移
 double Distance     = 0;            // 自身距下一个点的距离
 double GPS_GET_LAT[NUM_GPS_DATA];   // 纬度
 double GPS_GET_LOT[NUM_GPS_DATA];   // 经度
-
-
+int8   Task1_Points = 4;            // 科目一所用点位数量
+int8   Task2_Points = 17;           // 科目二所用点位数量
+int8   Task3_Points = 10;           // 科目三所用点位数量
+float  GpsDistance[NUM_GPS_DATA] = 
+{
+      0, 1.5, 1.5,   2,   0,   0,   0,   0, 1.5,   0,  // 0 - 9
+    1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 10 - 19
+    1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 20 - 29
+    1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 30 - 39
+    1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 40 - 49
+    1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 50 - 59
+    1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 60 - 69
+    1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 70 - 79
+    1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 80 - 89
+    1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5   // 90 - 99
+};  // 存储换点距离的数组
+int16  GpsTgtEncod[NUM_GPS_DATA] = 
+{
+    3000, 3000, 1500, 3000,    0,    0,    0,    0, 3000,    0,  // 0 - 9
+    3000, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500,  // 10 - 19
+    1500, 1500, 3000,    0,    0, 3000, 3000, 3000, 3000, 3000,  // 20 - 29
+    3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 30 - 39
+    3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 40 - 49
+    3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 50 - 59
+    3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 60 - 69
+    3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 70 - 79
+    3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 80 - 89
+    3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000   // 90 - 99
+};  // 存储点位速度的数组
 
 // 按键采点函数
 void GL_CRC()
@@ -91,6 +118,8 @@ void GL_CRC()
         {
             lat_union[Point_NUM].double_type = gnss.latitude; // 偶数储存纬度latitude
             lon_union[Point_NUM].double_type = gnss.longitude;// 奇数储存经度longitude
+            GPS_GET_LAT[Point_NUM] = gnss.latitude;
+            GPS_GET_LOT[Point_NUM] = gnss.longitude;
             Point_NUM++;
         }
 //         Point_NUM = 6;
@@ -160,15 +189,15 @@ void Get_Gps()
         Distance = get_two_points_distance(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM] - Delta_Lat, GPS_GET_LOT[Track_Points_NUM] - Delta_Lon);
 //        Distance = get_two_points_distance(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
 
-        if(gnss.direction < 180)
-        {
-            Gps_Yaw = gnss.direction;
-        }
-        if(gnss.direction > 180)
-        {
-            Gps_Yaw = gnss.direction - 360;
-        }
-        Gps_Yaw_Flag = 1;
+        // if(gnss.direction < 180)
+        // {
+        //     Gps_Yaw = gnss.direction;
+        // }
+        // if(gnss.direction > 180)
+        // {
+        //     Gps_Yaw = gnss.direction - 360;
+        // }
+        // Gps_Yaw_Flag = 1;
     }
     FilterPoint_Lat += (Delta_y * QS * 0.000000001 * Lat_Fix);
     FilterPoint_Lon += (Delta_x * QS * 0.000000001 * Lon_Fix) / (cos(FilterPoint_Lat * PI / 180));

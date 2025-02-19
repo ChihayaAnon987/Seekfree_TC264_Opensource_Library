@@ -70,6 +70,10 @@ void FLASH_GET_GPS()
 
         LED_Buzzer_Flag_Ctrl(LED1);
     }
+    else
+    {
+        LED_Buzzer_Flag_Ctrl(LED2);
+    }
 //    Point_NUM = 6;
 //    GPS_GET_LAT[0] = 22.590801;
 //    GPS_GET_LAT[1] = 22.590741;
@@ -154,6 +158,19 @@ void FLASH_SAV_PAR()
     // 调试速度和换点距离
     flash_union_buffer[6].int32_type = Parameter_set0.Speed_Duty;
     flash_union_buffer[7].float_type = Parameter_set0.Distance;
+    // 任务点
+    flash_union_buffer[8].int8_type  = Task1_Points;
+    flash_union_buffer[9].int8_type  = Task2_Points;
+    flash_union_buffer[10].int8_type = Task3_Points;
+    // 换点距离和速度数组
+    for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
+    {
+        flash_union_buffer[i].float_type = GpsDistance[i - 100];
+    }
+    for(int i = 100 + NUM_GPS_DATA; i < 100 + 2 * NUM_GPS_DATA; i++)
+    {
+        flash_union_buffer[i].int16_type = GpsTgtEncod[i - 100 - NUM_GPS_DATA];
+    }
 
     // 指示灯亮，表明已读取
     LED_Buzzer_Flag_Ctrl(LED1);
@@ -182,6 +199,20 @@ void FLASH_GET_PAR()
         // 调试速度和换点距离
         Parameter_set0.Speed_Duty = flash_union_buffer[6].int32_type;
         Parameter_set0.Distance   = flash_union_buffer[7].float_type;
+        // 任务点
+        Task1_Points = flash_union_buffer[8].int8_type ;
+        Task2_Points = flash_union_buffer[9].int8_type ;
+        Task3_Points = flash_union_buffer[10].int8_type;
+        // 换点距离和速度数组
+        for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
+        {
+            GpsDistance[i - 100] = flash_union_buffer[i].float_type;
+        }
+        for(int i = 100 + NUM_GPS_DATA; i < 100 + 2 * NUM_GPS_DATA; i++)
+        {
+            GpsTgtEncod[i - 100 - NUM_GPS_DATA] = flash_union_buffer[i].int16_type;
+        }
+
         flash_buffer_clear();                                                    // 清空缓冲区
     }
 

@@ -9,7 +9,7 @@
 
 Parameter_set Parameter_set0=
 {
-    {2.0, 0.0, 1.0},            // 舵机PID
+    {1.7, 0.0, 0.85},            // 舵机PID
     {1.0, 0.0, 0.0},            // 速度PID
     3000,                       // 调试的速度
     1.5,                        // 换点距离
@@ -19,6 +19,8 @@ Parameter_set Parameter_set0=
 int    func_index   = 0;
 int    key_value;
 int    Point        = 0;    // 菜单点位
+int    Point1       = 0;
+int  Task_Point_Set = 1;
 int    CameraPoint  = 0;
 double Test_Angle   = 0;    // 调试用
 int16  Test_Encoder = 0;    // 调试用
@@ -53,7 +55,7 @@ menu_table table[31]=
     {13, 11, 17, 13, 14, main_menu3},        // 调速,舵机机械中值，换点距离
     {14, 16, 15, 13, 14, spd_menu},          // 调速
     {15, 14, 16, 13, 15, Distance_menu},     // 换点距离
-    {16, 15, 14, 13, 16, serve_mid_menu},    // 舵机中值
+    {16, 15, 14, 13, 16, TaskPoint},         // 任务点
 
     // 菜单4
     {17, 13, 19, 17, 18, main_menu4},        // 遥控模式一层
@@ -344,13 +346,25 @@ void spd_menu(void)
 {
     ips200_show_string( 0, 16 * 0, "-->Duty    :");
     ips200_show_string( 0, 16 * 1, "   Distance:");
-    ips200_show_string( 0, 16 * 2, "   ServeMid:");
-    ips200_show_string( 0, 16 * 3, "KEY1:Enco+100");
-    ips200_show_string( 0, 16 * 4, "KEY2:Enco-100");
-    ips200_show_string( 0, 16 * 5, "KEY3:Save");
-    ips200_show_int(   96, 16 * 0, Parameter_set0.Speed_Duty, 5);
-    ips200_show_float( 96, 16 * 1, Parameter_set0.Distance, 2, 2);
-    ips200_show_int(   96, 16 * 2, Parameter_set0.Serve_Mid, 4);
+    ips200_show_string( 0, 16 * 2, "   TasPoint:");    
+
+    ips200_show_uint  (184, 16 * 0, Point1, 3);
+    ips200_show_string(208, 16 * 0, "/");
+    ips200_show_uint  (216, 16 * 0, NUM_GPS_DATA - 1, 3);
+
+    int Page = Point1 / Page_Point_Num;
+    int RightArrow = Point1 % Page_Point_Num + 1;
+    ips200_show_string(176, 16 * RightArrow, "->");
+    for(int i = 1; i <= Page_Point_Num; i++)
+    {
+        ips200_show_uint (192, 16 * i, GpsTgtEncod[i - 1 + Page * Page_Point_Num], 5);
+    }
+
+    ips200_show_string(  0, 16 *  9, "1:Point-1");
+    ips200_show_string(  0, 16 * 10, "2:Point+1");
+    ips200_show_string(120, 16 *  9, "3:Duty+100");
+    ips200_show_string(120, 16 * 10, "4:Duty-100");
+
 
 }
 
@@ -359,25 +373,66 @@ void Distance_menu(void)
 
     ips200_show_string( 0, 16 * 0, "   Duty    :");
     ips200_show_string( 0, 16 * 1, "-->Distance:");
-    ips200_show_string( 0, 16 * 2, "   ServeMid:");
-    ips200_show_string( 0, 16 * 3, "KEY1:Distance+0.5");
-    ips200_show_string( 0, 16 * 4, "KEY2:Distance-0.5");
-    ips200_show_string( 0, 16 * 5, "KEY3:Save");
-    ips200_show_int(   96, 16 * 0, Parameter_set0.Speed_Duty, 5);
-    ips200_show_float( 96, 16 * 1, Parameter_set0.Distance, 2, 2);
-    ips200_show_int(   96, 16 * 2, Parameter_set0.Serve_Mid, 4);
+    ips200_show_string( 0, 16 * 2, "   TasPoint:");
 
+    ips200_show_uint  (184, 16 * 0, Point1, 3);
+    ips200_show_string(208, 16 * 0, "/");
+    ips200_show_uint  (216, 16 * 0, NUM_GPS_DATA - 1, 3);
+
+    int Page = Point1 / Page_Point_Num;
+    int RightArrow = Point1 % Page_Point_Num + 1;
+    ips200_show_string(176, 16 * RightArrow, "->");
+    for(int i = 1; i <= Page_Point_Num; i++)
+    {
+        ips200_show_float (192, 16 * i, GpsDistance[i - 1 + Page * Page_Point_Num], 1, 1);
+    }
+
+    ips200_show_string(  0, 16 *  9, "1:Point-1");
+    ips200_show_string(  0, 16 * 10, "2:Point+1");
+    ips200_show_string(120, 16 *  9, "3:Dist+0.5");
+    ips200_show_string(120, 16 * 10, "4:Dist-0.5");
 
 }
 
-void serve_mid_menu(void)
+void TaskPoint(void)
 {
     ips200_show_string(0, 16 * 0, "   Duty    :");
     ips200_show_string(0, 16 * 1, "   Distance:");
-    ips200_show_string(0, 16 * 2, "-->ServeMid:");
-    ips200_show_int(   96, 16 * 0, Parameter_set0.Speed_Duty, 5);
-    ips200_show_float( 96, 16 * 1, Parameter_set0.Distance, 2, 2);
-    ips200_show_int(   96, 16 * 2, Parameter_set0.Serve_Mid, 4);
+    ips200_show_string(0, 16 * 2, "-->TasPoint:");
+
+
+    if(Task_Point_Set == 1)
+    {
+        ips200_show_string(0, 16 * 3, "->Task1Point:");
+        ips200_show_string(0, 16 * 4, "  Task2Point:");
+        ips200_show_string(0, 16 * 5, "  Task3Point:");
+        ips200_show_int (104, 16 * 3, Task1_Points, 3);
+        ips200_show_int (104, 16 * 4, Task2_Points, 3);
+        ips200_show_int (104, 16 * 5, Task3_Points, 3);
+    }
+    if(Task_Point_Set == 2)
+    {
+        ips200_show_string(0, 16 * 3, "  Task1Point:");
+        ips200_show_string(0, 16 * 4, "->Task2Point:");
+        ips200_show_string(0, 16 * 5, "  Task3Point:");
+        ips200_show_int (104, 16 * 3, Task1_Points, 3);
+        ips200_show_int (104, 16 * 4, Task2_Points, 3);
+        ips200_show_int (104, 16 * 5, Task3_Points, 3);
+    }
+    if(Task_Point_Set == 3)
+    {
+        ips200_show_string(0, 16 * 3, "  Task1Point:");
+        ips200_show_string(0, 16 * 4, "  Task2Point:");
+        ips200_show_string(0, 16 * 5, "->Task3Point:");
+        ips200_show_int (104, 16 * 3, Task1_Points, 3);
+        ips200_show_int (104, 16 * 4, Task2_Points, 3);
+        ips200_show_int (104, 16 * 5, Task3_Points, 3);
+    }
+
+    ips200_show_string(  0, 16 *  9, "1:Task-1");
+    ips200_show_string(  0, 16 * 10, "2:Task+1");
+    ips200_show_string(120, 16 *  9, "3:TaskPoint+1");
+    ips200_show_string(120, 16 * 10, "4:TaskPoint-1");
 
 }
 
@@ -419,13 +474,13 @@ void RemoteCtrl_menu(void)
     ips200_show_int (   80, 16 * 7 , RemoteCtrl_Speed, 4);
 }
 
-void  Points_menu(void)
+void Points_menu(void)
 {
     ips200_show_string( 16, 16 * 0, "Lat:");
     ips200_show_string(128, 16 * 0, "Lon:");
-    ips200_show_uint  (184, 16 * 0, Point_NUM > 0 ? Point + 1 : Point, 3);
+    ips200_show_uint  (184, 16 * 0, Point, 3);
     ips200_show_string(208, 16 * 0, "/");
-    ips200_show_uint  (216, 16 * 0, Point_NUM, 3);
+    ips200_show_uint  (216, 16 * 0, Point_NUM - 1, 3);
 
     int Page = Point / Page_Point_Num;
     int RightArrow = Point % Page_Point_Num + 1;
@@ -459,36 +514,33 @@ void  Points_menu(void)
 
 void ZongZuanF(void)
 {
+    Process_Image();
     if(mt9v03x_finish_flag)
     {
         mt9v03x_finish_flag = 0;
-        memcpy(image_copy[0], mt9v03x_image[0], MT9V03X_IMAGE_SIZE);
-        seekfree_assistant_camera_send();
+        // memcpy(image_copy[0], mt9v03x_image[0], MT9V03X_IMAGE_SIZE);
+        // seekfree_assistant_camera_send();
+        ips200_show_gray_image(0, 0, mt9v03x_image[0], MT9V03X_W, MT9V03X_H, MT9V03X_W, MT9V03X_H, 0);
     }
 
-   ips200_show_uint  (184, 16 * 0, LeftLineNum > 0 ? CameraPoint + 1 : CameraPoint, 3);
-   ips200_show_string(208, 16 * 0, "/");
-   ips200_show_uint  (216, 16 * 0, LeftLineNum, 3);
-   int Page = CameraPoint / Page_Point_Num;
-   int RightArrow = CameraPoint % Page_Point_Num + 1;
-
-   if(LeftLineNum > 0)
-   {
-        ips200_show_string(0, 16 * RightArrow, "->");
-        for(int i = 1; i <= Page_Point_Num; i++)
+    ips200_show_string(0, 16 * 8, "Left Line:");
+    ips200_show_int( 216, 16 * 8, clip_value, 2);
+    if(LeftLineNum > 0)
+    {
+        for(int i = 0; i < MT9V03X_H; i++)
         {
-            ips200_show_uint( 16, 16 * i, LeftLine_x[i - 1 + Page * Page_Point_Num], 3);
-            ips200_show_uint(128, 16 * i, LeftLine_y[i - 1 + Page * Page_Point_Num], 3);
-            if(i  + Page * 10 == LeftLineNum)
-            {
-                break;
-            }
+            ips200_draw_point(IntClip(LeftLine_x[i], 0, ips200_width_max - 1), IntClip(LeftLine_y[i], 0, ips200_height_max - 1), RGB565_RED);
         }
-   }
-   ips200_show_string(  0, 16 *  9, "1:Point-1");
-   ips200_show_string(  0, 16 * 10, "2:Point+1");
-   ips200_show_string(120, 16 *  9, "3:");
-   ips200_show_string(120, 16 * 10, "4:");
+        ips200_show_string(80, 16 * 8, "Found");
+    }
+    else
+    {
+        ips200_show_string(80, 16  * 8, "Not Found");
+    }
+//    ips200_show_string(  0, 16 *  9, "1:Point-1");
+//    ips200_show_string(  0, 16 * 10, "2:Point+1");
+//    ips200_show_string(120, 16 *  9, "3:");
+//    ips200_show_string(120, 16 * 10, "4:");
 
 }
 void Imu963_menu()
@@ -583,8 +635,8 @@ void ServoP_menu(void)
     ips200_show_string(  0, 16 * 5, "Angle_Error:");
     ips200_show_string(  0, 16 * 6, "Servo_Angle:");
     ips200_show_string(  0, 16 * 7, "PID.output:");
-    ips200_show_string(  0, 16 * 8, "KEY1:P+0.1");
-    ips200_show_string(120, 16 * 8, "KEY2:P-0.1");
+    ips200_show_string(  0, 16 * 8, "KEY1:P+0.01");
+    ips200_show_string(120, 16 * 8, "KEY2:P-0.01");
     ips200_show_string(  0, 16 * 9, "KEY3:Angle+10");
     ips200_show_string(120, 16 * 9, "KEY4:Angle-10");
     ips200_show_float ( 80, 16 * 0, Parameter_set0.ServePID[0], 2, 3);
@@ -643,8 +695,8 @@ void ServoD_menu(void)
     ips200_show_string(  0, 16 * 5, "Angle_Error:");
     ips200_show_string(  0, 16 * 6, "Servo_Angle:");
     ips200_show_string(  0, 16 * 7, "PID.output:");
-    ips200_show_string(  0, 16 * 8, "KEY1:D+0.1");
-    ips200_show_string(120, 16 * 8, "KEY2:D-0.1");
+    ips200_show_string(  0, 16 * 8, "KEY1:D+0.01");
+    ips200_show_string(120, 16 * 8, "KEY2:D-0.01");
     ips200_show_string(  0, 16 * 9, "KEY3:Angle+10");
     ips200_show_string(120, 16 * 9, "KEY4:Angle-10");
     ips200_show_float ( 80, 16 * 0, Parameter_set0.ServePID[0], 2, 3);
@@ -782,11 +834,11 @@ void Key_Ctrl_Menu()
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
-                Parameter_set0.ServePID[0] += 0.1;
+                Parameter_set0.ServePID[0] += 0.01;
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                Parameter_set0.ServePID[0] -= 0.1;
+                Parameter_set0.ServePID[0] -= 0.01;
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
@@ -824,11 +876,11 @@ void Key_Ctrl_Menu()
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
-                Parameter_set0.ServePID[2] += 0.1;
+                Parameter_set0.ServePID[2] += 0.01;
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                Parameter_set0.ServePID[2] -= 0.1;
+                Parameter_set0.ServePID[2] -= 0.01;
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
@@ -944,15 +996,33 @@ void Key_Ctrl_Menu()
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
-                Parameter_set0.Speed_Duty += 1000;
+                if(Point1 > 0)
+                {
+                    Point1 = Point1 - 1;
+                    ips200_clear();
+                }
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                Parameter_set0.Speed_Duty -= 1000;
+                if(Point1 < NUM_GPS_DATA - 1)
+                {
+                    Point1 = Point1 + 1;
+                    ips200_clear();
+                }
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
-                FLASH_SAV_PAR();
+                if(GpsTgtEncod[Point1] < PWM_DUTY_MAX)
+                {
+                    GpsTgtEncod[Point1] += 100;
+                }
+            }
+            if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
+            {
+                if(GpsTgtEncod[Point1] > 0)
+                {
+                    GpsTgtEncod[Point1] -= 100;
+                }
             }
         }
 
@@ -961,15 +1031,79 @@ void Key_Ctrl_Menu()
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
-                Parameter_set0.Distance += 0.5;
+                if(Point1 > 0)
+                {
+                    Point1 = Point1 - 1;
+                    ips200_clear();
+                }
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                Parameter_set0.Distance -= 0.5;
+                if(Point1 < NUM_GPS_DATA - 1)
+                {
+                    Point1 = Point1 + 1;
+                    ips200_clear();
+                }
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
-                FLASH_SAV_PAR();
+                GpsDistance[Point1] += 0.5;
+            }
+            if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
+            {
+                if(GpsDistance[Point1] > 0)
+                {
+                    GpsDistance[Point1] -= 0.5;
+                }
+            }
+        }
+
+        // 任务点位设置
+        if(func_index == 16)
+        {
+            if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
+            {
+                if(Task_Point_Set > 1)
+                {
+                    Task_Point_Set -= 1;
+                }
+            }
+            if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
+            {
+                if(Task_Point_Set < 3)
+                {
+                    Task_Point_Set += 1;
+                }
+            }
+            if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
+            {
+                if(Task_Point_Set == 1)
+                {
+                    Task1_Points += 1;
+                }
+                if(Task_Point_Set == 2)
+                {
+                    Task2_Points += 1;
+                }
+                if(Task_Point_Set == 3)
+                {
+                    Task3_Points += 1;
+                }
+            }
+            if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
+            {
+                if(Task_Point_Set == 1)
+                {
+                    Task1_Points -= 1;
+                }
+                if(Task_Point_Set == 2)
+                {
+                    Task2_Points -= 1;
+                }
+                if(Task_Point_Set == 3)
+                {
+                    Task3_Points -= 1;
+                }
             }
         }
 
@@ -1040,25 +1174,11 @@ void Key_Ctrl_Menu()
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
-                if(LeftLineNum > 0)
-                {
-                    if(CameraPoint > 0)
-                    {
-                        CameraPoint += 1;
-                        ips200_clear();
-                    }
-                }
+                clip_value += 1;
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                if(LeftLineNum > 0)
-                {
-                    if(CameraPoint < LeftLineNum - 1)
-                    {
-                        CameraPoint -= 1;
-                        ips200_clear();
-                    }
-                }
+                clip_value -= 1;
             }
         }
 

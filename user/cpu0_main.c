@@ -53,6 +53,7 @@ int core0_main(void)
     clock_init();                   // 获取时钟频率<务必保留>
     debug_init();                   // 初始化默认调试串口
     // 此处编写用 户代码 例如外设初始化代码等
+
     CPU0_Init();                     // 所有初始化
     FLASH_GET_GPS();                 // 从 Flash 读取 GPS 数据
     FLASH_GET_PAR();                 // 从 Flash 读取参数
@@ -78,8 +79,10 @@ int core0_main(void)
     while (TRUE)
     {
         // 此处编写需要循环执行的代码
-        Track_Follow();
-        // Process_Image();
+        if(Control_Flag == 0)
+        {
+            Track_Follow();
+        }
         // 此处编写需要循环执行的代码
     }
 }
