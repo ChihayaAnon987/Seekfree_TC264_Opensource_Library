@@ -41,6 +41,7 @@ extern Parameter_set Parameter_set0;                            // 参数集合
 extern seekfree_assistant_oscilloscope_struct oscilloscope_data;// 初始化逐飞助手示波器的结构体
 extern double Test_Angle;                                       // 调试用
 extern int16  Test_Encoder;                                     // 调试用
+extern int16  Task_Flag;                                        // 任务标志
 extern uint8  Start_Flag;                                       // 发车标志
 //===================================================全局变量END===================================================
 

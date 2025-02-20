@@ -9,7 +9,7 @@
 
 Parameter_set Parameter_set0=
 {
-    {1.7, 0.0, 0.85},            // 舵机PID
+    {1.34, 0.0, 0.7},            // 舵机PID
     {1.0, 0.0, 0.0},            // 速度PID
     3000,                       // 调试的速度
     1.5,                        // 换点距离
@@ -21,6 +21,7 @@ int    key_value;
 int    Point        = 0;    // 菜单点位
 int    Point1       = 0;
 int  Task_Point_Set = 1;
+int16  Task_Flag    = 1;
 int    CameraPoint  = 0;
 double Test_Angle   = 0;    // 调试用
 int16  Test_Encoder = 0;    // 调试用
@@ -360,10 +361,10 @@ void spd_menu(void)
         ips200_show_uint (192, 16 * i, GpsTgtEncod[i - 1 + Page * Page_Point_Num], 5);
     }
 
-    ips200_show_string(  0, 16 *  9, "1:Point-1");
-    ips200_show_string(  0, 16 * 10, "2:Point+1");
-    ips200_show_string(120, 16 *  9, "3:Duty+100");
-    ips200_show_string(120, 16 * 10, "4:Duty-100");
+    ips200_show_string(  0, 16 *  9, "KEY1:Point-1");
+    ips200_show_string(  0, 16 * 10, "KEY2:Point+1");
+    ips200_show_string(120, 16 *  9, "KEY3:Duty+100");
+    ips200_show_string(120, 16 * 10, "KEY4:Duty-100");
 
 
 }
@@ -387,10 +388,10 @@ void Distance_menu(void)
         ips200_show_float (192, 16 * i, GpsDistance[i - 1 + Page * Page_Point_Num], 1, 1);
     }
 
-    ips200_show_string(  0, 16 *  9, "1:Point-1");
-    ips200_show_string(  0, 16 * 10, "2:Point+1");
-    ips200_show_string(120, 16 *  9, "3:Dist+0.5");
-    ips200_show_string(120, 16 * 10, "4:Dist-0.5");
+    ips200_show_string(  0, 16 *  9, "KEY1:Point-1");
+    ips200_show_string(  0, 16 * 10, "KEY2:Point+1");
+    ips200_show_string(120, 16 *  9, "KEY3:Dist+0.5");
+    ips200_show_string(120, 16 * 10, "KEY4:Dist-0.5");
 
 }
 
@@ -429,10 +430,10 @@ void TaskPoint(void)
         ips200_show_int (104, 16 * 5, Task3_Points, 3);
     }
 
-    ips200_show_string(  0, 16 *  9, "1:Task-1");
-    ips200_show_string(  0, 16 * 10, "2:Task+1");
-    ips200_show_string(120, 16 *  9, "3:TaskPoint+1");
-    ips200_show_string(120, 16 * 10, "4:TaskPoint-1");
+    ips200_show_string(  0, 16 *  9, "KEY1:Task-1");
+    ips200_show_string(  0, 16 * 10, "KEY2:Task+1");
+    ips200_show_string(120, 16 *  9, "KEY3:Point+1");
+    ips200_show_string(120, 16 * 10, "KEY4:Point-1");
 
 }
 
@@ -631,19 +632,19 @@ void ServoP_menu(void)
     ips200_show_string(  0, 16 * 1, "   ServoI:");
     ips200_show_string(  0, 16 * 2, "   ServoD:");
     ips200_show_string(  0, 16 * 3, "Angle:");
-    ips200_show_string(  0, 16 * 4, "Z_360:");
+    ips200_show_string(  0, 16 * 4, "angle[2]:");
     ips200_show_string(  0, 16 * 5, "Angle_Error:");
     ips200_show_string(  0, 16 * 6, "Servo_Angle:");
     ips200_show_string(  0, 16 * 7, "PID.output:");
     ips200_show_string(  0, 16 * 8, "KEY1:P+0.01");
     ips200_show_string(120, 16 * 8, "KEY2:P-0.01");
-    ips200_show_string(  0, 16 * 9, "KEY3:Angle+10");
-    ips200_show_string(120, 16 * 9, "KEY4:Angle-10");
+    ips200_show_string(  0, 16 * 9, "KEY3:SavePar");
+    ips200_show_string(120, 16 * 9, "KEY4:Get Par");
     ips200_show_float ( 80, 16 * 0, Parameter_set0.ServePID[0], 2, 3);
     ips200_show_float ( 80, 16 * 1, Parameter_set0.ServePID[1], 2, 3);
     ips200_show_float ( 80, 16 * 2, Parameter_set0.ServePID[2], 2, 3);
     ips200_show_float ( 48, 16 * 3, Angle, 4, 6);
-    ips200_show_float ( 48, 16 * 4, Z_360 > 180 ? Z_360 - 360 : Z_360, 3, 3);
+    ips200_show_float ( 72, 16 * 4, angle[2], 3, 3);
     ips200_show_float ( 96, 16 * 5, Angle_Error, 3, 6);
     ips200_show_float ( 96, 16 * 6, Servo_Angle, 3, 3);
     ips200_show_float ( 88, 16 * 7, PID_SERVO.output, 3, 6);
@@ -662,19 +663,19 @@ void ServoI_menu(void)
     ips200_show_string(  0, 16 * 1, "-->ServoI:");
     ips200_show_string(  0, 16 * 2, "   ServoD:");
     ips200_show_string(  0, 16 * 3, "Angle:");
-    ips200_show_string(  0, 16 * 4, "Z_360:");
+    ips200_show_string(  0, 16 * 4, "angle[2]:");
     ips200_show_string(  0, 16 * 5, "Angle_Error:");
     ips200_show_string(  0, 16 * 6, "Servo_Angle:");
     ips200_show_string(  0, 16 * 7, "PID.output:");
-    ips200_show_string(  0, 16 * 8, "KEY1:I+0.1");
-    ips200_show_string(120, 16 * 8, "KEY2:I-0.1");
-    ips200_show_string(  0, 16 * 9, "KEY3:Save");
-    ips200_show_string(120, 16 * 9, "KEY4:Get PID");
+    ips200_show_string(  0, 16 * 8, "KEY1:P+0.01");
+    ips200_show_string(120, 16 * 8, "KEY2:P-0.01");
+    ips200_show_string(  0, 16 * 9, "KEY3:SavePar");
+    ips200_show_string(120, 16 * 9, "KEY4:Get Par");
     ips200_show_float ( 80, 16 * 0, Parameter_set0.ServePID[0], 2, 3);
     ips200_show_float ( 80, 16 * 1, Parameter_set0.ServePID[1], 2, 3);
     ips200_show_float ( 80, 16 * 2, Parameter_set0.ServePID[2], 2, 3);
     ips200_show_float ( 48, 16 * 3, Angle, 4, 6);
-    ips200_show_float ( 48, 16 * 4, Z_360 > 180 ? Z_360 - 360 : Z_360, 3, 3);
+    ips200_show_float ( 72, 16 * 4, angle[2], 3, 3);
     ips200_show_float ( 96, 16 * 5, Angle_Error, 3, 6);
     ips200_show_float ( 96, 16 * 6, Servo_Angle, 3, 3);
     ips200_show_float ( 88, 16 * 7, PID_SERVO.output, 3, 6);
@@ -691,19 +692,19 @@ void ServoD_menu(void)
     ips200_show_string(  0, 16 * 1, "   ServoI:");
     ips200_show_string(  0, 16 * 2, "-->ServoD:");
     ips200_show_string(  0, 16 * 3, "Angle:");
-    ips200_show_string(  0, 16 * 4, "Z_360:");
+    ips200_show_string(  0, 16 * 4, "angle[2]:");
     ips200_show_string(  0, 16 * 5, "Angle_Error:");
     ips200_show_string(  0, 16 * 6, "Servo_Angle:");
     ips200_show_string(  0, 16 * 7, "PID.output:");
-    ips200_show_string(  0, 16 * 8, "KEY1:D+0.01");
-    ips200_show_string(120, 16 * 8, "KEY2:D-0.01");
-    ips200_show_string(  0, 16 * 9, "KEY3:Angle+10");
-    ips200_show_string(120, 16 * 9, "KEY4:Angle-10");
+    ips200_show_string(  0, 16 * 8, "KEY1:P+0.01");
+    ips200_show_string(120, 16 * 8, "KEY2:P-0.01");
+    ips200_show_string(  0, 16 * 9, "KEY3:SavePar");
+    ips200_show_string(120, 16 * 9, "KEY4:Get Par");
     ips200_show_float ( 80, 16 * 0, Parameter_set0.ServePID[0], 2, 3);
     ips200_show_float ( 80, 16 * 1, Parameter_set0.ServePID[1], 2, 3);
     ips200_show_float ( 80, 16 * 2, Parameter_set0.ServePID[2], 2, 3);
     ips200_show_float ( 48, 16 * 3, Angle, 4, 6);
-    ips200_show_float ( 48, 16 * 4, Z_360 > 180 ? Z_360 - 360 : Z_360, 3, 3);
+    ips200_show_float ( 72, 16 * 4, angle[2], 3, 3);
     ips200_show_float ( 96, 16 * 5, Angle_Error, 3, 6);
     ips200_show_float ( 96, 16 * 6, Servo_Angle, 3, 3);
     ips200_show_float ( 88, 16 * 7, PID_SERVO.output, 3, 6);
@@ -842,11 +843,11 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
-                Test_Angle += 10;
+                FLASH_SAV_PAR();
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
-                Test_Angle -= 10;
+                FLASH_GET_PAR();
             }
         }
 
@@ -884,11 +885,11 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
-                Test_Angle += 10;
+                FLASH_SAV_PAR();
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
-                Test_Angle -= 10;
+                FLASH_GET_PAR();
             }
         }
 
@@ -1259,14 +1260,17 @@ void Key_Ctrl_Menu()
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
                 Track_Points_NUM = 0;
+                Task_Flag = 1;
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
                 Track_Points_NUM = 10;
+                Task_Flag = 2;
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
                 Track_Points_NUM = 50;
+                Task_Flag = 3;
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {

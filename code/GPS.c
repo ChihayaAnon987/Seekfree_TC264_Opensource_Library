@@ -56,8 +56,6 @@ uint32 Point_NUM = 0;               // 已采集点数
 float K_Gps      = 0.5;             // 衔接部分的权重
 double FilterPoint_Lat = 0;         // 滤波后的纬度
 double FilterPoint_Lon = 0;         // 滤波后的经度
-// double Now_Lat      = 0;            // 自身相对原点的经度
-// double Now_Lon      = 0;            // 自身相对原点的纬度
 double Start_Lat;                   // 发车的经度
 double Start_Lon;                   // 发车的纬度
 double Straight_Lat;                // 直行10-20m的经度
@@ -73,22 +71,24 @@ float  Yaw          = 0;            // 偏航角
 uint8  Yaw_Times    = 0;            // 偏航角计数
 float  Lat_Fix    = 1.0;            // 纬度修正系数
 float  Lon_Fix    = 1.0;            // 经度修正系数
-double Delta_x    = 0;              // 位移
-double Delta_y    = 0;              // 位移
+double Delta_x      = 0;            // 位移
+double Delta_y      = 0;            // 位移
 double Distance     = 0;            // 自身距下一个点的距离
 double GPS_GET_LAT[NUM_GPS_DATA];   // 纬度
 double GPS_GET_LOT[NUM_GPS_DATA];   // 经度
 int8   Task1_Points = 4;            // 科目一所用点位数量
-int8   Task2_Points = 17;           // 科目二所用点位数量
+int8   Task2_Points = 13;           // 科目二所用点位数量
 int8   Task3_Points = 10;           // 科目三所用点位数量
 float  GpsDistance[NUM_GPS_DATA] = 
 {
-      0, 1.5, 1.5,   2,   0,   0,   0,   0, 1.5,   0,  // 0 - 9
-    1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 10 - 19
+    5.0, 3.0, 2.5, 4.0,   0,   0,   0,   0, 1.5,   0,  // 0 - 9
+
+    5.0, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 10 - 19
     1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 20 - 29
     1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 30 - 39
     1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 40 - 49
-    1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 50 - 59
+
+    5.0, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 50 - 59
     1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 60 - 69
     1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 70 - 79
     1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 80 - 89
@@ -96,11 +96,13 @@ float  GpsDistance[NUM_GPS_DATA] =
 };  // 存储换点距离的数组
 int16  GpsTgtEncod[NUM_GPS_DATA] = 
 {
-    3000, 3000, 1500, 3000,    0,    0,    0,    0, 3000,    0,  // 0 - 9
-    3000, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500,  // 10 - 19
-    1500, 1500, 3000,    0,    0, 3000, 3000, 3000, 3000, 3000,  // 20 - 29
+    5500, 5500, 3500, 5500,    0,    0,    0,    0, 3000,    0,  // 0 - 9
+
+    5500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500, 1500,  // 10 - 19
+    1500, 3000, 5500,    0,    0, 3000, 3000, 3000, 3000, 3000,  // 20 - 29
     3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 30 - 39
     3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 40 - 49
+
     3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 50 - 59
     3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 60 - 69
     3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 70 - 79
@@ -174,9 +176,7 @@ void Get_Gps()
         gnss_data_parse();           //开始解析数据
         FilterPoint_Lat = K_Gps * FilterPoint_Lat + (1 - K_Gps) * gnss.latitude;
         FilterPoint_Lon = K_Gps * FilterPoint_Lon + (1 - K_Gps) * gnss.longitude;
-        Angle = get_two_points_azimuth(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM] - Delta_Lat, GPS_GET_LOT[Track_Points_NUM] - Delta_Lon);
-//        Angle = get_two_points_azimuth(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
-
+        Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
         Angle -= Delta_Angle;
         if(Angle > 180)
         {
@@ -186,9 +186,7 @@ void Get_Gps()
         {
             Angle += 360;
         }
-        Distance = get_two_points_distance(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM] - Delta_Lat, GPS_GET_LOT[Track_Points_NUM] - Delta_Lon);
-//        Distance = get_two_points_distance(gnss.latitude, gnss.longitude, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
-
+        Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
         // if(gnss.direction < 180)
         // {
         //     Gps_Yaw = gnss.direction;

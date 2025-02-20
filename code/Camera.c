@@ -139,7 +139,7 @@ void findline_lefthand_adaptive(int x, int y, int block_size, int clip_value, in
         local_thres /= (block_size * block_size);
         local_thres -= clip_value;
 
-        int current_value = AT_IMAGE(x, y);
+        // int current_value = AT_IMAGE(x, y);
         int front_value = AT_IMAGE(x + dir_front[dir][0], y + dir_front[dir][1]);
         int frontleft_value = AT_IMAGE(x + dir_frontleft[dir][0], y + dir_frontleft[dir][1]);
         if (front_value < local_thres) {
@@ -195,7 +195,7 @@ void findline_righthand_adaptive(int x, int y, int block_size, int clip_value, i
         local_thres /= (block_size * block_size);
         local_thres -= clip_value;
         
-        int current_value = AT_IMAGE(x, y);
+        // int current_value = AT_IMAGE(x, y);
         int front_value = AT_IMAGE(x + dir_front[dir][0], y + dir_front[dir][1]);
         int frontright_value = AT_IMAGE(x + dir_frontright[dir][0], y + dir_frontright[dir][1]);
         if (front_value < local_thres) {

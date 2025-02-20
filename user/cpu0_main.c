@@ -71,8 +71,21 @@ int core0_main(void)
         {
             Start_Lat = gnss.latitude;
             Start_Lon = gnss.longitude;
-            Delta_Lat = gnss.latitude - GPS_GET_LAT[0];
-            Delta_Lon = gnss.longitude - GPS_GET_LOT[0];
+            if(Task_Flag == 1)
+            {
+                Delta_Lat = gnss.latitude - GPS_GET_LAT[Task1_Start_Point];
+                Delta_Lon = gnss.longitude - GPS_GET_LOT[Task1_Start_Point];
+            }
+            if(Task_Flag == 2)
+            {
+                Delta_Lat = gnss.latitude - GPS_GET_LAT[Task2_Start_Point];
+                Delta_Lon = gnss.longitude - GPS_GET_LOT[Task2_Start_Point];
+            }
+            if(Task_Flag == 3)
+            {
+                Delta_Lat = gnss.latitude - GPS_GET_LAT[Task3_Start_Point];
+                Delta_Lon = gnss.longitude - GPS_GET_LOT[Task3_Start_Point];
+            }
         }
     }
 

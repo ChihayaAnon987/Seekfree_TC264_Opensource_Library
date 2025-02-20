@@ -39,7 +39,7 @@
 #define SERVO_MOTOR_PWM             (ATOM1_CH1_P33_9)        // 定义主板上舵机对应引脚
 #define SERVO_MOTOR_FREQ            (300)                    // 定义主板上舵机频率  请务必注意范围 50-300
 #define SERVO_MOTOR_RMAX            (65)                     // 右，定义主板上舵机活动范围 角度
-#define SERVO_MOTOR_MID             (93)                     // 中值
+#define SERVO_MOTOR_MID             (90)                     // 中值
 #define SERVO_MOTOR_LMAX            (115)                    // 左，定义主板上舵机活动范围 角度
 #define SERVO_MOTOR_RMIN_DUTY       (SERVO_MOTOR_DUTY(SERVO_MOTOR_RMAX))     // 右，定义主板上舵机活动范围 占空比
 #define SERVO_MOTOR_MID_DUTY        (SERVO_MOTOR_DUTY(SERVO_MOTOR_MID))      // 中值 占空比

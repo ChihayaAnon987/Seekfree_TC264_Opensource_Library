@@ -42,14 +42,22 @@ void RemoteCtrl_Direction_Speed()
             }
             if(Center_Flag == 1)
             {
-                if(RemoteCtrl_Speed > 0)
+                if(RemoteCtrl_Speed != 0)
                 {
-                    Angle_Error = -(angle[2] - CenterAngle);
+                    if(RemoteCtrl_Speed > 0)
+                    {
+                        Angle_Error = -(angle[2] - CenterAngle);
+                    }
+                    else
+                    {
+                        Angle_Error = angle[2] - CenterAngle;
+                    }
                 }
                 else
                 {
-                    Angle_Error = angle[2] - CenterAngle;
+                    Angle_Error = 0;
                 }
+
             }
         }
         if(RemoteCtrl_Direction != 0)
@@ -65,8 +73,26 @@ void RemoteCtrl_Direction_Speed()
         if(Channal_5_Press_Flag == 1)
         {
             Start_Flag = 1;
-            GPS_GET_LAT[8] = GPS_GET_LAT[Task1_Start_Point];
-            GPS_GET_LOT[8] = GPS_GET_LOT[Task1_Start_Point];
+            if(Task_Flag == 1)
+            {
+                GPS_GET_LAT[8] = GPS_GET_LAT[Task1_Start_Point];
+                GPS_GET_LOT[8] = GPS_GET_LOT[Task1_Start_Point];
+            }
+            else if(Task_Flag == 2)
+            {
+                GPS_GET_LAT[8] = GPS_GET_LAT[Task2_Start_Point];
+                GPS_GET_LOT[8] = GPS_GET_LOT[Task2_Start_Point];
+            }
+            else if(Task_Flag == 3)
+            {
+                GPS_GET_LAT[8] = GPS_GET_LAT[Task3_Start_Point];
+                GPS_GET_LOT[8] = GPS_GET_LOT[Task3_Start_Point];
+            }
+            else
+            {
+                GPS_GET_LAT[8] = GPS_GET_LAT[Task1_Start_Point];
+                GPS_GET_LOT[8] = GPS_GET_LOT[Task1_Start_Point];
+            }
             Track_Points_NUM = 8;
         }
     }

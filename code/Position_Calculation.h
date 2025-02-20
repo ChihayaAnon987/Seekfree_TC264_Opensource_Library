@@ -24,7 +24,6 @@ extern int16  Target_Encoder;                                  // 转速
 
 
 //===================================================函数声明BEG===================================================
-void Stright_Some_Distance(void);                              // 直行一段距离
 void GPS_IMU_Complementary_Filtering(void);                    // GPS与IMU互补滤波
 void Track_Follow(void);                                       // 核心循迹程序
 void Point_Switch(void);                                       // 点位切换

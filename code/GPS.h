@@ -22,8 +22,6 @@ extern uint32 Point_NUM;                                       // 当前采集的 GPS
 extern float  K_Gps;                                           // 衔接部分的权重
 extern double FilterPoint_Lat;                                 // 滤波后的纬度
 extern double FilterPoint_Lon;                                 // 滤波的经度
-// extern double Now_Lat;                                         // 自身相对原点的纬度
-// extern double Now_Lon;                                         // 自身相对原点的经度
 extern double Start_Lat;                                       // 发车的经度
 extern double Start_Lon;                                       // 发车的纬度
 extern double Straight_Lat;                                    // 直行10-20m的经度
