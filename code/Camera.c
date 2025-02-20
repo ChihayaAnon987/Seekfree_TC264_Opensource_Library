@@ -70,22 +70,21 @@ void Process_Image()
 {
     int x1 = MT9V03X_W / 2, y1 = MT9V03X_W - 10;
     LeftLineNum = sizeof(LeftLine) / sizeof(LeftLine[0]);
-    for (; x1 > (block_size / 2 + 1); x1--)
+    for(; x1 > (block_size / 2 + 1); x1--)
     {
-        if (adaptiveThresholdPoint(x1 - 1, y1, block_size, clip_value) == IMG_BLACK) 
+        if(adaptiveThresholdPoint(x1 - 1, y1, block_size, clip_value) == IMG_BLACK) 
         {
             break;
         }
     }
-    if (x1 == (block_size / 2 + 1))
+    if(x1 == (block_size / 2 + 1))
     {
-        for (; y1 > (block_size / 2 + 1); y1--)
+        for(; y1 > (block_size / 2 + 1); y1--)
         {
-            if (adaptiveThresholdPoint(x1, y1 - 1, block_size, clip_value) == IMG_BLACK) break; // 左边线没有找到，则向上方寻找
+            if(adaptiveThresholdPoint(x1, y1 - 1, block_size, clip_value) == IMG_BLACK) break; // 左边线没有找到，则向上方寻找
         }
     }
-    // 迷宫法求左边线
-    if (adaptiveThresholdPoint(x1, y1, block_size, clip_value) == IMG_WHITE)
+    if(adaptiveThresholdPoint(x1, y1, block_size, clip_value) == IMG_WHITE)
     {
         findline_lefthand_adaptive(x1, y1, block_size, clip_value, LeftLine, &LeftLineNum);
     }
@@ -93,17 +92,74 @@ void Process_Image()
     {
         LeftLineNum = 0;
     }
-    // findline_lefthand_adaptive(x1, y1, block_size, clip_value, LeftLine, &LeftLineNum);
-
-
     for(int i = 0; i < LeftLineNum; i++)
     {
         LeftLine_x[i] = LeftLine[i][0];
         LeftLine_y[i] = LeftLine[i][1];
     }
+
+
+    int x2 = MT9V03X_W / 2, y2 = MT9V03X_W - 10;
+    RightLineNum = sizeof(RightLine) / sizeof(RightLine[0]);
+    for(; x2 < MT9V03X_W - (block_size / 2 + 1) - 1; x2++)
+    {
+        if(adaptiveThresholdPoint(x2 + 1, y2, block_size, clip_value) == IMG_BLACK)
+        {
+            break;
+        }
+    }
+    if(x2 == MT9V03X_W - (block_size / 2 + 1) - 1)
+    {
+        for(; y2 > (block_size / 2 + 1); y2--)
+        {
+            if(adaptiveThresholdPoint(x2, y2 - 1, block_size, clip_value) == IMG_BLACK) break;  //右边线没有找到，则向上方寻找
+        }
+    }
+    if(adaptiveThresholdPoint(x2, y2, block_size, clip_value) == IMG_WHITE)
+    {
+        findline_righthand_adaptive(x2, y2, block_size, clip_value, RightLine, &RightLineNum);
+    }
+    else
+    {
+        RightLineNum = 0;
+    }
+    for(int i = 0; i < LeftLineNum; i++)
+    {
+        RightLine_x[i] = RightLine[i][0];
+        RightLine_y[i] = RightLine[i][1];
+    }
+
 }
 
+float CalculateAngleError(int CenterLine[MT9V03X_H][2])
+{
+    float sum_x = 0.0f, sum_y = 0.0f, sum_xy = 0.0f, sum_yy = 0.0f;
+    const int N = MT9V03X_H;
 
+    // 最小二乘法计算直线参数
+    for (int i = 0; i < N; i++) {
+        float y = (float)i;          // 摄像头坐标系的y值（向下递增）
+        float x = (float)CenterLine[i][0] - (MT9V03X_W / 2.0f); // 中心化x坐标
+
+        sum_x += x;
+        sum_y += y;
+        sum_xy += x * y;
+        sum_yy += y * y;
+    }
+
+    // 计算直线斜率
+    float denominator = N * sum_yy - sum_y * sum_y;
+    if (fabsf(denominator) < 1e-6f) return 0.0f; // 防止除以零
+
+    float k = (N * sum_xy - sum_x * sum_y) / denominator;
+
+    // 计算角度误差（考虑透视变换）
+    // 假设水平视场角为60度（需根据实际摄像头参数调整）
+    const float FOV_DEG = 130.0f;
+    float angle_error = atanf(k) * (180.0f / PI) * (FOV_DEG / MT9V03X_W);
+
+    return angle_error;
+}
 
 const int dir_front[4][2]      = {{0,  -1},  {1,  0},  {0,  1},  {-1,  0}};
 const int dir_frontleft[4][2]  = {{-1, -1},  {1, -1},  {1,  1},  {-1,  1}};

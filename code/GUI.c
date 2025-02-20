@@ -525,6 +525,7 @@ void ZongZuanF(void)
     }
 
     ips200_show_string(0, 16 * 8, "Left Line:");
+    ips200_show_string(0, 16 * 9, "RightLine:");
     ips200_show_int( 216, 16 * 8, clip_value, 2);
     if(LeftLineNum > 0)
     {
@@ -532,12 +533,26 @@ void ZongZuanF(void)
         {
             ips200_draw_point(IntClip(LeftLine_x[i], 0, ips200_width_max - 1), IntClip(LeftLine_y[i], 0, ips200_height_max - 1), RGB565_RED);
         }
-        ips200_show_string(80, 16 * 8, "Found");
+        ips200_show_string(80, 16 * 8, "FoundLine");
     }
     else
     {
         ips200_show_string(80, 16  * 8, "Not Found");
     }
+    if(RightLineNum > 0)
+    {
+        for(int i = 0; i < MT9V03X_H; i++)
+        {
+            ips200_draw_point(IntClip(RightLine_x[i], 0, ips200_width_max - 1), IntClip(RightLine_y[i], 0, ips200_height_max - 1), RGB565_RED);
+        }
+        ips200_show_string(80, 16 * 9, "FoundLine");
+    }
+    else
+    {
+        ips200_show_string(80, 16  * 9, "Not Found");
+    }
+    ips200_show_string(  0, 16 * 10, "Angle_Error");
+    ips200_show_float(  88, 16 * 10, CalculateAngleError(LeftLine), 3, 3);
 //    ips200_show_string(  0, 16 *  9, "1:Point-1");
 //    ips200_show_string(  0, 16 * 10, "2:Point+1");
 //    ips200_show_string(120, 16 *  9, "3:");

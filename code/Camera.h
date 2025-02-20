@@ -39,6 +39,7 @@ extern int   CenterLineNum;
 int     AT_IMAGE(int x, int y);
 uint8_t adaptiveThresholdPoint(int x, int y, float block_size, float clip_value);
 void    Process_Image(void);
+float   CalculateAngleError(int CenterLine[MT9V03X_H][2]);
 void    findline_lefthand_adaptive(int x, int y, int block_size, int clip_value, int pts[][2], int *num);
 void    findline_righthand_adaptive(int x, int y, int block_size, int clip_value, int pts[][2], int *num);
 //===================================================º¯ÊýÉùÃ÷END===================================================
