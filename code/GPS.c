@@ -45,10 +45,10 @@
 /*
     Lat 0.000001 = 0.111319m
     Lon 0.000001 = 0.061010m
-    Lat+0.000001 是 0°
-    Lat-0.000001 是 180°
-    Lon+0.000001 是 270°
-    Lon-0.000001 是 90°
+    Lat+0.000001 是 0°  (北)
+    Lat-0.000001 是 180°(南)
+    Lon+0.000001 是 90° (东)
+    Lon-0.000001 是 270°(西)
 */
 
 
@@ -109,61 +109,6 @@ int16  GpsTgtEncod[NUM_GPS_DATA] =
     3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000,  // 80 - 89
     3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000, 3000   // 90 - 99
 };  // 存储点位速度的数组
-
-// 按键采点函数
-void GL_CRC()
-{
-    // KEY1或者通道3按下都可以记录点位
-    if(key_get_state(KEY_1) == KEY_SHORT_PRESS || Channal_3_Press_Flag)
-    {
-        if(gnss.state == 1)
-        {
-            lat_union[Point_NUM].double_type = gnss.latitude; // 偶数储存纬度latitude
-            lon_union[Point_NUM].double_type = gnss.longitude;// 奇数储存经度longitude
-            GPS_GET_LAT[Point_NUM] = gnss.latitude;
-            GPS_GET_LOT[Point_NUM] = gnss.longitude;
-            Point_NUM++;
-        }
-//         Point_NUM = 6;
-//         lat_union[0].double_type = 22.590801;
-//         lat_union[1].double_type = 22.590741;
-//         lat_union[2].double_type = 22.590671;
-//         lat_union[3].double_type = 22.590666;
-//         lat_union[4].double_type = 22.590737;
-//         lat_union[5].double_type = 22.590791;
-//
-//         lon_union[0].double_type = 113.961823;
-//         lon_union[1].double_type = 113.961822;
-//         lon_union[2].double_type = 113.961823;
-//         lon_union[3].double_type = 113.961864;
-//         lon_union[4].double_type = 113.961859;
-//         lon_union[5].double_type = 113.961853;
-    }
-
-    if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
-    {
-        FLASH_SAV_GPS();
-    }
-
-    if(key_get_state(KEY_3) == KEY_SHORT_PRESS)           // KEY2和KEY3配合以实现对某个目标点的重采集
-    {
-
-        if(Point_NUM >= 0)
-        {
-            Point_NUM += 1;
-        }
-    }
-
-    if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
-    {
-        if(Point_NUM > 0)
-        {
-            Point_NUM -= 1;
-        }
-    }
-
-
-}
 
 
 void Get_Gps()

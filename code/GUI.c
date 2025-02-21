@@ -99,9 +99,15 @@ void main_menu0(void)
     ips200_show_string(  0, 16 * 5, "   Points    ");
     ips200_show_string(  0, 16 * 6, "   Camera    ");
     ips200_show_string(  0, 16 * 7, "   Imu963    ");
-    ips200_show_string(110, 16 * 0, "   Flash     ");
-    ips200_show_string(110, 16 * 1, "   SevroTest ");
-    ips200_show_string(110, 16 * 2, "   TaskSelect");
+    ips200_show_string(136, 16 * 0, "   Flash     ");
+    ips200_show_string(136, 16 * 1, "   SevroTest ");
+    ips200_show_string(136, 16 * 2, "   TaskSelect");
+    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
 }
 
 void main_menu1(void)
@@ -114,9 +120,15 @@ void main_menu1(void)
     ips200_show_string(  0, 16 * 5, "   Points    ");
     ips200_show_string(  0, 16 * 6, "   Camera    ");
     ips200_show_string(  0, 16 * 7, "   Imu963    ");
-    ips200_show_string(110, 16 * 0, "   Flash     ");
-    ips200_show_string(110, 16 * 1, "   SevroTest ");
-    ips200_show_string(110, 16 * 2, "   TaskSelect");
+    ips200_show_string(136, 16 * 0, "   Flash     ");
+    ips200_show_string(136, 16 * 1, "   SevroTest ");
+    ips200_show_string(136, 16 * 2, "   TaskSelect");
+    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
 }
 
 void main_menu2(void)
@@ -129,9 +141,15 @@ void main_menu2(void)
     ips200_show_string(  0, 16 * 5, "   Points    ");
     ips200_show_string(  0, 16 * 6, "   Camera    ");
     ips200_show_string(  0, 16 * 7, "   Imu963    ");
-    ips200_show_string(110, 16 * 0, "   Flash     ");
-    ips200_show_string(110, 16 * 1, "   SevroTest ");
-    ips200_show_string(110, 16 * 2, "   TaskSelect");
+    ips200_show_string(136, 16 * 0, "   Flash     ");
+    ips200_show_string(136, 16 * 1, "   SevroTest ");
+    ips200_show_string(136, 16 * 2, "   TaskSelect");
+    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
 }
 
 void main_menu3(void)
@@ -144,9 +162,15 @@ void main_menu3(void)
     ips200_show_string(  0, 16 * 5, "   Points    ");
     ips200_show_string(  0, 16 * 6, "   Camera    ");
     ips200_show_string(  0, 16 * 7, "   Imu963    ");
-    ips200_show_string(110, 16 * 0, "   Flash     ");
-    ips200_show_string(110, 16 * 1, "   SevroTest ");
-    ips200_show_string(110, 16 * 2, "   TaskSelect");
+    ips200_show_string(136, 16 * 0, "   Flash     ");
+    ips200_show_string(136, 16 * 1, "   SevroTest ");
+    ips200_show_string(136, 16 * 2, "   TaskSelect");
+    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
 }
 
 void main_menu4(void)
@@ -159,9 +183,15 @@ void main_menu4(void)
     ips200_show_string(  0, 16 * 5, "   Points    ");
     ips200_show_string(  0, 16 * 6, "   Camera    ");
     ips200_show_string(  0, 16 * 7, "   Imu963    ");
-    ips200_show_string(110, 16 * 0, "   Flash     ");
-    ips200_show_string(110, 16 * 1, "   SevroTest ");
-    ips200_show_string(110, 16 * 2, "   TaskSelect");
+    ips200_show_string(136, 16 * 0, "   Flash     ");
+    ips200_show_string(136, 16 * 1, "   SevroTest ");
+    ips200_show_string(136, 16 * 2, "   TaskSelect");
+    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
 }
 
 void main_menu5(void)
@@ -174,9 +204,15 @@ void main_menu5(void)
     ips200_show_string(  0, 16 * 5, "-->Points    ");
     ips200_show_string(  0, 16 * 6, "   Camera    ");
     ips200_show_string(  0, 16 * 7, "   Imu963    ");
-    ips200_show_string(110, 16 * 0, "   Flash     ");
-    ips200_show_string(110, 16 * 1, "   SevroTest ");
-    ips200_show_string(110, 16 * 2, "   TaskSelect");
+    ips200_show_string(136, 16 * 0, "   Flash     ");
+    ips200_show_string(136, 16 * 1, "   SevroTest ");
+    ips200_show_string(136, 16 * 2, "   TaskSelect");
+    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
 }
 
 void main_menu6(void)
@@ -189,9 +225,15 @@ void main_menu6(void)
     ips200_show_string(  0, 16 * 5, "   Points    ");
     ips200_show_string(  0, 16 * 6, "-->Camera    ");
     ips200_show_string(  0, 16 * 7, "   Imu963    ");
-    ips200_show_string(110, 16 * 0, "   Flash     ");
-    ips200_show_string(110, 16 * 1, "   SevroTest ");
-    ips200_show_string(110, 16 * 2, "   TaskSelect");
+    ips200_show_string(136, 16 * 0, "   Flash     ");
+    ips200_show_string(136, 16 * 1, "   SevroTest ");
+    ips200_show_string(136, 16 * 2, "   TaskSelect");
+    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
 }
 
 void main_menu7(void)
@@ -204,9 +246,15 @@ void main_menu7(void)
     ips200_show_string(  0, 16 * 5, "   Points    ");
     ips200_show_string(  0, 16 * 6, "   Camera    ");
     ips200_show_string(  0, 16 * 7, "-->Imu963    ");
-    ips200_show_string(110, 16 * 0, "   Flash     ");
-    ips200_show_string(110, 16 * 1, "   SevroTest ");
-    ips200_show_string(110, 16 * 2, "   TaskSelect");
+    ips200_show_string(136, 16 * 0, "   Flash     ");
+    ips200_show_string(136, 16 * 1, "   SevroTest ");
+    ips200_show_string(136, 16 * 2, "   TaskSelect");
+    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
 }
 
 void main_menu8(void)
@@ -219,9 +267,15 @@ void main_menu8(void)
     ips200_show_string(  0, 16 * 5, "   Points    ");
     ips200_show_string(  0, 16 * 6, "   Camera    ");
     ips200_show_string(  0, 16 * 7, "   Imu963    ");
-    ips200_show_string(110, 16 * 0, "-->Flash     ");
-    ips200_show_string(110, 16 * 1, "   SevroTest ");
-    ips200_show_string(110, 16 * 2, "   TaskSelect");
+    ips200_show_string(136, 16 * 0, "-->Flash     ");
+    ips200_show_string(136, 16 * 1, "   SevroTest ");
+    ips200_show_string(136, 16 * 2, "   TaskSelect");
+    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
 }
 
 void main_menu9(void)
@@ -234,9 +288,15 @@ void main_menu9(void)
     ips200_show_string(  0, 16 * 5, "   Points    ");
     ips200_show_string(  0, 16 * 6, "   Camera    ");
     ips200_show_string(  0, 16 * 7, "   Imu963    ");
-    ips200_show_string(110, 16 * 0, "   Flash     ");
-    ips200_show_string(110, 16 * 1, "-->SevroTest ");
-    ips200_show_string(110, 16 * 2, "   TaskSelect");
+    ips200_show_string(136, 16 * 0, "   Flash     ");
+    ips200_show_string(136, 16 * 1, "-->SevroTest ");
+    ips200_show_string(136, 16 * 2, "   TaskSelect");
+    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
 }
 
 void main_menu10(void)
@@ -249,9 +309,15 @@ void main_menu10(void)
     ips200_show_string(  0, 16 * 5, "   Points    ");
     ips200_show_string(  0, 16 * 6, "   Camera    ");
     ips200_show_string(  0, 16 * 7, "   Imu963    ");
-    ips200_show_string(110, 16 * 0, "   Flash     ");
-    ips200_show_string(110, 16 * 1, "   SevroTest ");
-    ips200_show_string(110, 16 * 2, "-->TaskSelect");
+    ips200_show_string(136, 16 * 0, "   Flash     ");
+    ips200_show_string(136, 16 * 1, "   SevroTest ");
+    ips200_show_string(136, 16 * 2, "-->TaskSelect");
+    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
 }
 
 /////////////////////////////////二层菜单-------------------------------------------------
@@ -842,9 +908,39 @@ void Key_Ctrl_Menu()
         // GPS采点
         if(func_index == 1)
         {
-            GL_CRC();
+            // KEY1或者通道3按下都可以记录点位
+            if(key_get_state(KEY_1) == KEY_SHORT_PRESS || Channal_3_Press_Flag)
+            {
+                if(gnss.state == 1)
+                {
+                    lat_union[Point_NUM].double_type = gnss.latitude; // 偶数储存纬度latitude
+                    lon_union[Point_NUM].double_type = gnss.longitude;// 奇数储存经度longitude
+                    GPS_GET_LAT[Point_NUM] = gnss.latitude;
+                    GPS_GET_LOT[Point_NUM] = gnss.longitude;
+                    Point_NUM++;
+                }
+            }
+            if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
+            {
+                FLASH_SAV_GPS();
+            }
+            if(key_get_state(KEY_3) == KEY_SHORT_PRESS)           // KEY2和KEY3配合以实现对某个目标点的重采集
+            {
 
+                if(Point_NUM >= 0)
+                {
+                    Point_NUM += 1;
+                }
+            }
+            if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
+            {
+                if(Point_NUM > 0)
+                {
+                    Point_NUM -= 1;
+                }
+            }
         }
+
         // ServoP调节
         if(func_index == 5)
         {

@@ -74,20 +74,6 @@ void FLASH_GET_GPS()
     {
         LED_Buzzer_Flag_Ctrl(LED2);
     }
-//    Point_NUM = 6;
-//    GPS_GET_LAT[0] = 22.590801;
-//    GPS_GET_LAT[1] = 22.590741;
-//    GPS_GET_LAT[2] = 22.590671;
-//    GPS_GET_LAT[3] = 22.590666;
-//    GPS_GET_LAT[4] = 22.590737;
-//    GPS_GET_LAT[5] = 22.590791;
-//
-//    GPS_GET_LOT[0] = 113.961823;
-//    GPS_GET_LOT[1] = 113.961822;
-//    GPS_GET_LOT[2] = 113.961823;
-//    GPS_GET_LOT[3] = 113.961864;
-//    GPS_GET_LOT[4] = 113.961859;
-//    GPS_GET_LOT[5] = 113.961853;
 }
 
 // ÐÞÕý Gps Êý¾Ý

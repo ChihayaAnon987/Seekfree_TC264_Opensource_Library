@@ -59,7 +59,7 @@ float I[49] = {1, 0, 0, 0, 0, 0, 0,
                0, 0, 0, 0, 0, 0, 1};
 
 /****************************************************************************************************
- //  @brief      快速计算1/Sqrt(x)
+//  @brief      快速计算1/Sqrt(x)
 //  @param      x                      变量
 //  @return     y                      1/Sqrt(x)
 //  @since
@@ -77,7 +77,7 @@ float invSqrt(float x)
 }
 
 /****************************************************************************************************
- //  @brief      IMU相关初始化
+//  @brief      IMU相关初始化
 //  @param      void                      
 //  @return     void                   
 //  @since
@@ -386,7 +386,7 @@ void AHRS_AHRSupdate1(float gx, float gy, float gz, float ax, float ay, float az
 
 
 /****************************************************************************************************
- //  @brief      获取四元数
+//  @brief      获取四元数
 //  @param      q                     四元数数组
 //  @since
 //  Sample usage:
@@ -410,7 +410,7 @@ void AHRS_getQ(float * q)
 
 
 /****************************************************************************************************
- //  @brief      获取姿态角
+//  @brief      获取姿态角
 //  @param      angles                姿态角数组
 //  @since
 //  Sample usage:
@@ -462,7 +462,7 @@ void Kalman_Offset_Init()
 }
 
 /****************************************************************************************************
- //  @brief      矩阵加法
+//  @brief      矩阵加法
 //  @param      fMatrixA              第一个矩阵
 //  @param      fMatrixB              第二个矩阵
 //  @param      Result                结果矩阵
@@ -487,7 +487,7 @@ void MatrixAdd(float* fMatrixA, float* fMatrixB, float* Result, unsigned int m, 
 
 
 /****************************************************************************************************
- //  @brief      矩阵减法
+//  @brief      矩阵减法
 //  @param      fMatrixA              第一个矩阵
 //  @param      fMatrixB              第二个矩阵
 //  @param      Result                结果矩阵
@@ -514,7 +514,7 @@ void MatrixSub(float* fMatrixA, float* fMatrixB, float* Result, unsigned int m, 
 
 
 /****************************************************************************************************
- //  @brief      矩阵乘法
+//  @brief      矩阵乘法
 //  @param      fMatrixA              第一个矩阵
 //  @param      uRowA                 第一个矩阵的行数
 //  @param      uColA                 第一个矩阵的列数
@@ -556,7 +556,7 @@ void MatrixMultiply(float* fMatrixA, unsigned int uRowA, unsigned int uColA,
 
 
 /****************************************************************************************************
- //  @brief      矩阵转置
+//  @brief      矩阵转置
 //  @param      fMatrixA              输入矩阵
 //  @param      m                     输入矩阵的行数
 //  @param      n                     输入矩阵的列数
@@ -584,7 +584,7 @@ void MatrixTranspose(float* fMatrixA, unsigned int m, unsigned int n, float* fMa
 
 
 /****************************************************************************************************
- //  @brief      矩阵乘法
+//  @brief      矩阵乘法
 //  @param      A                     第一个矩阵
 //  @param      m                     第一个矩阵的行数
 //  @param      n                     第一个矩阵的列数
@@ -624,7 +624,7 @@ void MatrixProduct(float* A, int m, int n, float* B, int k, float* C)
 
 
 /****************************************************************************************************
- //  @brief      生成单位矩阵
+//  @brief      生成单位矩阵
 //  @param      fMatrixA              输入矩阵
 //  @param      n                     矩阵的维度
 //  @since
@@ -649,7 +649,7 @@ void MatrixE(float* fMatrixA, unsigned int n)
 
 
 /****************************************************************************************************
- //  @brief      计算二阶矩阵的行列式
+//  @brief      计算二阶矩阵的行列式
 //  @param      fMatrixA              输入矩阵
 //  @since
 //  Sample usage:
@@ -661,7 +661,7 @@ double MatrixDet2(float* fMatrixA)
 
 
 /****************************************************************************************************
- //  @brief      计算二阶矩阵的逆矩阵
+//  @brief      计算二阶矩阵的逆矩阵
 //  @param      fMatrixA              输入矩阵
 //  @param      fMatrixB              输出矩阵
 //  @return     0：成功，1：失败
@@ -688,7 +688,7 @@ int MatrixInverse2(float* fMatrixA, float* fMatrixB)
 
 
 /****************************************************************************************************
- //  @brief      计算矩阵的逆矩阵
+//  @brief      计算矩阵的逆矩阵
 //  @param      fMatrixA              输入矩阵
 //  @param      n                     矩阵的维度
 //  @param      ep                    精度
@@ -831,7 +831,7 @@ int MatrixInverse(float* fMatrixA, int n, float ep)
 
 
 /****************************************************************************************************
- //  @brief      矩阵UD分解
+//  @brief      矩阵UD分解
 //  @param      A                     输入矩阵
 //  @param      n                     矩阵的维度
 //  @param      U                     U矩阵
@@ -897,7 +897,7 @@ void UD(float* A, int n, float* U, float* D)
 
 
 /****************************************************************************************************
- //  @brief      求矩阵范数
+//  @brief      求矩阵范数
 //  @param      fMatrixA              输入矩阵
 //  @param      iRow                  矩阵的行数
 //  @param      iCol                  矩阵的列数
