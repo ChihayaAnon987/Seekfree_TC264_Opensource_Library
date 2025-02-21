@@ -40,11 +40,8 @@ void CPU1_Init()
 void ips200_Init()
 {
     ips200_init(IPS200_TYPE);
-//    if(gnss.time.hour > 18)
-//    {
-        ips200_set_color(RGB565_WHITE, RGB565_BLACK);                   // 护眼模式
-        ips200_full(RGB565_BLACK);
-//    }
+    ips200_set_color(RGB565_WHITE, RGB565_BLACK);                   // 护眼模式
+    ips200_full(RGB565_BLACK);
 }
 void Oscilloscope_Init(uint8 Channel_Num)
 {

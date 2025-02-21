@@ -31,7 +31,7 @@ void RemoteCtrl_Direction_Speed()
 {
     if(Control_Flag == 1)
     {
-        RemoteCtrl_Direction = (int16)((856 - uart_receiver.channel[0]) * 28 / 800);    // 把其值映射到SERVO_MOTOR_RMAX 到 SERVO_MOTOR_LMAX
+        RemoteCtrl_Direction = (int16)((856 - uart_receiver.channel[0]) * 24 / 800);    // 把其值映射到SERVO_MOTOR_RMAX 到 SERVO_MOTOR_LMAX
         static float CenterAngle;
         if(RemoteCtrl_Direction == 0)
         {
