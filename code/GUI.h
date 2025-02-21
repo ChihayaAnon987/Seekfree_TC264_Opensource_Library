@@ -61,6 +61,7 @@ void main_menu7(void);                                         // 主菜单7
 void main_menu8(void);                                         // 主菜单8
 void main_menu9(void);                                         // 主菜单9
 void main_menu10(void);                                        // 主菜单10
+void main_menu11(void);                                        // 主菜单11
 //===================================================一级菜单END===================================================
 
 
@@ -78,6 +79,7 @@ void ZongZuanF(void);                                          // 菜单：总钻风
 void Imu963_menu(void);                                        // 菜单：IMU963
 void Flash_menu(void);                                         // 菜单：Flash
 void Servo_menu(void);                                         // 菜单：舵机
+void Param_Set(void);                                          // 菜单：参数设置
 void Task_Select(void);                                        // 菜单：任务选择
 //===================================================二级菜单END===================================================
 

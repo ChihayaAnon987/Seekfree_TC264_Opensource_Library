@@ -46,11 +46,11 @@ void RemoteCtrl_Direction_Speed()
                 {
                     if(RemoteCtrl_Speed > 0)
                     {
-                        Angle_Error = -(angle[2] - CenterAngle);
+                        Angle_Error = -K_Straight * (angle[2] - CenterAngle);
                     }
                     else
                     {
-                        Angle_Error = angle[2] - CenterAngle;
+                        Angle_Error =  K_Straight * (angle[2] - CenterAngle);
                     }
                 }
                 else

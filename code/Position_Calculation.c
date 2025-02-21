@@ -8,11 +8,13 @@
 #include "zf_common_headfile.h"
 
 
-int Track_Points_NUM  =   0;       // 当前追踪第几个点
-double Angle_Error    =   0;       // 方向角与航向角之差
-float  Fusion_angle   =   0;       // GPS和IMU互补滤波后的角度
-float  Fusion_alpha   = 0.9;       // GPS和IMU互补滤波的权重
-int16  Target_Encoder =   0;       // 转速
+int Track_Points_NUM   =   0;       // 当前追踪第几个点
+double Angle_Error     =   0;       // 方向角与航向角之差
+float  Fusion_angle    =   0;       // GPS和IMU互补滤波后的角度
+float  Fusion_alpha    = 0.9;       // GPS和IMU互补滤波的权重
+int16  Target_Encoder  =   0;       // 转速
+int16  Fly_Slope_Alpha = 200;       // 飞坡系数
+float  K_Straight      = 1.2;       // 走直线系数
 
 
 /****************************************************************************************************
@@ -81,12 +83,18 @@ void Track_Follow()
 
     if(Track_Points_NUM == Task1_Start_Point || Track_Points_NUM == Task2_Start_Point || Track_Points_NUM == Task3_Start_Point)
     {
-        Angle_Error = -angle[2];
+        Angle_Error = -K_Straight * angle[2];
     }
     Target_Encoder = GpsTgtEncod[Track_Points_NUM];
 
-
-
+    if(fabs(angle[0]) > 20)
+    {
+        Target_Encoder -= fabs(fabs(angle[0]) - 20) * Fly_Slope_Alpha;
+        if(Target_Encoder <= 1500)
+        {
+            Target_Encoder = 1500;
+        }
+    }
 }
 
 // 切换点位

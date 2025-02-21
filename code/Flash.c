@@ -148,6 +148,11 @@ void FLASH_SAV_PAR()
     flash_union_buffer[8].int8_type  = Task1_Points;
     flash_union_buffer[9].int8_type  = Task2_Points;
     flash_union_buffer[10].int8_type = Task3_Points;
+
+    // 系数
+    flash_union_buffer[11].int16_type = Fly_Slope_Alpha;
+    flash_union_buffer[12].float_type = K_Straight;
+    
     // 换点距离和速度数组
     for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
     {
@@ -157,7 +162,6 @@ void FLASH_SAV_PAR()
     {
         flash_union_buffer[i].int16_type = GpsTgtEncod[i - 100 - NUM_GPS_DATA];
     }
-
     // 指示灯亮，表明已读取
     LED_Buzzer_Flag_Ctrl(LED1);
 
@@ -189,6 +193,11 @@ void FLASH_GET_PAR()
         Task1_Points = flash_union_buffer[8].int8_type ;
         Task2_Points = flash_union_buffer[9].int8_type ;
         Task3_Points = flash_union_buffer[10].int8_type;
+
+        // 系数
+        Fly_Slope_Alpha = flash_union_buffer[11].int16_type;
+        K_Straight      = flash_union_buffer[12].float_type;
+
         // 换点距离和速度数组
         for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
         {

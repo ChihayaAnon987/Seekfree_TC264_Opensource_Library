@@ -20,6 +20,8 @@ extern double Angle_Error;                                     // 角度误差
 extern float  Fusion_angle;                                    // GPS和IMU互补滤波后的角度
 extern float  Fusion_alpha;                                    // GPS和IMU互补滤波的权重
 extern int16  Target_Encoder;                                  // 转速
+extern int16  Fly_Slope_Alpha;                                 // 飞坡系数
+extern float  K_Straight;                                      // 走直线系数
 //===================================================全局变量END===================================================
 
 
