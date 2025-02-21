@@ -14,7 +14,7 @@ float  Fusion_angle    =   0;       // GPS和IMU互补滤波后的角度
 float  Fusion_alpha    = 0.9;       // GPS和IMU互补滤波的权重
 int16  Target_Encoder  =   0;       // 转速
 int16  Fly_Slope_Alpha = 200;       // 飞坡系数
-float  K_Straight      = 1.2;       // 走直线系数
+float  K_Straight      = 1.7;       // 走直线系数
 
 
 /****************************************************************************************************

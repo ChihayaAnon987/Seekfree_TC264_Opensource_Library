@@ -1008,6 +1008,18 @@ void Key_Ctrl_Menu()
                     Point_NUM -= 1;
                 }
             }
+            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            {
+                Point_NUM = Task1_Start_Point;
+            }
+            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
+            {
+                Point_NUM = Task2_Start_Point;
+            }
+            if(key_get_state(KEY_3) == KEY_LONG_PRESS)
+            {
+                Point_NUM = Task3_Start_Point;
+            }
         }
 
         // ServoP调节
@@ -1294,6 +1306,10 @@ void Key_Ctrl_Menu()
                     Task3_Points -= 1;
                 }
             }
+            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            {
+                FLASH_SAV_PAR();
+            }
         }
 
         //点位查看调节
@@ -1393,7 +1409,6 @@ void Key_Ctrl_Menu()
 
         if(func_index == 26)
         {
-
             // 按下KEY1从Flash中获取经纬度数据
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
