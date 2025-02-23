@@ -152,6 +152,23 @@ void FLASH_SAV_PAR()
     // 系数
     flash_union_buffer[11].int16_type = Fly_Slope_Alpha;
     flash_union_buffer[12].float_type = K_Straight;
+
+    flash_union_buffer[13].float_type = From_0000_To_2000_ServoPD.Kp;
+    flash_union_buffer[14].float_type = From_0000_To_2000_ServoPD.Kd;
+    flash_union_buffer[15].float_type = From_2000_To_4000_ServoPD.Kp;
+    flash_union_buffer[16].float_type = From_2000_To_4000_ServoPD.Kd;
+    flash_union_buffer[17].float_type = From_4000_To_5000_ServoPD.Kp;
+    flash_union_buffer[18].float_type = From_4000_To_5000_ServoPD.Kd;
+    flash_union_buffer[19].float_type = From_5000_To_6000_ServoPD.Kp;
+    flash_union_buffer[20].float_type = From_5000_To_6000_ServoPD.Kd;
+    flash_union_buffer[21].float_type = From_6000_To_7000_ServoPD.Kp;
+    flash_union_buffer[22].float_type = From_6000_To_7000_ServoPD.Kd;
+    flash_union_buffer[23].float_type = From_7000_To_8000_ServoPD.Kp;
+    flash_union_buffer[24].float_type = From_7000_To_8000_ServoPD.Kd;
+    flash_union_buffer[25].float_type = From_8000_To_9000_ServoPD.Kp;
+    flash_union_buffer[26].float_type = From_8000_To_9000_ServoPD.Kd;
+    flash_union_buffer[27].float_type = From_9000_To_9900_ServoPD.Kp;
+    flash_union_buffer[28].float_type = From_9000_To_9900_ServoPD.Kd;
     
     // 换点距离和速度数组
     for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
@@ -197,6 +214,23 @@ void FLASH_GET_PAR()
         // 系数
         Fly_Slope_Alpha = flash_union_buffer[11].int16_type;
         K_Straight      = flash_union_buffer[12].float_type;
+
+        From_0000_To_2000_ServoPD.Kp = flash_union_buffer[13].float_type;
+        From_0000_To_2000_ServoPD.Kd = flash_union_buffer[14].float_type;
+        From_2000_To_4000_ServoPD.Kp = flash_union_buffer[15].float_type;
+        From_2000_To_4000_ServoPD.Kd = flash_union_buffer[16].float_type;
+        From_4000_To_5000_ServoPD.Kp = flash_union_buffer[17].float_type;
+        From_4000_To_5000_ServoPD.Kd = flash_union_buffer[18].float_type;
+        From_5000_To_6000_ServoPD.Kp = flash_union_buffer[19].float_type;
+        From_5000_To_6000_ServoPD.Kd = flash_union_buffer[20].float_type;
+        From_6000_To_7000_ServoPD.Kp = flash_union_buffer[21].float_type;
+        From_6000_To_7000_ServoPD.Kd = flash_union_buffer[22].float_type;
+        From_7000_To_8000_ServoPD.Kp = flash_union_buffer[23].float_type;
+        From_7000_To_8000_ServoPD.Kd = flash_union_buffer[24].float_type;
+        From_8000_To_9000_ServoPD.Kp = flash_union_buffer[25].float_type;
+        From_8000_To_9000_ServoPD.Kd = flash_union_buffer[26].float_type;
+        From_9000_To_9900_ServoPD.Kp = flash_union_buffer[27].float_type;
+        From_9000_To_9900_ServoPD.Kd = flash_union_buffer[28].float_type;
 
         // 换点距离和速度数组
         for(int i = 100; i < 100 + NUM_GPS_DATA; i++)

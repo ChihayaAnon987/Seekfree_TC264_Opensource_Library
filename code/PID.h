@@ -35,21 +35,12 @@ typedef struct
     // unsigned long last_t;                                      // ÉÏ´ÎÊ±¼ä
 } PIDController;
 
-// typedef struct
-// {
-//     float Kp;                                                  // ±ÈÀýÏµÊýP
-//     float Ki;                                                  // »ý·ÖÏµÊýI
-//     float Kd;                                                  // Î¢·ÖÏµÊýD
-//     float imax;                                                // »ý·ÖÏÞ·ù
+typedef struct 
+{
+    float Kp;
+    float Kd;
+} ServoPD;
 
-//     float targetVal;                                           // Ä¿±êÖµ
-//     float currentError;                                        // µ±Ç°Ê±¿ÌµÄÎó²î
-//     float preError;                                            // Ç°Ò»Ê±¿ÌµÄÎó²î
-//     float prepreError;                                         // Ç°Á½´Î²ÉÑùÊ±¿ÌµÄÎó²î
-//     float derivative;                                          // Îó²îÎ¢·Ö
-//     float integral;                                            // Îó²î»ý·Ö
-//     float output;                                              // Êä³ö
-// } PIDController;
 
 typedef struct                                                  // »¬¶¯Æ½¾ùÂË²¨½á¹¹Ìå
 {
@@ -63,11 +54,19 @@ typedef struct                                                  // »¬¶¯Æ½¾ùÂË²¨½
 
 
 //===================================================È«¾Ö±äÁ¿BEG===================================================
-extern PIDController PID_Init;         // PID³õÊ¼»¯¿ØÖÆÆ÷
-extern PIDController PID_GPS;          // GPS PID¿ØÖÆÆ÷
-extern PIDController PID_IMU;          // IMU PID¿ØÖÆÆ÷
-extern PIDController PID_SERVO;        // ¶æ»ú PID¿ØÖÆÆ÷
-extern PIDController PID_MOTOR;        // µç»ú PID¿ØÖÆÆ÷
+extern PIDController PID_Init;                                 // PID³õÊ¼»¯¿ØÖÆÆ÷
+extern PIDController PID_GPS;                                  // GPS PID¿ØÖÆÆ÷
+extern PIDController PID_IMU;                                  // IMU PID¿ØÖÆÆ÷
+extern PIDController PID_SERVO;                                // ¶æ»ú PID¿ØÖÆÆ÷
+extern PIDController PID_MOTOR;                                // µç»ú PID¿ØÖÆÆ÷
+extern ServoPD From_0000_To_2000_ServoPD;                      // ¶æ»úPD
+extern ServoPD From_2000_To_4000_ServoPD;                      // ¶æ»úPD
+extern ServoPD From_4000_To_5000_ServoPD;                      // ¶æ»úPD
+extern ServoPD From_5000_To_6000_ServoPD;                      // ¶æ»úPD
+extern ServoPD From_6000_To_7000_ServoPD;                      // ¶æ»úPD
+extern ServoPD From_7000_To_8000_ServoPD;                      // ¶æ»úPD
+extern ServoPD From_8000_To_9000_ServoPD;                      // ¶æ»úPD
+extern ServoPD From_9000_To_9900_ServoPD;                      // ¶æ»úPD
 //===================================================È«¾Ö±äÁ¿END===================================================
 
 

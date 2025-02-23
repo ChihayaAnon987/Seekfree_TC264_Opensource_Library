@@ -83,7 +83,7 @@ void Track_Follow()
 
     if(Track_Points_NUM == Task1_Start_Point || Track_Points_NUM == Task2_Start_Point || Track_Points_NUM == Task3_Start_Point)
     {
-        Angle_Error = -K_Straight * angle[2];
+        Angle_Error = -angle[2];
     }
     Target_Encoder = GpsTgtEncod[Track_Points_NUM];
 

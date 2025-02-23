@@ -2,6 +2,7 @@
     "files.associations": {
         "zf_common_headfile.h": "c",
         "isr_config.h": "c",
-        "isr.h": "c"
+        "isr.h": "c",
+        "kalman.h": "c"
     }
 }
