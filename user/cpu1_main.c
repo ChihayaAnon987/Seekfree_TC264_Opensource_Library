@@ -57,9 +57,11 @@ void core1_main(void)
     {
         // 此处编写需要循环执行的代码
         LED_Buzzer_Ctrl();
+    #if UART_RECEIVER_ENABLE == 1
         Is_Channal_3_Press();
         Is_Channal_5_Press();
         Is_Channal_6_Press();
+    #endif
         Menu_Control();
         key_scanner();
         Key_Ctrl_Menu();

@@ -3,6 +3,11 @@
         "zf_common_headfile.h": "c",
         "isr_config.h": "c",
         "isr.h": "c",
-        "kalman.h": "c"
+        "kalman.h": "c",
+        "ifxccu6.h": "c",
+        "ifxscueru.h": "c",
+        "ifxccu6_timer.h": "c",
+        "bsp.h": "c",
+        "ifxasclin_reg.h": "c"
     }
 }

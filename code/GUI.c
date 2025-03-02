@@ -420,31 +420,32 @@ void GPS_menu(void)
     ips200_show_string(  0, 16 * 1, "Now_Lat:");
     ips200_show_string(  0, 16 * 2, "Now_Lon:");
     ips200_show_string(168, 16 * 1, "state:");
-    ips200_show_string(168, 16 * 2, "K_G:");
     ips200_show_string(  0, 16 * 3, "Filter_Lat:");
     ips200_show_string(  0, 16 * 4, "Filter_Lon:");
-    ips200_show_string(  0, 16 * 5, "Gps_Yaw:");
-    ips200_show_string(  0, 16 * 6, "Gps_Yaw2:");
-    ips200_show_string(  0, 16 * 7, "Yaw:");
-    ips200_show_string(  0, 16 * 8, "Angle:");
-    ips200_show_string(  0, 16 * 9, "KEY1:K+0.05");
-    ips200_show_string(120, 16 * 9, "KEY2:K-0.05");
+    ips200_show_string(  0, 16 * 5, "Speed:");
+    ips200_show_string(  0, 16 * 6, "MaxSpeed:");
+    ips200_show_string(  0, 16 * 7, "Accel:");
+    ips200_show_string(  0, 16 * 8, "MaxAccel:");
+    ips200_show_string(  0, 16 * 9, "Angle:");
+
     ips200_show_float ( 64, 16 * 1, gnss.latitude  , 4, 6);
     ips200_show_float ( 64, 16 * 2, gnss.longitude , 4, 6);
     ips200_show_uint  (216, 16 * 1, gnss.state     , 1);
-    ips200_show_float (200, 16 * 2, K_Gps          , 1, 2);
     ips200_show_float ( 88, 16 * 3, FilterPoint_Lat, 4, 6);
     ips200_show_float ( 88, 16 * 4, FilterPoint_Lon, 4, 6);
-    ips200_show_float ( 72, 16 * 5, Gps_Yaw        , 4, 6);
-    ips200_show_float ( 72, 16 * 6, Gps_Yaw2       , 4, 6);
-    ips200_show_float ( 72, 16 * 7, Yaw            , 4, 6);
-    ips200_show_float ( 48, 16 * 8, Angle          , 4, 6);
+    ips200_show_float ( 48, 16 * 5, gnss.speed     , 3, 3);
+    ips200_show_float ( 72, 16 * 6, GpsMaxSpeed    , 3, 3);
+    ips200_show_float ( 48, 16 * 7, GpsAccel       , 3, 3);
+    ips200_show_float ( 72, 16 * 8, GpsMaxAccel    , 3, 3);
+    ips200_show_float ( 48, 16 * 9, Angle          , 4, 6);
 
    seekfree_assistant_oscilloscope_send(&oscilloscope_data);
    oscilloscope_data.data[0] = gnss.latitude;
    oscilloscope_data.data[1] = gnss.longitude;
    oscilloscope_data.data[2] = Angle;
    oscilloscope_data.data[3] = gnss.direction;
+   oscilloscope_data.data[4] = gnss.speed;
+   oscilloscope_data.data[5] = GpsAccel;
 }
 
 void spd_menu(void)
@@ -746,8 +747,8 @@ void Param_Set()
     }
     if(Page == 1)
     {
-        ips200_show_string( 24, 16 * 0, "4500DutyServoKp:");
-        ips200_show_string( 24, 16 * 1, "4500DutyServoKd:");
+        ips200_show_string( 24, 16 * 0, "5500DutyServoKp:");
+        ips200_show_string( 24, 16 * 1, "5500DutyServoKd:");
         ips200_show_string( 24, 16 * 2, "6500DutyServoKp:");
         ips200_show_string( 24, 16 * 3, "6500DutyServoKd:");
         ips200_show_string( 24, 16 * 4, "7500DutyServoKp:");
@@ -1211,20 +1212,6 @@ void Key_Ctrl_Menu()
 
         if(func_index == 12)
         {
-            if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
-            {
-                if(K_Gps < 1)
-                {
-                    K_Gps += 0.05;
-                }
-            }
-            if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
-            {
-                if(K_Gps > 0)
-                {
-                    K_Gps -= 0.05;
-                }
-            }
         }
 
         // µ÷ÊÔËÙ¶È

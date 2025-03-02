@@ -16,13 +16,13 @@ PIDController PID_GPS;    // 用于 GPS 控制
 PIDController PID_IMU;    // 用于 IMU 控制
 PIDController PID_SERVO;  // 舵机 PID控制器
 PIDController PID_MOTOR;  // 电机 PID控制器
-ServoPD From_0000_To_2000_ServoPD = {1.80, 1.20};   // 用20%占空比作为参考，含左不含右
-ServoPD From_2000_To_4000_ServoPD = {1.53, 1.19};   // 用30%占空比作为参考，含左不含右
-ServoPD From_4000_To_5000_ServoPD = {1.35, 0.92};   // 用45%占空比作为参考，含左不含右
-ServoPD From_5000_To_6000_ServoPD = {1.14, 0.70};   // 用55%占空比作为参考，含左不含右
-ServoPD From_6000_To_7000_ServoPD = {0.90, 0.70};   // 用65%占空比作为参考，含左不含右
-ServoPD From_7000_To_8000_ServoPD = {0.70, 0.60};   // 用75%占空比作为参考，含左不含右
-ServoPD From_8000_To_9000_ServoPD = {0.50, 0.50};   // 用85%占空比作为参考，含左不含右
+ServoPD From_0000_To_2000_ServoPD = {1.75, 0.75};   // 用20%占空比作为参考，含左且含右
+ServoPD From_2000_To_4000_ServoPD = {1.10, 0.55};   // 用30%占空比作为参考，不含左和右
+ServoPD From_4000_To_5000_ServoPD = {0.85, 0.40};   // 用45%占空比作为参考，含左不含右
+ServoPD From_5000_To_6000_ServoPD = {0.63, 0.47};   // 用55%占空比作为参考，含左不含右
+ServoPD From_6000_To_7000_ServoPD = {0.47, 0.53};   // 用65%占空比作为参考，含左不含右
+ServoPD From_7000_To_8000_ServoPD = {0.28, 0.68};   // 用75%占空比作为参考，含左不含右
+ServoPD From_8000_To_9000_ServoPD = {0.40, 0.75};   // 用85%占空比作为参考，含左不含右
 ServoPD From_9000_To_9900_ServoPD = {0.40, 0.40};   // 用95%占空比作为参考，含左且含右
 
 /****************************************************************************************************
@@ -134,12 +134,12 @@ void PDLocServoCtrl()
     PID_SERVO.last_error    = PID_SERVO.current_error;
     PID_SERVO.current_error = Angle_Error;
     PID_SERVO.derivative    = PID_SERVO.current_error - PID_SERVO.last_error;
-    if(Target_Encoder >= 0 && Target_Encoder < 2000)
+    if(Target_Encoder >= 0 && Target_Encoder <= 2000)
     {
         PID_SERVO.output = From_0000_To_2000_ServoPD.Kp * PID_SERVO.current_error +
         From_0000_To_2000_ServoPD.Kd * PID_SERVO.derivative;
     }
-    else if(Target_Encoder >= 2000 && Target_Encoder < 4000)
+    else if(Target_Encoder > 2000 && Target_Encoder < 4000)
     {
         PID_SERVO.output = From_2000_To_4000_ServoPD.Kp * PID_SERVO.current_error +
         From_2000_To_4000_ServoPD.Kd * PID_SERVO.derivative;

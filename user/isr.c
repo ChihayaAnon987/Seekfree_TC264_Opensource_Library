@@ -92,9 +92,7 @@ IFX_INTERRUPT(cc61_pit_ch0_isr, 0, CCU6_1_CH0_ISR_PRIORITY)
 
     // 0.1s中断，10Hz
     Get_Gps();
-    // Get_Gps_Yaw();
-
-
+    Get_Physicla_Parameter();
 }
 
 IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
@@ -103,7 +101,9 @@ IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
     pit_clear_flag(CCU61_CH1);
 
     // 0.005s中断，200Hz
+#if UART_RECEIVER_ENABLE == 1
     RemoteCtrl_Program();
+#endif
 
 }
 // **************************** PIT中断函数 ****************************

@@ -95,6 +95,14 @@ void Track_Follow()
             Target_Encoder = 1500;
         }
     }
+    
+    #if UART_RECEIVER_ENABLE == 1
+        if(uart_receiver.state == 0)
+        {
+            Target_Encoder = 0;             // Ò£¿ØÆ÷Ê§¿Ø±£»¤
+            LED_Buzzer_Flag_Ctrl(LED3);
+        }
+    #endif
 }
 
 // ÇÐ»»µãÎ»

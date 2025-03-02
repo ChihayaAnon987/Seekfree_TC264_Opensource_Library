@@ -9,7 +9,8 @@
 #define CODE_COMMON_PERIPHERALS_H_
 
 //===================================================宏定义BEG===================================================
-#define IPS200_TYPE     (IPS200_TYPE_PARALLEL8)              // 双排排针 并口两寸屏 这里宏定义填写 IPS200_TYPE_PARALLEL8
+#define UART_RECEIVER_ENABLE     (1)                         // 0: 串口  1: 遥控器  2: 不使用
+#define IPS200_TYPE     (IPS200_TYPE_SPI)                    // 双排排针 并口两寸屏 这里宏定义填写 IPS200_TYPE_PARALLEL8
                                                              // 单排排针 SPI 两寸屏 这里宏定义填写 IPS200_TYPE_SPI
 
 #define BUZZER_PIN              (P33_10)                     // 蜂鸣器控制引脚

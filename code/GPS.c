@@ -76,9 +76,12 @@ double Delta_y      = 0;            // 位移
 double Distance     = 0;            // 自身距下一个点的距离
 double GPS_GET_LAT[NUM_GPS_DATA];   // 纬度
 double GPS_GET_LOT[NUM_GPS_DATA];   // 经度
+float  GpsAccel;                    // 加速度
+float  GpsMaxSpeed = 0;             // 最大速度
+float  GpsMaxAccel = 0;             // 最大加速度
 int8   Task1_Points = 5;            // 科目一所用点位数量
 int8   Task2_Points = 10;           // 科目二所用点位数量（4个桶, 每多一个桶增加两个点位）
-int8   Task3_Points = 9;           // 科目三所用点位数量
+int8   Task3_Points = 9;            // 科目三所用点位数量
 float  GpsDistance[NUM_GPS_DATA] = 
 {
     5.0, 3.0, 2.5, 4.0,   0,   0,   0,   0, 1.5,   0,  // 0 - 9
@@ -131,7 +134,7 @@ void Get_Gps()
         {
             Angle += 360;
         }
-        Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
+
         // if(gnss.direction < 180)
         // {
         //     Gps_Yaw = gnss.direction;
@@ -159,5 +162,23 @@ void Get_Gps_Yaw()
         Yaw = Gps_Yaw2 / 10;
         Gps_Yaw2 = 0;
         Yaw_Times = 0;
+    }
+}
+
+void Get_Physicla_Parameter()
+{
+    static float Last_Speed = 0;
+    float dT = 0.1;
+    GpsAccel = (gnss.speed - Last_Speed) / dT;
+    Last_Speed = gnss.speed;
+
+    if(GpsAccel > GpsMaxAccel)
+    {
+        GpsMaxAccel = GpsAccel;
+    }
+
+    if(gnss.speed > GpsMaxSpeed)
+    {
+        GpsMaxSpeed = gnss.speed;
     }
 }
