@@ -49,10 +49,6 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     // 0.005s中断，200Hz
 
     AHRS_getYawPitchRoll(angle);
-//    if(kalman_Offset_flag == 0)
-//    {
-//        Kalman_Offset_Init();
-//    }
     if(gyro_Offset_flag == 1)
     {
         IMU_YAW_integral();  //积分出角度值
@@ -76,10 +72,12 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
         // PIDIncMotorCtrl(Target_Encoder);               // 电机 PID增量式控制
         DRV8701_MOTOR_DRIVER(Target_Encoder);          // 电机驱动
     }
-    if(Control_Flag == 1 && Center_Flag == 1)
-    {
-        PDLocServoCtrl();
-    }
+    #if UART_RECEIVER_ENABLE == 1
+        if(Control_Flag == 1 && Center_Flag == 1)
+        {
+            PDLocServoCtrl();
+        }
+    #endif
     Encoder_Get();
     Point_Switch();
 

@@ -109,12 +109,14 @@ void main_menu0(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
 void main_menu1(void)
@@ -131,12 +133,14 @@ void main_menu1(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
 void main_menu2(void)
@@ -153,12 +157,14 @@ void main_menu2(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
 void main_menu3(void)
@@ -175,12 +181,14 @@ void main_menu3(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
 void main_menu4(void)
@@ -197,12 +205,14 @@ void main_menu4(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
 void main_menu5(void)
@@ -219,12 +229,14 @@ void main_menu5(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
 void main_menu6(void)
@@ -241,12 +253,14 @@ void main_menu6(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
 void main_menu7(void)
@@ -263,12 +277,14 @@ void main_menu7(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
 void main_menu8(void)
@@ -285,12 +301,14 @@ void main_menu8(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
 void main_menu9(void)
@@ -307,12 +325,14 @@ void main_menu9(void)
     ips200_show_string(136, 16 * 1, "-->SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
 void main_menu10(void)
@@ -329,12 +349,14 @@ void main_menu10(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "-->ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
 void main_menu11(void)
@@ -351,12 +373,14 @@ void main_menu11(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "-->TaskSelect");
-    ips200_draw_line  (108, 0, 108, 184, RGB565_PURPLE);
-    ips200_draw_line  (132, 0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
+    ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
+    ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
     ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 /////////////////////////////////二层菜单-------------------------------------------------
 void CaiDian_menu(void)
@@ -407,9 +431,9 @@ void MotorPID(void)
 void GPS_menu(void)
 {
     ips200_show_uint(    0, 16 * 0, gnss.time.year  , 4);
-    ips200_show_string( 32, 16 * 0, "/");
+    ips200_draw_line(   32, 16 * 0, 32, 16 * 1, RGB565_PURPLE);
     ips200_show_uint(   40, 16 * 0, gnss.time.month , 2);
-    ips200_show_string( 56, 16 * 0, "/");
+    ips200_draw_line(   48, 16 * 0, 48, 16 * 1, RGB565_PURPLE);
     ips200_show_uint(   64, 16 * 0, gnss.time.day   , 2);
     ips200_show_uint(  176, 16 * 0, gnss.time.hour  , 2);
     ips200_show_string(192, 16 * 0, ":");
@@ -454,13 +478,13 @@ void spd_menu(void)
     ips200_show_string( 0, 16 * 1, "   Distance:");
     ips200_show_string( 0, 16 * 2, "   TasPoint:");    
 
-    ips200_show_uint  (184, 16 * 0, Point1, 3);
-    ips200_show_string(208, 16 * 0, "/");
-    ips200_show_uint  (216, 16 * 0, NUM_GPS_DATA - 1, 3);
+    ips200_show_uint(184, 16 * 0, Point1, 3);
+    ips200_draw_line(208, 16 * 0, 208, 16 * 1, RGB565_PURPLE);
+    ips200_show_uint(216, 16 * 0, NUM_GPS_DATA - 1, 3);
 
     int Page = Point1 / Page_Point_Num;
     int RightArrow = Point1 % Page_Point_Num + 1;
-    ips200_show_string(176, 16 * RightArrow, "->");
+    ips200_show_string(168, 16 * RightArrow, "-->");
     for(int i = 1; i <= Page_Point_Num; i++)
     {
         ips200_show_uint (192, 16 * i, GpsTgtEncod[i - 1 + Page * Page_Point_Num], 5);
@@ -481,58 +505,57 @@ void Distance_menu(void)
     ips200_show_string( 0, 16 * 1, "-->Distance:");
     ips200_show_string( 0, 16 * 2, "   TasPoint:");
 
-    ips200_show_uint  (184, 16 * 0, Point1, 3);
-    ips200_show_string(208, 16 * 0, "/");
-    ips200_show_uint  (216, 16 * 0, NUM_GPS_DATA - 1, 3);
+    ips200_show_uint(184, 16 * 0, Point1, 3);
+    ips200_draw_line(208, 16 * 0, 208, 16 * 1, RGB565_PURPLE);
+    ips200_show_uint(216, 16 * 0, NUM_GPS_DATA - 1, 3);
 
     int Page = Point1 / Page_Point_Num;
     int RightArrow = Point1 % Page_Point_Num + 1;
-    ips200_show_string(176, 16 * RightArrow, "->");
+    ips200_show_string(168, 16 * RightArrow, "-->");
     for(int i = 1; i <= Page_Point_Num; i++)
     {
-        ips200_show_float (192, 16 * i, GpsDistance[i - 1 + Page * Page_Point_Num], 1, 1);
+        ips200_show_float (192, 16 * i, GpsDistance[i - 1 + Page * Page_Point_Num], 1, 2);
     }
 
     ips200_show_string(  0, 16 *  9, "KEY1:Point-1");
     ips200_show_string(  0, 16 * 10, "KEY2:Point+1");
-    ips200_show_string(120, 16 *  9, "KEY3:Dist+0.5");
-    ips200_show_string(120, 16 * 10, "KEY4:Dist-0.5");
+    ips200_show_string(120, 16 *  9, "KEY3:Dist+0.10");
+    ips200_show_string(120, 16 * 10, "KEY4:Dist-0.10");
 
 }
 
 void TaskPoint(void)
 {
-    ips200_show_string(0, 16 * 0, "   Duty    :");
-    ips200_show_string(0, 16 * 1, "   Distance:");
-    ips200_show_string(0, 16 * 2, "-->TasPoint:");
-
+    ips200_show_string(0, 16 * 0, "   Duty    ");
+    ips200_show_string(0, 16 * 1, "   Distance");
+    ips200_show_string(0, 16 * 2, "-->TasPoint");
 
     if(Task_Point_Set == 1)
     {
-        ips200_show_string(0, 16 * 3, "->Task1Point:");
-        ips200_show_string(0, 16 * 4, "  Task2Point:");
-        ips200_show_string(0, 16 * 5, "  Task3Point:");
-        ips200_show_int (104, 16 * 3, Task1_Points, 3);
-        ips200_show_int (104, 16 * 4, Task2_Points, 3);
-        ips200_show_int (104, 16 * 5, Task3_Points, 3);
+        ips200_show_string(0, 16 * 3, "-->Task1Point:");
+        ips200_show_string(0, 16 * 4, "   Task2Point:");
+        ips200_show_string(0, 16 * 5, "   Task3Point:");
+        ips200_show_int (112, 16 * 3, Task1_Points, 3);
+        ips200_show_int (112, 16 * 4, Task2_Points, 3);
+        ips200_show_int (112, 16 * 5, Task3_Points, 3);
     }
     if(Task_Point_Set == 2)
     {
-        ips200_show_string(0, 16 * 3, "  Task1Point:");
-        ips200_show_string(0, 16 * 4, "->Task2Point:");
-        ips200_show_string(0, 16 * 5, "  Task3Point:");
-        ips200_show_int (104, 16 * 3, Task1_Points, 3);
-        ips200_show_int (104, 16 * 4, Task2_Points, 3);
-        ips200_show_int (104, 16 * 5, Task3_Points, 3);
+        ips200_show_string(0, 16 * 3, "   Task1Point:");
+        ips200_show_string(0, 16 * 4, "-->Task2Point:");
+        ips200_show_string(0, 16 * 5, "   Task3Point:");
+        ips200_show_int (112, 16 * 3, Task1_Points, 3);
+        ips200_show_int (112, 16 * 4, Task2_Points, 3);
+        ips200_show_int (112, 16 * 5, Task3_Points, 3);
     }
     if(Task_Point_Set == 3)
     {
-        ips200_show_string(0, 16 * 3, "  Task1Point:");
-        ips200_show_string(0, 16 * 4, "  Task2Point:");
-        ips200_show_string(0, 16 * 5, "->Task3Point:");
-        ips200_show_int (104, 16 * 3, Task1_Points, 3);
-        ips200_show_int (104, 16 * 4, Task2_Points, 3);
-        ips200_show_int (104, 16 * 5, Task3_Points, 3);
+        ips200_show_string(0, 16 * 3, "   Task1Point:");
+        ips200_show_string(0, 16 * 4, "   Task2Point:");
+        ips200_show_string(0, 16 * 5, "-->Task3Point:");
+        ips200_show_int (112, 16 * 3, Task1_Points, 3);
+        ips200_show_int (112, 16 * 4, Task2_Points, 3);
+        ips200_show_int (112, 16 * 5, Task3_Points, 3);
     }
 
     ips200_show_string(  0, 16 *  9, "KEY1:Task-1");
@@ -623,49 +646,48 @@ void Points_menu(void)
 
 void ZongZuanF(void)
 {
-    Process_Image();
-    if(mt9v03x_finish_flag)
-    {
-        mt9v03x_finish_flag = 0;
-        // memcpy(image_copy[0], mt9v03x_image[0], MT9V03X_IMAGE_SIZE);
-        // seekfree_assistant_camera_send();
-        ips200_show_gray_image(0, 0, mt9v03x_image[0], MT9V03X_W, MT9V03X_H, MT9V03X_W, MT9V03X_H, 0);
-    }
+    // Process_Image();
+    // if(mt9v03x_finish_flag)
+    // {
+    //     mt9v03x_finish_flag = 0;
+    //     // memcpy(image_copy[0], mt9v03x_image[0], MT9V03X_IMAGE_SIZE);
+    //     // seekfree_assistant_camera_send();
+    //     ips200_show_gray_image(0, 0, mt9v03x_image[0], MT9V03X_W, MT9V03X_H, MT9V03X_W, MT9V03X_H, 0);
+    // }
 
-    ips200_show_string(0, 16 * 8, "Left Line:");
-    ips200_show_string(0, 16 * 9, "RightLine:");
-    ips200_show_int( 216, 16 * 8, clip_value, 2);
-    if(LeftLineNum > 0)
-    {
-        for(int i = 0; i < MT9V03X_H; i++)
-        {
-            ips200_draw_point(IntClip(LeftLine_x[i], 0, ips200_width_max - 1), IntClip(LeftLine_y[i], 0, ips200_height_max - 1), RGB565_RED);
-        }
-        ips200_show_string(80, 16 * 8, "FoundLine");
-    }
-    else
-    {
-        ips200_show_string(80, 16  * 8, "Not Found");
-    }
-    if(RightLineNum > 0)
-    {
-        for(int i = 0; i < MT9V03X_H; i++)
-        {
-            ips200_draw_point(IntClip(RightLine_x[i], 0, ips200_width_max - 1), IntClip(RightLine_y[i], 0, ips200_height_max - 1), RGB565_RED);
-        }
-        ips200_show_string(80, 16 * 9, "FoundLine");
-    }
-    else
-    {
-        ips200_show_string(80, 16  * 9, "Not Found");
-    }
-    ips200_show_string(  0, 16 * 10, "Angle_Error");
-    ips200_show_float(  88, 16 * 10, CalculateAngleError(LeftLine), 3, 3);
-//    ips200_show_string(  0, 16 *  9, "1:Point-1");
-//    ips200_show_string(  0, 16 * 10, "2:Point+1");
-//    ips200_show_string(120, 16 *  9, "3:");
-//    ips200_show_string(120, 16 * 10, "4:");
-
+    // ips200_show_string(0, 16 * 8, "Left Line:");
+    // ips200_show_string(0, 16 * 9, "RightLine:");
+    // ips200_show_int( 216, 16 * 8, clip_value, 2);
+    // if(LeftLineNum > 0)
+    // {
+    //     for(int i = 0; i < MT9V03X_H; i++)
+    //     {
+    //         ips200_draw_point(IntClip(LeftLine_x[i], 0, ips200_width_max - 1), IntClip(LeftLine_y[i], 0, ips200_height_max - 1), RGB565_RED);
+    //     }
+    //     ips200_show_string(80, 16 * 8, "FoundLine");
+    // }
+    // else
+    // {
+    //     ips200_show_string(80, 16  * 8, "Not Found");
+    // }
+    // if(RightLineNum > 0)
+    // {
+    //     for(int i = 0; i < MT9V03X_H; i++)
+    //     {
+    //         ips200_draw_point(IntClip(RightLine_x[i], 0, ips200_width_max - 1), IntClip(RightLine_y[i], 0, ips200_height_max - 1), RGB565_RED);
+    //     }
+    //     ips200_show_string(80, 16 * 9, "FoundLine");
+    // }
+    // else
+    // {
+    //     ips200_show_string(80, 16  * 9, "Not Found");
+    // }
+    // ips200_show_string(  0, 16 * 10, "Angle_Error");
+    // ips200_show_float(  88, 16 * 10, CalculateAngleError(LeftLine), 3, 3);
+    // ips200_clear();       // 清屏，填充背景色
+    drawGrid();           // 绘制网格和坐标轴
+    drawPoints();
+    updateCarPosition();
 }
 void Imu963_menu()
 {
@@ -1154,6 +1176,10 @@ void Key_Ctrl_Menu()
                     Test_Encoder -= 100;
                 }
             }
+            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            {
+                FLASH_SAV_PAR();
+            }
         }
 
         // MotorI调节
@@ -1181,6 +1207,10 @@ void Key_Ctrl_Menu()
                     Test_Encoder -= 100;
                 }
             }
+            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            {
+                FLASH_SAV_PAR();
+            }
         }
 
         //MotorD调节
@@ -1207,6 +1237,10 @@ void Key_Ctrl_Menu()
                 {
                     Test_Encoder -= 100;
                 }
+            }
+            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            {
+                FLASH_SAV_PAR();
             }
         }
 
@@ -1274,13 +1308,13 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
-                GpsDistance[Point1] += 0.5;
+                GpsDistance[Point1] += 0.10;
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
-                if(GpsDistance[Point1] > 0)
+                if(GpsDistance[Point1] > 0.10)
                 {
-                    GpsDistance[Point1] -= 0.5;
+                    GpsDistance[Point1] -= 0.10;
                 }
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)
@@ -1668,16 +1702,19 @@ void Key_Ctrl_Menu()
             {
                 Track_Points_NUM = 0;
                 Task_Flag = 1;
+                initCoordinateSystem();
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
                 Track_Points_NUM = 10;
                 Task_Flag = 2;
+                initCoordinateSystem();
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
                 Track_Points_NUM = 50;
                 Task_Flag = 3;
+                initCoordinateSystem();
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {

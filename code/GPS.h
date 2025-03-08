@@ -14,6 +14,11 @@
 #define Task2_Start_Point   (     10      )                  // 科目二起始点位
 #define Task3_Start_Point   (     50      )                  // 科目三起始点位
 #define QS                  (   8.99266   )                  // 坐标变换常数
+#define MARGIN              (     20      )                  // 屏幕边缘预留距离
+#define POINT_COLOR         (  RGB565_RED )                  // 点颜色
+#define POINT_SIZE          (      2      )                  // 点半径（像素）
+#define LAT_TO_METER        (  111319.0   )
+#define LON_TO_METER        (   61010.0   )
 //===================================================宏定义END===================================================
 
 
@@ -48,6 +53,9 @@ extern int16  GpsTgtEncod[NUM_GPS_DATA];                       // 存储点位速度的
 extern float  GpsAccel;                                        // 加速度
 extern float  GpsMaxSpeed;                                     // 最大速度
 extern float  GpsMaxAccel;                                     // 最大加速度
+extern double min_dx, max_dx, min_dy, max_dy;                  // 轨迹边界
+extern double range_x, range_y;                                // 屏幕范围
+extern double scale;                                           // 缩放因子
 //===================================================全局变量END===================================================
 
 
@@ -55,6 +63,11 @@ extern float  GpsMaxAccel;                                     // 最大加速度
 void Get_Gps(void);                                            // 获取坐标等信息
 void Get_Gps_Yaw(void);                                        // 获取GPS偏航角
 void Get_Physicla_Parameter(void);                             // 获取物理参数
+void initCoordinateSystem(void);
+void drawGrid(void);                                           // 绘制网格及坐标轴
+void drawPoints(void);
+void updateCarPosition(void);
+void gpsToScreen(double lat, double lon, uint16_t *screen_x, uint16_t *screen_y, int start_point);
 //===================================================函数声明END===================================================
 
 

@@ -7,17 +7,14 @@
 
 #include "zf_common_headfile.h"
 
-// volatile float exInt, eyInt, ezInt;         // 误差积分
-// volatile float Ya_offset = 0, P_offset = 0, R_offset = 0;
-// volatile float integralFBhand, handdiff;
-// volatile uint32_t lastUpdate, now;          // 采样周期计数 单位 us
-// float f;
-kalman_param_t Kalman_Offset = {0, 0, 0};       // 零飘参数
-float kalman_Offset_flag = 0;
+
+
 volatile float q0, q1, q2, q3, w1, w2, w3;  // 全局四元数
 float angle[3] = {0};
 float Ki_Ah = 0.2;
 float Kp_Ah = 0.8;
+
+#if AHRS_MAG_ENABLE == 1
 float A[49], B[49], E[42], FF[36], X[49], Z[49], Ht[42], Ft[49], K[42], O[49], T[6], F[49], Y[7], P1[49], U1[36], U1t[36], DD[36], X1[36], X2[36];
 
 float P[49] = {0.0001, 0, 0, 0, 0, 0, 0,
@@ -57,6 +54,7 @@ float I[49] = {1, 0, 0, 0, 0, 0, 0,
                0, 0, 0, 0, 1, 0, 0,
                0, 0, 0, 0, 0, 1, 0,
                0, 0, 0, 0, 0, 0, 1};
+#endif
 
 /****************************************************************************************************
 //  @brief      快速计算1/Sqrt(x)
@@ -99,7 +97,7 @@ void AHRS_init()
     q3 = 0;
 }
 
-
+#if AHRS_MAG_ENABLE == 1
 void AHRS_AHRSupdate(float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz)
 {
     float norm;
@@ -122,9 +120,9 @@ void AHRS_AHRSupdate(float gx, float gy, float gz, float ax, float ay, float az,
     float q2q3 = q2 * q3;
     float q3q3 = q3 * q3;
 
-     // 地区磁场
-     bx = 0.5500;
-     bz = 0.8351;
+    // 地区磁场
+    bx = 0.5500;
+    bz = 0.8351;
     halfT = 0.0025;
 
     norm = invSqrt(ax * ax + ay * ay + az * az);
@@ -323,10 +321,8 @@ void AHRS_AHRSupdate(float gx, float gy, float gz, float ax, float ay, float az,
     q2 = q2 * norm;
     q3 = q3 * norm;
 }
-
-
-
-void AHRS_AHRSupdate1(float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz)
+#else
+void AHRS_AHRSupdate(float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz)
 {
     float norm;
     float vx, vy, vz;
@@ -383,7 +379,7 @@ void AHRS_AHRSupdate1(float gx, float gy, float gz, float ax, float ay, float az
     q3 = q3 + (q0*gz + q1*gy - q2*gx)*halfT;
 
 }
-
+#endif
 
 /****************************************************************************************************
 //  @brief      获取四元数
@@ -393,7 +389,7 @@ void AHRS_AHRSupdate1(float gx, float gy, float gz, float ax, float ay, float az
 ****************************************************************************************************/
 void AHRS_getQ(float * q)
 {
-    AHRS_AHRSupdate1(ANGLE_TO_RAD(imu963ra_gyro_transition(imu963ra_gyro_x - Gyro_Offset.Xdata)),
+    AHRS_AHRSupdate(ANGLE_TO_RAD(imu963ra_gyro_transition(imu963ra_gyro_x - Gyro_Offset.Xdata)),
                     ANGLE_TO_RAD(imu963ra_gyro_transition(imu963ra_gyro_y - Gyro_Offset.Ydata)),
                     ANGLE_TO_RAD(imu963ra_gyro_transition(imu963ra_gyro_z - Gyro_Offset.Zdata)),
                     imu963ra_acc_x, imu963ra_acc_y, imu963ra_acc_z,
@@ -427,10 +423,6 @@ void AHRS_getYawPitchRoll(float * angles)
     angles[1] =  asin( 2 * q[0] * q[2] - 2 * q[1] * q[3]) * 180 / PI;                                        // 俯仰角pitch
     angles[2] = -atan2(2 * q[0] * q[3] + 2 * q[1] * q[2], -2 * q[2] * q[2] - 2 * q[3] * q[3] + 1) * 180 / PI;// 偏航角yaw
 
-    // if(kalman_Offset_flag == 1)
-    // {
-    //     angle[2] -= Kalman_Offset.Zdata;
-    // }
     if(angle[2] < -180)
     {
         angle[2] += 360;
@@ -441,26 +433,8 @@ void AHRS_getYawPitchRoll(float * angles)
     }
 }
 
-void Kalman_Offset_Init()
-{
-    static int i = 0;
-    
-    Kalman_Offset.Xdata += angle[0];
-    Kalman_Offset.Ydata += angle[1];
-    Kalman_Offset.Zdata += angle[2];
-    i++;
 
-
-    if(i == 999)
-    {
-        Kalman_Offset.Xdata /= 1000;
-        Kalman_Offset.Ydata /= 1000;
-        Kalman_Offset.Zdata /= 1000;
-
-        kalman_Offset_flag = 1;
-    }
-}
-
+#if AHRS_MAG_ENABLE == 1
 /****************************************************************************************************
 //  @brief      矩阵加法
 //  @param      fMatrixA              第一个矩阵
@@ -924,3 +898,4 @@ float Norm(float* fMatrixA, int iRow, int iCol)
 
     return local_result;
 }
+#endif
