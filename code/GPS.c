@@ -52,8 +52,8 @@
 */
 
 
-uint32 Point_NUM = 0;               // 已采集点数
-float K_Gps      = 0.5;             // 衔接部分的权重
+uint32_t Point_NUM = 0;             // 已采集点数
+float    K_Gps     = 0.5;           // 衔接部分的权重
 double FilterPoint_Lat = 0;         // 滤波后的纬度
 double FilterPoint_Lon = 0;         // 滤波后的经度
 double Start_Lat;                   // 发车的经度
@@ -85,6 +85,8 @@ int8   Task3_Points = 9;            // 科目三所用点位数量
 double min_dx, max_dx, min_dy, max_dy;
 double range_x, range_y;
 double scale;                       // 缩放因子（单位：像素/米）
+int8 start_point = 0;
+int8 point_count = 0;
 float  GpsDistance[NUM_GPS_DATA] = 
 {
     5.0, 3.0, 2.5, 4.0,   0,   0,   0,   0, 1.5,   0,  // 0 - 9
@@ -197,6 +199,8 @@ void initCoordinateSystem()
     
     if(Task_Flag == 1)
     {
+        start_point = Task1_Start_Point;
+        point_count = Task1_Points;
         for(i = Task1_Start_Point; i < (Task1_Start_Point + Task1_Points); i++)
         {
             // 将经度差和纬度差转换为实际距离（米）
@@ -210,6 +214,8 @@ void initCoordinateSystem()
     }
     else if(Task_Flag == 2)
     {
+        start_point = Task2_Start_Point;
+        point_count = Task2_Points;
         for(i = Task2_Start_Point; i < (Task2_Start_Point + Task2_Points); i++)
         {
             double dx = (GPS_GET_LOT[i] - GPS_GET_LOT[Task2_Start_Point]) * LON_TO_METER;
@@ -222,6 +228,8 @@ void initCoordinateSystem()
     }
     else if(Task_Flag == 3)
     {
+        start_point = Task3_Start_Point;
+        point_count = Task3_Points;
         for(i = Task3_Start_Point; i < (Task3_Start_Point + Task3_Points); i++)
         {
             double dx = (GPS_GET_LOT[i] - GPS_GET_LOT[Task3_Start_Point]) * LON_TO_METER;
@@ -245,17 +253,17 @@ void initCoordinateSystem()
 
 void drawGrid()
 {
-    for(uint16 i = 0; i < 11; i++)
+    for(uint16_t i = 0; i < 11; i++)
     {
-        uint16 y = (i == 0) ? 0 : (i * 32 - 1);
+        uint16_t y = (i == 0) ? 0 : (i * 32 - 1);
         if(i != 5)
         {
             ips200_draw_line(0, y, ips200_width_max - 1, y, RGB565_BLUE);
         }
     }
-    for(uint16 i = 0; i < 11; i++)
+    for(uint16_t i = 0; i < 11; i++)
     {
-        uint16 y = (i == 0) ? 0 : (i * 24 - 1);
+        uint16_t y = (i == 0) ? 0 : (i * 24 - 1);
         if(i != 5)
         {
             ips200_draw_line(y, 0, y, ips200_height_max - 1, RGB565_BLUE);
@@ -267,29 +275,6 @@ void drawGrid()
 
 void drawPoints()
 {
-    int start_point = 0;
-    int point_count = 0;
-    
-    // 根据任务选择数据段
-    switch(Task_Flag)
-    {
-        case 1:
-            start_point = Task1_Start_Point;
-            point_count = Task1_Points;
-            break;
-        case 2:
-            start_point = Task2_Start_Point;
-            point_count = Task2_Points;
-            break;
-        case 3:
-            start_point = Task3_Start_Point;
-            point_count = Task3_Points;
-            break;
-        default:
-            return;
-    }
-
-
     // 遍历所有点进行绘制
     for(int i = start_point; i < start_point + point_count; i++)
     {
@@ -323,8 +308,8 @@ void gpsToScreen(double lat, double lon, uint16_t *screen_x, uint16_t *screen_y,
     double dx = (lon - origin_lon) * LON_TO_METER;
     double dy = (lat - origin_lat) * LAT_TO_METER;
 
-    *screen_x = 119 + (uint16_t)((dx - min_dx) * scale);
-    *screen_y = ips200_height_max - MARGIN - (uint16_t)((dy - min_dy) * scale);
+    *screen_x = IntClip(MARGIN + (uint16_t)((dx - min_dx) * scale), 0, ips200_width_max - 1);
+    *screen_y = IntClip(ips200_height_max - MARGIN - (uint16_t)((dy - min_dy) * scale), 0, ips200_height_max - 1);
 }
 
 
@@ -332,23 +317,8 @@ void updateCarPosition()
 {
     if(gnss.state == 1 && Start_Flag == 1)
     {
-        int start_point = 0;
-        switch(Task_Flag)
-        {
-            case 1:
-                start_point = Task1_Start_Point;
-                break;
-            case 2:
-                start_point = Task2_Start_Point;
-                break;
-            case 3:
-                start_point = Task3_Start_Point;
-                break;
-            default:
-                return;
-        }
         uint16_t x = 0, y = 0;
         gpsToScreen(gnss.latitude, gnss.longitude, &x, &y, start_point);
-        ips200_draw_point(IntClip(x, 0, ips200_width_max - 1), IntClip(y, 0, ips200_height_max - 1), RGB565_BLUE);
+        ips200_draw_point(x, y, RGB565_BLUE);
     }
 }

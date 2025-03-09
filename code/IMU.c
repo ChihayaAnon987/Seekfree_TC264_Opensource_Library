@@ -19,8 +19,8 @@ float IMU_gyro_Offset_Init()
     Gyro_Offset.Xdata = 0;
     Gyro_Offset.Ydata = 0;
     Gyro_Offset.Zdata = 0;
-    // 循环1000次，以大量样本为基础计算平均值，提高精度
-    for(uint16_t i = 0; i < 1000; i++)
+    // 循环500次，以大量样本为基础计算平均值，提高精度
+    for(uint16_t i = 0; i < 500; i++)
     {
         imu963ra_get_gyro();
         Gyro_Offset.Xdata += imu963ra_gyro_x;
@@ -28,9 +28,9 @@ float IMU_gyro_Offset_Init()
         Gyro_Offset.Zdata += imu963ra_gyro_z;
         system_delay_ms(5);
     }
-    Gyro_Offset.Xdata /= 1000;
-    Gyro_Offset.Ydata /= 1000;
-    Gyro_Offset.Zdata /= 1000;
+    Gyro_Offset.Xdata /= 500;
+    Gyro_Offset.Ydata /= 500;
+    Gyro_Offset.Zdata /= 500;
 
     return gyro_Offset_flag = 1;
 }

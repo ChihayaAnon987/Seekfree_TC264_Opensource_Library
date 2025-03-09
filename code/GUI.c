@@ -951,7 +951,7 @@ void MotorP_menu(void)
     ips200_show_uint  (104, 16 * 3, Test_Encoder, 5);
     ips200_show_int   ( 64, 16 * 4, Encoder, 5);
     ips200_show_float ( 80, 16 * 5, PID_MOTOR.current_error, 3, 3);
-    ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 3, 6);
+    ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 4, 6);
 
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
     oscilloscope_data.data[0] = PID_MOTOR.output;
@@ -1164,14 +1164,14 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
-                if(Test_Encoder < PWM_DUTY_MAX)
+                if(Test_Encoder < 1000)
                 {
                     Test_Encoder += 100;
                 }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
-                if(Test_Encoder > -PWM_DUTY_MAX)
+                if(Test_Encoder >= 100)
                 {
                     Test_Encoder -= 100;
                 }

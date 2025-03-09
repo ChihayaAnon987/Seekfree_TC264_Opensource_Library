@@ -85,7 +85,7 @@ void Encoder_Get()
 {
     Delta_x = 0;
     Delta_y = 0;
-    Encoder = encoder_get_count(ENCODER1_TIM);                          // 采集对应编码器数据
+    Encoder = -encoder_get_count(ENCODER1_TIM);                         // 采集对应编码器数据
     encoder_clear_count(ENCODER1_TIM);                                  // 清除对应计数
 
     double speed= (-1) * Encoder * 1000 * 45 / 248;                     // 计算速度m/s（放大了1000倍）

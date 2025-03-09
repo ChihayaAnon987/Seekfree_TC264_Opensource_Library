@@ -200,7 +200,6 @@ void PIDIncMotorCtrl(int16 TARGET_MOTOR_ENCODER)
     PID_MOTOR.lastlast_error = PID_MOTOR.last_error;
     PID_MOTOR.last_error     = PID_MOTOR.current_error;
     PID_MOTOR.current_error  = TARGET_MOTOR_ENCODER - Encoder;
-    // PID_MOTOR.current_error  = TARGET_MOTOR_ENCODER - 0;
 
     PID_MOTOR.output += Parameter_set0.SpeedPID[0] * (PID_MOTOR.current_error - PID_MOTOR.last_error) +
                         Parameter_set0.SpeedPID[1] * PID_MOTOR.current_error +
@@ -209,12 +208,12 @@ void PIDIncMotorCtrl(int16 TARGET_MOTOR_ENCODER)
     int32 MOTOR_DUTY = (int32)PID_MOTOR.output;
     if(MOTOR_DUTY >= 0)
     {
-        gpio_set_level(DIR_CH1, 1);
+        gpio_set_level(DIR_CH1, 0);
         pwm_set_duty  (PWM_CH1, MOTOR_DUTY);
     }
     else
     {
-        gpio_set_level(DIR_CH1, 0);
+        gpio_set_level(DIR_CH1, 1);
         pwm_set_duty  (PWM_CH1, -MOTOR_DUTY);
     }
 }

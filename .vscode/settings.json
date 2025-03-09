@@ -8,7 +8,8 @@
         "ifxscueru.h": "c",
         "ifxccu6_timer.h": "c",
         "bsp.h": "c",
-        "ifxasclin_reg.h": "c"
+        "ifxasclin_reg.h": "c",
+        "ifxscuwdt.asm.h": "c"
     },
     "files.watcherExclude": {
         "**/target": true
