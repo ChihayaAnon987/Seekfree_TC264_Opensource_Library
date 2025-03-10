@@ -308,17 +308,24 @@ void gpsToScreen(double lat, double lon, uint16_t *screen_x, uint16_t *screen_y,
     double dx = (lon - origin_lon) * LON_TO_METER;
     double dy = (lat - origin_lat) * LAT_TO_METER;
 
-    *screen_x = IntClip(MARGIN + (uint16_t)((dx - min_dx) * scale), 0, ips200_width_max - 1);
-    *screen_y = IntClip(ips200_height_max - MARGIN - (uint16_t)((dy - min_dy) * scale), 0, ips200_height_max - 1);
+    *screen_x = (uint16_t)IntClip(MARGIN + (uint16_t)((dx - min_dx) * scale), 0, ips200_width_max - 1);
+    *screen_y = (uint16_t)IntClip(ips200_height_max - MARGIN - (uint16_t)((dy - min_dy) * scale), 0, ips200_height_max - 1);
 }
 
 
 void updateCarPosition()
 {
-    if(gnss.state == 1 && Start_Flag == 1)
+    if(gnss.state == 1)
     {
         uint16_t x = 0, y = 0;
-        gpsToScreen(gnss.latitude, gnss.longitude, &x, &y, start_point);
-        ips200_draw_point(x, y, RGB565_BLUE);
+        static uint16_t last_x = 0, last_y = 0;
+        gpsToScreen(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, &x, &y, start_point);
+        ips200_draw_point(x, y, RGB565_YELLOW);
+        if(last_x != 0 && last_y != 0)
+        {
+            ips200_draw_line (x, y, last_x, last_y, RGB565_YELLOW);
+        }
+        last_x = x;
+        last_y = y;
     }
 }

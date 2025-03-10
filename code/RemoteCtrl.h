@@ -30,7 +30,7 @@ extern int    Center_Flag;                                     // 遥控居中标志位
 extern int    Channal_3_Press_Flag;                            // 通道3按键是否按下
 extern int    Channal_5_Press_Flag;                            // 通道5按键是否按下
 extern int    Channal_6_Press_Flag;                            // 通道6按键是否按下
-extern int    RemoteCtrl_Speed;                                // 遥控器速度控制量
+extern int16  RemoteCtrl_Speed;                                // 遥控器速度控制量
 extern int16  RemoteCtrl_Direction;                            // 遥控器方向控制量
 //===================================================全局变量END===================================================
 

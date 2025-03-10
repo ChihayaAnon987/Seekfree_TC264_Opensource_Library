@@ -83,14 +83,12 @@ void DRV8701_MOTOR_DRIVER(int Motor_PWM)
 
 void Encoder_Get()
 {
-    Delta_x = 0;
-    Delta_y = 0;
     Encoder = -encoder_get_count(ENCODER1_TIM);                         // 采集对应编码器数据
     encoder_clear_count(ENCODER1_TIM);                                  // 清除对应计数
 
-    double speed= (-1) * Encoder * 1000 * 45 / 248;                     // 计算速度m/s（放大了1000倍）
-    Delta_x += speed * 0.005 * cos(Yaw * PI / 180);                     // 每五毫秒的位移
-    Delta_y += speed * 0.005 * sin(Yaw * PI / 180);
+    double speed= Encoder * 1000 * 45 / 248;                     // 计算速度m/s（放大了1000倍）
+    Delta_x += speed * 0.005 * cos(angle[2] * PI / 180);                     // 每五毫秒的位移
+    Delta_y += speed * 0.005 * sin(angle[2] * PI / 180);
 
 }
 

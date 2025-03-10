@@ -15,7 +15,7 @@ int   Channal_6_Press_Flag       = 0;  // 通道6按键是否按下
 int   last_Channal_3             = 0;  // 通道3上一个状态
 int   last_Channal_5             = 0;  // 通道5上一个状态
 int   last_Channal_6             = 0;  // 通道6上一个状态
-int   RemoteCtrl_Speed;                // 遥控器速度控制量
+int16 RemoteCtrl_Speed;                // 遥控器速度控制量
 int16 RemoteCtrl_Direction;            // 遥控器方向控制量
 
 void RemoteCtrl_Program()
@@ -66,8 +66,8 @@ void RemoteCtrl_Direction_Speed()
             Servo_Set(SERVO_MOTOR_MID - RemoteCtrl_Direction);                          // 舵机角度
         }
 
-        RemoteCtrl_Speed = (int)((uart_receiver.channel[1] - 1056) * 7000 / 800);       // 把其值映射到-MAX_DUTY 到 MAX_DUTY
-        DRV8701_MOTOR_DRIVER(RemoteCtrl_Speed);
+        RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 500 / 800);      // 把其值映射到-MAX_DUTY 到 MAX_DUTY
+        PIDIncMotorCtrl(RemoteCtrl_Speed);
 
         // 自动归位
         if(Channal_5_Press_Flag == 1)

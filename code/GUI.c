@@ -444,8 +444,8 @@ void GPS_menu(void)
     ips200_show_string(  0, 16 * 1, "Now_Lat:");
     ips200_show_string(  0, 16 * 2, "Now_Lon:");
     ips200_show_string(168, 16 * 1, "state:");
-    ips200_show_string(  0, 16 * 3, "Filter_Lat:");
-    ips200_show_string(  0, 16 * 4, "Filter_Lon:");
+    ips200_show_string(  0, 16 * 3, "Delta_x:");
+    ips200_show_string(  0, 16 * 4, "Delta_y:");
     ips200_show_string(  0, 16 * 5, "Speed:");
     ips200_show_string(  0, 16 * 6, "MaxSpeed:");
     ips200_show_string(  0, 16 * 7, "Accel:");
@@ -455,8 +455,8 @@ void GPS_menu(void)
     ips200_show_float ( 64, 16 * 1, gnss.latitude  , 4, 6);
     ips200_show_float ( 64, 16 * 2, gnss.longitude , 4, 6);
     ips200_show_uint  (216, 16 * 1, gnss.state     , 1);
-    ips200_show_float ( 88, 16 * 3, FilterPoint_Lat, 4, 6);
-    ips200_show_float ( 88, 16 * 4, FilterPoint_Lon, 4, 6);
+    ips200_show_float ( 56, 16 * 3, Delta_x, 4, 6);
+    ips200_show_float ( 56, 16 * 4, Delta_y, 4, 6);
     ips200_show_float ( 48, 16 * 5, gnss.speed     , 3, 3);
     ips200_show_float ( 72, 16 * 6, GpsMaxSpeed    , 3, 3);
     ips200_show_float ( 48, 16 * 7, GpsAccel       , 3, 3);
@@ -492,8 +492,8 @@ void spd_menu(void)
 
     ips200_show_string(  0, 16 *  9, "KEY1:Point-1");
     ips200_show_string(  0, 16 * 10, "KEY2:Point+1");
-    ips200_show_string(120, 16 *  9, "KEY3:Duty+100");
-    ips200_show_string(120, 16 * 10, "KEY4:Duty-100");
+    ips200_show_string(120, 16 *  9, "KEY3:Duty+50");
+    ips200_show_string(120, 16 * 10, "KEY4:Duty-50");
 
 
 }
@@ -685,9 +685,7 @@ void ZongZuanF(void)
     // ips200_show_string(  0, 16 * 10, "Angle_Error");
     // ips200_show_float(  88, 16 * 10, CalculateAngleError(LeftLine), 3, 3);
     // ips200_clear();       // 清屏，填充背景色
-    drawGrid();           // 绘制网格和坐标轴
-    drawPoints();
-    updateCarPosition();
+
 }
 void Imu963_menu()
 {
@@ -815,28 +813,37 @@ void Param_Set()
 
 void Task_Select()
 {
-    ips200_show_string(  0, 16 *  0, "Track_Point:");
-    ips200_show_uint(   96, 16 *  0, Track_Points_NUM, 3);
-    ips200_show_string(  0, 16 *  1, "Distance:");
-    ips200_show_float(  72, 16 *  1, Distance, 3, 3);
-    ips200_show_string(  0, 16 *  2, "GPS_Angle:");
-    ips200_show_float(  80, 16 *  2, Angle, 3, 3);
-    ips200_show_string(  0, 16 *  3, "Yaw:");
-    ips200_show_float(  32, 16 *  3, angle[2], 3, 3);
-    ips200_show_string(  0, 16 *  4, "Angle_Error:");
-    ips200_show_float(  96, 16 *  4, Angle_Error, 3, 6);
-    ips200_show_string(  0, 16 *  5, "Delta_Angle:");
-    ips200_show_float(  96, 16 *  5, Delta_Angle, 3, 6);
-    ips200_show_string(  0, 16 *  6, "Delta_Lat:");
-    ips200_show_float(  80, 16 *  6, Delta_Lat, 3, 6);
-    ips200_show_string(  0, 16 *  7, "Delta_Lon:");
-    ips200_show_float(  80, 16 *  7, Delta_Lon, 3, 6);
-    ips200_show_float(  0,  16 *  8, gnss.latitude, 3, 6);
-    ips200_show_float( 96,  16 *  8, gnss.longitude, 3, 6);
-    ips200_show_string(  0, 16 *  9, "KEY1:Task1");
-    ips200_show_string(120, 16 *  9, "KEY2:Task2");
-    ips200_show_string(  0, 16 * 10, "KEY3:Task3");
-    ips200_show_string(120, 16 * 10, "KEY4:Start");
+    if(Start_Flag == 0)
+    {
+        ips200_show_string(  0, 16 *  0, "Track_Point:");
+        ips200_show_uint(   96, 16 *  0, Track_Points_NUM, 3);
+        ips200_show_string(  0, 16 *  1, "Distance:");
+        ips200_show_float(  72, 16 *  1, Distance, 3, 3);
+        ips200_show_string(  0, 16 *  2, "GPS_Angle:");
+        ips200_show_float(  80, 16 *  2, Angle, 3, 3);
+        ips200_show_string(  0, 16 *  3, "Yaw:");
+        ips200_show_float(  32, 16 *  3, angle[2], 3, 3);
+        ips200_show_string(  0, 16 *  4, "Angle_Error:");
+        ips200_show_float(  96, 16 *  4, Angle_Error, 3, 6);
+        ips200_show_string(  0, 16 *  5, "Delta_Angle:");
+        ips200_show_float(  96, 16 *  5, Delta_Angle, 3, 6);
+        ips200_show_string(  0, 16 *  6, "Delta_Lat:");
+        ips200_show_float(  80, 16 *  6, Delta_Lat, 3, 6);
+        ips200_show_string(  0, 16 *  7, "Delta_Lon:");
+        ips200_show_float(  80, 16 *  7, Delta_Lon, 3, 6);
+        ips200_show_float(  0,  16 *  8, gnss.latitude, 3, 6);
+        ips200_show_float( 96,  16 *  8, gnss.longitude, 3, 6);
+        ips200_show_string(  0, 16 *  9, "KEY1:Task1");
+        ips200_show_string(120, 16 *  9, "KEY2:Task2");
+        ips200_show_string(  0, 16 * 10, "KEY3:Task3");
+        ips200_show_string(120, 16 * 10, "KEY4:Start");
+    }
+    if(Start_Flag == 1)
+    {
+        drawGrid();
+        drawPoints();
+        updateCarPosition();
+    }
 }
 
 
@@ -1197,14 +1204,14 @@ void Key_Ctrl_Menu()
             {
                 if(Test_Encoder < PWM_DUTY_MAX)
                 {
-                    Test_Encoder += 100;
+                    Test_Encoder += 50;
                 }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
                 if(Test_Encoder > -PWM_DUTY_MAX)
                 {
-                    Test_Encoder -= 100;
+                    Test_Encoder -= 50;
                 }
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)
@@ -1719,6 +1726,7 @@ void Key_Ctrl_Menu()
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
                 Start_Flag = 1;
+                ips200_clear();
                 LED_Buzzer_Flag_Ctrl(LED3);
             }
         }
