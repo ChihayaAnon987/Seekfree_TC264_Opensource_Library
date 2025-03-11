@@ -134,42 +134,42 @@ void PDLocServoCtrl()
     PID_SERVO.last_error    = PID_SERVO.current_error;
     PID_SERVO.current_error = Angle_Error;
     PID_SERVO.derivative    = PID_SERVO.current_error - PID_SERVO.last_error;
-    if(PID_MOTOR.output >= 0 && PID_MOTOR.output <= 2000)
+    if(Target_Encoder >= 0 && Target_Encoder <= 2000)
     {
         PID_SERVO.output = From_0000_To_2000_ServoPD.Kp * PID_SERVO.current_error +
         From_0000_To_2000_ServoPD.Kd * PID_SERVO.derivative;
     }
-    else if(PID_MOTOR.output > 2000 && PID_MOTOR.output < 4000)
+    else if(Target_Encoder > 2000 && Target_Encoder < 4000)
     {
         PID_SERVO.output = From_2000_To_4000_ServoPD.Kp * PID_SERVO.current_error +
         From_2000_To_4000_ServoPD.Kd * PID_SERVO.derivative;
     }
-    else if(PID_MOTOR.output >= 4000 && PID_MOTOR.output < 5000)
+    else if(Target_Encoder >= 4000 && Target_Encoder < 5000)
     {
         PID_SERVO.output = From_4000_To_5000_ServoPD.Kp * PID_SERVO.current_error +
         From_4000_To_5000_ServoPD.Kd * PID_SERVO.derivative;
     }
-    else if(PID_MOTOR.output >= 5000 && PID_MOTOR.output < 6000)
+    else if(Target_Encoder >= 5000 && Target_Encoder < 6000)
     {
         PID_SERVO.output = From_5000_To_6000_ServoPD.Kp * PID_SERVO.current_error +
         From_5000_To_6000_ServoPD.Kd * PID_SERVO.derivative;
     }
-    else if(PID_MOTOR.output >= 6000 && PID_MOTOR.output < 7000)
+    else if(Target_Encoder >= 6000 && Target_Encoder < 7000)
     {
         PID_SERVO.output = From_6000_To_7000_ServoPD.Kp * PID_SERVO.current_error +
         From_6000_To_7000_ServoPD.Kd * PID_SERVO.derivative;
     }
-    else if(PID_MOTOR.output >= 7000 && PID_MOTOR.output < 8000)
+    else if(Target_Encoder >= 7000 && Target_Encoder < 8000)
     {
         PID_SERVO.output = From_7000_To_8000_ServoPD.Kp * PID_SERVO.current_error +
         From_7000_To_8000_ServoPD.Kd * PID_SERVO.derivative;
     }
-    else if(PID_MOTOR.output >= 8000 && PID_MOTOR.output < 9000)
+    else if(Target_Encoder >= 8000 && Target_Encoder < 9000)
     {
         PID_SERVO.output = From_8000_To_9000_ServoPD.Kp * PID_SERVO.current_error +
         From_8000_To_9000_ServoPD.Kd * PID_SERVO.derivative;
     }
-    else if(PID_MOTOR.output >= 9000 && PID_MOTOR.output <= 9900)
+    else if(Target_Encoder >= 9000 && Target_Encoder <= 9900)
     {
         PID_SERVO.output = From_9000_To_9900_ServoPD.Kp * PID_SERVO.current_error +
         From_9000_To_9900_ServoPD.Kd * PID_SERVO.derivative;

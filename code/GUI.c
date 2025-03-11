@@ -646,46 +646,47 @@ void Points_menu(void)
 
 void ZongZuanF(void)
 {
-    // Process_Image();
-    // if(mt9v03x_finish_flag)
-    // {
-    //     mt9v03x_finish_flag = 0;
-    //     // memcpy(image_copy[0], mt9v03x_image[0], MT9V03X_IMAGE_SIZE);
-    //     // seekfree_assistant_camera_send();
-    //     ips200_show_gray_image(0, 0, mt9v03x_image[0], MT9V03X_W, MT9V03X_H, MT9V03X_W, MT9V03X_H, 0);
-    // }
+#if MT9V03X_ENABLE == 1
+    Process_Image();
+    if(mt9v03x_finish_flag)
+    {
+        mt9v03x_finish_flag = 0;
+        // memcpy(image_copy[0], mt9v03x_image[0], MT9V03X_IMAGE_SIZE);
+        // seekfree_assistant_camera_send();
+        ips200_show_gray_image(0, 0, mt9v03x_image[0], MT9V03X_W, MT9V03X_H, MT9V03X_W, MT9V03X_H, 0);
+    }
 
-    // ips200_show_string(0, 16 * 8, "Left Line:");
-    // ips200_show_string(0, 16 * 9, "RightLine:");
-    // ips200_show_int( 216, 16 * 8, clip_value, 2);
-    // if(LeftLineNum > 0)
-    // {
-    //     for(int i = 0; i < MT9V03X_H; i++)
-    //     {
-    //         ips200_draw_point(IntClip(LeftLine_x[i], 0, ips200_width_max - 1), IntClip(LeftLine_y[i], 0, ips200_height_max - 1), RGB565_RED);
-    //     }
-    //     ips200_show_string(80, 16 * 8, "FoundLine");
-    // }
-    // else
-    // {
-    //     ips200_show_string(80, 16  * 8, "Not Found");
-    // }
-    // if(RightLineNum > 0)
-    // {
-    //     for(int i = 0; i < MT9V03X_H; i++)
-    //     {
-    //         ips200_draw_point(IntClip(RightLine_x[i], 0, ips200_width_max - 1), IntClip(RightLine_y[i], 0, ips200_height_max - 1), RGB565_RED);
-    //     }
-    //     ips200_show_string(80, 16 * 9, "FoundLine");
-    // }
-    // else
-    // {
-    //     ips200_show_string(80, 16  * 9, "Not Found");
-    // }
-    // ips200_show_string(  0, 16 * 10, "Angle_Error");
-    // ips200_show_float(  88, 16 * 10, CalculateAngleError(LeftLine), 3, 3);
-    // ips200_clear();       // ÇåÆÁ£¬Ìî³ä±³¾°É«
-
+    ips200_show_string(0, 16 * 8, "Left Line:");
+    ips200_show_string(0, 16 * 9, "RightLine:");
+    ips200_show_int( 216, 16 * 8, clip_value, 2);
+    if(LeftLineNum > 0)
+    {
+        for(int i = 0; i < MT9V03X_H; i++)
+        {
+            ips200_draw_point(IntClip(LeftLine_x[i], 0, ips200_width_max - 1), IntClip(LeftLine_y[i], 0, ips200_height_max - 1), RGB565_RED);
+        }
+        ips200_show_string(80, 16 * 8, "FoundLine");
+    }
+    else
+    {
+        ips200_show_string(80, 16  * 8, "Not Found");
+    }
+    if(RightLineNum > 0)
+    {
+        for(int i = 0; i < MT9V03X_H; i++)
+        {
+            ips200_draw_point(IntClip(RightLine_x[i], 0, ips200_width_max - 1), IntClip(RightLine_y[i], 0, ips200_height_max - 1), RGB565_RED);
+        }
+        ips200_show_string(80, 16 * 9, "FoundLine");
+    }
+    else
+    {
+        ips200_show_string(80, 16  * 9, "Not Found");
+    }
+    ips200_show_string(  0, 16 * 10, "Angle_Error");
+    ips200_show_float(  88, 16 * 10, CalculateAngleError(LeftLine), 3, 3);
+    ips200_clear();       // ÇåÆÁ£¬Ìî³ä±³¾°É«
+#endif
 }
 void Imu963_menu()
 {
@@ -813,7 +814,7 @@ void Param_Set()
 
 void Task_Select()
 {
-    if(Start_Flag == 0)
+    if(!gpio_get_level(SWITCH1))
     {
         ips200_show_string(  0, 16 *  0, "Track_Point:");
         ips200_show_uint(   96, 16 *  0, Track_Points_NUM, 3);
@@ -838,7 +839,7 @@ void Task_Select()
         ips200_show_string(  0, 16 * 10, "KEY3:Task3");
         ips200_show_string(120, 16 * 10, "KEY4:Start");
     }
-    if(Start_Flag == 1)
+    if(gpio_get_level(SWITCH1))
     {
         drawGrid();
         drawPoints();
@@ -1726,8 +1727,11 @@ void Key_Ctrl_Menu()
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
                 Start_Flag = 1;
-                ips200_clear();
                 LED_Buzzer_Flag_Ctrl(LED3);
+            }
+            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
+            {
+                ips200_clear();
             }
         }
     }
