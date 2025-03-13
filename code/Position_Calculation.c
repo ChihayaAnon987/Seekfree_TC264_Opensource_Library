@@ -83,7 +83,7 @@ void Track_Follow()
 
     if(Track_Points_NUM == Task1_Start_Point || Track_Points_NUM == Task2_Start_Point || Track_Points_NUM == Task3_Start_Point)
     {
-        Angle_Error = -angle[2];
+        Angle_Error = -K_Straight * angle[2];
     }
     Target_Encoder = GpsTgtEncod[Track_Points_NUM];
 
@@ -124,6 +124,14 @@ void Point_Switch()
             Track_Points_NUM ++;
             LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
             Delta_Angle = get_two_points_azimuth(Start_Lat, Start_Lon, gnss.latitude, gnss.longitude);
+            if(Delta_Angle > 355 || Delta_Angle < 5)
+            {
+                Delta_Angle = 0;
+            }
+            if(fabs(Delta_Angle - 180) < 5)
+            {
+                Delta_Angle = 180;
+            }
         }
     }
 

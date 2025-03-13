@@ -295,7 +295,7 @@ void drawPoints()
         // 可选：显示点编号
         char label[4];
         snprintf(label, sizeof(label), "%d", i - start_point);
-        ips200_show_string(IntClip(screen_x + 10, 0, ips200_width_max - 1), IntClip(screen_y - 8, 0, ips200_height_max - 1), label);
+        ips200_show_string(IntClip(screen_x + 30, 0, ips200_width_max - 1), IntClip(screen_y - 8, 0, ips200_height_max - 1), label);
     }
 }
 

@@ -451,17 +451,19 @@ void GPS_menu(void)
     ips200_show_string(  0, 16 * 7, "Accel:");
     ips200_show_string(  0, 16 * 8, "MaxAccel:");
     ips200_show_string(  0, 16 * 9, "Angle:");
+    ips200_show_string(  0, 16 * 10, "SateNumber:");
 
     ips200_show_float ( 64, 16 * 1, gnss.latitude  , 4, 6);
     ips200_show_float ( 64, 16 * 2, gnss.longitude , 4, 6);
     ips200_show_uint  (216, 16 * 1, gnss.state     , 1);
-    ips200_show_float ( 56, 16 * 3, Delta_x, 4, 6);
-    ips200_show_float ( 56, 16 * 4, Delta_y, 4, 6);
+    ips200_show_float ( 80, 16 * 3, Delta_x, 4, 6);
+    ips200_show_float ( 80, 16 * 4, Delta_y, 4, 6);
     ips200_show_float ( 48, 16 * 5, gnss.speed     , 3, 3);
     ips200_show_float ( 72, 16 * 6, GpsMaxSpeed    , 3, 3);
     ips200_show_float ( 48, 16 * 7, GpsAccel       , 3, 3);
     ips200_show_float ( 72, 16 * 8, GpsMaxAccel    , 3, 3);
     ips200_show_float ( 48, 16 * 9, Angle          , 4, 6);
+    ips200_show_uint  ( 88, 16 * 10, gnss.satellite_used, 2);
 
    seekfree_assistant_oscilloscope_send(&oscilloscope_data);
    oscilloscope_data.data[0] = gnss.latitude;

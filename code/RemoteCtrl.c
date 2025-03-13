@@ -46,11 +46,11 @@ void RemoteCtrl_Direction_Speed()
                 {
                     if(RemoteCtrl_Speed > 0)
                     {
-                        Angle_Error = -(angle[2] - CenterAngle);
+                        Angle_Error = -K_Straight * (angle[2] - CenterAngle);
                     }
                     else
                     {
-                        Angle_Error =  (angle[2] - CenterAngle);
+                        Angle_Error =  K_Straight * (angle[2] - CenterAngle);
                     }
                 }
                 else
@@ -66,8 +66,14 @@ void RemoteCtrl_Direction_Speed()
             Servo_Set(SERVO_MOTOR_MID - RemoteCtrl_Direction);                          // 舵机角度
         }
 
-        RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 500 / 800);      // 把其值映射到-MAX_DUTY 到 MAX_DUTY
-        PIDIncMotorCtrl(RemoteCtrl_Speed);
+        DRV8701_MOTOR_DRIVER(RemoteCtrl_Speed);
+        #if MOTOR_LOOP_ENABLE == 1
+            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 500 / 800);
+            PIDIncMotorCtrl(RemoteCtrl_Speed);
+        #elif MOTOR_LOOP_ENABLE == 0
+            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 5000 / 800);
+            DRV8701_MOTOR_DRIVER(RemoteCtrl_Speed);
+        #endif
 
         // 自动归位
         if(Channal_5_Press_Flag == 1)
