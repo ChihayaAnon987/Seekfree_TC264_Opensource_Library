@@ -24,7 +24,7 @@
 * 文件名称          zf_device_type
 * 公司名称          成都逐飞科技有限公司
 * 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
-* 开发环境          ADS v1.9.20
+* 开发环境          ADS v1.9.4
 * 适用平台          TC264D
 * 店铺链接          https://seekfree.taobao.com/
 *
@@ -33,6 +33,7 @@
 * 2022-09-15       pudding            first version
 * 2023-04-28       pudding            增加中文注释说明
 * 2023-05-26       pudding            新增SPI WIFI 中断回调指针
+* 2024-01-5        JKS                新增SBUS串口接收器中断回调指针
 ********************************************************************************************************************/
 
 #ifndef _zf_device_type_h_
@@ -57,6 +58,7 @@ typedef enum
     BLE6A20,                                                                    // 蓝牙串口
     BLUETOOTH_CH9141,                                                           // 蓝牙 CH9141
     WIFI_UART,                                                                  // 串口 WiFi
+    WIFI_SPI,                                                                   // SPI WiFi
     RECEIVER_UART,                                                              // 枪式遥控器
 }wireless_type_enum;
 
@@ -80,6 +82,7 @@ extern callback_function camera_dma_handler;                                    
 extern callback_function camera_vsync_handler;                                  // 串口通讯中断函数指针，根据初始化时设置的函数进行跳转
 extern callback_function camera_uart_handler;                                   // 串口通讯中断函数指针，根据初始化时设置的函数进行跳转
 extern callback_function wireless_module_spi_handler;                           // WIFI SPI GPIO中断函数指针，根据初始化时设置的函数进行跳转
+extern callback_function uart_receiver_handler;                                 // SBUS串口接收机中断函数指针，根据初始化时设置的函数进行跳转
 
 extern tof_type_enum     tof_type;                                              // ToF 模块 类型
 extern callback_function tof_module_exti_handler;                               // ToF 模块 INT 更新中断

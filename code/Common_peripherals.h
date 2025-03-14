@@ -9,8 +9,10 @@
 #define CODE_COMMON_PERIPHERALS_H_
 
 //===================================================宏定义BEG===================================================
-#define UART_RECEIVER_ENABLE     (1)                         // 0: 串口  1: 遥控器  2: 不使用
-#define MT9V03X_ENABLE           (0)                         // 0: 不使用摄像头  1: 使用摄像头
+#define UART_RECEIVER_ENABLE     (1)                         // 0: 不启用遥控器    1: 启用遥控器
+#define WIRELESS_UART_ENABLE     (1)                         // 0: 不启用无线串口  1: 启用无线串口
+#define MT9V03X_ENABLE           (0)                         // 0: 不启用摄像头    1: 启用摄像头
+
 #define IPS200_TYPE     (IPS200_TYPE_SPI)                    // 双排排针 并口两寸屏 这里宏定义填写 IPS200_TYPE_PARALLEL8
                                                              // 单排排针 SPI 两寸屏 这里宏定义填写 IPS200_TYPE_SPI
 

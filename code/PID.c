@@ -134,7 +134,7 @@ void PDLocServoCtrl()
     PID_SERVO.last_error    = PID_SERVO.current_error;
     PID_SERVO.current_error = Angle_Error;
     PID_SERVO.derivative    = PID_SERVO.current_error - PID_SERVO.last_error;
-    #if MOTOR_LOOP_ENABLE == 1
+    #if MOTOR_LOOP_ENABLE
         if(PID_MOTOR.output >= 0 && PID_MOTOR.output <= 2000)
         {
             PID_SERVO.output = From_0000_To_2000_ServoPD.Kp * PID_SERVO.current_error +
@@ -180,7 +180,7 @@ void PDLocServoCtrl()
             PID_SERVO.output = Parameter_set0.ServePID[0] * PID_SERVO.current_error +
             Parameter_set0.ServePID[2] * PID_SERVO.derivative;
         }
-    #elif MOTOR_LOOP_ENABLE == 0
+    #else
         if(Target_Encoder >= 0 && Target_Encoder <= 2000)
         {
             PID_SERVO.output = From_0000_To_2000_ServoPD.Kp * PID_SERVO.current_error +
@@ -227,8 +227,6 @@ void PDLocServoCtrl()
             Parameter_set0.ServePID[2] * PID_SERVO.derivative;
         }
     #endif
-
-    
 
     Servo_Angle = Parameter_set0.Serve_Mid - PID_SERVO.output;
     if(Servo_Angle > SERVO_MOTOR_LMAX) {Servo_Angle = SERVO_MOTOR_LMAX;}

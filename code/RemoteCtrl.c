@@ -31,9 +31,46 @@ void RemoteCtrl_Direction_Speed()
 {
     if(Control_Flag == 1)
     {
+        #if MOTOR_LOOP_ENABLE
+            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 500 / 800);
+            PIDIncMotorCtrl(RemoteCtrl_Speed);
+        #else
+            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 5000 / 800);
+            DRV8701_MOTOR_DRIVER(RemoteCtrl_Speed);
+        #endif
+        
+        // 自动归位
+        if(Channal_5_Press_Flag == 1)
+        {
+            Start_Flag = 1;
+            if(Task_Flag == 1)
+            {
+                GPS_GET_LAT[8] = GPS_GET_LAT[Task1_Start_Point];
+                GPS_GET_LOT[8] = GPS_GET_LOT[Task1_Start_Point];
+            }
+            else if(Task_Flag == 2)
+            {
+                GPS_GET_LAT[8] = GPS_GET_LAT[Task2_Start_Point];
+                GPS_GET_LOT[8] = GPS_GET_LOT[Task2_Start_Point];
+            }
+            else if(Task_Flag == 3)
+            {
+                GPS_GET_LAT[8] = GPS_GET_LAT[Task3_Start_Point];
+                GPS_GET_LOT[8] = GPS_GET_LOT[Task3_Start_Point];
+            }
+            else
+            {
+                GPS_GET_LAT[8] = GPS_GET_LAT[Task1_Start_Point];
+                GPS_GET_LOT[8] = GPS_GET_LOT[Task1_Start_Point];
+            }
+            Track_Points_NUM = 8;
+        }
+    }
+    if(Control_Flag == 2)
+    {
         RemoteCtrl_Direction = (int16)((856 - uart_receiver.channel[0]) * 24 / 800);    // 把其值映射到SERVO_MOTOR_RMAX 到 SERVO_MOTOR_LMAX
         static float CenterAngle;
-        if(RemoteCtrl_Direction == 0)
+        if(fabs(856 - uart_receiver.channel[0]) < 20)
         {
             if(Center_Flag == 0)
             {
@@ -60,17 +97,16 @@ void RemoteCtrl_Direction_Speed()
 
             }
         }
-        if(RemoteCtrl_Direction != 0)
+        else
         {
             Center_Flag = 0;
             Servo_Set(SERVO_MOTOR_MID - RemoteCtrl_Direction);                          // 舵机角度
         }
 
-        DRV8701_MOTOR_DRIVER(RemoteCtrl_Speed);
-        #if MOTOR_LOOP_ENABLE == 1
+        #if MOTOR_LOOP_ENABLE
             RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 500 / 800);
             PIDIncMotorCtrl(RemoteCtrl_Speed);
-        #elif MOTOR_LOOP_ENABLE == 0
+        #else
             RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 5000 / 800);
             DRV8701_MOTOR_DRIVER(RemoteCtrl_Speed);
         #endif
@@ -112,9 +148,13 @@ void CtrlMode_Switch()
     {
         Control_Flag = 0;
     }
-    if(uart_receiver.channel[3] == 992 || uart_receiver.channel[3] == CHANNAL_HIGH_LEVEL)
+    if(uart_receiver.channel[3] == (CHANNAL_LOW_LEVEL + CHANNAL_HIGH_LEVEL) / 2)
     {
         Control_Flag = 1;
+    }
+    if(uart_receiver.channel[3] == CHANNAL_HIGH_LEVEL)
+    {
+        Control_Flag = 2;
     }
 }
 

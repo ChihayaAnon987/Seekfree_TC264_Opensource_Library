@@ -69,18 +69,23 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
     {
         PDLocServoCtrl();                              // 舵机 PD位置式控制
         // PIDIncMotorCtrl(Test_Encoder);                 // 电机 PID增量式控制
-        #if MOTOR_LOOP_ENABLE == 1
+        #if MOTOR_LOOP_ENABLE
             PIDIncMotorCtrl(Target_Encoder);               // 电机 PID增量式控制
-        #elif MOTOR_LOOP_ENABLE == 0
+        #else
             DRV8701_MOTOR_DRIVER(Target_Encoder);          // 电机驱动
         #endif
     }
-    #if UART_RECEIVER_ENABLE == 1
-        if(Control_Flag == 1 && Center_Flag == 1)
-        {
-            PDLocServoCtrl();
-        }
-    #endif
+
+#if UART_RECEIVER_ENABLE
+    if(Control_Flag == 1)
+    {
+        PDLocServoCtrl();                              // 舵机 PD位置式控制
+    }
+    if(Control_Flag == 2 && Center_Flag == 1)
+    {
+        PDLocServoCtrl();
+    }
+#endif
     Encoder_Get();
     Point_Switch();
 
@@ -102,7 +107,7 @@ IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
     pit_clear_flag(CCU61_CH1);
 
     // 0.005s中断，200Hz
-#if UART_RECEIVER_ENABLE == 1
+#if UART_RECEIVER_ENABLE
     RemoteCtrl_Program();
 #endif
 
@@ -223,7 +228,12 @@ IFX_INTERRUPT(uart1_tx_isr, 0, UART1_TX_INT_PRIO)
 IFX_INTERRUPT(uart1_rx_isr, 0, UART1_RX_INT_PRIO)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
-    camera_uart_handler();                          // 摄像头参数配置统一回调函数
+#if UART_RECEIVER_ENABLE
+    uart_receiver_handler();                        // 串口接收机回调函数
+#endif
+#if MT9V03X_ENABLE
+    mt9v03x_uart_handler();                         // MT9V03X 串口回调函数
+#endif
 }
 
 // 串口2默认连接到无线转串口模块

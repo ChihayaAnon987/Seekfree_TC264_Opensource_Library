@@ -24,7 +24,7 @@
 * 文件名称          zf_device_type
 * 公司名称          成都逐飞科技有限公司
 * 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
-* 开发环境          ADS v1.9.20
+* 开发环境          ADS v1.9.4
 * 适用平台          TC264D
 * 店铺链接          https://seekfree.taobao.com/
 *
@@ -32,7 +32,7 @@
 * 日期              作者                备注
 * 2022-09-15       pudding            first version
 * 2023-05-26       pudding            新增SPI WIFI 中断回调指针
-* 2024-01-16       pudding            移除SPI WIFI 中断回调指针 SPI WIFI将不再使用外部
+* 2024-01-5        JKS                新增SBUS串口接收器中断回调指针
 ********************************************************************************************************************/
 
 #include "zf_device_type.h"
@@ -46,6 +46,9 @@ callback_function   camera_dma_handler              = type_default_callback;    
 
 wireless_type_enum  wireless_type                   = NO_WIRELESS;
 callback_function   wireless_module_uart_handler    = type_default_callback;        // 无线串口接收中断函数指针，根据初始化时设置的函数进行跳转
+callback_function   wireless_module_spi_handler     = type_default_callback;        // WIFI SPI GPIO中断函数指针，根据初始化时设置的函数进行跳转
+callback_function   uart_receiver_handler           = type_default_callback;        // SBUS串口接收机中断函数指针，根据初始化时设置的函数进行跳转
+
 
 tof_type_enum       tof_type                        = NO_TOF;
 callback_function   tof_module_exti_handler         = type_default_callback;        // ToF 模块 INT 更新中断
@@ -90,7 +93,19 @@ void  set_camera_type (camera_type_enum type_set, callback_function vsync_callba
 void set_wireless_type (wireless_type_enum type_set, callback_function wireless_callback)
 {
     wireless_type = type_set;
-    wireless_module_uart_handler = ((wireless_callback == NULL) ? (type_default_callback) : (wireless_callback));
+    if(WIFI_SPI == wireless_type)
+    {
+        wireless_module_spi_handler = ((wireless_callback == NULL) ? (type_default_callback) : (wireless_callback));
+    }
+    else if (RECEIVER_UART == wireless_type)
+    {
+        uart_receiver_handler  = ((wireless_callback == NULL) ? (type_default_callback) : (wireless_callback));
+    }
+    else
+    {
+        wireless_module_uart_handler  = ((wireless_callback == NULL) ? (type_default_callback) : (wireless_callback));
+    }
+
 }
 
 //-------------------------------------------------------------------------------------------------------------------

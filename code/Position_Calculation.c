@@ -8,7 +8,7 @@
 #include "zf_common_headfile.h"
 
 
-int Track_Points_NUM   =   0;       // 当前追踪第几个点
+int16 Track_Points_NUM =   0;       // 当前追踪第几个点
 double Angle_Error     =   0;       // 方向角与航向角之差
 float  Fusion_angle    =   0;       // GPS和IMU互补滤波后的角度
 float  Fusion_alpha    = 0.9;       // GPS和IMU互补滤波的权重
@@ -96,7 +96,7 @@ void Track_Follow()
         }
     }
     
-    #if UART_RECEIVER_ENABLE == 1
+    #if UART_RECEIVER_ENABLE
         if(uart_receiver.state == 0)
         {
             Target_Encoder = 0;             // 遥控器失控保护

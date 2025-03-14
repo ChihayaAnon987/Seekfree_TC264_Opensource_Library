@@ -18,9 +18,10 @@ void CPU0_Init()
     SERVO_Init();                                                   // 舵机初始化
     DRV8701_Init();                                                 // 电机初始化
     encoder_dir_init(ENCODER1_TIM, ENCODER1_PLUS, ENCODER1_DIR);    // 编码器初始化
-#if UART_RECEIVER_ENABLE == 1
+#if UART_RECEIVER_ENABLE
     uart_receiver_init();                                           // sbus接收机初始化
-#elif UART_RECEIVER_ENABLE == 0
+#endif
+#if WIRELESS_UART_ENABLE
     wireless_uart_init();                                           // 初始化无线串口
 #endif
     Oscilloscope_Init(8);                                           // 逐飞示波器初始化
@@ -34,7 +35,7 @@ void CPU1_Init()
 {
     Buzzer_Init();                                                  // 蜂鸣器初始化
     KEY_Init();                                                     // 按键初始化
-#if MT9V03X_ENABLE == 1
+#if MT9V03X_ENABLE
     mt9v03x_init();                                                 // 总钻风初始化
 #endif
     key_init(10);                                                   // 按键初始化
@@ -179,7 +180,7 @@ void LED_Buzzer_Ctrl()
         case 2: gpio_set_level(LED2, 0); system_delay_ms(500); gpio_set_level(LED2, 1); LED_Buzzer_Flag = 0; break;
         case 3: gpio_set_level(LED3, 0); system_delay_ms(500); gpio_set_level(LED3, 1); LED_Buzzer_Flag = 0; break;
         case 4: gpio_set_level(LED4, 0); system_delay_ms(500); gpio_set_level(LED4, 1); LED_Buzzer_Flag = 0; break;
-        case 5: Buzzer_Check(500); LED_Buzzer_Flag = 0; break;
+        case 5: Buzzer_Check(100); LED_Buzzer_Flag = 0; break;
         default: break;
     }
 }

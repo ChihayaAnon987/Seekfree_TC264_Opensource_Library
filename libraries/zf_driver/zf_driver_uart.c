@@ -24,7 +24,7 @@
 * 文件名称          zf_driver_uart
 * 公司名称          成都逐飞科技有限公司
 * 版本信息          查看 libraries/doc 文件夹内 version 文件 版本说明
-* 开发环境          ADS v1.9.20
+* 开发环境          ADS v1.9.4
 * 适用平台          TC264D
 * 店铺链接          https://seekfree.taobao.com/
 *
@@ -33,6 +33,7 @@
 * 2022-09-15       pudding            first version
 * 2023-09-27       pudding            修改串口发送和接收的通信逻辑，将直接从底层读取或者写入数据，不再通过中断处理
 * 2023-10-07       pudding            新增统一回调函数指针
+* 2024-01-05       JKS                新增SBUS接收机串口初始化函数
 ********************************************************************************************************************/
 
 #include "IFXPORT.h"
@@ -402,7 +403,9 @@ void uart_rx_interrupt (uart_index_enum uart_n, uint32 status)
     {
         IfxSrc_disable(src);
     }
+
 }
+
 
 //-------------------------------------------------------------------------------------------------------------------
 // 函数简介     sbus初始化
@@ -414,18 +417,18 @@ void uart_rx_interrupt (uart_index_enum uart_n, uint32 status)
 // 使用示例     uart_sbus_init(UART_2, 100000, UART2_TX_P10_5, UART2_RX_P10_6);
 // 备注信息
 //-------------------------------------------------------------------------------------------------------------------
-void uart_sbus_init (uart_index_enum uartn, uint32 baud, uart_tx_pin_enum tx_pin, uart_rx_pin_enum rx_pin)
+void uart_sbus_init (uart_index_enum uart_n, uint32 baud, uart_tx_pin_enum tx_pin, uart_rx_pin_enum rx_pin)
 {
 
     boolean interrupt_state = disableInterrupts();
 
-    volatile Ifx_ASCLIN *moudle = IfxAsclin_getAddress((IfxAsclin_Index)uartn);
+    volatile Ifx_ASCLIN *moudle = IfxAsclin_getAddress((IfxAsclin_Index)uart_n);
 
     IfxAsclin_Asc_initModuleConfig(&uart_config, moudle);   // 初始化化配置结构体
 
-    uart_set_buffer(uartn);                                 // 设置缓冲区
+    uart_set_buffer(uart_n);                                // 设置缓冲区
 
-    uart_set_interrupt_priority(uartn);                     // 设置中断优先级
+    uart_set_interrupt_priority(uart_n);                    // 设置中断优先级
 
     uart_config.clockSource           = IfxAsclin_ClockSource_ascFastClock;     // 使用高速时钟 最大波特率6.25M
     uart_config.baudrate.prescaler    = 4;
@@ -434,24 +437,25 @@ void uart_sbus_init (uart_index_enum uartn, uint32 baud, uart_tx_pin_enum tx_pin
 
     uart_config.frame.stopBit         =  IfxAsclin_StopBit_2;                    //停止位
     uart_config.frame.parityType      = IfxAsclin_ParityType_even;               //偶校验
-    uart_config.frame.dataLength      = IfxAsclin_DataLength_8;
+//    uart_config.frame.dataLength      = IfxAsclin_DataLength_9;
     uart_config.frame.parityBit       = TRUE;                                   //启动校验
 
     IfxAsclin_Asc_Pins pins;                                                    // 设置引脚
     pins.cts = NULL;
     pins.rts = NULL;
-    uart_mux(uartn, tx_pin, rx_pin, (uint32 *)&pins.tx, (uint32 *)&pins.rx);
+    uart_mux(uart_n, tx_pin, rx_pin, (uint32 *)&pins.tx, (uint32 *)&pins.rx);
     pins.rxMode = IfxPort_InputMode_pullUp;
     pins.txMode = IfxPort_OutputMode_pushPull;
     pins.pinDriver = IfxPort_PadDriver_cmosAutomotiveSpeed1;
     uart_config.pins = &pins;
 
-    IfxAsclin_Asc_initModule(uart_get_handle(uartn), &uart_config);
-    uart_rx_interrupt(uartn, 1);
-    uart_tx_interrupt(uartn, 0);
+    IfxAsclin_Asc_initModule(uart_get_handle(uart_n), &uart_config);
+    uart_rx_interrupt(uart_n, 1);
+    uart_tx_interrupt(uart_n, 0);
     restoreInterrupts(interrupt_state);
 
 }
+
 
 //-------------------------------------------------------------------------------------------------------------------
 //  函数简介      串口初始化
@@ -480,6 +484,7 @@ void uart_init (uart_index_enum uart_n, uint32 baud, uart_tx_pin_enum tx_pin, ua
     uart_config.baudrate.baudrate     = (float32)baud;
     uart_config.baudrate.oversampling = IfxAsclin_OversamplingFactor_8;
 
+
     IfxAsclin_Asc_Pins pins;                                // 设置引脚
     pins.cts = NULL;
     pins.rts = NULL;
@@ -493,4 +498,5 @@ void uart_init (uart_index_enum uart_n, uint32 baud, uart_tx_pin_enum tx_pin, ua
     uart_rx_interrupt(uart_n, 0);
     uart_tx_interrupt(uart_n, 0);
     restoreInterrupts(interrupt_state);
+
 }

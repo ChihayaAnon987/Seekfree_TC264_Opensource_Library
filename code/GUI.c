@@ -405,8 +405,6 @@ void CaiDian_menu(void)
         ips200_show_string(0, 16 * 6, "Distance:");
         ips200_show_float(96, 16 * 6, Distance, 4, 6);
 
-        seekfree_assistant_oscilloscope_send(&oscilloscope_data);
-        oscilloscope_data.data[0] = Distance;
     }
     ips200_show_string(  0, 16 *  7, "KEY1:Get  Point");
     ips200_show_string(  0, 16 *  8, "KEY2:Save Point");
@@ -465,13 +463,15 @@ void GPS_menu(void)
     ips200_show_float ( 48, 16 * 9, Angle          , 4, 6);
     ips200_show_uint  ( 88, 16 * 10, gnss.satellite_used, 2);
 
-   seekfree_assistant_oscilloscope_send(&oscilloscope_data);
-   oscilloscope_data.data[0] = gnss.latitude;
-   oscilloscope_data.data[1] = gnss.longitude;
-   oscilloscope_data.data[2] = Angle;
-   oscilloscope_data.data[3] = gnss.direction;
-   oscilloscope_data.data[4] = gnss.speed;
-   oscilloscope_data.data[5] = GpsAccel;
+#if WIRELESS_UART_ENABLE
+    seekfree_assistant_oscilloscope_send(&oscilloscope_data);
+    oscilloscope_data.data[0] = gnss.latitude;
+    oscilloscope_data.data[1] = gnss.longitude;
+    oscilloscope_data.data[2] = Angle;
+    oscilloscope_data.data[3] = gnss.direction;
+    oscilloscope_data.data[4] = gnss.speed;
+    oscilloscope_data.data[5] = GpsAccel;
+#endif
 }
 
 void spd_menu(void)
@@ -635,20 +635,11 @@ void Points_menu(void)
     ips200_show_string(  0, 16 * 10, "2:Point+1/Lat-");
     ips200_show_string(120, 16 *  9, "3:Save   /Lot+");
     ips200_show_string(120, 16 * 10, "4:Print  /Lot-");
-
-    // double Direction = get_two_points_azimuth(GPS_GET_LAT[0], GPS_GET_LOT[0], GPS_GET_LAT[1], GPS_GET_LOT[1]);
-    // double Distance = get_two_points_distance(GPS_GET_LAT[0], GPS_GET_LOT[0], GPS_GET_LAT[1], GPS_GET_LOT[1]);
-    // ips200_show_string(0, 16 * 4, "Direction:");
-    // ips200_show_string(0, 16 * 5, "Distance:");
-    // ips200_show_float(96, 16 * 4, Direction, 3, 3);
-    // ips200_show_float(96, 16 * 5, Distance , 5, 6);
-
-
 }
 
 void ZongZuanF(void)
 {
-#if MT9V03X_ENABLE == 1
+#if MT9V03X_ENABLE
     Process_Image();
     if(mt9v03x_finish_flag)
     {
@@ -710,6 +701,7 @@ void Imu963_menu()
     ips200_show_float( 48, 16 * 6, Kp_Ah, 3, 3);
     ips200_show_float( 48, 16 * 7, Ki_Ah, 3, 3);
 
+#if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
     oscilloscope_data.data[0] = IMU_Data.gyro_z;
     oscilloscope_data.data[1] = Z_360 > 180 ? Z_360 - 360 : Z_360;
@@ -719,8 +711,7 @@ void Imu963_menu()
     oscilloscope_data.data[5] = angle[0];
     oscilloscope_data.data[6] = angle[1];
     oscilloscope_data.data[7] = angle[2];
-
-    system_delay_ms(10);
+#endif
 }
 
 void Flash_menu()
@@ -847,6 +838,15 @@ void Task_Select()
         drawPoints();
         updateCarPosition();
     }
+#if WIRELESS_UART_ENABLE
+    seekfree_assistant_oscilloscope_send(&oscilloscope_data);
+    oscilloscope_data.data[0] = Angle_Error;
+    oscilloscope_data.data[1] = Distance;
+    oscilloscope_data.data[2] = GpsDistance[Track_Points_NUM];
+    oscilloscope_data.data[3] = Track_Points_NUM;
+    oscilloscope_data.data[4] = Angle;
+    oscilloscope_data.data[5] = angle[2];
+#endif
 }
 
 
@@ -875,12 +875,13 @@ void ServoP_menu(void)
     ips200_show_float ( 96, 16 * 6, Servo_Angle, 3, 3);
     ips200_show_float ( 88, 16 * 7, PID_SERVO.output, 3, 6);
 
+#if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
     oscilloscope_data.data[0] = PID_SERVO.output;
     oscilloscope_data.data[1] = Servo_Angle;
     oscilloscope_data.data[2] = Angle_Error;
     oscilloscope_data.data[3] = Angle;
-
+#endif
 }
 
 void ServoI_menu(void)
@@ -906,11 +907,13 @@ void ServoI_menu(void)
     ips200_show_float ( 96, 16 * 6, Servo_Angle, 3, 3);
     ips200_show_float ( 88, 16 * 7, PID_SERVO.output, 3, 6);
 
+#if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
     oscilloscope_data.data[0] = PID_SERVO.output;
     oscilloscope_data.data[1] = Servo_Angle;
     oscilloscope_data.data[2] = Angle_Error;
     oscilloscope_data.data[3] = Angle;
+#endif
 }
 void ServoD_menu(void)
 {
@@ -935,11 +938,13 @@ void ServoD_menu(void)
     ips200_show_float ( 96, 16 * 6, Servo_Angle, 3, 3);
     ips200_show_float ( 88, 16 * 7, PID_SERVO.output, 3, 6);
 
+#if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
     oscilloscope_data.data[0] = PID_SERVO.output;
     oscilloscope_data.data[1] = Servo_Angle;
     oscilloscope_data.data[2] = Angle_Error;
     oscilloscope_data.data[3] = Angle;
+#endif
 }
 
 void MotorP_menu(void)
@@ -963,10 +968,12 @@ void MotorP_menu(void)
     ips200_show_float ( 80, 16 * 5, PID_MOTOR.current_error, 3, 3);
     ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 4, 6);
 
+#if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
     oscilloscope_data.data[0] = PID_MOTOR.output;
     oscilloscope_data.data[1] = Encoder;
     oscilloscope_data.data[2] = Test_Encoder;
+#endif
 }
 
 void MotorI_menu(void)
@@ -990,10 +997,12 @@ void MotorI_menu(void)
     ips200_show_float ( 80, 16 * 5, PID_MOTOR.current_error, 3, 3);
     ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 3, 6);
 
+#if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
     oscilloscope_data.data[0] = PID_MOTOR.output;
     oscilloscope_data.data[1] = Encoder;
     oscilloscope_data.data[2] = Test_Encoder;
+#endif
 }
 
 
@@ -1018,10 +1027,12 @@ void MotorD_menu(void)
     ips200_show_float ( 80, 16 * 5, PID_MOTOR.current_error, 3, 3);
     ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 3, 6);
 
+#if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
     oscilloscope_data.data[0] = PID_MOTOR.output;
     oscilloscope_data.data[1] = Encoder;
     oscilloscope_data.data[2] = Test_Encoder;
+#endif
 }
 
 
