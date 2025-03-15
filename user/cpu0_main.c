@@ -92,7 +92,7 @@ int core0_main(void)
     while (TRUE)
     {
         // 此处编写需要循环执行的代码
-        if(Control_Flag == 0)
+        if(Control_Flag == 0 || Control_Flag == 1)
         {
             Track_Follow();
         }

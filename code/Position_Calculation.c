@@ -61,18 +61,7 @@ void Track_Follow()
     // 调试用
     // Angle = Test_Angle;
 
-    if((Angle - angle[2]) > 180)
-    {
-        Angle_Error = Angle - angle[2] - 360;
-    }
-    else if((Angle - angle[2]) < -180)
-    {
-        Angle_Error = Angle - angle[2] + 360;
-    }
-    else
-    {
-        Angle_Error = Angle - angle[2];
-    }
+
     // 改进点
     // 1.Angle是GPS的方向角，通过对GPS的滤波，可以得到更加准确的方向角
     // 2.Z_360是IMU的航向角，通过对IMU的滤波，可以得到更加准确的航向角（卡尔曼滤波和四元数，上面这两点是数据处理）
@@ -85,6 +74,21 @@ void Track_Follow()
     {
         Angle_Error = -K_Straight * angle[2];
     }
+    else
+    {
+        if((Angle - angle[2]) > 180)
+        {
+            Angle_Error = Angle - angle[2] - 360;
+        }
+        else if((Angle - angle[2]) < -180)
+        {
+            Angle_Error = Angle - angle[2] + 360;
+        }
+        else
+        {
+            Angle_Error = Angle - angle[2];
+        }
+    }
     Target_Encoder = GpsTgtEncod[Track_Points_NUM];
 
     if(fabs(angle[0]) > 20)
@@ -96,13 +100,13 @@ void Track_Follow()
         }
     }
     
-    #if UART_RECEIVER_ENABLE
-        if(uart_receiver.state == 0)
-        {
-            Target_Encoder = 0;             // 遥控器失控保护
-            LED_Buzzer_Flag_Ctrl(LED3);
-        }
-    #endif
+#if UART_RECEIVER_ENABLE
+    if(uart_receiver.state == 0)
+    {
+        Target_Encoder = 0;             // 遥控器失控保护
+        LED_Buzzer_Flag_Ctrl(LED3);
+    }
+#endif
 }
 
 // 切换点位
