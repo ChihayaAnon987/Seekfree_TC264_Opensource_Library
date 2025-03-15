@@ -494,8 +494,8 @@ void spd_menu(void)
 
     ips200_show_string(  0, 16 *  9, "KEY1:Point-1");
     ips200_show_string(  0, 16 * 10, "KEY2:Point+1");
-    ips200_show_string(120, 16 *  9, "KEY3:Duty+50");
-    ips200_show_string(120, 16 * 10, "KEY4:Duty-50");
+    ips200_show_string(120, 16 *  9, "KEY3:Duty+100");
+    ips200_show_string(120, 16 * 10, "KEY4:Duty-100");
 
 
 }
@@ -513,10 +513,10 @@ void Distance_menu(void)
 
     int Page = Point1 / Page_Point_Num;
     int RightArrow = Point1 % Page_Point_Num + 1;
-    ips200_show_string(168, 16 * RightArrow, "-->");
+    ips200_show_string(160, 16 * RightArrow, "-->");
     for(int i = 1; i <= Page_Point_Num; i++)
     {
-        ips200_show_float (192, 16 * i, GpsDistance[i - 1 + Page * Page_Point_Num], 1, 2);
+        ips200_show_float (184, 16 * i, GpsDistance[i - 1 + Page * Page_Point_Num], 1, 3);
     }
 
     ips200_show_string(  0, 16 *  9, "KEY1:Point-1");
@@ -631,10 +631,10 @@ void Points_menu(void)
             }
         }
     }
-    ips200_show_string(  0, 16 *  9, "1:Point-1/Lat+");
-    ips200_show_string(  0, 16 * 10, "2:Point+1/Lat-");
-    ips200_show_string(120, 16 *  9, "3:Save   /Lot+");
-    ips200_show_string(120, 16 * 10, "4:Print  /Lot-");
+    ips200_show_string(  0, 16 *  9, "KEY1:Up  /Lat+North");
+    ips200_show_string(  0, 16 * 10, "KEY2:Down/Lat-South");
+    ips200_show_string(  0, 16 * 11, "KEY3:Fix /Lon+East ");
+    ips200_show_string(  0, 16 * 12, "KEY4:    /Lon-West ");
 }
 
 void ZongZuanF(void)
@@ -1429,13 +1429,6 @@ void Key_Ctrl_Menu()
                 {
                     FLASH_FIX_GPS();
                 }
-                if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
-                {
-                    for(int i = 0; i < Point_NUM; i++)
-                    {
-                        printf("{ lat: %lf, lng: %lf, name: \"%d\"}\r\n",GPS_GET_LAT[i], GPS_GET_LOT[i], i);
-                    }
-                }
             }
             // 拨码开关在下表示点位设置
             if(gpio_get_level(SWITCH1))
@@ -1741,10 +1734,6 @@ void Key_Ctrl_Menu()
             {
                 Start_Flag = 1;
                 LED_Buzzer_Flag_Ctrl(LED3);
-            }
-            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
-            {
-                ips200_clear();
             }
         }
     }

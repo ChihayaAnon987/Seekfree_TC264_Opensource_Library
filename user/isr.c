@@ -228,11 +228,8 @@ IFX_INTERRUPT(uart1_tx_isr, 0, UART1_TX_INT_PRIO)
 IFX_INTERRUPT(uart1_rx_isr, 0, UART1_RX_INT_PRIO)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
-#if UART_RECEIVER_ENABLE
-    uart_receiver_handler();                        // 串口接收机回调函数
-#endif
 #if MT9V03X_ENABLE
-    mt9v03x_uart_handler();                         // MT9V03X 串口回调函数
+    camera_uart_handler();                          // MT9V03X 串口回调函数
 #endif
 }
 
