@@ -23,8 +23,8 @@ void RemoteCtrl_Program()
     if(uart_receiver.channel[0] != 0)
     {
         RemoteCtrl_Direction_Speed();
+        CtrlMode_Switch();
     }
-    CtrlMode_Switch();
 }
 
 void RemoteCtrl_Direction_Speed()

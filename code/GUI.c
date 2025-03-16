@@ -825,12 +825,16 @@ void Task_Select()
         ips200_show_float(  80, 16 *  6, Delta_Lat, 3, 6);
         ips200_show_string(  0, 16 *  7, "Delta_Lon:");
         ips200_show_float(  80, 16 *  7, Delta_Lon, 3, 6);
-        ips200_show_float(  0,  16 *  8, gnss.latitude, 3, 6);
-        ips200_show_float( 96,  16 *  8, gnss.longitude, 3, 6);
-        ips200_show_string(  0, 16 *  9, "KEY1:Task1");
-        ips200_show_string(120, 16 *  9, "KEY2:Task2");
-        ips200_show_string(  0, 16 * 10, "KEY3:Task3");
-        ips200_show_string(120, 16 * 10, "KEY4:Start");
+        ips200_show_float(   0, 16 *  8, gnss.latitude, 3, 6);
+        ips200_show_float(  96, 16 *  8, gnss.longitude, 3, 6);
+        ips200_show_string(  0, 16 *  9, "Servo Angle:");
+        ips200_show_uint(   96, 16 *  9, Servo_Angle, 3);
+        ips200_show_string(  0, 16 * 10, "TagtEncoder:");
+        ips200_show_int(    96, 16 * 10, Target_Encoder, 4);
+        ips200_show_string(  0, 16 * 11, "KEY1:Task1");
+        ips200_show_string(120, 16 * 11, "KEY2:Task2");
+        ips200_show_string(  0, 16 * 12, "KEY3:Task3");
+        ips200_show_string(120, 16 * 12, "KEY4:Start");
     }
     if(gpio_get_level(SWITCH1))
     {

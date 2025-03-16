@@ -79,30 +79,12 @@ void FLASH_GET_GPS()
 // 修正 Gps 数据
 void FLASH_FIX_GPS()
 {
-    flash_buffer_clear();
-    if(flash_check(FLASH_SECTION_INDEX, FLASH_PAGE_INDEX))                      // 判断是否有数据
-    {
-        flash_erase_page(FLASH_SECTION_INDEX, FLASH_PAGE_INDEX);                // 擦除这一页
-    }
-
     for(int i = 0; i < Point_NUM; i++)
     {
         lat_union[i].double_type = GPS_GET_LAT[i];
         lon_union[i].double_type = GPS_GET_LOT[i];
     }
-    for (int i = 0; i < Point_NUM; i++)
-    {
-        flash_union_buffer[i * 4 + 1].uint32_type = lat_union[i].uint32_type[0];  // 纬度高 32 位
-        flash_union_buffer[i * 4 + 2].uint32_type = lat_union[i].uint32_type[1];  // 纬度低 32 位
-
-        flash_union_buffer[i * 4 + 3].uint32_type = lon_union[i].uint32_type[0];  // 经度高 32 位
-        flash_union_buffer[i * 4 + 4].uint32_type = lon_union[i].uint32_type[1];  // 经度低 32 位
-    }
-    // 写入 Flash 页面
-    flash_write_page_from_buffer(FLASH_SECTION_INDEX, FLASH_PAGE_INDEX);
-    flash_buffer_clear();
-
-    LED_Buzzer_Flag_Ctrl(LED1);
+    FLASH_SAV_GPS();
 }
 
 // 清除Flash数据
@@ -121,7 +103,6 @@ void FLASH_DEL_GPS()
         gpio_set_level(LED3, 1);
         gpio_set_level(LED4, 1);
     }
-
 }
 
 
@@ -244,5 +225,4 @@ void FLASH_GET_PAR()
 
         flash_buffer_clear();                                                    // 清空缓冲区
     }
-
 }
