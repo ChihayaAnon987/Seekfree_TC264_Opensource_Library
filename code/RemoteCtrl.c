@@ -20,10 +20,10 @@ int16 RemoteCtrl_Direction;            // 遥控器方向控制量
 
 void RemoteCtrl_Program()
 {
-    RemoteCtrl_Direction_Speed();
-    // Is_Channal_3_Press();
-    // Is_Channal_5_Press();
-    // Is_Channal_6_Press();
+    if(uart_receiver.channel[0] != 0)
+    {
+        RemoteCtrl_Direction_Speed();
+    }
     CtrlMode_Switch();
 }
 

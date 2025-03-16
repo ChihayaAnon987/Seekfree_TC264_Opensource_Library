@@ -228,9 +228,7 @@ IFX_INTERRUPT(uart1_tx_isr, 0, UART1_TX_INT_PRIO)
 IFX_INTERRUPT(uart1_rx_isr, 0, UART1_RX_INT_PRIO)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
-#if MT9V03X_ENABLE
-    camera_uart_handler();                          // MT9V03X 串口回调函数
-#endif
+    camera_uart_handler();
 }
 
 // 串口2默认连接到无线转串口模块
@@ -245,9 +243,12 @@ IFX_INTERRUPT(uart2_tx_isr, 0, UART2_TX_INT_PRIO)
 IFX_INTERRUPT(uart2_rx_isr, 0, UART2_RX_INT_PRIO)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
+#if WIRELESS_UART_ENABLE
     wireless_module_uart_handler();                 // 无线模块统一回调函数
-
-
+#endif
+#if UART_RECEIVER_ENABLE
+    uart_receiver_handler();                        // 串口接收机回调函数
+#endif
 
 }
 // 串口3默认连接到GPS定位模块
