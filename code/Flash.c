@@ -226,3 +226,51 @@ void FLASH_GET_PAR()
         flash_buffer_clear();                                                    // Çå¿Õ»º³åÇø
     }
 }
+
+void FLASH_PRI_PAR()
+{
+    static int8 Print_Flag = 0;
+    if(Print_Flag == 0)
+    {
+        Print_Flag = 1;
+        printf("ServoPID[0]:%f\r\n", Parameter_set0.ServePID[0]);
+        printf("ServoPID[1]:%f\r\n", Parameter_set0.ServePID[1]);
+        printf("ServoPID[2]:%f\r\n", Parameter_set0.ServePID[2]);
+        
+        printf("MotorPID[0]:%f\r\n", Parameter_set0.SpeedPID[0]);
+        printf("MotorPID[1]:%f\r\n", Parameter_set0.SpeedPID[1]);
+        printf("MotorPID[2]:%f\r\n", Parameter_set0.SpeedPID[2]);
+
+        printf("Task1Point:%d\r\n", Task1_Points);
+        printf("Task2Point:%d\r\n", Task2_Points);
+        printf("Task3Point:%d\r\n", Task3_Points);
+
+        printf("Fly_Slope_Alpha:%f\r\n", Fly_Slope_Alpha);
+        printf("K_Straight:%f\r\n", K_Straight);
+
+        printf("From_0000_To_2000_ServoPD: Kp = %f, Kd = %f\r\n", From_0000_To_2000_ServoPD.Kp, From_0000_To_2000_ServoPD.Kd);
+        printf("From_2000_To_4000_ServoPD: Kp = %f, Kd = %f\r\n", From_2000_To_4000_ServoPD.Kp, From_2000_To_4000_ServoPD.Kd);
+        printf("From_4000_To_5000_ServoPD: Kp = %f, Kd = %f\r\n", From_4000_To_5000_ServoPD.Kp, From_4000_To_5000_ServoPD.Kd);
+        printf("From_5000_To_6000_ServoPD: Kp = %f, Kd = %f\r\n", From_5000_To_6000_ServoPD.Kp, From_5000_To_6000_ServoPD.Kd);
+        printf("From_6000_To_7000_ServoPD: Kp = %f, Kd = %f\r\n", From_6000_To_7000_ServoPD.Kp, From_6000_To_7000_ServoPD.Kd);
+        printf("From_7000_To_8000_ServoPD: Kp = %f, Kd = %f\r\n", From_7000_To_8000_ServoPD.Kp, From_7000_To_8000_ServoPD.Kd);
+        printf("From_8000_To_9000_ServoPD: Kp = %f, Kd = %f\r\n", From_8000_To_9000_ServoPD.Kp, From_8000_To_9000_ServoPD.Kd);
+        printf("From_9000_To_9900_ServoPD: Kp = %f, Kd = %f\r\n", From_9000_To_9900_ServoPD.Kp, From_9000_To_9900_ServoPD.Kd);
+
+        for(int16 i = 0; i < NUM_GPS_DATA; i++)
+        {
+            if(GpsDistance[i] != 0)
+            {
+                printf("GpsDistance[%d]:%f\r\n", i, GpsDistance[i]);
+            }
+        }
+        for(int16 i = 0; i < NUM_GPS_DATA; i++)
+        {
+            if(GpsTgtEncod[i] != 0)
+            {
+                printf("GpsTgtEncod[%d]:%f\r\n", i, GpsTgtEncod[i]);
+            }
+        }
+        LED_Buzzer_Flag_Ctrl(LED1);
+    }
+}

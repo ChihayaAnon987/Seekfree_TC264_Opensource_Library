@@ -1712,6 +1712,10 @@ void Key_Ctrl_Menu()
             {
                 FLASH_SAV_PAR();
             }
+            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
+            {
+                FLASH_PRI_PAR();
+            }
         }
 
         if(func_index == 32)

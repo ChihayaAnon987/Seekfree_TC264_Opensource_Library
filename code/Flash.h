@@ -34,8 +34,9 @@ void FLASH_SAV_GPS(void);                                      // 存储数据到 Fla
 void FLASH_GET_GPS(void);                                      // 从 Flash 读数据
 void FLASH_FIX_GPS(void);                                      // 修正 Gps 数据
 void FLASH_DEL_GPS(void);                                      // 清除 Flash 数据
-void FLASH_SAV_PAR(void);                                      // 存储 PID 参数到 Flash
-void FLASH_GET_PAR(void);                                      // 从 Flash 读取 PID 参数
+void FLASH_SAV_PAR(void);                                      // 存储参数到 Flash
+void FLASH_GET_PAR(void);                                      // 从 Flash 读取参数
+void FLASH_PRI_PAR(void);                                      // 打印参数
 //===================================================函数声明END===================================================
 
 #endif /* CODE_FLASH_H_ */
