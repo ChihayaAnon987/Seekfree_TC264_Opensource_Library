@@ -439,29 +439,37 @@ void GPS_menu(void)
     ips200_show_string(216, 16 * 0, ":");
     ips200_show_uint(  224, 16 * 0, gnss.time.second, 2);
 
-    ips200_show_string(  0, 16 * 1, "Now_Lat:");
-    ips200_show_string(  0, 16 * 2, "Now_Lon:");
-    ips200_show_string(168, 16 * 1, "state:");
-    ips200_show_string(  0, 16 * 3, "Delta_x:");
-    ips200_show_string(  0, 16 * 4, "Delta_y:");
-    ips200_show_string(  0, 16 * 5, "Speed:");
-    ips200_show_string(  0, 16 * 6, "MaxSpeed:");
-    ips200_show_string(  0, 16 * 7, "Accel:");
-    ips200_show_string(  0, 16 * 8, "MaxAccel:");
-    ips200_show_string(  0, 16 * 9, "Angle:");
-    ips200_show_string(  0, 16 * 10, "SateNumber:");
+    ips200_show_string( 16, 16 *  0, "Lat:");
+    ips200_show_string(128, 16 *  0, "Lon:");
+    ips200_show_string(168, 16 *  0, "state:");
+    ips200_show_string(  0, 16 *  1, "N:");
+    ips200_show_string(  0, 16 *  2, "F:");
+    ips200_show_string(  0, 16 *  3, "D:");
+    ips200_show_string(  0, 16 *  4, "Delta_x:");
+    ips200_show_string(  0, 16 *  5, "Delta_y:");
+    ips200_show_string(  0, 16 *  6, "Speed:");
+    ips200_show_string(  0, 16 *  7, "MaxSpeed:");
+    ips200_show_string(  0, 16 *  8, "Accel:");
+    ips200_show_string(  0, 16 *  9, "MaxAccel:");
+    ips200_show_string(  0, 16 * 10, "Angle:");
+    ips200_show_string(  0, 16 * 11, "SateNumber:");
 
-    ips200_show_float ( 64, 16 * 1, gnss.latitude  , 4, 6);
-    ips200_show_float ( 64, 16 * 2, gnss.longitude , 4, 6);
-    ips200_show_uint  (216, 16 * 1, gnss.state     , 1);
-    ips200_show_float ( 80, 16 * 3, Delta_x, 4, 6);
-    ips200_show_float ( 80, 16 * 4, Delta_y, 4, 6);
-    ips200_show_float ( 48, 16 * 5, gnss.speed     , 3, 3);
-    ips200_show_float ( 72, 16 * 6, GpsMaxSpeed    , 3, 3);
-    ips200_show_float ( 48, 16 * 7, GpsAccel       , 3, 3);
-    ips200_show_float ( 72, 16 * 8, GpsMaxAccel    , 3, 3);
-    ips200_show_float ( 48, 16 * 9, Angle          , 4, 6);
-    ips200_show_uint  ( 88, 16 * 10, gnss.satellite_used, 2);
+
+    ips200_show_uint  (216, 16 *  0, gnss.state     , 1);
+    ips200_show_float ( 16, 16 *  1, gnss.latitude  , 4, 6);
+    ips200_show_float (128, 16 *  1, gnss.longitude , 4, 6);
+    ips200_show_float ( 16, 16 *  2, FilterPoint_Lat, 4, 6);
+    ips200_show_float (128, 16 *  2, FilterPoint_Lon, 4, 6);
+    ips200_show_float ( 16, 16 *  3, FilterPoint_Lat - gnss.latitude , 4, 6);
+    ips200_show_float (128, 16 *  3, FilterPoint_Lon - gnss.longitude, 4, 6);
+    ips200_show_float ( 80, 16 *  4, Delta_x, 4, 6);
+    ips200_show_float ( 80, 16 *  5, Delta_y, 4, 6);
+    ips200_show_float ( 48, 16 *  6, gnss.speed     , 3, 3);
+    ips200_show_float ( 72, 16 *  7, GpsMaxSpeed    , 3, 3);
+    ips200_show_float ( 48, 16 *  8, GpsAccel       , 3, 3);
+    ips200_show_float ( 72, 16 *  9, GpsMaxAccel    , 3, 3);
+    ips200_show_float ( 48, 16 * 10, Angle          , 4, 6);
+    ips200_show_uint  ( 88, 16 * 11, gnss.satellite_used, 2);
 
 #if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);

@@ -89,10 +89,12 @@ void Encoder_Get()
     Encoder = -encoder_get_count(ENCODER1_TIM);                         // 采集对应编码器数据
     encoder_clear_count(ENCODER1_TIM);                                  // 清除对应计数
 
-    double speed= Encoder * 45 / 248;                     // 计算速度m/s（放大了1000倍）
-    Delta_x += speed * 0.005 * cos(angle[2] * PI / 180);                     // 每五毫秒的位移
-    Delta_y += speed * 0.005 * sin(angle[2] * PI / 180);
+    double speed= Encoder * 1000 * 45 / 248;                     // 计算速度m/s（放大了1000倍）
+    Delta_y += speed * 0.005 * cos(angle[2] * PI / 180);                     // 每五毫秒的位移
+    Delta_x += speed * 0.005 * sin(angle[2] * PI / 180);
 
+    FilterPoint_Lat += (Delta_y * QS * 0.000000001 * Lat_Fix);
+    FilterPoint_Lon += (Delta_x * QS * 0.000000001 * Lon_Fix) / (cos(FilterPoint_Lat * PI / 180));
 }
 
 // 舵机初始化

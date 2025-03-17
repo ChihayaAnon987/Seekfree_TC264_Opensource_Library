@@ -140,18 +140,7 @@ void Get_Gps()
             Angle += 360;
         }
 
-        // if(gnss.direction < 180)
-        // {
-        //     Gps_Yaw = gnss.direction;
-        // }
-        // if(gnss.direction > 180)
-        // {
-        //     Gps_Yaw = gnss.direction - 360;
-        // }
-        // Gps_Yaw_Flag = 1;
     }
-    FilterPoint_Lat += (Delta_y * QS * 0.000000001 * Lat_Fix);
-    FilterPoint_Lon += (Delta_x * QS * 0.000000001 * Lon_Fix) / (cos(FilterPoint_Lat * PI / 180));
 }
 
 void Get_Gps_Yaw()

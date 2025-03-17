@@ -13,8 +13,9 @@
 #define WIRELESS_UART_ENABLE     (0)                         // 0: 不启用无线串口  1: 启用无线串口
 #define MT9V03X_ENABLE           (0)                         // 0: 不启用摄像头    1: 启用摄像头
 
-#define IPS200_TYPE     (IPS200_TYPE_SPI)                    // 双排排针 并口两寸屏 这里宏定义填写 IPS200_TYPE_PARALLEL8
-                                                             // 单排排针 SPI 两寸屏 这里宏定义填写 IPS200_TYPE_SPI
+#define IPS200_TYPE     (IPS200_TYPE_SPI)
+// 双排排针 并口两寸屏 这里宏定义填写 IPS200_TYPE_PARALLEL8
+// 单排排针 SPI 两寸屏 这里宏定义填写 IPS200_TYPE_SPI
 
 #define BUZZER_PIN              (P33_10)                     // 蜂鸣器控制引脚
 
@@ -34,7 +35,6 @@
 #define MAX_DUTY            50                               // 最大占空比输出限制
 #define PWM_CH1             ATOM0_CH5_P02_5                  // PWM 输出端口
 #define DIR_CH1             P02_4                            // 电机方向输出端口
-
 #define ENCODER1_TIM        TIM5_ENCODER                     // 编码器定时器
 #define ENCODER1_PLUS       TIM5_ENCODER_CH1_P10_3           // 编码器计数端口
 #define ENCODER1_DIR        TIM5_ENCODER_CH2_P10_1           // 编码器方向采值端口
@@ -76,7 +76,7 @@ void Buzzer_Check(int time);                                   // 蜂鸣器自检函数
 void KEY_Init(void);                                           // 按键初始化
 void System_Time_Count(void);                                  // 系统时间计时
 void LED_Buzzer_Flag_Ctrl(gpio_pin_enum pin);                  // LED、蜂鸣器控制
-void LED_Buzzer_Ctrl(void);                                        // LED、蜂鸣器控制
+void LED_Buzzer_Ctrl(void);                                    // LED、蜂鸣器控制
 //===================================================函数声明END===================================================
 
 

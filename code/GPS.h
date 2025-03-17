@@ -17,8 +17,8 @@
 #define MARGIN              (     20      )                  // 屏幕边缘预留距离
 #define POINT_COLOR         (  RGB565_RED )                  // 点颜色
 #define POINT_SIZE          (      2      )                  // 点半径（像素）
-#define LAT_TO_METER        (  111319.0   )
-#define LON_TO_METER        (   61010.0   )
+#define LAT_TO_METER        (  111319.0   )                  // 纬度变化1°对应的长度(m)
+#define LON_TO_METER        (   61010.0   )                  // 经度变化1°对应的长度(m)
 //===================================================宏定义END===================================================
 
 
