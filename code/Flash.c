@@ -245,7 +245,7 @@ void FLASH_PRI_PAR()
         printf("Task2Point:%d\r\n", Task2_Points);
         printf("Task3Point:%d\r\n", Task3_Points);
 
-        printf("Fly_Slope_Alpha:%f\r\n", Fly_Slope_Alpha);
+        printf("Fly_Slope_Alpha:%d\r\n", Fly_Slope_Alpha);
         printf("K_Straight:%f\r\n", K_Straight);
 
         printf("From_0000_To_2000_ServoPD: Kp = %f, Kd = %f\r\n", From_0000_To_2000_ServoPD.Kp, From_0000_To_2000_ServoPD.Kd);
@@ -268,7 +268,7 @@ void FLASH_PRI_PAR()
         {
             if(GpsTgtEncod[i] != 0)
             {
-                printf("GpsTgtEncod[%d]:%f\r\n", i, GpsTgtEncod[i]);
+                printf("GpsTgtEncod[%d]:%d\r\n", i, GpsTgtEncod[i]);
             }
         }
         LED_Buzzer_Flag_Ctrl(LED1);

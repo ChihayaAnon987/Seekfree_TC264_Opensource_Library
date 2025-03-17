@@ -172,19 +172,6 @@ void Get_Physicla_Parameter()
     }
 }
 
-void Get_Gps_Angle()
-{
-    Angle = get_two_points_azimuth(FilterPoint_Lat - Delta_Lat, FilterPoint_Lon - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
-    Angle -= Delta_Angle;
-    if(Angle > 180)
-    {
-        Angle -= 360;
-    }
-    if(Angle < -180)
-    {
-        Angle += 360;
-    }
-}
 
 void initCoordinateSystem()
 {
