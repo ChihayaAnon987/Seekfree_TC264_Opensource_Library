@@ -465,6 +465,7 @@ void GPS_menu(void)
     ips200_show_float ( 80, 16 *  4, Delta_x, 4, 6);
     ips200_show_float ( 80, 16 *  5, Delta_y, 4, 6);
     ips200_show_float ( 48, 16 *  6, gnss.speed     , 3, 3);
+    ips200_show_float (112, 16 *  6, GpsSpeed       , 3, 3);
     ips200_show_float ( 72, 16 *  7, GpsMaxSpeed    , 3, 3);
     ips200_show_float ( 48, 16 *  8, GpsAccel       , 3, 3);
     ips200_show_float ( 72, 16 *  9, GpsMaxAccel    , 3, 3);

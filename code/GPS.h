@@ -19,6 +19,8 @@
 #define POINT_SIZE          (      2      )                  // 点半径（像素）
 #define LAT_TO_METER        (  111319.0   )                  // 纬度变化1°对应的长度(m)
 #define LON_TO_METER        (   61010.0   )                  // 经度变化1°对应的长度(m)
+#define METER_TO_LAT        (0.0000089845 )                  // 变化1m对应的纬度
+#define METER_TO_LON        (0.0000163912 )                  // 变化1m对应的经度
 //===================================================宏定义END===================================================
 
 
@@ -50,6 +52,7 @@ extern int8     Task2_Points;                                  // 科目二所用点位
 extern int8     Task3_Points;                                  // 科目三所用点位数量
 extern float    GpsDistance[NUM_GPS_DATA];                     // 存储换点距离的数组
 extern int16    GpsTgtEncod[NUM_GPS_DATA];                     // 存储点位速度的数组
+extern float    GpsSpeed;                                      // 速度
 extern float    GpsAccel;                                      // 加速度
 extern float    GpsMaxSpeed;                                   // 最大速度
 extern float    GpsMaxAccel;                                   // 最大加速度
@@ -61,7 +64,7 @@ extern double   scale;                                         // 缩放因子
 
 //===================================================函数声明BEG===================================================
 void Get_Gps(void);                                            // 获取坐标等信息
-void Get_Gps_Yaw(void);                                        // 获取GPS偏航角
+void Get_Gps_Angle(void);                                      // 获取GPS偏航角
 void Get_Physicla_Parameter(void);                             // 获取物理参数
 void initCoordinateSystem(void);
 void drawGrid(void);                                           // 绘制网格及坐标轴

@@ -53,7 +53,7 @@
 
 
 uint32_t Point_NUM = 0;             // 已采集点数
-float    K_Gps     = 0.5;           // 衔接部分的权重
+float    K_Gps     = 0.4;           // 衔接部分的权重
 double FilterPoint_Lat = 0;         // 滤波后的纬度
 double FilterPoint_Lon = 0;         // 滤波后的经度
 double Start_Lat;                   // 发车的经度
@@ -76,7 +76,8 @@ double Delta_y      = 0;            // 位移
 double Distance     = 0;            // 自身距下一个点的距离
 double GPS_GET_LAT[NUM_GPS_DATA];   // 纬度
 double GPS_GET_LOT[NUM_GPS_DATA];   // 经度
-float  GpsAccel;                    // 加速度
+float  GpsSpeed    = 0;             // 速度
+float  GpsAccel    = 0;             // 加速度
 float  GpsMaxSpeed = 0;             // 最大速度
 float  GpsMaxAccel = 0;             // 最大加速度
 int8   Task1_Points = 5;            // 科目一所用点位数量
@@ -123,39 +124,33 @@ void Get_Gps()
 {
     // gps数据接收与解析都是通过串口中断调用gps_uart_callback函数进行实现的
     // 数据解析完毕之后gnss_flag标志位会置1
+    static double last_latitude  = 0;
+    static double last_longitude = 0;
     if(gnss_flag)
     {
+        
         gnss_flag = 0;
         gnss_data_parse();           //开始解析数据
         FilterPoint_Lat = K_Gps * FilterPoint_Lat + (1 - K_Gps) * gnss.latitude;
         FilterPoint_Lon = K_Gps * FilterPoint_Lon + (1 - K_Gps) * gnss.longitude;
-        Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
-        Angle -= Delta_Angle;
-        if(Angle > 180)
-        {
-            Angle -= 360;
-        }
-        if(Angle < -180)
-        {
-            Angle += 360;
-        }
 
+        GpsSpeed = get_two_points_distance(gnss.latitude, gnss.longitude, last_latitude, last_longitude) * 10.0f;
+        last_latitude  = gnss.latitude ;
+        last_longitude = gnss.longitude; 
     }
 }
 
-void Get_Gps_Yaw()
+void Get_Gps_Angle()
 {
-    if(Gps_Yaw_Flag == 1)
+    Angle = get_two_points_azimuth(FilterPoint_Lat - Delta_Lat, FilterPoint_Lon - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
+    Angle -= Delta_Angle;
+    if(Angle > 180)
     {
-        Yaw_Times++;
-        Gps_Yaw2 += Gps_Yaw;
-        Gps_Yaw_Flag = 0;
+        Angle -= 360;
     }
-    if(Yaw_Times == 10)
+    if(Angle < -180)
     {
-        Yaw = Gps_Yaw2 / 10;
-        Gps_Yaw2 = 0;
-        Yaw_Times = 0;
+        Angle += 360;
     }
 }
 
@@ -177,7 +172,19 @@ void Get_Physicla_Parameter()
     }
 }
 
-
+void Get_Gps_Angle()
+{
+    Angle = get_two_points_azimuth(FilterPoint_Lat - Delta_Lat, FilterPoint_Lon - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
+    Angle -= Delta_Angle;
+    if(Angle > 180)
+    {
+        Angle -= 360;
+    }
+    if(Angle < -180)
+    {
+        Angle += 360;
+    }
+}
 
 void initCoordinateSystem()
 {

@@ -112,7 +112,7 @@ void Track_Follow()
 // «–ªªµ„Œª
 void Point_Switch()
 {
-    Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
+    Distance = get_two_points_distance(FilterPoint_Lat - Delta_Lat, FilterPoint_Lon - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
     if(Track_Points_NUM != Task1_Start_Point && Track_Points_NUM != Task2_Start_Point && Track_Points_NUM != Task3_Start_Point)
     {
         if(Distance < GpsDistance[Track_Points_NUM])
