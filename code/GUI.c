@@ -1732,7 +1732,6 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                Road_Generator_Init();
                 Track_Points_NUM = Task2_Start_Point;
                 Task_Flag = 2;
                 initCoordinateSystem();
@@ -1747,6 +1746,10 @@ void Key_Ctrl_Menu()
             {
                 Start_Flag = 1;
                 LED_Buzzer_Flag_Ctrl(LED3);
+            }
+            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
+            {
+                Road_Generator_Init();
             }
         }
     }

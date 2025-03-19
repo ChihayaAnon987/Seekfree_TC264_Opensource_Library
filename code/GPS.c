@@ -286,6 +286,14 @@ void drawPoints()
         last_screen_x = screen_x;
         last_screen_y = screen_y;
     }
+    if(start_point == Task2_Start_Point)
+    {
+        for(int8 i = Task2_Start_Point + 1; i < Task2_Start_Point + Task2_Bucket; i++)
+        {
+            double distance = get_two_points_distance(GPS_GET_LAT[i], GPS_GET_LOT[i], GPS_GET_LAT[i + 1], GPS_GET_LOT[i]);
+            ips200_show_float(192, 16 * (i - Task2_Start_Point + 1), distance, 1, 2);
+        }
+    }
 }
 
 void gpsToScreen(double lat, double lon, uint16_t *screen_x, uint16_t *screen_y, int start_point)
