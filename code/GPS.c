@@ -125,33 +125,28 @@ void Get_Gps()
 {
     // gps数据接收与解析都是通过串口中断调用gps_uart_callback函数进行实现的
     // 数据解析完毕之后gnss_flag标志位会置1
-    static double last_latitude  = 0;
-    static double last_longitude = 0;
+    // static double last_latitude  = 0;
+    // static double last_longitude = 0;
     if(gnss_flag)
     {
-        
         gnss_flag = 0;
         gnss_data_parse();           //开始解析数据
-        FilterPoint_Lat = K_Gps * FilterPoint_Lat + (1 - K_Gps) * gnss.latitude;
-        FilterPoint_Lon = K_Gps * FilterPoint_Lon + (1 - K_Gps) * gnss.longitude;
+        // FilterPoint_Lat = K_Gps * FilterPoint_Lat + (1 - K_Gps) * gnss.latitude;
+        // FilterPoint_Lon = K_Gps * FilterPoint_Lon + (1 - K_Gps) * gnss.longitude;
+        // GpsSpeed = get_two_points_distance(gnss.latitude, gnss.longitude, last_latitude, last_longitude) * 10.0f;
+        // last_latitude  = gnss.latitude ;
+        // last_longitude = gnss.longitude;
 
-        GpsSpeed = get_two_points_distance(gnss.latitude, gnss.longitude, last_latitude, last_longitude) * 10.0f;
-        last_latitude  = gnss.latitude ;
-        last_longitude = gnss.longitude; 
-    }
-}
-
-void Get_Gps_Angle()
-{
-    Angle = get_two_points_azimuth(FilterPoint_Lat - Delta_Lat, FilterPoint_Lon - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
-    Angle -= Delta_Angle;
-    if(Angle > 180)
-    {
-        Angle -= 360;
-    }
-    if(Angle < -180)
-    {
-        Angle += 360;
+        Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
+        Angle -= Delta_Angle;
+        if(Angle > 180)
+        {
+            Angle -= 360;
+        }
+        if(Angle < -180)
+        {
+            Angle += 360;
+        }
     }
 }
 
@@ -264,15 +259,16 @@ void drawPoints()
     {
 
         uint16_t screen_x, screen_y;
+        static uint16_t last_screen_x = 0, last_screen_y = 0;
         gpsToScreen(GPS_GET_LAT[i], GPS_GET_LOT[i], &screen_x, &screen_y, start_point);
         // 绘制点（小方块）
         for(int ox = -POINT_SIZE; ox <= POINT_SIZE; ox++)
         {
             for(int oy = -POINT_SIZE; oy <= POINT_SIZE; oy++)
             {
-                int px = IntClip(screen_x + ox, MARGIN, ips200_width_max - MARGIN);
-                int py = IntClip(screen_y + oy, MARGIN, ips200_height_max - MARGIN);
-                ips200_draw_point((uint16)px, (uint16)py, POINT_COLOR);
+                uint16_t px = (uint16_t)IntClip(screen_x + ox, MARGIN, ips200_width_max - MARGIN);
+                uint16_t py = (uint16_t)IntClip(screen_y + oy, MARGIN, ips200_height_max - MARGIN);
+                ips200_draw_point(px, py, POINT_COLOR);
             }
         }
         
@@ -280,6 +276,13 @@ void drawPoints()
         char label[4];
         snprintf(label, sizeof(label), "%d", i - start_point);
         ips200_show_string(IntClip(screen_x + 30, 0, ips200_width_max - 1), IntClip(screen_y - 8, 0, ips200_height_max - 1), label);
+
+        if(i != start_point)
+        {
+            ips200_draw_line(screen_x, screen_y, last_screen_x, last_screen_y, RGB565_WHITE);
+        }
+        last_screen_x = screen_x;
+        last_screen_y = screen_y;
     }
 }
 

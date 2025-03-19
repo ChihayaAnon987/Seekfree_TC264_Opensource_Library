@@ -439,38 +439,30 @@ void GPS_menu(void)
     ips200_show_string(216, 16 * 0, ":");
     ips200_show_uint(  224, 16 * 0, gnss.time.second, 2);
 
-    ips200_show_string( 16, 16 *  0, "Lat:");
-    ips200_show_string(128, 16 *  0, "Lon:");
-    ips200_show_string(168, 16 *  0, "state:");
-    ips200_show_string(  0, 16 *  1, "N:");
-    ips200_show_string(  0, 16 *  2, "F:");
-    ips200_show_string(  0, 16 *  3, "D:");
-    ips200_show_string(  0, 16 *  4, "Delta_x:");
-    ips200_show_string(  0, 16 *  5, "Delta_y:");
-    ips200_show_string(  0, 16 *  6, "Speed:");
-    ips200_show_string(  0, 16 *  7, "MaxSpeed:");
-    ips200_show_string(  0, 16 *  8, "Accel:");
-    ips200_show_string(  0, 16 *  9, "MaxAccel:");
-    ips200_show_string(  0, 16 * 10, "Angle:");
-    ips200_show_string(  0, 16 * 11, "SateNumber:");
+    ips200_show_string( 16, 16 *  1, "Lat:");
+    ips200_show_string(128, 16 *  1, "Lon:");
+    ips200_show_string(168, 16 *  1, "state:");
+    ips200_show_string(  0, 16 *  3, "Delta_x:");
+    ips200_show_string(  0, 16 *  4, "Delta_y:");
+    ips200_show_string(  0, 16 *  5, "Speed:");
+    ips200_show_string(  0, 16 *  6, "MaxSpeed:");
+    ips200_show_string(  0, 16 *  7, "Accel:");
+    ips200_show_string(  0, 16 *  8, "MaxAccel:");
+    ips200_show_string(  0, 16 *  9, "Angle:");
+    ips200_show_string(  0, 16 * 10, "SateNumber:");
 
 
-    ips200_show_uint  (216, 16 *  0, gnss.state     , 1);
-    ips200_show_float ( 16, 16 *  1, gnss.latitude  , 4, 6);
-    ips200_show_float (128, 16 *  1, gnss.longitude , 4, 6);
-    ips200_show_float ( 16, 16 *  2, FilterPoint_Lat, 4, 6);
-    ips200_show_float (128, 16 *  2, FilterPoint_Lon, 4, 6);
-    ips200_show_float ( 16, 16 *  3, FilterPoint_Lat - gnss.latitude , 4, 6);
-    ips200_show_float (128, 16 *  3, FilterPoint_Lon - gnss.longitude, 4, 6);
-    ips200_show_float ( 80, 16 *  4, Delta_x, 4, 6);
-    ips200_show_float ( 80, 16 *  5, Delta_y, 4, 6);
-    ips200_show_float ( 48, 16 *  6, gnss.speed     , 3, 3);
-    ips200_show_float (112, 16 *  6, GpsSpeed       , 3, 3);
-    ips200_show_float ( 72, 16 *  7, GpsMaxSpeed    , 3, 3);
-    ips200_show_float ( 48, 16 *  8, GpsAccel       , 3, 3);
-    ips200_show_float ( 72, 16 *  9, GpsMaxAccel    , 3, 3);
-    ips200_show_float ( 48, 16 * 10, Angle          , 4, 6);
-    ips200_show_uint  ( 88, 16 * 11, gnss.satellite_used, 2);
+    ips200_show_uint  (216, 16 *  1, gnss.state     , 1);
+    ips200_show_float ( 16, 16 *  2, gnss.latitude  , 4, 6);
+    ips200_show_float (128, 16 *  2, gnss.longitude , 4, 6);
+    ips200_show_float ( 80, 16 *  3, Delta_x, 4, 6);
+    ips200_show_float ( 80, 16 *  4, Delta_y, 4, 6);
+    ips200_show_float ( 48, 16 *  5, gnss.speed     , 3, 3);
+    ips200_show_float ( 72, 16 *  6, GpsMaxSpeed    , 3, 3);
+    ips200_show_float ( 48, 16 *  7, GpsAccel       , 3, 3);
+    ips200_show_float ( 72, 16 *  8, GpsMaxAccel    , 3, 3);
+    ips200_show_float ( 48, 16 *  9, Angle          , 4, 6);
+    ips200_show_uint  ( 88, 16 * 10, gnss.satellite_used, 2);
 
 #if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
@@ -623,23 +615,22 @@ void Points_menu(void)
     ips200_show_string(128, 16 * 0, "Lon:");
     ips200_show_uint  (184, 16 * 0, Point, 3);
     ips200_show_string(208, 16 * 0, "/");
-    ips200_show_uint  (216, 16 * 0, Point_NUM - 1, 3);
+    ips200_show_uint  (216, 16 * 0, NUM_GPS_DATA - 1, 3);
 
     int Page = Point / Page_Point_Num;
     int RightArrow = Point % Page_Point_Num + 1;
-    if(Point_NUM > 0)
+
+    ips200_show_string(0, 16 * RightArrow, "->");
+    for(int i = 1; i <= Page_Point_Num; i++)
     {
-        ips200_show_string(0, 16 * RightArrow, "->");
-        for(int i = 1; i <= Page_Point_Num; i++)
+        ips200_show_float ( 16, 16 * i, GPS_GET_LAT[i - 1 + Page * Page_Point_Num], 3, 6);
+        ips200_show_float (128, 16 * i, GPS_GET_LOT[i - 1 + Page * Page_Point_Num], 3, 6);
+        if(i  + Page * 10 == NUM_GPS_DATA)
         {
-            ips200_show_float ( 16, 16 * i, GPS_GET_LAT[i - 1 + Page * Page_Point_Num], 3, 6);
-            ips200_show_float (128, 16 * i, GPS_GET_LOT[i - 1 + Page * Page_Point_Num], 3, 6);
-            if(i  + Page * 10 == Point_NUM)
-            {
-                break;
-            }
+            break;
         }
     }
+
     ips200_show_string(  0, 16 *  9, "KEY1:Up  /Lat+North");
     ips200_show_string(  0, 16 * 10, "KEY2:Down/Lat-South");
     ips200_show_string(  0, 16 * 11, "KEY3:Fix /Lon+East ");
@@ -1418,24 +1409,18 @@ void Key_Ctrl_Menu()
             {
                 if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
                 {
-                    if(Point_NUM > 0)
+                    if(Point > 0)
                     {
-                        if(Point > 0)
-                        {
-                            Point = Point - 1;
-                            ips200_clear();
-                        }
+                        Point = Point - 1;
+                        ips200_clear();
                     }
                 }
                 if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
                 {
-                    if(Point_NUM > 0)
+                    if(Point < NUM_GPS_DATA - 1)
                     {
-                        if(Point < Point_NUM - 1)
-                        {
-                            Point = Point + 1;
-                            ips200_clear();
-                        }
+                        Point = Point + 1;
+                        ips200_clear();
                     }
                 }
                 if(key_get_state(KEY_3) == KEY_SHORT_PRESS)

@@ -64,8 +64,7 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
     pit_clear_flag(CCU60_CH1);
 
     // 0.005s中断，200Hz
-    // System_Time_Count();                            // 系统时间计时
-    Get_Gps_Angle();
+    System_Time_Count();                            // 系统时间计时
     if(Control_Flag == 0)
     {
         PDLocServoCtrl();                              // 舵机 PD位置式控制
