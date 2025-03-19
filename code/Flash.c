@@ -189,7 +189,7 @@ void FLASH_GET_PAR()
         Parameter_set0.Distance   = flash_union_buffer[7].float_type;
         // 任务点
         Task1_Points = flash_union_buffer[8].int8_type ;
-        Task2_Points = flash_union_buffer[9].int8_type ;
+        Task2_Bucket = flash_union_buffer[9].int8_type ;
         Task3_Points = flash_union_buffer[10].int8_type;
 
         // 系数
@@ -241,9 +241,9 @@ void FLASH_PRI_PAR()
         printf("MotorPID[1]:%f\r\n", Parameter_set0.SpeedPID[1]);
         printf("MotorPID[2]:%f\r\n", Parameter_set0.SpeedPID[2]);
 
-        printf("Task1Point:%d\r\n", Task1_Points);
-        printf("Task2Point:%d\r\n", Task2_Points);
-        printf("Task3Point:%d\r\n", Task3_Points);
+        printf("Task1Points:%d\r\n", Task1_Points);
+        printf("Task2Bucket:%d\r\n", Task2_Bucket);
+        printf("Task3Points:%d\r\n", Task3_Points);
 
         printf("Fly_Slope_Alpha:%d\r\n", Fly_Slope_Alpha);
         printf("K_Straight:%f\r\n", K_Straight);

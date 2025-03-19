@@ -82,8 +82,10 @@ float  GpsAccel    = 0;             // 加速度
 float  GpsMaxSpeed = 0;             // 最大速度
 float  GpsMaxAccel = 0;             // 最大加速度
 int8   Task1_Points = 5;            // 科目一所用点位数量
-int8   Task2_Points = 12;           // 科目二所用点位数量（4个桶, 每多一个桶增加两个点位）
+int8   Task2_Bucket = 4;            // 科目二锥桶数量
+int8   Task2_Points = 13;           // 科目二所用点位数量
 int8   Task3_Points = 9;            // 科目三所用点位数量
+int8   Task2_Scales = 6;            // 科目二标尺
 double min_dx, max_dx, min_dy, max_dy;
 double range_x, range_y;
 double scale;                       // 缩放因子（单位：像素/米）
@@ -315,4 +317,51 @@ void updateCarPosition()
         last_x = x;
         last_y = y;
     }
+}
+
+void Road_Generator_Init()
+{
+    Task2_Points = 1 + 2 * Task2_Bucket + 3 + 1;
+    int8 Differ1 = Task2_Start_Point - Task2_Road_Genera;
+    int8 Differ2 = Task2_Start_Point + Task2_Points + Task2_Road_Genera - 1;
+    // 第一步: 计算发车朝向
+    // 北: 1    南: -1
+    int8 Toward;
+    double Azimuth = get_two_points_azimuth(GPS_GET_LAT[Task2_Start_Point], GPS_GET_LOT[Task2_Start_Point], GPS_GET_LAT[Task2_Start_Point + Task2_Bucket + 1], GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1]);
+    if(Azimuth > 350 || Azimuth < 10)
+    {
+        Toward = 1;
+    }
+    if(Azimuth > 170 && Azimuth < 190)
+    {
+        Toward = -1;
+    }
+    
+    // 起始点赋值
+    GPS_GET_LAT[Task2_Start_Point] = GPS_GET_LAT[Task2_Road_Genera];
+    GPS_GET_LOT[Task2_Start_Point] = GPS_GET_LOT[Task2_Road_Genera];
+    GPS_GET_LAT[Task2_Start_Point + Task2_Points - 1] = GPS_GET_LAT[Task2_Road_Genera];
+    GPS_GET_LOT[Task2_Start_Point + Task2_Points - 1] = GPS_GET_LOT[Task2_Road_Genera] - Toward * 0.000001 * Task2_Scales;
+    
+    // 锥桶点
+    int8 sign = 1;
+    for(int i = Task2_Road_Genera + 1; i < Task2_Road_Genera + Task2_Bucket + 1; i++)
+    {
+        GPS_GET_LAT[i + Differ1] = GPS_GET_LAT[i];
+        GPS_GET_LOT[i + Differ1] = GPS_GET_LOT[i] - Toward * sign * 0.000001 * Task2_Scales;
+        GPS_GET_LAT[Differ2 - i] = GPS_GET_LAT[i];
+        GPS_GET_LOT[Differ2 - i] = GPS_GET_LOT[i] + Toward * sign * 0.000001 * Task2_Scales;
+        sign = -sign;
+    }
+
+    // 掉头点
+    GPS_GET_LAT[Task2_Start_Point + Task2_Bucket + 1] = GPS_GET_LAT[Task2_Road_Genera + Task2_Bucket + 1];
+    GPS_GET_LAT[Task2_Start_Point + Task2_Bucket + 2] = GPS_GET_LAT[Task2_Road_Genera + Task2_Bucket + 1] + Toward * 0.000004;
+    GPS_GET_LAT[Task2_Start_Point + Task2_Bucket + 3] = GPS_GET_LAT[Task2_Road_Genera + Task2_Bucket + 1];
+
+    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1] = GPS_GET_LOT[Task2_Road_Genera + Task2_Bucket + 1] - Toward * 0.000001 * Task2_Scales;
+    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 2] = GPS_GET_LOT[Task2_Road_Genera + Task2_Bucket + 1];
+    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3] = GPS_GET_LOT[Task2_Road_Genera + Task2_Bucket + 1] + Toward * 0.000001 * Task2_Scales;
+    
+    LED_Buzzer_Flag_Ctrl(LED1);
 }

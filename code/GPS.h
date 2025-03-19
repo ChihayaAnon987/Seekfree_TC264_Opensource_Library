@@ -11,7 +11,8 @@
 //===================================================宏定义BEG===================================================
 #define NUM_GPS_DATA        (     100     )                  // GPS 采集点数
 #define Task1_Start_Point   (      0      )                  // 科目一起始点位
-#define Task2_Start_Point   (     10      )                  // 科目二起始点位
+#define Task2_Road_Genera   (     10      )                  // 科目二路径生成起始点
+#define Task2_Start_Point   (     20      )                  // 科目二起始点位
 #define Task3_Start_Point   (     50      )                  // 科目三起始点位
 #define QS                  (   8.99266   )                  // 坐标变换常数
 #define MARGIN              (     20      )                  // 屏幕边缘预留距离
@@ -48,8 +49,10 @@ extern double   Delta_y;                                       // 位移
 extern double   GPS_GET_LAT[NUM_GPS_DATA];                     // 存储纬度数据的数组
 extern double   GPS_GET_LOT[NUM_GPS_DATA];                     // 存储经度数据的数组
 extern int8     Task1_Points;                                  // 科目一所用点位数量
+extern int8     Task2_Bucket;                                  // 科目二锥桶数量
 extern int8     Task2_Points;                                  // 科目二所用点位数量
 extern int8     Task3_Points;                                  // 科目三所用点位数量
+extern int8     Task2_Scales;                                  // 科目二标尺
 extern float    GpsDistance[NUM_GPS_DATA];                     // 存储换点距离的数组
 extern int16    GpsTgtEncod[NUM_GPS_DATA];                     // 存储点位速度的数组
 extern float    GpsSpeed;                                      // 速度
@@ -70,6 +73,7 @@ void drawGrid(void);                                           // 绘制网格及坐标
 void drawPoints(void);
 void updateCarPosition(void);
 void gpsToScreen(double lat, double lon, uint16_t *screen_x, uint16_t *screen_y, int start_point);
+void Road_Generator_Init(void);                                // 路径生成初始化
 //===================================================函数声明END===================================================
 
 

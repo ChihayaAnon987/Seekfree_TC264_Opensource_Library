@@ -535,30 +535,30 @@ void TaskPoint(void)
 
     if(Task_Point_Set == 1)
     {
-        ips200_show_string(0, 16 * 3, "-->Task1Point:");
-        ips200_show_string(0, 16 * 4, "   Task2Point:");
-        ips200_show_string(0, 16 * 5, "   Task3Point:");
-        ips200_show_int (112, 16 * 3, Task1_Points, 3);
-        ips200_show_int (112, 16 * 4, Task2_Points, 3);
-        ips200_show_int (112, 16 * 5, Task3_Points, 3);
+        ips200_show_string(0, 16 * 3, "-->Task1Points:");
+        ips200_show_string(0, 16 * 4, "   Task2Bucket:");
+        ips200_show_string(0, 16 * 5, "   Task3Points:");
+        ips200_show_int (120, 16 * 3, Task1_Points, 3);
+        ips200_show_int (120, 16 * 4, Task2_Bucket, 3);
+        ips200_show_int (120, 16 * 5, Task3_Points, 3);
     }
     if(Task_Point_Set == 2)
     {
-        ips200_show_string(0, 16 * 3, "   Task1Point:");
-        ips200_show_string(0, 16 * 4, "-->Task2Point:");
-        ips200_show_string(0, 16 * 5, "   Task3Point:");
-        ips200_show_int (112, 16 * 3, Task1_Points, 3);
-        ips200_show_int (112, 16 * 4, Task2_Points, 3);
-        ips200_show_int (112, 16 * 5, Task3_Points, 3);
+        ips200_show_string(0, 16 * 3, "   Task1Points:");
+        ips200_show_string(0, 16 * 4, "-->Task2Bucket:");
+        ips200_show_string(0, 16 * 5, "   Task3Points:");
+        ips200_show_int (120, 16 * 3, Task1_Points, 3);
+        ips200_show_int (120, 16 * 4, Task2_Bucket, 3);
+        ips200_show_int (120, 16 * 5, Task3_Points, 3);
     }
     if(Task_Point_Set == 3)
     {
-        ips200_show_string(0, 16 * 3, "   Task1Point:");
-        ips200_show_string(0, 16 * 4, "   Task2Point:");
-        ips200_show_string(0, 16 * 5, "-->Task3Point:");
-        ips200_show_int (112, 16 * 3, Task1_Points, 3);
-        ips200_show_int (112, 16 * 4, Task2_Points, 3);
-        ips200_show_int (112, 16 * 5, Task3_Points, 3);
+        ips200_show_string(0, 16 * 3, "   Task1Points:");
+        ips200_show_string(0, 16 * 4, "   Task2Bucket:");
+        ips200_show_string(0, 16 * 5, "-->Task3Points:");
+        ips200_show_int (120, 16 * 3, Task1_Points, 3);
+        ips200_show_int (120, 16 * 4, Task2_Bucket, 3);
+        ips200_show_int (120, 16 * 5, Task3_Points, 3);
     }
 
     ips200_show_string(  0, 16 *  9, "KEY1:Task-1");
@@ -1373,7 +1373,7 @@ void Key_Ctrl_Menu()
                 }
                 if(Task_Point_Set == 2)
                 {
-                    Task2_Points += 1;
+                    Task2_Bucket += 1;
                 }
                 if(Task_Point_Set == 3)
                 {
@@ -1388,7 +1388,7 @@ void Key_Ctrl_Menu()
                 }
                 if(Task_Point_Set == 2)
                 {
-                    Task2_Points -= 1;
+                    Task2_Bucket -= 1;
                 }
                 if(Task_Point_Set == 3)
                 {
@@ -1716,19 +1716,20 @@ void Key_Ctrl_Menu()
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
-                Track_Points_NUM = 0;
+                Track_Points_NUM = Task1_Start_Point;
                 Task_Flag = 1;
                 initCoordinateSystem();
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                Track_Points_NUM = 10;
+                Road_Generator_Init();
+                Track_Points_NUM = Task2_Start_Point;
                 Task_Flag = 2;
                 initCoordinateSystem();
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
-                Track_Points_NUM = 50;
+                Track_Points_NUM = Task3_Start_Point;
                 Task_Flag = 3;
                 initCoordinateSystem();
             }
