@@ -371,5 +371,6 @@ void Road_Generator_Init()
     GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 2] = GPS_GET_LOT[Task2_Road_Genera + Task2_Bucket + 1];
     GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3] = GPS_GET_LOT[Task2_Road_Genera + Task2_Bucket + 1] + Toward * 0.000001 * Task2_Scales;
     
-    LED_Buzzer_Flag_Ctrl(LED1);
+    Point_NUM = Task2_Start_Point + Task2_Points;
+    FLASH_FIX_GPS();
 }
