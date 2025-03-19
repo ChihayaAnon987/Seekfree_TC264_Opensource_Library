@@ -782,8 +782,10 @@ void Param_Set()
     {
         ips200_show_string( 24, 16 * 0, "9500DutyServoKp:");
         ips200_show_string( 24, 16 * 1, "9500DutyServoKd:");
+        ips200_show_string( 24, 16 * 2, "Task2_Scales:");
         ips200_show_float( 152, 16 * 0, From_9000_To_9900_ServoPD.Kp, 1, 2);
         ips200_show_float( 152, 16 * 1, From_9000_To_9900_ServoPD.Kd, 1, 2);
+        ips200_show_int(   104, 16 * 2, Task2_Scales, 3);
     }
 
     if(Point2 == 0)
@@ -1626,6 +1628,10 @@ void Key_Ctrl_Menu()
                 {
                     From_9000_To_9900_ServoPD.Kd += 0.01;
                 }
+                if(Point2 == 18)
+                {
+                    Task2_Scales += 1;
+                }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
@@ -1700,6 +1706,10 @@ void Key_Ctrl_Menu()
                 if(Point2 == 17)
                 {
                     From_9000_To_9900_ServoPD.Kd -= 0.01;
+                }
+                if(Point2 == 18)
+                {
+                    Task2_Scales -= 1;
                 }
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)

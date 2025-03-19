@@ -127,7 +127,7 @@ void FLASH_SAV_PAR()
     flash_union_buffer[7].float_type = Parameter_set0.Distance;
     // 任务点
     flash_union_buffer[8].int8_type  = Task1_Points;
-    flash_union_buffer[9].int8_type  = Task2_Points;
+    flash_union_buffer[9].int8_type  = Task2_Bucket;
     flash_union_buffer[10].int8_type = Task3_Points;
 
     // 系数
@@ -150,7 +150,8 @@ void FLASH_SAV_PAR()
     flash_union_buffer[26].float_type = From_8000_To_9000_ServoPD.Kd;
     flash_union_buffer[27].float_type = From_9000_To_9900_ServoPD.Kp;
     flash_union_buffer[28].float_type = From_9000_To_9900_ServoPD.Kd;
-    
+    flash_union_buffer[29].int8_type  = Task2_Scales;
+
     // 换点距离和速度数组
     for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
     {
@@ -212,6 +213,7 @@ void FLASH_GET_PAR()
         From_8000_To_9000_ServoPD.Kd = flash_union_buffer[26].float_type;
         From_9000_To_9900_ServoPD.Kp = flash_union_buffer[27].float_type;
         From_9000_To_9900_ServoPD.Kd = flash_union_buffer[28].float_type;
+        Task2_Scales = flash_union_buffer[29].int8_type;
 
         // 换点距离和速度数组
         for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
