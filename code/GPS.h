@@ -52,6 +52,7 @@ extern int8     Task2_Points;                                  // 科目二所用点位
 extern int8     Task3_Points;                                  // 科目三所用点位数量
 extern float    GpsDistance[NUM_GPS_DATA];                     // 存储换点距离的数组
 extern int16    GpsTgtEncod[NUM_GPS_DATA];                     // 存储点位速度的数组
+extern float    GpsSpeed;                                      // 速度
 extern float    GpsAccel;                                      // 加速度
 extern float    GpsMaxSpeed;                                   // 最大速度
 extern float    GpsMaxAccel;                                   // 最大加速度
