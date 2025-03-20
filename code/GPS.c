@@ -356,9 +356,9 @@ void Road_Generator_Init()
     for(int i = Task2_Road_Genera + 1; i < Task2_Road_Genera + Task2_Bucket + 1; i++)
     {
         GPS_GET_LAT[i + Differ1] = GPS_GET_LAT[i];
-        GPS_GET_LOT[i + Differ1] = GPS_GET_LOT[i] - Toward * sign * 0.000001 * Task2_Scales;
+        GPS_GET_LOT[i + Differ1] = GPS_GET_LOT[Task2_Road_Genera] - Toward * sign * 0.000001 * Task2_Scales;
         GPS_GET_LAT[Differ2 - i] = GPS_GET_LAT[i];
-        GPS_GET_LOT[Differ2 - i] = GPS_GET_LOT[i] + Toward * sign * 0.000001 * Task2_Scales;
+        GPS_GET_LOT[Differ2 - i] = GPS_GET_LOT[Task2_Road_Genera] + Toward * sign * 0.000001 * Task2_Scales;
         sign = -sign;
     }
 
@@ -367,9 +367,9 @@ void Road_Generator_Init()
     GPS_GET_LAT[Task2_Start_Point + Task2_Bucket + 2] = GPS_GET_LAT[Task2_Road_Genera + Task2_Bucket + 1] + Toward * 0.000004;
     GPS_GET_LAT[Task2_Start_Point + Task2_Bucket + 3] = GPS_GET_LAT[Task2_Road_Genera + Task2_Bucket + 1];
 
-    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1] = GPS_GET_LOT[Task2_Road_Genera + Task2_Bucket + 1] - Toward * 0.000001 * Task2_Scales;
-    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 2] = GPS_GET_LOT[Task2_Road_Genera + Task2_Bucket + 1];
-    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3] = GPS_GET_LOT[Task2_Road_Genera + Task2_Bucket + 1] + Toward * 0.000001 * Task2_Scales;
+    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1] = GPS_GET_LOT[Task2_Road_Genera + Task2_Bucket + Differ1];
+    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 2] = GPS_GET_LOT[Task2_Road_Genera];
+    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3] = GPS_GET_LOT[Differ2 - Task2_Road_Genera - Task2_Bucket];
     
     Point_NUM = Task2_Start_Point + Task2_Points;
     FLASH_FIX_GPS();
