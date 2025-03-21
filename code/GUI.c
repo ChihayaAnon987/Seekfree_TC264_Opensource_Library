@@ -22,6 +22,7 @@ int    Point          = 0;    // 菜单点位
 int    Point1         = 0;
 int    Point2         = 0;
 int    Point3         = 0;
+int8   Map_Flag       = 1;
 int    Task_Point_Set = 1;
 int16  Task_Flag      = 1;
 int    CameraPoint    = 0;
@@ -611,30 +612,40 @@ void RemoteCtrl_menu(void)
 
 void Points_menu(void)
 {
-    ips200_show_string( 16, 16 * 0, "Lat:");
-    ips200_show_string(128, 16 * 0, "Lon:");
-    ips200_show_uint  (184, 16 * 0, Point, 3);
-    ips200_show_string(208, 16 * 0, "/");
-    ips200_show_uint  (216, 16 * 0, NUM_GPS_DATA - 1, 3);
-
-    int Page = Point / Page_Point_Num;
-    int RightArrow = Point % Page_Point_Num + 1;
-
-    ips200_show_string(0, 16 * RightArrow, "->");
-    for(int i = 1; i <= Page_Point_Num; i++)
+    if(Map_Flag == 1)
     {
-        ips200_show_float ( 16, 16 * i, GPS_GET_LAT[i - 1 + Page * Page_Point_Num], 3, 6);
-        ips200_show_float (128, 16 * i, GPS_GET_LOT[i - 1 + Page * Page_Point_Num], 3, 6);
-        if(i  + Page * 10 == NUM_GPS_DATA)
+        ips200_show_string( 16, 16 * 0, "Lat:");
+        ips200_show_string(128, 16 * 0, "Lon:");
+        ips200_show_uint  (184, 16 * 0, Point, 3);
+        ips200_show_string(208, 16 * 0, "/");
+        ips200_show_uint  (216, 16 * 0, NUM_GPS_DATA - 1, 3);
+    
+        int Page = Point / Page_Point_Num;
+        int RightArrow = Point % Page_Point_Num + 1;
+    
+        ips200_show_string(0, 16 * RightArrow, "->");
+        for(int i = 1; i <= Page_Point_Num; i++)
         {
-            break;
+            ips200_show_float ( 16, 16 * i, GPS_GET_LAT[i - 1 + Page * Page_Point_Num], 3, 6);
+            ips200_show_float (128, 16 * i, GPS_GET_LOT[i - 1 + Page * Page_Point_Num], 3, 6);
+            if(i  + Page * 10 == NUM_GPS_DATA)
+            {
+                break;
+            }
         }
+    
+        ips200_show_string(  0, 16 *  9, "KEY1:Up  /Lat+North");
+        ips200_show_string(  0, 16 * 10, "KEY2:Down/Lat-South");
+        ips200_show_string(  0, 16 * 11, "KEY3:Fix /Lon+East ");
+        ips200_show_string(  0, 16 * 12, "KEY4:Swit/Lon-West ");
+    }
+    if(Map_Flag == -1)
+    {
+        drawGrid();
+        drawPoints();
+        updateCarPosition();
     }
 
-    ips200_show_string(  0, 16 *  9, "KEY1:Up  /Lat+North");
-    ips200_show_string(  0, 16 * 10, "KEY2:Down/Lat-South");
-    ips200_show_string(  0, 16 * 11, "KEY3:Fix /Lon+East ");
-    ips200_show_string(  0, 16 * 12, "KEY4:    /Lon-West ");
 }
 
 void ZongZuanF(void)
@@ -1409,25 +1420,57 @@ void Key_Ctrl_Menu()
             // 拨码开关在上表示点位切换
             if(!gpio_get_level(SWITCH1))
             {
-                if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
+                if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
                 {
-                    if(Point > 0)
+                    Map_Flag = -Map_Flag;
+                    ips200_clear();
+                }
+                if(Map_Flag == 1)
+                {
+                    if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
                     {
-                        Point = Point - 1;
-                        ips200_clear();
+                        if(Point > 0)
+                        {
+                            Point = Point - 1;
+                            ips200_clear();
+                        }
+                    }
+                    if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
+                    {
+                        if(Point < NUM_GPS_DATA - 1)
+                        {
+                            Point = Point + 1;
+                            ips200_clear();
+                        }
+                    }
+                    if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
+                    {
+                        FLASH_FIX_GPS();
                     }
                 }
-                if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
+                if(Map_Flag == -1)
                 {
-                    if(Point < NUM_GPS_DATA - 1)
+                    if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
                     {
-                        Point = Point + 1;
-                        ips200_clear();
+                        Track_Points_NUM = Task1_Start_Point;
+                        Task_Flag = 1;
+                        initCoordinateSystem();
+                        LED_Buzzer_Flag_Ctrl(LED1);
                     }
-                }
-                if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
-                {
-                    FLASH_FIX_GPS();
+                    if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
+                    {
+                        Track_Points_NUM = Task2_Start_Point;
+                        Task_Flag = 2;
+                        initCoordinateSystem();
+                        LED_Buzzer_Flag_Ctrl(LED1);
+                    }
+                    if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
+                    {
+                        Track_Points_NUM = Task3_Start_Point;
+                        Task_Flag = 3;
+                        initCoordinateSystem();
+                        LED_Buzzer_Flag_Ctrl(LED1);
+                    }
                 }
             }
             // 拨码开关在下表示点位设置

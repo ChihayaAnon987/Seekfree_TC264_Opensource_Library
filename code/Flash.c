@@ -249,6 +249,7 @@ void FLASH_PRI_PAR()
 
         printf("Fly_Slope_Alpha:%d\r\n", Fly_Slope_Alpha);
         printf("K_Straight:%f\r\n", K_Straight);
+        printf("Task2_Scales:%d\r\n", Task2_Scales);
 
         printf("From_0000_To_2000_ServoPD: Kp = %f, Kd = %f\r\n", From_0000_To_2000_ServoPD.Kp, From_0000_To_2000_ServoPD.Kd);
         printf("From_2000_To_4000_ServoPD: Kp = %f, Kd = %f\r\n", From_2000_To_4000_ServoPD.Kp, From_2000_To_4000_ServoPD.Kd);

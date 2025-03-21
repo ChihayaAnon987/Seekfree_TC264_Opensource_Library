@@ -66,10 +66,8 @@ double Delta_Lon    = 0;            // 漂移纬度
 double Angle        = 0;            // 方位角
 double Delta_Angle  = 0;            // GPS与陀螺仪的正方向偏差角
 float  Gps_Yaw      = 0;            // GPS直接得到的偏航角
-uint8  Gps_Yaw_Flag = 0;            // GPS直接得到的偏航角标志位
 float  Gps_Yaw2     = 0;            // GPS得到的偏航角（累加和）
 float  Yaw          = 0;            // 偏航角
-uint8  Yaw_Times    = 0;            // 偏航角计数
 float  Lat_Fix    = 1.0;            // 纬度修正系数
 float  Lon_Fix    = 1.0;            // 经度修正系数
 double Delta_x      = 0;            // 位移
@@ -95,9 +93,9 @@ float  GpsDistance[NUM_GPS_DATA] =
 {
     5.0, 3.0, 2.5, 4.0,   0,   0,   0,   0, 1.5,   0,  // 0 - 9
 
-    2.5, 1.5, 1.5, 1.5, 1.5, 1.0, 1.5, 1.5, 1.5, 1.5,  // 10 - 19
-    1.5, 2.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 20 - 29
-    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 30 - 39
+    0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 10 - 19
+    2.5, 1.5, 1.5, 1.5, 1.5, 1.0, 1.5, 1.5, 1.5, 1.5,  // 20 - 29
+    1.5, 2.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 30 - 39
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 40 - 49
 
     4.0, 1.0, 1.0, 1.0, 1.5, 1.5, 1.5, 1.5, 4.5, 0.0,  // 50 - 59
@@ -288,10 +286,10 @@ void drawPoints()
     }
     if(start_point == Task2_Start_Point)
     {
-        for(int8 i = Task2_Start_Point + 1; i < Task2_Start_Point + Task2_Bucket; i++)
+        for(int8 i = Task2_Start_Point; i < Task2_Start_Point + Task2_Bucket + 1; i++)
         {
             double distance = get_two_points_distance(GPS_GET_LAT[i], GPS_GET_LOT[i], GPS_GET_LAT[i + 1], GPS_GET_LOT[i]);
-            ips200_show_float(192, 16 * (i - Task2_Start_Point + 1), distance, 1, 2);
+            ips200_show_float(192, 16 * (i - Task2_Start_Point), distance, 2, 2);
         }
     }
 }
