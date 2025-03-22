@@ -794,9 +794,15 @@ void Param_Set()
         ips200_show_string( 24, 16 * 0, "9500DutyServoKp:");
         ips200_show_string( 24, 16 * 1, "9500DutyServoKd:");
         ips200_show_string( 24, 16 * 2, "Task2_Scales:");
+        ips200_show_string( 24, 16 * 3, "Advan_Scales:");
+        ips200_show_string( 24, 16 * 4, "Delay_Time1:");
+        ips200_show_string( 24, 16 * 5, "Delay_Time2:");
         ips200_show_float( 152, 16 * 0, From_9000_To_9900_ServoPD.Kp, 1, 2);
         ips200_show_float( 152, 16 * 1, From_9000_To_9900_ServoPD.Kd, 1, 2);
-        ips200_show_int(   104, 16 * 2, Task2_Scales, 3);
+        ips200_show_int(   128, 16 * 2, Task2_Scales, 3);
+        ips200_show_int(   128, 16 * 3, Advan_Scales, 3);
+        ips200_show_int(   120, 16 * 4, Delay_Time1, 4);
+        ips200_show_int(   120, 16 * 5, Delay_Time2, 4);
     }
 
     if(Point2 == 0)
@@ -1675,6 +1681,18 @@ void Key_Ctrl_Menu()
                 {
                     Task2_Scales += 1;
                 }
+                if(Point2 == 19)
+                {
+                    Advan_Scales += 1;
+                }
+                if(Point2 == 20)
+                {
+                    Delay_Time1 += 50;
+                }
+                if(Point2 == 21)
+                {
+                    Delay_Time2 += 50;
+                }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
@@ -1753,6 +1771,18 @@ void Key_Ctrl_Menu()
                 if(Point2 == 18)
                 {
                     Task2_Scales -= 1;
+                }
+                if(Point2 == 19)
+                {
+                    Advan_Scales -= 1;
+                }
+                if(Point2 == 20)
+                {
+                    Delay_Time1 -= 50;
+                }
+                if(Point2 == 21)
+                {
+                    Delay_Time2 -= 50;
                 }
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)

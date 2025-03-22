@@ -63,6 +63,17 @@ int core0_main(void)
     cpu_wait_event_ready();         // 等待所有核心初始化完毕
     while (TRUE)
     {
+        Get_Gps();
+        #if UART_RECEIVER_ENABLE
+            if(Control_Flag == 1)
+            {
+                PDLocServoCtrl();
+            }
+            if(Control_Flag == 2 && Center_Flag == 1)
+            {
+                PDLocServoCtrl();
+            }
+        #endif
         if(Start_Flag == 1)
         {
             break;
@@ -92,10 +103,49 @@ int core0_main(void)
     while (TRUE)
     {
         // 此处编写需要循环执行的代码
-        if(Control_Flag == 0 || Control_Flag == 1)
+        Get_Gps();
+        Point_Switch();
+#if UART_RECEIVER_ENABLE
+        if(Control_Flag == 0)
         {
-            Track_Follow();
+            if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0)
+            {
+                Target_Encoder = 0;             // 遥控器失控保护
+                LED_Buzzer_Flag_Ctrl(LED3);
+            }
+            else
+            {
+                Track_Follow();
+            }
+            PDLocServoCtrl();                              // 舵机 PD位置式控制
+            #if MOTOR_LOOP_ENABLE == 0
+                DRV8701_MOTOR_DRIVER(Target_Encoder);          // 电机驱动
+            #endif
         }
+        if(Control_Flag == 1)
+        {
+            if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0)
+            {
+                Target_Encoder = 0;             // 遥控器失控保护
+                LED_Buzzer_Flag_Ctrl(LED3);
+            }
+            else
+            {
+                Track_Follow();
+            }
+            PDLocServoCtrl();
+        }
+        if(Control_Flag == 2 && Center_Flag == 1)
+        {
+            PDLocServoCtrl();
+        }
+#else
+        Track_Follow();
+        PDLocServoCtrl();                              // 舵机 PD位置式控制
+        #if MOTOR_LOOP_ENABLE == 0
+            DRV8701_MOTOR_DRIVER(Target_Encoder);          // 电机驱动
+        #endif
+#endif
         // 此处编写需要循环执行的代码
     }
 }

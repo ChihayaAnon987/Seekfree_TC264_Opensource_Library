@@ -20,8 +20,15 @@ int16 RemoteCtrl_Direction;            // 遥控器方向控制量
 
 void RemoteCtrl_Program()
 {
-    if(uart_receiver.channel[0] != 0)
+    if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0)
     {
+        DRV8701_MOTOR_DRIVER(0);
+    }
+    else
+    {
+        Is_Channal_3_Press();
+        Is_Channal_5_Press();
+        Is_Channal_6_Press();
         RemoteCtrl_Direction_Speed();
         CtrlMode_Switch();
     }

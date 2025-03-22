@@ -53,6 +53,7 @@ extern int8     Task2_Bucket;                                  // 科目二锥桶数量
 extern int8     Task2_Points;                                  // 科目二所用点位数量
 extern int8     Task3_Points;                                  // 科目三所用点位数量
 extern int8     Task2_Scales;                                  // 科目二标尺
+extern int8     Advan_Scales;                                  // 预测标尺
 extern float    GpsDistance[NUM_GPS_DATA];                     // 存储换点距离的数组
 extern int16    GpsTgtEncod[NUM_GPS_DATA];                     // 存储点位速度的数组
 extern float    GpsSpeed;                                      // 速度

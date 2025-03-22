@@ -67,27 +67,13 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
     System_Time_Count();                            // 系统时间计时
     if(Control_Flag == 0)
     {
-        PDLocServoCtrl();                              // 舵机 PD位置式控制
         // PIDIncMotorCtrl(Test_Encoder);                 // 电机 PID增量式控制
         #if MOTOR_LOOP_ENABLE
-            PIDIncMotorCtrl(Target_Encoder);               // 电机 PID增量式控制
-        #else
-            DRV8701_MOTOR_DRIVER(Target_Encoder);          // 电机驱动
+            PIDIncMotorCtrl(Target_Encoder);
         #endif
     }
 
-#if UART_RECEIVER_ENABLE
-    if(Control_Flag == 1)
-    {
-        PDLocServoCtrl();                              // 舵机 PD位置式控制
-    }
-    if(Control_Flag == 2 && Center_Flag == 1)
-    {
-        PDLocServoCtrl();
-    }
-#endif
     Encoder_Get();
-    Point_Switch();
 
 }
 
@@ -97,7 +83,6 @@ IFX_INTERRUPT(cc61_pit_ch0_isr, 0, CCU6_1_CH0_ISR_PRIORITY)
     pit_clear_flag(CCU61_CH0);
 
     // 0.1s中断，10Hz
-    Get_Gps();
     Get_Physicla_Parameter();
 }
 
@@ -107,9 +92,6 @@ IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
     pit_clear_flag(CCU61_CH1);
 
     // 0.005s中断，200Hz
-#if UART_RECEIVER_ENABLE
-    RemoteCtrl_Program();
-#endif
 
 }
 // **************************** PIT中断函数 ****************************

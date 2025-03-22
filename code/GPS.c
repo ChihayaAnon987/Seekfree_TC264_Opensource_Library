@@ -84,6 +84,7 @@ int8   Task2_Bucket = 4;            // 科目二锥桶数量
 int8   Task2_Points = 13;           // 科目二所用点位数量
 int8   Task3_Points = 9;            // 科目三所用点位数量
 int8   Task2_Scales = 6;            // 科目二标尺
+int8   Advan_Scales = 1;            // 预测标尺
 double min_dx, max_dx, min_dy, max_dy;
 double range_x, range_y;
 double scale;                       // 缩放因子（单位：像素/米）
@@ -260,7 +261,15 @@ void drawPoints()
 
         uint16_t screen_x, screen_y;
         static uint16_t last_screen_x = 0, last_screen_y = 0;
-        gpsToScreen(GPS_GET_LAT[i], GPS_GET_LOT[i], &screen_x, &screen_y, start_point);
+        if(GPS_GET_LAT[i] != 0 && GPS_GET_LOT[i] != 0)
+        {
+            gpsToScreen(GPS_GET_LAT[i], GPS_GET_LOT[i], &screen_x, &screen_y, start_point);
+        }
+        else
+        {
+            screen_x = ips200_width_max / 2 - 1;
+            screen_y = ips200_height_max / 2 - 1;
+        }
         // 绘制点（小方块）
         for(int ox = -POINT_SIZE; ox <= POINT_SIZE; ox++)
         {
@@ -346,16 +355,15 @@ void Road_Generator_Init()
     // 起始点赋值
     GPS_GET_LAT[Task2_Start_Point] = GPS_GET_LAT[Task2_Road_Genera];
     GPS_GET_LOT[Task2_Start_Point] = GPS_GET_LOT[Task2_Road_Genera];
-    GPS_GET_LAT[Task2_Start_Point + Task2_Points - 1] = GPS_GET_LAT[Task2_Road_Genera];
-    GPS_GET_LOT[Task2_Start_Point + Task2_Points - 1] = GPS_GET_LOT[Task2_Road_Genera] - Toward * 0.000001 * Task2_Scales;
+
     
     // 锥桶点
     int8 sign = 1;
     for(int i = Task2_Road_Genera + 1; i < Task2_Road_Genera + Task2_Bucket + 1; i++)
     {
-        GPS_GET_LAT[i + Differ1] = GPS_GET_LAT[i];
+        GPS_GET_LAT[i + Differ1] = GPS_GET_LAT[i] - Toward * 0.000001 * Advan_Scales;
         GPS_GET_LOT[i + Differ1] = GPS_GET_LOT[Task2_Road_Genera] - Toward * sign * 0.000001 * Task2_Scales;
-        GPS_GET_LAT[Differ2 - i] = GPS_GET_LAT[i];
+        GPS_GET_LAT[Differ2 - i] = GPS_GET_LAT[i] + Toward * 0.000001 * Advan_Scales;
         GPS_GET_LOT[Differ2 - i] = GPS_GET_LOT[Task2_Road_Genera] + Toward * sign * 0.000001 * Task2_Scales;
         sign = -sign;
     }
@@ -369,6 +377,10 @@ void Road_Generator_Init()
     GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 2] = GPS_GET_LOT[Task2_Road_Genera];
     GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3] = GPS_GET_LOT[Differ2 - Task2_Road_Genera - Task2_Bucket];
     
+    // 终点赋值
+    GPS_GET_LAT[Task2_Start_Point + Task2_Points - 1] = GPS_GET_LAT[Task2_Road_Genera];
+    GPS_GET_LOT[Task2_Start_Point + Task2_Points - 1] = GPS_GET_LOT[Task2_Start_Point + Task2_Points - 2];
+
     Point_NUM = Task2_Start_Point + Task2_Points;
     FLASH_FIX_GPS();
 }

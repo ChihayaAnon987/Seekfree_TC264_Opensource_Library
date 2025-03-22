@@ -15,7 +15,8 @@ float  Fusion_alpha    = 0.9;       // GPS和IMU互补滤波的权重
 int16  Target_Encoder  =   0;       // 转速
 int16  Fly_Slope_Alpha = 200;       // 飞坡系数
 float  K_Straight      = 1.7;       // 走直线系数
-
+int16  Delay_Time1     = 500;       // 拐弯时间
+int16  Delay_Time2     = 500;       // 拐弯时间
 
 /****************************************************************************************************
 //  @brief      将积分的Z_360和逐飞GPS的direction进行互补融合
@@ -113,15 +114,7 @@ void Track_Follow()
 void Point_Switch()
 {
     Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
-    if(Track_Points_NUM != Task1_Start_Point && Track_Points_NUM != Task2_Start_Point && Track_Points_NUM != Task3_Start_Point)
-    {
-        if(Distance < GpsDistance[Track_Points_NUM])
-        {
-            Track_Points_NUM ++;
-            LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
-        }
-    }
-    else
+    if(Track_Points_NUM == Task1_Start_Point || Track_Points_NUM == Task2_Start_Point || Track_Points_NUM == Task3_Start_Point)
     {
         if (Distance > GpsDistance[Track_Points_NUM])
         {
@@ -136,6 +129,132 @@ void Point_Switch()
             {
                 Delta_Angle = 180;
             }
+        }
+    }
+    else if(Track_Points_NUM == Task1_Start_Point + 1) // 科目一拐弯
+    {
+        if(Distance < GpsDistance[Track_Points_NUM])
+        {
+            if(GPS_GET_LAT[Task1_Start_Point] < GPS_GET_LAT[Task1_Start_Point + 1])  // 向北发车
+            {
+                if(GPS_GET_LOT[Task1_Start_Point + 1] < GPS_GET_LOT[Task1_Start_Point + 2]) // 右拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_RMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    while (TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+                else  // 左拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_LMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    while (TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            else //向南发车
+            {
+                if(GPS_GET_LOT[Task1_Start_Point + 1] < GPS_GET_LOT[Task1_Start_Point + 2]) // 左拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_LMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    while (TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+                else  // 右拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_RMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    while (TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            Track_Points_NUM = Task1_Start_Point + 3;
+        }
+    }
+    else if(Track_Points_NUM == Task2_Start_Point + Task2_Bucket + 1)  // 科目二拐弯
+    {
+        if(Distance < GpsDistance[Track_Points_NUM])
+        {
+            if(GPS_GET_LAT[Task2_Road_Genera + Task2_Bucket + 1] > GPS_GET_LAT[Task2_Road_Genera]) // 向北发车
+            {
+                if(GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1] > GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3])  // 左拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_LMAX);
+                    while(TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+                else  // 右拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_RMAX);
+                    while(TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            else  // 向南发车
+            {
+                if(GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1] > GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3])  // 右拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_RMAX);
+                    while(TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+                else  // 左拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_LMAX);
+                    while(TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            Track_Points_NUM = Task2_Start_Point + Task2_Bucket + 4;
+        }
+    }
+    else
+    {
+        if(Distance < GpsDistance[Track_Points_NUM])
+        {
+            Track_Points_NUM ++;
+            LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
         }
     }
 

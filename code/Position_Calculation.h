@@ -22,6 +22,8 @@ extern float  Fusion_alpha;                                    // GPS和IMU互补滤
 extern int16  Target_Encoder;                                  // 转速
 extern int16  Fly_Slope_Alpha;                                 // 飞坡系数
 extern float  K_Straight;                                      // 走直线系数
+extern int16  Delay_Time1;                                     // 拐弯时间
+extern int16  Delay_Time2;                                     // 拐弯时间
 //===================================================全局变量END===================================================
 
 

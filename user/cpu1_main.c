@@ -57,11 +57,9 @@ void core1_main(void)
     {
         // 此处编写需要循环执行的代码
         
-    #if UART_RECEIVER_ENABLE
-        Is_Channal_3_Press();
-        Is_Channal_5_Press();
-        Is_Channal_6_Press();
-    #endif
+        #if UART_RECEIVER_ENABLE
+            RemoteCtrl_Program();
+        #endif
         LED_Buzzer_Ctrl();
         Menu_Control();
         key_scanner();
