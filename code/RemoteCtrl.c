@@ -42,8 +42,18 @@ void RemoteCtrl_Direction_Speed()
             RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 500 / 800);
             PIDIncMotorCtrl(RemoteCtrl_Speed);
         #else
-            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 5000 / 800);
-            DRV8701_MOTOR_DRIVER(RemoteCtrl_Speed);
+            if(uart_receiver.channel[1] - 1056 > 100)
+            {
+                DRV8701_MOTOR_DRIVER(GpsTgtEncod[9]);
+            }
+            else if(uart_receiver.channel[1] - 1056 < -100)
+            {
+                DRV8701_MOTOR_DRIVER(-GpsTgtEncod[9]);
+            }
+            else
+            {
+                DRV8701_MOTOR_DRIVER(0);
+            }
         #endif
         
         // ×Ô¶¯¹éÎ»

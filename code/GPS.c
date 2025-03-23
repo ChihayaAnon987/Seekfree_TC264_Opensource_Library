@@ -293,6 +293,30 @@ void drawPoints()
         last_screen_x = screen_x;
         last_screen_y = screen_y;
     }
+    if(start_point == Task1_Start_Point)
+    {
+        double distance = get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LOT[Task1_Start_Point], GPS_GET_LAT[Task1_Start_Point + 1], GPS_GET_LOT[Task1_Start_Point]);
+        static double max_latitude = 0;
+        static double max_distance = 0;
+        if(GPS_GET_LAT[Task1_Start_Point] < GPS_GET_LAT[Task1_Start_Point + 1]) // 向北发车
+        {
+            if(gnss.latitude > max_latitude)
+            {
+                max_latitude = gnss.latitude;
+                max_distance = get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LAT[Task1_Start_Point], max_latitude, GPS_GET_LAT[Task1_Start_Point]);
+            }
+        }
+        else // 向南发车
+        {
+            if(gnss.latitude < max_latitude)
+            {
+                max_latitude = gnss.latitude;
+                max_distance = get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LAT[Task1_Start_Point], max_latitude, GPS_GET_LAT[Task1_Start_Point]);
+            }
+        }
+        ips200_show_float(192, 16 * 1, distance, 3, 1);
+        ips200_show_float(192, 16 * 2, max_distance, 3, 1);
+    }
     if(start_point == Task2_Start_Point)
     {
         for(int8 i = Task2_Start_Point; i < Task2_Start_Point + Task2_Bucket + 1; i++)

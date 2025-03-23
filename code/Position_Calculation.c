@@ -100,14 +100,6 @@ void Track_Follow()
             Target_Encoder = 1500;
         }
     }
-    
-#if UART_RECEIVER_ENABLE
-    if(uart_receiver.state == 0)
-    {
-        Target_Encoder = 0;             // 遥控器失控保护
-        LED_Buzzer_Flag_Ctrl(LED3);
-    }
-#endif
 }
 
 // 切换点位
@@ -190,6 +182,7 @@ void Point_Switch()
                 }
             }
             Track_Points_NUM = Task1_Start_Point + 3;
+            LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
         }
     }
     else if(Track_Points_NUM == Task2_Start_Point + Task2_Bucket + 1)  // 科目二拐弯
@@ -247,6 +240,7 @@ void Point_Switch()
                 }
             }
             Track_Points_NUM = Task2_Start_Point + Task2_Bucket + 4;
+            LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
         }
     }
     else

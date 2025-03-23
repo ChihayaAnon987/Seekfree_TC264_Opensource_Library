@@ -170,7 +170,7 @@ void PDLocServoCtrl()
             PID_SERVO.output = From_8000_To_9000_ServoPD.Kp * PID_SERVO.current_error +
             From_8000_To_9000_ServoPD.Kd * PID_SERVO.derivative;
         }
-        else if(PID_MOTOR.output >= 9000 && PID_MOTOR.output <= 9900)
+        else if(PID_MOTOR.output >= 9000 && PID_MOTOR.output <= 10000)
         {
             PID_SERVO.output = From_9000_To_9900_ServoPD.Kp * PID_SERVO.current_error +
             From_9000_To_9900_ServoPD.Kd * PID_SERVO.derivative;
@@ -216,7 +216,7 @@ void PDLocServoCtrl()
             PID_SERVO.output = From_8000_To_9000_ServoPD.Kp * PID_SERVO.current_error +
             From_8000_To_9000_ServoPD.Kd * PID_SERVO.derivative;
         }
-        else if(Target_Encoder >= 9000 && Target_Encoder <= 9900)
+        else if(Target_Encoder >= 9000 && Target_Encoder <= 10000)
         {
             PID_SERVO.output = From_9000_To_9900_ServoPD.Kp * PID_SERVO.current_error +
             From_9000_To_9900_ServoPD.Kd * PID_SERVO.derivative;
