@@ -325,6 +325,7 @@ void drawPoints()
             ips200_show_float(192, 16 * (i - Task2_Start_Point), distance, 2, 2);
         }
     }
+    ips200_show_float(176, 16 * 19, Stop_Time - Star_Time, 3, 3);
 }
 
 void gpsToScreen(double lat, double lon, uint16_t *screen_x, uint16_t *screen_y, int start_point)

@@ -29,6 +29,8 @@ int    CameraPoint    = 0;
 double Test_Angle     = 0;    // 调试用
 int16  Test_Encoder   = 0;    // 调试用
 uint8  Start_Flag     = 0;    // 发车标志
+float  Star_Time      = 0;
+float  Stop_Time      = 0;
 seekfree_assistant_oscilloscope_struct oscilloscope_data;
 
 
@@ -795,14 +797,13 @@ void Param_Set()
         ips200_show_string( 24, 16 * 1, "9500DutyServoKd:");
         ips200_show_string( 24, 16 * 2, "Task2_Scales:");
         ips200_show_string( 24, 16 * 3, "Advan_Scales:");
-        ips200_show_string( 24, 16 * 4, "Delay_Time1:");
+        ips200_show_string( 24, 16 * 4, "Turn_Point:");
         ips200_show_string( 24, 16 * 5, "Delay_Time2:");
         ips200_show_float( 152, 16 * 0, From_9000_To_9900_ServoPD.Kp, 1, 2);
         ips200_show_float( 152, 16 * 1, From_9000_To_9900_ServoPD.Kd, 1, 2);
         ips200_show_int(   128, 16 * 2, Task2_Scales, 3);
         ips200_show_int(   128, 16 * 3, Advan_Scales, 3);
-        ips200_show_int(   120, 16 * 4, Delay_Time1, 4);
-        ips200_show_int(   120, 16 * 5, Delay_Time2, 4);
+        ips200_show_int(   120, 16 * 4, Turn_Point  , 3);
     }
 
     if(Point2 == 0)
@@ -1687,11 +1688,7 @@ void Key_Ctrl_Menu()
                 }
                 if(Point2 == 20)
                 {
-                    Delay_Time1 += 50;
-                }
-                if(Point2 == 21)
-                {
-                    Delay_Time2 += 50;
+                    Turn_Point += 1;
                 }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
@@ -1778,11 +1775,7 @@ void Key_Ctrl_Menu()
                 }
                 if(Point2 == 20)
                 {
-                    Delay_Time1 -= 50;
-                }
-                if(Point2 == 21)
-                {
-                    Delay_Time2 -= 50;
+                    Turn_Point -= 1;
                 }
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)

@@ -10,41 +10,12 @@
 
 int16 Track_Points_NUM =   0;       // 当前追踪第几个点
 double Angle_Error     =   0;       // 方向角与航向角之差
-float  Fusion_angle    =   0;       // GPS和IMU互补滤波后的角度
-float  Fusion_alpha    = 0.9;       // GPS和IMU互补滤波的权重
 int16  Target_Encoder  =   0;       // 转速
 int16  Fly_Slope_Alpha = 200;       // 飞坡系数
 float  K_Straight      = 1.7;       // 走直线系数
-int16  Delay_Time1     = 500;       // 拐弯时间
-int16  Delay_Time2     = 500;       // 拐弯时间
-
-/****************************************************************************************************
-//  @brief      将积分的Z_360和逐飞GPS的direction进行互补融合
-//  @param      void
-//  @return     void
-//  @since
-//  Sample usage:
-****************************************************************************************************/
-void GPS_IMU_Complementary_Filtering()
-{
-    if(Z_360 > 180)
-    {
-        Z_360 -= 360;
-    }
-    if(gnss.direction > 180)
-    {
-        gnss.direction -= 360;
-    }
-    Fusion_angle = Fusion_alpha * Z_360 + (1 - Fusion_alpha) * gnss.direction;
-    if(Fusion_angle > 180)
-    {
-        Fusion_angle -= 360;
-    }
-    if(Fusion_angle < -180)
-    {
-        Fusion_angle += 360;
-    }
-}
+int8   Hole_Point      =  52;       // 标记桥洞点位
+int8   Ramp_Point      =  52;       // 标记坡道点位
+int8   Turn_Point      =  55;       // 标记掉头点位
 
 /****************************************************************************************************
 //  @brief      核心循迹逻辑
@@ -71,6 +42,12 @@ void Track_Follow()
     // 5.MPC控制和曲率前馈
     // 1234均已实现的差不多，等待实际测试
 
+    static int8 TimeCount_Flag = 0;
+    if(TimeCount_Flag == 0)
+    {
+        TimeCount_Flag = 1;
+        Star_Time = System_Time;
+    }
     if(Track_Points_NUM == Task1_Start_Point || Track_Points_NUM == Task2_Start_Point || Track_Points_NUM == Task3_Start_Point)
     {
         Angle_Error = -K_Straight * angle[2];
@@ -194,6 +171,7 @@ void Point_Switch()
                 if(GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1] > GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3])  // 左拐弯
                 {
                     Servo_Set(SERVO_MOTOR_LMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
                     while(TRUE)
                     {
                         if(fabs(angle[2] - 180) < 5)
@@ -205,6 +183,7 @@ void Point_Switch()
                 else  // 右拐弯
                 {
                     Servo_Set(SERVO_MOTOR_RMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
                     while(TRUE)
                     {
                         if(fabs(angle[2] - 180) < 5)
@@ -219,6 +198,7 @@ void Point_Switch()
                 if(GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1] > GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3])  // 右拐弯
                 {
                     Servo_Set(SERVO_MOTOR_RMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
                     while(TRUE)
                     {
                         if(fabs(angle[2] - 180) < 5)
@@ -230,6 +210,7 @@ void Point_Switch()
                 else  // 左拐弯
                 {
                     Servo_Set(SERVO_MOTOR_LMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
                     while(TRUE)
                     {
                         if(fabs(angle[2] - 180) < 5)
@@ -243,6 +224,68 @@ void Point_Switch()
             LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
         }
     }
+    else if(Track_Points_NUM == Turn_Point) // 科目三拐弯
+    {
+        if(Distance < GpsDistance[Track_Points_NUM])
+        {
+            if(GPS_GET_LAT[Task3_Start_Point] < GPS_GET_LAT[Turn_Point]) // 向北发车
+            {
+                if(GPS_GET_LOT[Turn_Point] < GPS_GET_LOT[Turn_Point + 1]) // 右拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_RMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    while (TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+                else // 左拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_LMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    while (TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            else // 向南发车
+            {
+                if(GPS_GET_LOT[Turn_Point] < GPS_GET_LOT[Turn_Point + 1]) // 左拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_LMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    while (TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+                else // 右拐弯
+                {
+                    Servo_Set(SERVO_MOTOR_RMAX);
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    while (TRUE)
+                    {
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+            Track_Points_NUM = Turn_Point + 2;
+            LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+        }
+    }
     else
     {
         if(Distance < GpsDistance[Track_Points_NUM])
@@ -252,6 +295,18 @@ void Point_Switch()
         }
     }
 
+    if(Track_Points_NUM == Task1_Start_Point + Task1_Points)
+    {
+        Stop_Time = System_Time;
+    }
+    if(Track_Points_NUM == Task2_Start_Point + Task2_Points)
+    {
+        Stop_Time = System_Time;
+    }
+    if(Track_Points_NUM == Task3_Start_Point + Task3_Points)
+    {
+        Stop_Time = System_Time;
+    }
 }
 
 

@@ -43,6 +43,8 @@ extern double Test_Angle;                                       // 调试用
 extern int16  Test_Encoder;                                     // 调试用
 extern int16  Task_Flag;                                        // 任务标志
 extern uint8  Start_Flag;                                       // 发车标志
+extern float  Star_Time;                                        // 开始时间
+extern float  Stop_Time;                                        // 结束时间
 //===================================================全局变量END===================================================
 
 

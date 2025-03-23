@@ -17,18 +17,16 @@
 //===================================================全局变量BEG===================================================
 extern int16  Track_Points_NUM;                                // 当前追踪第几个点
 extern double Angle_Error;                                     // 角度误差
-extern float  Fusion_angle;                                    // GPS和IMU互补滤波后的角度
-extern float  Fusion_alpha;                                    // GPS和IMU互补滤波的权重
 extern int16  Target_Encoder;                                  // 转速
 extern int16  Fly_Slope_Alpha;                                 // 飞坡系数
 extern float  K_Straight;                                      // 走直线系数
-extern int16  Delay_Time1;                                     // 拐弯时间
-extern int16  Delay_Time2;                                     // 拐弯时间
+extern int8   Hole_Point;                                      // 标记桥洞点位
+extern int8   Ramp_Point;                                      // 标记坡道点位
+extern int8   Turn_Point;                                      // 标记掉头点位
 //===================================================全局变量END===================================================
 
 
 //===================================================函数声明BEG===================================================
-void GPS_IMU_Complementary_Filtering(void);                    // GPS与IMU互补滤波
 void Track_Follow(void);                                       // 核心循迹程序
 void Point_Switch(void);                                       // 点位切换
 //===================================================函数声明END===================================================

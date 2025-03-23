@@ -152,8 +152,7 @@ void FLASH_SAV_PAR()
     flash_union_buffer[28].float_type = From_9000_To_9900_ServoPD.Kd;
     flash_union_buffer[29].int8_type  = Task2_Scales;
     flash_union_buffer[30].int8_type  = Advan_Scales;
-    flash_union_buffer[31].int16_type  = Delay_Time1;
-    flash_union_buffer[32].int16_type  = Delay_Time2;
+    flash_union_buffer[31].int8_type  = Turn_Point;
 
     // 换点距离和速度数组
     for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
@@ -218,8 +217,7 @@ void FLASH_GET_PAR()
         From_9000_To_9900_ServoPD.Kd = flash_union_buffer[28].float_type;
         Task2_Scales = flash_union_buffer[29].int8_type;
         Advan_Scales = flash_union_buffer[30].int8_type;
-        Delay_Time1  = flash_union_buffer[31].int16_type;
-        Delay_Time2  = flash_union_buffer[32].int16_type;
+        Turn_Point   = flash_union_buffer[31].int8_type;
 
         // 换点距离和速度数组
         for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
@@ -257,8 +255,7 @@ void FLASH_PRI_PAR()
         printf("K_Straight:%f\r\n", K_Straight);
         printf("Task2_Scales:%d\r\n", Task2_Scales);
         printf("Advan_Scales:%d\r\n", Advan_Scales);
-        printf("Delay_Time1:%d\r\n", Delay_Time1);
-        printf("Delay_Time2:%d\r\n", Delay_Time2);
+        printf("Turn_Point:%d\r\n", Turn_Point);
 
         printf("From_0000_To_2000_ServoPD: Kp = %f, Kd = %f\r\n", From_0000_To_2000_ServoPD.Kp, From_0000_To_2000_ServoPD.Kd);
         printf("From_2000_To_4000_ServoPD: Kp = %f, Kd = %f\r\n", From_2000_To_4000_ServoPD.Kp, From_2000_To_4000_ServoPD.Kd);
