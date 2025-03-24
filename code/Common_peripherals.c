@@ -16,7 +16,11 @@ void CPU0_Init()
     IMU_Init();                                                     // IMU初始化
     gnss_init(TAU1201);                                             // GPS初始化
     SERVO_Init();                                                   // 舵机初始化
+#if BLDC_ENABLE
+    BLDC_Init();                                                    // 无刷初始化
+#else
     DRV8701_Init();                                                 // 电机初始化
+#endif
     encoder_dir_init(ENCODER1_TIM, ENCODER1_PLUS, ENCODER1_DIR);    // 编码器初始化
 #if UART_RECEIVER_ENABLE
     uart_receiver_init();                                           // sbus接收机初始化
@@ -61,8 +65,29 @@ void Oscilloscope_Init(uint8 Channel_Num)
     oscilloscope_data.channel_num = Channel_Num;
 }
 
-// DRV8701初始化
-void DRV8701_Init(void)
+#if BLDC_ENABLE
+void BLDC_Init()
+{
+    gpio_init(DIR_CH1, GPO, 1, GPO_PUSH_PULL);
+    pwm_init (PWM_CH1, 1000, 0);
+}
+
+void BLDC_Ctrl(int16 MOTOR_PWM)
+{
+    MOTOR_PWM = (int16)IntClip(MOTOR_PWM, -PWM_DUTY_MAX, PWM_DUTY_MAX);
+    if(MOTOR_PWM >= 0)
+    {
+        gpio_set_level(DIR_CH1, 1);
+        pwm_set_duty  (PWM_CH1, MOTOR_PWM);
+    }
+    else
+    {
+        gpio_set_level(DIR_CH1, 0);
+        pwm_set_duty  (PWM_CH1, -MOTOR_PWM);
+    }
+}
+#else
+void DRV8701_Init()
 {
     gpio_init(DIR_CH1, GPO, 0, GPO_PUSH_PULL);
     pwm_init (PWM_CH1, 17000, 0);
@@ -83,6 +108,7 @@ void DRV8701_MOTOR_DRIVER(int Motor_PWM)
         pwm_set_duty  (PWM_CH1, -Motor_PWM);
     }
 }
+#endif
 
 void Encoder_Get()
 {

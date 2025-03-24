@@ -12,6 +12,7 @@
 #define UART_RECEIVER_ENABLE     (1)                         // 0: 不启用遥控器    1: 启用遥控器
 #define WIRELESS_UART_ENABLE     (0)                         // 0: 不启用无线串口  1: 启用无线串口
 #define MT9V03X_ENABLE           (0)                         // 0: 不启用摄像头    1: 启用摄像头
+#define BLDC_ENABLE              (0)                         // 0: 不启用无刷      1: 启用无刷
 
 #define IPS200_TYPE     (IPS200_TYPE_SPI)
 // 双排排针 并口两寸屏 这里宏定义填写 IPS200_TYPE_PARALLEL8
@@ -32,13 +33,20 @@
 #define SWITCH1                 (P33_11)                     // 开关1 控制引脚
 #define SWITCH2                 (P33_12)                     // 开关2 控制引脚
 
-#define MAX_DUTY            50                               // 最大占空比输出限制
-#define PWM_CH1             ATOM0_CH5_P02_5                  // PWM 输出端口
-#define DIR_CH1             P02_4                            // 电机方向输出端口
-#define ENCODER1_TIM        TIM5_ENCODER                     // 编码器定时器
-#define ENCODER1_PLUS       TIM5_ENCODER_CH1_P10_3           // 编码器计数端口
-#define ENCODER1_DIR        TIM5_ENCODER_CH2_P10_1           // 编码器方向采值端口
-
+#if BLDC_ENABLE
+#define PWM_CH1             ATOM1_CH5_P02_5
+#define DIR_CH1             P02_4
+#define ENCODER1_TIM        TIM2_ENCODER
+#define ENCODER1_PLUS       TIM2_ENCODER_CH1_P33_7
+#define ENCODER1_DIR        TIM2_ENCODER_CH2_P33_6
+#else
+#define MAX_DUTY            50
+#define PWM_CH1             ATOM0_CH5_P02_5
+#define DIR_CH1             P02_4
+#define ENCODER1_TIM        TIM5_ENCODER
+#define ENCODER1_PLUS       TIM5_ENCODER_CH1_P10_3
+#define ENCODER1_DIR        TIM5_ENCODER_CH2_P10_1
+#endif
 
 #define SERVO_MOTOR_PWM             (ATOM1_CH1_P33_9)        // 定义主板上舵机对应引脚
 #define SERVO_MOTOR_FREQ            (300)                    // 定义主板上舵机频率  请务必注意范围 50-300
@@ -65,8 +73,13 @@ void CPU0_Init(void);                                          // CPU0 初始化
 void CPU1_Init(void);                                          // CPU1 初始化
 void ips200_Init(void);                                        // 屏幕初始化
 void Oscilloscope_Init(uint8 Channel_Num);                     // 无线串口初始化
+#if BLDC_ENABLE
+void BLDC_Init(void);                                          // 无刷初始化
+void BLDC_Ctrl(int16 MOTOR_PWM);                               // 无刷驱动
+#else
 void DRV8701_Init(void);                                       // 电机初始化
 void DRV8701_MOTOR_DRIVER(int Motor_PWM);                      // 电机驱动
+#endif
 void Encoder_Get(void);                                        // 编码器读取
 void SERVO_Init(void);                                         // 舵机初始化
 void Servo_SetTest(int16 *angle);                              // 舵机驱动，用于调试

@@ -251,7 +251,19 @@ void PIDIncMotorCtrl(int16 TARGET_MOTOR_ENCODER)
                         Parameter_set0.SpeedPID[1] * PID_MOTOR.current_error +
                         Parameter_set0.SpeedPID[2] * (PID_MOTOR.current_error - 2 * PID_MOTOR.last_error + PID_MOTOR.lastlast_error);
     PID_MOTOR.output = FloatClip(PID_MOTOR.output, -PWM_DUTY_MAX, PWM_DUTY_MAX);
-    int32 MOTOR_DUTY = (int32)PID_MOTOR.output;
+    int16 MOTOR_DUTY = (int16)PID_MOTOR.output;
+#if BLDC_ENABLE
+    if(MOTOR_DUTY >= 0)
+    {
+        gpio_set_level(DIR_CH1, 1);
+        pwm_set_duty  (PWM_CH1, MOTOR_DUTY);
+    }
+    else
+    {
+        gpio_set_level(DIR_CH1, 0);
+        pwm_set_duty  (PWM_CH1, -MOTOR_DUTY);
+    }
+#else
     if(MOTOR_DUTY >= 0)
     {
         gpio_set_level(DIR_CH1, 0);
@@ -262,6 +274,8 @@ void PIDIncMotorCtrl(int16 TARGET_MOTOR_ENCODER)
         gpio_set_level(DIR_CH1, 1);
         pwm_set_duty  (PWM_CH1, -MOTOR_DUTY);
     }
+#endif
+
 }
 
 

@@ -22,7 +22,11 @@ void RemoteCtrl_Program()
 {
     if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0)
     {
-        DRV8701_MOTOR_DRIVER(0);
+        #if BLDC_ENABLE
+            BLDC_Ctrl(0);
+        #else
+            DRV8701_MOTOR_DRIVER(0);
+        #endif
     }
     else
     {
@@ -44,15 +48,27 @@ void RemoteCtrl_Direction_Speed()
         #else
             if(uart_receiver.channel[1] - 1056 > 100)
             {
-                DRV8701_MOTOR_DRIVER(GpsTgtEncod[9]);
+                #if BLDC_ENABLE
+                    BLDC_Ctrl(GpsTgtEncod[9]);
+                #else
+                    DRV8701_MOTOR_DRIVER(GpsTgtEncod[9]);
+                #endif
             }
             else if(uart_receiver.channel[1] - 1056 < -100)
             {
-                DRV8701_MOTOR_DRIVER(-GpsTgtEncod[9]);
+                #if BLDC_ENABLE
+                    BLDC_Ctrl(-GpsTgtEncod[9]);
+                #else
+                    DRV8701_MOTOR_DRIVER(-GpsTgtEncod[9]);
+                #endif
             }
             else
             {
-                DRV8701_MOTOR_DRIVER(0);
+                #if BLDC_ENABLE
+                    BLDC_Ctrl(0);
+                #else
+                    DRV8701_MOTOR_DRIVER(0);
+                #endif
             }
         #endif
         
@@ -125,7 +141,11 @@ void RemoteCtrl_Direction_Speed()
             PIDIncMotorCtrl(RemoteCtrl_Speed);
         #else
             RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 5000 / 800);
-            DRV8701_MOTOR_DRIVER(RemoteCtrl_Speed);
+            #if BLDC_ENABLE
+                BLDC_Ctrl(RemoteCtrl_Speed);
+            #else
+                DRV8701_MOTOR_DRIVER(RemoteCtrl_Speed);
+            #endif
         #endif
 
         // ×Ô¶¯¹éÎ»
