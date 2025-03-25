@@ -24,7 +24,7 @@ int    Point2         = 0;
 int    Point3         = 0;
 int8   Map_Flag       = 1;
 int    Task_Point_Set = 1;
-int16  Task_Flag      = 1;
+int16  Task_Flag      = 0;
 int    CameraPoint    = 0;
 double Test_Angle     = 0;    // 调试用
 int16  Test_Encoder   = 0;    // 调试用
@@ -972,24 +972,28 @@ void ServoD_menu(void)
 
 void MotorP_menu(void)
 {
-    ips200_show_string(  0, 16 * 0, "-->MotorP:");
-    ips200_show_string(  0, 16 * 1, "   MotorI:");
-    ips200_show_string(  0, 16 * 2, "   MotorD:");
-    ips200_show_string(  0, 16 * 3, "Test_Encoder:");
-    ips200_show_string(  0, 16 * 4, "Encoder:");
-    ips200_show_string(  0, 16 * 5, "PID.error:");
-    ips200_show_string(  0, 16 * 6, "PID.output:");
-    ips200_show_string(  0, 16 * 7, "KEY1:P+0.1");
-    ips200_show_string(120, 16 * 7, "KEY2:P-0.1");
-    ips200_show_string(  0, 16 * 8, "KEY3:Enco+100");
-    ips200_show_string(120, 16 * 8, "KEY4:Enco-100");
-    ips200_show_float ( 80, 16 * 0, Parameter_set0.SpeedPID[0], 2, 3);
-    ips200_show_float ( 80, 16 * 1, Parameter_set0.SpeedPID[1], 2, 3);
-    ips200_show_float ( 80, 16 * 2, Parameter_set0.SpeedPID[2], 2, 3);
-    ips200_show_int   (104, 16 * 3, Test_Encoder, 5);
-    ips200_show_int   ( 64, 16 * 4, Encoder, 5);
-    ips200_show_float ( 80, 16 * 5, PID_MOTOR.current_error, 3, 3);
-    ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 5, 3);
+    ips200_show_string(  0, 16 *  0, "-->MotorP:");
+    ips200_show_string(  0, 16 *  1, "   MotorI:");
+    ips200_show_string(  0, 16 *  2, "   MotorD:");
+    ips200_show_string(  0, 16 *  3, "Test_Encoder:");
+    ips200_show_string(  0, 16 *  4, "Tagt_Encoder:");
+    ips200_show_string(  0, 16 *  5, "ReCtrl_Speed:");
+    ips200_show_string(  0, 16 *  6, "Encoder:");
+    ips200_show_string(  0, 16 *  7, "PID.error:");
+    ips200_show_string(  0, 16 *  8, "PID.output:");
+    ips200_show_string(  0, 16 *  9, "KEY1:P+0.1");
+    ips200_show_string(120, 16 *  9, "KEY2:P-0.1");
+    ips200_show_string(  0, 16 * 10, "KEY3:Enco+100");
+    ips200_show_string(120, 16 * 10, "KEY4:Enco-100");
+    ips200_show_float ( 80, 16 *  0, Parameter_set0.SpeedPID[0], 2, 3);
+    ips200_show_float ( 80, 16 *  1, Parameter_set0.SpeedPID[1], 2, 3);
+    ips200_show_float ( 80, 16 *  2, Parameter_set0.SpeedPID[2], 2, 3);
+    ips200_show_int   (104, 16 *  3, Test_Encoder, 5);
+    ips200_show_int   (104, 16 *  4, Target_Encoder, 5);
+    ips200_show_int   (104, 16 *  5, RemoteCtrl_Speed, 5);
+    ips200_show_int   ( 64, 16 *  6, Encoder, 5);
+    ips200_show_float ( 80, 16 *  7, PID_MOTOR.current_error, 3, 3);
+    ips200_show_float ( 88, 16 *  8, PID_MOTOR.output, 5, 3);
 
 #if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);

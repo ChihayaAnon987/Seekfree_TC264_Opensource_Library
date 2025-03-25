@@ -64,36 +64,33 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
     pit_clear_flag(CCU60_CH1);
 
     // 0.005sÖÐ¶Ï£¬200Hz
+#if MOTOR_LOOP_ENABLE
     if(Control_Flag == 0)
     {
         // PIDIncMotorCtrl(Test_Encoder);
-        #if MOTOR_LOOP_ENABLE
-            PIDIncMotorCtrl(Target_Encoder);
-        #endif
+        PIDIncMotorCtrl(Target_Encoder);
     }
     if(Control_Flag == 1)
     {
-        #if MOTOR_LOOP_ENABLE
-            if(uart_receiver.channel[1] - 1056 > 100)
-            {
-                PIDIncMotorCtrl(GpsTgtEncod[9]);
-            }
-            else if(uart_receiver.channel[1] - 1056 < -100)
-            {
-                PIDIncMotorCtrl(-GpsTgtEncod[9]);
-            }
-            else
-            {
-                PIDIncMotorCtrl(0);
-            }
-        #endif
+        if(uart_receiver.channel[1] - 1056 > 100)
+        {
+            PIDIncMotorCtrl(GpsTgtEncod[9]);
+        }
+        else if(uart_receiver.channel[1] - 1056 < -100)
+        {
+            PIDIncMotorCtrl(-GpsTgtEncod[9]);
+        }
+        else
+        {
+            PIDIncMotorCtrl(0);
+        }
     }
     if(Control_Flag == 2)
     {
-        #if MOTOR_LOOP_ENABLE
-            PIDIncMotorCtrl(RemoteCtrl_Speed);
-        #endif
+        PIDIncMotorCtrl(RemoteCtrl_Speed);
     }
+#endif
+    // Servo_Set(Servo_Angle);
     Encoder_Get();
 
 }
