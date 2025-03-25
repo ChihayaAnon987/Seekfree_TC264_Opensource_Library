@@ -39,62 +39,61 @@ menu_table table[33]=
     // current, up, down, back, enter
 
     // 菜单0
-    { 0, 31,  2,  0,  1, main_menu0},       // 踩点GPS一层
-    { 1,  1,  1,  0,  1, CaiDian_menu},     // 踩点GPS二层
+    {enum_first_menu00, enum_first_menu11, enum_first_menu01, enum_first_menu00, enum_secon_menu00, main_menu0},       // 踩点GPS一层
+    {enum_secon_menu00, enum_secon_menu00, enum_secon_menu00, enum_first_menu00, enum_secon_menu00, CaiDian_menu},     // 踩点GPS二层
 
     // 菜单1
-    { 2,  0, 11,  2,  3, main_menu1},       // PID一层
-    { 3,  4,  4,  2,  5, ServoPID},         // ServoPID二层
-    { 4,  3,  3,  2,  8, MotorPID},         // MotorPID二层
-    { 5,  7,  6,  3,  5, ServoP_menu},      // ServoP
-    { 6,  5,  7,  3,  6, ServoI_menu},      // ServoI
-    { 7,  6,  5,  3,  7, ServoD_menu},      // ServoD
-    { 8, 10,  9,  4,  8, MotorP_menu},      // MotorP
-    { 9,  8, 10,  4,  9, MotorI_menu},      // MotorI
-    {10,  9,  8,  4, 10, MotorD_menu},      // MotorD
+    {enum_first_menu01, enum_first_menu00, enum_first_menu02, enum_first_menu01, enum_secon_menu01, main_menu1},       // PID一层
+    {enum_secon_menu01, enum_secon_menu02, enum_secon_menu02, enum_first_menu01, enum_third_menu00, ServoPID},         // ServoPID二层
+    {enum_secon_menu02, enum_secon_menu01, enum_secon_menu01, enum_first_menu01, enum_third_menu03, MotorPID},         // MotorPID二层
+    {enum_third_menu00, enum_third_menu02, enum_third_menu01, enum_secon_menu01, enum_third_menu00, ServoP_menu},      // ServoP
+    {enum_third_menu01, enum_third_menu00, enum_third_menu02, enum_secon_menu01, enum_third_menu01, ServoI_menu},      // ServoI
+    {enum_third_menu02, enum_third_menu01, enum_third_menu00, enum_secon_menu01, enum_third_menu02, ServoD_menu},      // ServoD
+    {enum_third_menu03, enum_third_menu05, enum_third_menu04, enum_secon_menu02, enum_third_menu03, MotorP_menu},      // MotorP
+    {enum_third_menu04, enum_third_menu03, enum_third_menu05, enum_secon_menu02, enum_third_menu04, MotorI_menu},      // MotorI
+    {enum_third_menu05, enum_third_menu04, enum_third_menu03, enum_secon_menu02, enum_third_menu05, MotorD_menu},      // MotorD
 
     // 菜单2
-    {11,  2, 13, 11, 12, main_menu2},        // 运行GPS显示一层
-    {12, 12, 12, 11, 12, GPS_menu},          // 运行GPS显示二层
+    {enum_first_menu02, enum_first_menu01, enum_first_menu03, enum_first_menu02, enum_secon_menu03, main_menu2},        // 运行GPS显示一层
+    {enum_secon_menu03, enum_secon_menu03, enum_secon_menu03, enum_first_menu02, enum_secon_menu03, GPS_menu},          // 运行GPS显示二层
 
     // 菜单3
-    {13, 11, 17, 13, 14, main_menu3},        // 调速,舵机机械中值，换点距离
-    {14, 16, 15, 13, 14, spd_menu},          // 调速
-    {15, 14, 16, 13, 15, Distance_menu},     // 换点距离
-    {16, 15, 14, 13, 16, TaskPoint},         // 任务点
+    {enum_first_menu03, enum_first_menu02, enum_first_menu04, enum_first_menu03, enum_secon_menu04, main_menu3},        // 调速,舵机机械中值，换点距离
+    {enum_secon_menu04, enum_secon_menu06, enum_secon_menu05, enum_first_menu03, enum_secon_menu04, spd_menu},          // 调速
+    {enum_secon_menu05, enum_secon_menu04, enum_secon_menu06, enum_first_menu03, enum_secon_menu05, Distance_menu},     // 换点距离
+    {enum_secon_menu06, enum_secon_menu05, enum_secon_menu04, enum_first_menu03, enum_secon_menu06, TaskPoint},         // 任务点
 
     // 菜单4
-    {17, 13, 19, 17, 18, main_menu4},        // 遥控模式一层
-    {18, 18, 18, 17, 18, RemoteCtrl_menu},   // 遥控模式二层
+    {enum_first_menu04, enum_first_menu03, enum_first_menu05, enum_first_menu04, enum_secon_menu07, main_menu4},        // 遥控模式一层
+    {enum_secon_menu07, enum_secon_menu07, enum_secon_menu07, enum_first_menu04, enum_secon_menu07, RemoteCtrl_menu},   // 遥控模式二层
 
     // 菜单5
-    {19, 17, 21, 19, 20, main_menu5},        // GPS点位查看一层
-    {20, 20, 20, 19, 20, Points_menu},       // GPS点位查看二层
+    {enum_first_menu05, enum_first_menu04, enum_first_menu06, enum_first_menu05, enum_secon_menu08, main_menu5},        // GPS点位查看一层
+    {enum_secon_menu08, enum_secon_menu08, enum_secon_menu08, enum_first_menu05, enum_secon_menu08, Points_menu},       // GPS点位查看二层
 
     // 菜单6
-    {21, 19, 23, 21, 22, main_menu6},        // 摄像头图像一层
-    {22, 22, 22, 21, 22, ZongZuanF} ,        // 摄像头图像二层
+    {enum_first_menu06, enum_first_menu05, enum_first_menu07, enum_first_menu06, enum_secon_menu09, main_menu6},        // 摄像头图像一层
+    {enum_secon_menu09, enum_secon_menu09, enum_secon_menu09, enum_first_menu06, enum_secon_menu09, ZongZuanF} ,        // 摄像头图像二层
 
     // 菜单7
-    {23, 21, 25, 23, 24, main_menu7},        // 陀螺仪一层
-    {24, 24, 24, 23, 24, Imu963_menu},       // 陀螺仪二层
+    {enum_first_menu07, enum_first_menu06, enum_first_menu08, enum_first_menu07, enum_secon_menu10, main_menu7},        // 陀螺仪一层
+    {enum_secon_menu10, enum_secon_menu10, enum_secon_menu10, enum_first_menu07, enum_secon_menu10, Imu963_menu},       // 陀螺仪二层
 
     // 菜单8
-    {25, 23, 27, 25, 26, main_menu8},        // Flash一层
-    {26, 26, 26, 25, 26, Flash_menu},        // Flash二层
+    {enum_first_menu08, enum_first_menu07, enum_first_menu09, enum_first_menu08, enum_secon_menu11, main_menu8},        // Flash一层
+    {enum_secon_menu11, enum_secon_menu11, enum_secon_menu11, enum_first_menu08, enum_secon_menu11, Flash_menu},        // Flash二层
 
     // 菜单9
-    {27, 25, 29, 27, 28, main_menu9},        // 舵机测试一层
-    {28, 28, 28, 27, 28, Servo_menu},        // 舵机测试二层
+    {enum_first_menu09, enum_first_menu08, enum_first_menu10, enum_first_menu09, enum_secon_menu12, main_menu9},        // 舵机测试一层
+    {enum_secon_menu12, enum_secon_menu12, enum_secon_menu12, enum_first_menu09, enum_secon_menu12, Servo_menu},        // 舵机测试二层
 
     // 菜单10
-    {29, 27, 31, 29, 30, main_menu10},       // 参数设置一层
-    {30, 30, 30, 29, 30, Param_Set},         // 参数设置二层
+    {enum_first_menu10, enum_first_menu09, enum_first_menu11, enum_first_menu10, enum_secon_menu13, main_menu10},       // 参数设置一层
+    {enum_secon_menu13, enum_secon_menu13, enum_secon_menu13, enum_first_menu10, enum_secon_menu13, Param_Set},         // 参数设置二层
     
     // 菜单11
-    {31, 29,  0, 31, 32, main_menu11},       // 任务选择一层
-    {32, 32, 32, 31, 32, Task_Select}        // 任务选择二层  
-
+    {enum_first_menu11, enum_first_menu10, enum_first_menu00, enum_first_menu11, enum_secon_menu14, main_menu11},       // 任务选择一层
+    {enum_secon_menu14, enum_secon_menu14, enum_secon_menu14, enum_first_menu11, enum_secon_menu14, Task_Select}        // 任务选择二层
 };
 
 /////////////////////////////////一层菜单-------------------------------------------------
@@ -987,10 +986,10 @@ void MotorP_menu(void)
     ips200_show_float ( 80, 16 * 0, Parameter_set0.SpeedPID[0], 2, 3);
     ips200_show_float ( 80, 16 * 1, Parameter_set0.SpeedPID[1], 2, 3);
     ips200_show_float ( 80, 16 * 2, Parameter_set0.SpeedPID[2], 2, 3);
-    ips200_show_uint  (104, 16 * 3, Test_Encoder, 5);
+    ips200_show_int   (104, 16 * 3, Test_Encoder, 5);
     ips200_show_int   ( 64, 16 * 4, Encoder, 5);
     ips200_show_float ( 80, 16 * 5, PID_MOTOR.current_error, 3, 3);
-    ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 4, 6);
+    ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 5, 3);
 
 #if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
@@ -1016,10 +1015,10 @@ void MotorI_menu(void)
     ips200_show_float ( 80, 16 * 0, Parameter_set0.SpeedPID[0], 2, 3);
     ips200_show_float ( 80, 16 * 1, Parameter_set0.SpeedPID[1], 2, 3);
     ips200_show_float ( 80, 16 * 2, Parameter_set0.SpeedPID[2], 2, 3);
-    ips200_show_uint  (104, 16 * 3, Test_Encoder, 5);
+    ips200_show_int   (104, 16 * 3, Test_Encoder, 5);
     ips200_show_int   ( 64, 16 * 4, Encoder, 5);
     ips200_show_float ( 80, 16 * 5, PID_MOTOR.current_error, 3, 3);
-    ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 3, 6);
+    ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 5, 3);
 
 #if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
@@ -1046,10 +1045,10 @@ void MotorD_menu(void)
     ips200_show_float ( 80, 16 * 0,Parameter_set0.SpeedPID[0], 2, 3);
     ips200_show_float ( 80, 16 * 1,Parameter_set0.SpeedPID[1], 2, 3);
     ips200_show_float ( 80, 16 * 2,Parameter_set0.SpeedPID[2], 2, 3);
-    ips200_show_uint  (104, 16 * 3, Test_Encoder, 5);
+    ips200_show_int   (104, 16 * 3, Test_Encoder, 5);
     ips200_show_int   ( 64, 16 * 4, Encoder, 5);
     ips200_show_float ( 80, 16 * 5, PID_MOTOR.current_error, 3, 3);
-    ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 3, 6);
+    ips200_show_float ( 88, 16 * 6, PID_MOTOR.output, 5, 3);
 
 #if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
@@ -1216,7 +1215,7 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
-                if(Test_Encoder >= 100)
+                if(Test_Encoder > -1000)
                 {
                     Test_Encoder -= 100;
                 }
@@ -1240,16 +1239,16 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
-                if(Test_Encoder < PWM_DUTY_MAX)
+                if(Test_Encoder < 1000)
                 {
-                    Test_Encoder += 50;
+                    Test_Encoder += 100;
                 }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
-                if(Test_Encoder > -PWM_DUTY_MAX)
+                if(Test_Encoder > -1000)
                 {
-                    Test_Encoder -= 50;
+                    Test_Encoder -= 100;
                 }
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)
@@ -1271,14 +1270,14 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
-                if(Test_Encoder < PWM_DUTY_MAX)
+                if(Test_Encoder < 1000)
                 {
                     Test_Encoder += 100;
                 }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
-                if(Test_Encoder > -PWM_DUTY_MAX)
+                if(Test_Encoder > -1000)
                 {
                     Test_Encoder -= 100;
                 }

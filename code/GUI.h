@@ -14,14 +14,65 @@
 //===================================================宏定义END===================================================
 
 
+//===================================================枚举定义BEG===================================================
+typedef enum
+{
+    enum_first_menu00,                                         // 一级菜单00, CaiDian
+    enum_secon_menu00,                                         // 二级菜单00, 踩点
+
+    enum_first_menu01,                                         // 一级菜单01, PID
+    enum_secon_menu01,                                         // 二级菜单01, ServoPID
+    enum_secon_menu02,                                         // 二级菜单02, MotorPID
+    enum_third_menu00,                                         // 三级菜单00, ServoP
+    enum_third_menu01,                                         // 三级菜单01, ServoI
+    enum_third_menu02,                                         // 三级菜单02, ServoD
+    enum_third_menu03,                                         // 三级菜单03, MotorP
+    enum_third_menu04,                                         // 三级菜单04, MotorI
+    enum_third_menu05,                                         // 三级菜单05, MotorD
+
+    enum_first_menu02,                                         // 一级菜单02, GPS Show
+    enum_secon_menu03,                                         // 二级菜单03, GPS
+
+    enum_first_menu03,                                         // 一级菜单03, Duty
+    enum_secon_menu04,                                         // 二级菜单04, 速度
+    enum_secon_menu05,                                         // 二级菜单05, 换点距离
+    enum_secon_menu06,                                         // 二级菜单06, 任务点设置
+
+    enum_first_menu04,                                         // 一级菜单04, RemoteCtrl
+    enum_secon_menu07,                                         // 二级菜单07, 遥控
+
+    enum_first_menu05,                                         // 一级菜单05, Points
+    enum_secon_menu08,                                         // 二级菜单08, 点
+
+    enum_first_menu06,                                         // 一级菜单06, Camera
+    enum_secon_menu09,                                         // 二级菜单09, 总钻风
+
+    enum_first_menu07,                                         // 一级菜单07, Imu963
+    enum_secon_menu10,                                         // 二级菜单10, IMU963
+
+    enum_first_menu08,                                         // 一级菜单08, Flash
+    enum_secon_menu11,                                         // 二级菜单11, Flash
+
+    enum_first_menu09,                                         // 一级菜单09, SevroTest
+    enum_secon_menu12,                                         // 二级菜单12, 舵机
+
+    enum_first_menu10,                                         // 一级菜单10, ParamSet
+    enum_secon_menu13,                                         // 二级菜单13, 参数设置
+
+    enum_first_menu11,                                         // 一级菜单11, TaskSelect
+    enum_secon_menu14,                                         // 二级菜单14, 任务选择
+}gui_menu_enum;
+//===================================================枚举定义END===================================================
+
+
 //===================================================类型定义BEG===================================================
 typedef struct
 {
-    char current;                                              // 当前显示层数
-    char up;                                                   // 上翻
-    char down;                                                 // 下翻
-    char back;                                                 // 返回
-    char enter;                                                // 确认
+    gui_menu_enum current;                                              // 当前显示层数
+    gui_menu_enum up;                                                   // 上翻
+    gui_menu_enum down;                                                 // 下翻
+    gui_menu_enum back;                                                 // 返回
+    gui_menu_enum enter;                                                // 确认
     void (*current_operation)(void);                           // 当前显示函数
 } menu_table;
 

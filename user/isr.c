@@ -64,15 +64,36 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
     pit_clear_flag(CCU60_CH1);
 
     // 0.005s中断，200Hz
-    System_Time_Count();                            // 系统时间计时
     if(Control_Flag == 0)
     {
-        // PIDIncMotorCtrl(Test_Encoder);                 // 电机 PID增量式控制
+        // PIDIncMotorCtrl(Test_Encoder);
         #if MOTOR_LOOP_ENABLE
             PIDIncMotorCtrl(Target_Encoder);
         #endif
     }
-
+    if(Control_Flag == 1)
+    {
+        #if MOTOR_LOOP_ENABLE
+            if(uart_receiver.channel[1] - 1056 > 100)
+            {
+                PIDIncMotorCtrl(GpsTgtEncod[9]);
+            }
+            else if(uart_receiver.channel[1] - 1056 < -100)
+            {
+                PIDIncMotorCtrl(-GpsTgtEncod[9]);
+            }
+            else
+            {
+                PIDIncMotorCtrl(0);
+            }
+        #endif
+    }
+    if(Control_Flag == 2)
+    {
+        #if MOTOR_LOOP_ENABLE
+            PIDIncMotorCtrl(RemoteCtrl_Speed);
+        #endif
+    }
     Encoder_Get();
 
 }
@@ -92,7 +113,7 @@ IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
     pit_clear_flag(CCU61_CH1);
 
     // 0.005s中断，200Hz
-
+    System_Time_Count();                            // 系统时间计时
 }
 // **************************** PIT中断函数 ****************************
 

@@ -42,10 +42,7 @@ void RemoteCtrl_Direction_Speed()
 {
     if(Control_Flag == 1)
     {
-        #if MOTOR_LOOP_ENABLE
-            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 500 / 800);
-            PIDIncMotorCtrl(RemoteCtrl_Speed);
-        #else
+        #if MOTOR_LOOP_ENABLE == 0
             if(uart_receiver.channel[1] - 1056 > 100)
             {
                 #if BLDC_ENABLE
@@ -101,7 +98,7 @@ void RemoteCtrl_Direction_Speed()
     }
     if(Control_Flag == 2)
     {
-        RemoteCtrl_Direction = (int16)((856 - uart_receiver.channel[0]) * 24 / 800);    // 把其值映射到SERVO_MOTOR_RMAX 到 SERVO_MOTOR_LMAX
+        RemoteCtrl_Direction = (int16)((856 - uart_receiver.channel[0]) * 24 / 800);
         static float CenterAngle;
         if(fabs(856 - uart_receiver.channel[0]) < 20)
         {
@@ -138,7 +135,6 @@ void RemoteCtrl_Direction_Speed()
 
         #if MOTOR_LOOP_ENABLE
             RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 500 / 800);
-            PIDIncMotorCtrl(RemoteCtrl_Speed);
         #else
             RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 5000 / 800);
             #if BLDC_ENABLE

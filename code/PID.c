@@ -255,12 +255,12 @@ void PIDIncMotorCtrl(int16 TARGET_MOTOR_ENCODER)
 #if BLDC_ENABLE
     if(MOTOR_DUTY >= 0)
     {
-        gpio_set_level(DIR_CH1, 1);
+        gpio_set_level(DIR_CH1, 0);
         pwm_set_duty  (PWM_CH1, MOTOR_DUTY);
     }
     else
     {
-        gpio_set_level(DIR_CH1, 0);
+        gpio_set_level(DIR_CH1, 1);
         pwm_set_duty  (PWM_CH1, -MOTOR_DUTY);
     }
 #else

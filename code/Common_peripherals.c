@@ -119,8 +119,8 @@ void Encoder_Get()
     // Delta_y += speed * 0.005 * cos(angle[2] * PI / 180);                // 每五毫秒的位移
     // Delta_x += speed * 0.005 * sin(angle[2] * PI / 180);
 
-    FilterPoint_Lat += (GpsSpeed + 0.5f * GpsAccel * 0.005f) * 0.005f * cos((angle[2] + Delta_Angle)* PI / 180) * METER_TO_LAT;
-    FilterPoint_Lon += (GpsSpeed + 0.5f * GpsAccel * 0.005f) * 0.005f * sin((angle[2] + Delta_Angle)* PI / 180) * METER_TO_LON;
+    // FilterPoint_Lat += (GpsSpeed + 0.5f * GpsAccel * 0.005f) * 0.005f * cos((angle[2] + Delta_Angle)* PI / 180) * METER_TO_LAT;
+    // FilterPoint_Lon += (GpsSpeed + 0.5f * GpsAccel * 0.005f) * 0.005f * sin((angle[2] + Delta_Angle)* PI / 180) * METER_TO_LON;
 }
 
 // 舵机初始化

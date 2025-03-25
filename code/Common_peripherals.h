@@ -12,7 +12,8 @@
 #define UART_RECEIVER_ENABLE     (1)                         // 0: 不启用遥控器    1: 启用遥控器
 #define WIRELESS_UART_ENABLE     (0)                         // 0: 不启用无线串口  1: 启用无线串口
 #define MT9V03X_ENABLE           (0)                         // 0: 不启用摄像头    1: 启用摄像头
-#define BLDC_ENABLE              (0)                         // 0: 不启用无刷      1: 启用无刷
+#define BLDC_ENABLE              (1)                         // 0: 不启用无刷      1: 启用无刷
+#define MOTOR_LOOP_ENABLE        (1)                         // 0: 开环控制        1: 闭环PID控制
 
 #define IPS200_TYPE     (IPS200_TYPE_SPI)
 // 双排排针 并口两寸屏 这里宏定义填写 IPS200_TYPE_PARALLEL8
@@ -34,11 +35,11 @@
 #define SWITCH2                 (P33_12)                     // 开关2 控制引脚
 
 #if BLDC_ENABLE
-#define PWM_CH1             ATOM1_CH5_P02_5
-#define DIR_CH1             P02_4
-#define ENCODER1_TIM        TIM2_ENCODER
-#define ENCODER1_PLUS       TIM2_ENCODER_CH1_P33_7
-#define ENCODER1_DIR        TIM2_ENCODER_CH2_P33_6
+#define PWM_CH1             ATOM0_CH7_P02_7
+#define DIR_CH1             P02_6
+#define ENCODER1_TIM        TIM5_ENCODER
+#define ENCODER1_PLUS       TIM5_ENCODER_CH1_P10_3
+#define ENCODER1_DIR        TIM5_ENCODER_CH2_P10_1
 #else
 #define MAX_DUTY            50
 #define PWM_CH1             ATOM0_CH5_P02_5
