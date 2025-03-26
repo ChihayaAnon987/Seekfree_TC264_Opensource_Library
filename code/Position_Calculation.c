@@ -42,10 +42,8 @@ void Track_Follow()
     // 5.MPC控制和曲率前馈
     // 1234均已实现的差不多，等待实际测试
 
-    static int8 TimeCount_Flag = 0;
-    if(TimeCount_Flag == 0)
+    if(Star_Time == 0)
     {
-        TimeCount_Flag = 1;
         Star_Time = System_Time;
     }
     if(Track_Points_NUM == Task1_Start_Point || Track_Points_NUM == Task2_Start_Point || Track_Points_NUM == Task3_Start_Point)
@@ -343,17 +341,20 @@ void Point_Switch()
         }
     }
 
-    if(Track_Points_NUM == Task1_Start_Point + Task1_Points)
+    if(Stop_Time == 0)
     {
-        Stop_Time = System_Time;
-    }
-    if(Track_Points_NUM == Task2_Start_Point + Task2_Points)
-    {
-        Stop_Time = System_Time;
-    }
-    if(Track_Points_NUM == Task3_Start_Point + Task3_Points)
-    {
-        Stop_Time = System_Time;
+        if(Track_Points_NUM == Task1_Start_Point + Task1_Points)
+        {
+            Stop_Time = System_Time;
+        }
+        if(Track_Points_NUM == Task2_Start_Point + Task2_Points)
+        {
+            Stop_Time = System_Time;
+        }
+        if(Track_Points_NUM == Task3_Start_Point + Task3_Points)
+        {
+            Stop_Time = System_Time;
+        }
     }
 }
 

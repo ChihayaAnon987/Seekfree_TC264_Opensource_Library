@@ -303,7 +303,7 @@ void drawPoints()
             if(gnss.latitude > max_latitude)
             {
                 max_latitude = gnss.latitude;
-                max_distance = get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LAT[Task1_Start_Point], max_latitude, GPS_GET_LAT[Task1_Start_Point]);
+                max_distance = get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LOT[Task1_Start_Point], max_latitude, GPS_GET_LOT[Task1_Start_Point]);
             }
         }
         else // 向南发车
@@ -311,7 +311,7 @@ void drawPoints()
             if(gnss.latitude < max_latitude)
             {
                 max_latitude = gnss.latitude;
-                max_distance = get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LAT[Task1_Start_Point], max_latitude, GPS_GET_LAT[Task1_Start_Point]);
+                max_distance = get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LOT[Task1_Start_Point], max_latitude, GPS_GET_LOT[Task1_Start_Point]);
             }
         }
         ips200_show_float(192, 16 * 1, distance, 3, 1);
