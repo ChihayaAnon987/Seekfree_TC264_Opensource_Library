@@ -124,6 +124,7 @@
 #include "RemoteCtrl.h"
 #include "Kalman.h"
 #include "Camera.h"
+#include "Picture.h"
 //=====================================================”√ªß≤„======================================================
 
 #endif
