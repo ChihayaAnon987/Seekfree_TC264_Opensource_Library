@@ -96,6 +96,7 @@ void Point_Switch()
             {
                 Delta_Angle = 180;
             }
+            system_delay_ms(50);
         }
     }
     else if(Track_Points_NUM == Task1_Start_Point + 1) // ¿ÆÄ¿Ò»¹ÕÍä

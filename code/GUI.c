@@ -31,6 +31,7 @@ int16  Test_Encoder   = 0;    // 调试用
 uint8  Start_Flag     = 0;    // 发车标志
 float  Star_Time      = 0;
 float  Stop_Time      = 0;
+double Actual_Dist    = 0;
 seekfree_assistant_oscilloscope_struct oscilloscope_data;
 
 
@@ -1481,6 +1482,14 @@ void Key_Ctrl_Menu()
                         initCoordinateSystem();
                         LED_Buzzer_Flag_Ctrl(LED1);
                     }
+                    if(key_get_state(KEY_2) == KEY_LONG_PRESS)
+                    {
+                        Road_Generator_Init();
+                    }
+                    if(key_get_state(KEY_3) == KEY_LONG_PRESS)
+                    {
+                        Task3_Road_Fix();
+                    }
                 }
             }
             // 拨码开关在下表示点位设置
@@ -1815,10 +1824,6 @@ void Key_Ctrl_Menu()
             {
                 Start_Flag = 1;
                 LED_Buzzer_Flag_Ctrl(LED3);
-            }
-            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
-            {
-                Road_Generator_Init();
             }
         }
     }

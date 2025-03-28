@@ -96,6 +96,7 @@ extern int16  Task_Flag;                                        // 任务标志
 extern uint8  Start_Flag;                                       // 发车标志
 extern float  Star_Time;                                        // 开始时间
 extern float  Stop_Time;                                        // 结束时间
+extern double Actual_Dist;                                      // 实际路程
 //===================================================全局变量END===================================================
 
 

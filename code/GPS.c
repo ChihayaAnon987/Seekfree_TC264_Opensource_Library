@@ -325,7 +325,14 @@ void drawPoints()
             ips200_show_float(192, 16 * (i - Task2_Start_Point), distance, 2, 2);
         }
     }
-    ips200_show_float(176, 16 * 19, Stop_Time - Star_Time, 3, 3);
+    if(start_point == Task3_Start_Point)
+    {
+        double distance = get_two_points_distance(GPS_GET_LAT[Turn_Point], GPS_GET_LOT[Turn_Point], GPS_GET_LAT[Turn_Point], GPS_GET_LOT[Turn_Point + 1]);
+        ips200_show_float(192, 16 * 1, distance, 2, 2);
+    }
+    ips200_show_float(176, 16 * 17, Actual_Dist, 3, 3);
+    ips200_show_float(176, 16 * 18, Stop_Time - Star_Time, 3, 3);
+    ips200_show_float(176, 16 * 19, (Stop_Time != 0) ? Actual_Dist / (Stop_Time - Star_Time) : 0.0f, 3, 3);
 }
 
 void gpsToScreen(double lat, double lon, uint16_t *screen_x, uint16_t *screen_y, int start_point)
@@ -344,18 +351,22 @@ void gpsToScreen(double lat, double lon, uint16_t *screen_x, uint16_t *screen_y,
 
 void updateCarPosition()
 {
-    if(gnss.state == 1 && Start_Flag == 1)
+    if(Star_Time != 0 && Stop_Time == 0)
     {
         uint16_t x = 0, y = 0;
         static uint16_t last_x = 0, last_y = 0;
+        static double last_Lat = 0, last_Lon = 0;
         gpsToScreen(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, &x, &y, start_point);
         ips200_draw_point(x, y, RGB565_YELLOW);
         if(last_x != 0 && last_y != 0)
         {
             ips200_draw_line (x, y, last_x, last_y, RGB565_YELLOW);
+            Actual_Dist += get_two_points_distance(last_Lat, last_Lon, gnss.latitude, gnss.longitude);
         }
         last_x = x;
         last_y = y;
+        last_Lat = gnss.latitude;
+        last_Lon = gnss.longitude;
     }
 }
 
@@ -407,5 +418,20 @@ void Road_Generator_Init()
     GPS_GET_LOT[Task2_Start_Point + Task2_Points - 1] = GPS_GET_LOT[Task2_Start_Point + Task2_Points - 2];
 
     Point_NUM = Task2_Start_Point + Task2_Points;
+    FLASH_FIX_GPS();
+}
+
+void Task3_Road_Fix()
+{
+    for(int16 i = Task3_Start_Point; i < Turn_Point + 1; i++)
+    {
+        GPS_GET_LOT[i] = GPS_GET_LOT[Task3_Start_Point];
+    }
+    GPS_GET_LAT[Turn_Point + 1] = GPS_GET_LAT[Turn_Point];
+    for(int16 i = Turn_Point + 1; i < Task3_Start_Point + Task3_Points; i++)
+    {
+        GPS_GET_LOT[i] = GPS_GET_LOT[Turn_Point + 1];
+    }
+    Point_NUM = Task3_Start_Point + Task3_Points;
     FLASH_FIX_GPS();
 }

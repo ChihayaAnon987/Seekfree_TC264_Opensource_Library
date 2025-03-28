@@ -74,16 +74,25 @@ void BLDC_Init()
 
 void BLDC_Ctrl(int16 MOTOR_PWM)
 {
-    MOTOR_PWM = (int16)IntClip(MOTOR_PWM, -PWM_DUTY_MAX, PWM_DUTY_MAX);
-    if(MOTOR_PWM >= 0)
+    static int16 current_pwm = 0;
+    int16 target_pwm = (int16)IntClip(MOTOR_PWM, -PWM_DUTY_MAX, PWM_DUTY_MAX);
+    if(target_pwm < current_pwm)
+    {
+        current_pwm -= (current_pwm - target_pwm > 1000) ? 1000 : (current_pwm - target_pwm);
+    }
+    else
+    {
+        current_pwm = target_pwm;
+    }
+    if(current_pwm >= 0)
     {
         gpio_set_level(DIR_CH1, 1);
-        pwm_set_duty  (PWM_CH1, MOTOR_PWM);
+        pwm_set_duty  (PWM_CH1, current_pwm);
     }
     else
     {
         gpio_set_level(DIR_CH1, 0);
-        pwm_set_duty  (PWM_CH1, -MOTOR_PWM);
+        pwm_set_duty  (PWM_CH1, -current_pwm);
     }
 }
 #else

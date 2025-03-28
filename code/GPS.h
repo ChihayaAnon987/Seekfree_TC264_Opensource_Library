@@ -75,6 +75,7 @@ void drawPoints(void);
 void updateCarPosition(void);
 void gpsToScreen(double lat, double lon, uint16_t *screen_x, uint16_t *screen_y, int start_point);
 void Road_Generator_Init(void);                                // 路径生成初始化
+void Task3_Road_Fix(void);                                     // 科目三路径修正
 //===================================================函数声明END===================================================
 
 

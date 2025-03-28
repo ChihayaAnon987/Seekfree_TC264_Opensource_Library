@@ -24,7 +24,7 @@ extern float Kp_Ah;
 float  invSqrt(float x);                                        // 快速计算1/Sqrt(x)
 void   AHRS_init(void);                                         // 初始化IMU相关
 void   AHRS_getYawPitchRoll(float *angle);                      // 更新AHRS 更新四元数
-#if AHRS_MAG_ENABLE == 1
+#if AHRS_MAG_ENABLE
 void   MatrixAdd(float* fMatrixA, float* fMatrixB, float* Result, unsigned int m, unsigned int n);
 void   MatrixSub(float* fMatrixA, float* fMatrixB, float* Result, unsigned int m, unsigned int n);
 void   MatrixMultiply(float* fMatrixA, unsigned int uRowA, unsigned int uColA, float* fMatrixB, unsigned int uRowB, unsigned int uColB, float* MatrixResult);

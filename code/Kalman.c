@@ -14,7 +14,7 @@ float angle[3] = {0};
 float Ki_Ah = 0.2;
 float Kp_Ah = 0.8;
 
-#if AHRS_MAG_ENABLE == 1
+#if AHRS_MAG_ENABLE
 float A[49], B[49], E[42], FF[36], X[49], Z[49], Ht[42], Ft[49], K[42], O[49], T[6], F[49], Y[7], P1[49], U1[36], U1t[36], DD[36], X1[36], X2[36];
 
 float P[49] = {0.0001, 0, 0, 0, 0, 0, 0,
@@ -97,7 +97,7 @@ void AHRS_init()
     q3 = 0;
 }
 
-#if AHRS_MAG_ENABLE == 1
+#if AHRS_MAG_ENABLE
 void AHRS_AHRSupdate(float gx, float gy, float gz, float ax, float ay, float az, float mx, float my, float mz)
 {
     float norm;
@@ -434,7 +434,7 @@ void AHRS_getYawPitchRoll(float * angles)
 }
 
 
-#if AHRS_MAG_ENABLE == 1
+#if AHRS_MAG_ENABLE
 /****************************************************************************************************
 //  @brief      矩阵加法
 //  @param      fMatrixA              第一个矩阵
