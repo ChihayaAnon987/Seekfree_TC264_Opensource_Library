@@ -138,16 +138,6 @@ void Get_Gps()
         // last_latitude  = gnss.latitude ;
         // last_longitude = gnss.longitude;
 
-        Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
-        Angle -= Delta_Angle;
-        if(Angle > 180)
-        {
-            Angle -= 360;
-        }
-        if(Angle < -180)
-        {
-            Angle += 360;
-        }
     }
 }
 

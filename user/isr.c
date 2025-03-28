@@ -90,7 +90,7 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
         PIDIncMotorCtrl(RemoteCtrl_Speed);
     }
 #endif
-    // Servo_Set(Servo_Angle);
+    // Servo_SetTest(Servo_Angle);
     Encoder_Get();
 
 }

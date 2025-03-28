@@ -139,13 +139,9 @@ void SERVO_Init(void)
 }
 
 // 舵机驱动测试
-void Servo_SetTest(int16 *angle)
+void Servo_SetTest(int16 angle)
 {
-    // 舵机限幅
-    if(*angle > SERVO_MOTOR_LMAX) {*angle = SERVO_MOTOR_LMAX;}
-    if(*angle < SERVO_MOTOR_RMAX) {*angle = SERVO_MOTOR_RMAX;}
-
-    pwm_set_duty(SERVO_MOTOR_PWM, (uint32)SERVO_MOTOR_DUTY(*angle));
+    pwm_set_duty(SERVO_MOTOR_PWM, (uint32)SERVO_MOTOR_DUTY(angle));
 }
 
 // 舵机驱动

@@ -67,14 +67,6 @@ void Track_Follow()
     }
     Target_Encoder = GpsTgtEncod[Track_Points_NUM];
 
-    if(fabs(angle[0]) > 20)
-    {
-        Target_Encoder -= fabs(fabs(angle[0]) - 20) * Fly_Slope_Alpha;
-        if(Target_Encoder <= 1500)
-        {
-            Target_Encoder = 1500;
-        }
-    }
 }
 
 // 切换点位
@@ -96,7 +88,6 @@ void Point_Switch()
             {
                 Delta_Angle = 180;
             }
-            system_delay_ms(50);
         }
     }
     else if(Track_Points_NUM == Task1_Start_Point + 1) // 科目一拐弯
@@ -342,6 +333,17 @@ void Point_Switch()
         }
     }
 
+    Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
+    Angle -= Delta_Angle;
+    if(Angle > 180)
+    {
+        Angle -= 360;
+    }
+    if(Angle < -180)
+    {
+        Angle += 360;
+    }
+    
     if(Stop_Time == 0)
     {
         if(Track_Points_NUM == Task1_Start_Point + Task1_Points)
