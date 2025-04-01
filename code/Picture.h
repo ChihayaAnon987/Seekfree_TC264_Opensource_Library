@@ -1,7 +1,7 @@
 /*
- * Picture.h
+ * Picture.c
  *
- *  Created on: 2025Äê3ÔÂ28ÈÕ
+ *  Created on: 2025?3?28?
  *      Author: 20483
  */
 

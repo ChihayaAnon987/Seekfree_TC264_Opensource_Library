@@ -83,7 +83,7 @@ void DRV8701_MOTOR_DRIVER(int Motor_PWM);                      // 电机驱动
 #endif
 void Encoder_Get(void);                                        // 编码器读取
 void SERVO_Init(void);                                         // 舵机初始化
-void Servo_SetTest(int16 angle);                              // 舵机驱动，用于调试
+void Servo_SetTest(int16 angle);                               // 舵机驱动，用于调试
 void Servo_Set(int16 angle);                                   // 舵机驱动
 void Buzzer_Init(void);                                        // 蜂鸣器初始化
 void Buzzer_Check(int time);                                   // 蜂鸣器自检函数

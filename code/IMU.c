@@ -41,10 +41,10 @@ void IMU_YAW_integral()
     // 陀螺仪角速度转换为弧度制角速度 : deg/s --> rad/s
     // 将采集到的数值转化为实际物理值，并对陀螺仪进行去零飘处理
     // 调试用
-    if(IMU_Data.gyro_z > MAX_IMU_Data_gyro_z)
-    {
-        MAX_IMU_Data_gyro_z = IMU_Data.gyro_z;
-    }
+    // if(IMU_Data.gyro_z > MAX_IMU_Data_gyro_z)
+    // {
+    //     MAX_IMU_Data_gyro_z = IMU_Data.gyro_z;
+    // }
 
     IMU_Data.gyro_z = imu963ra_gyro_transition(imu963ra_gyro_z - Gyro_Offset.Zdata);   // 需要修改，应该不需要 * PI / 180
     if(fabs(IMU_Data.gyro_z) >= 0.25)

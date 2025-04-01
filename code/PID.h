@@ -8,11 +8,6 @@
 #ifndef CODE_PID_H_
 #define CODE_PID_H_
 
-//===================================================ºê¶¨ÒåBEG===================================================
-#define MOVE_AVERAGE_SIZE           (32)                     // ¶¨Òå»º³åÇø´óĞ¡
-//===================================================ºê¶¨ÒåEND===================================================
-
-
 //===================================================ÀàĞÍ¶¨ÒåBEG===================================================
 typedef struct
 {
@@ -32,7 +27,6 @@ typedef struct
     float lastlast_error;                                      // ÉÏÉÏ´ÎÎó²î
     float derivative;                                          // Îó²îÎ¢·Ö
     float last_derivative;                                     // ÉÏ´ÎÎó²îÓëÉÏÉÏ´ÎÎó²îÖ®²î
-    // unsigned long last_t;                                      // ÉÏ´ÎÊ±¼ä
 } PIDController;
 
 typedef struct 
@@ -40,23 +34,10 @@ typedef struct
     float Kp;
     float Kd;
 } ServoPD;
-
-
-typedef struct                                                  // »¬¶¯Æ½¾ùÂË²¨½á¹¹Ìå
-{
-    uint8_t index;                                              // ÏÂ±ê
-    uint8_t buffer_size;                                        // »º³åÇø´óĞ¡
-    int32_t data_buffer[MOVE_AVERAGE_SIZE];                     // »º³åÇø
-    int32_t data_sum;                                           // Êı¾İºÍ
-    int32_t data_average;                                       // Êı¾İÆ½¾ùÖµ
-} move_filter_struct;
 //===================================================ÀàĞÍ¶¨ÒåEND===================================================
 
 
 //===================================================È«¾Ö±äÁ¿BEG===================================================
-extern PIDController PID_Init;                                 // PID³õÊ¼»¯¿ØÖÆÆ÷
-extern PIDController PID_GPS;                                  // GPS PID¿ØÖÆÆ÷
-extern PIDController PID_IMU;                                  // IMU PID¿ØÖÆÆ÷
 extern PIDController PID_SERVO;                                // ¶æ»ú PID¿ØÖÆÆ÷
 extern PIDController PID_MOTOR;                                // µç»ú PID¿ØÖÆÆ÷
 extern ServoPD From_0000_To_2000_ServoPD;                      // ¶æ»úPD
@@ -75,12 +56,7 @@ int   IntClip(int x, int low, int up);                                  // ÏŞ·ùº
 float FloatClip(float x, float low, float up);                          // ÏŞ·ùº¯Êı
 float PidLocCtrl(PIDController *pid, float error);                      // PIDÎ»ÖÃÊ½¿ØÖÆÆ÷Êä³ö
 float PidIncCtrl(PIDController *pid, float error);                      // PIDÔöÁ¿Ê½¿ØÖÆÆ÷Êä³ö
-void  PdGpsCtrl(void);                                                  // GPS PD¿ØÖÆÆ÷
 void  PDLocServoCtrl(void);                                             // ¶æ»ú PDÎ»ÖÃÊ½¿ØÖÆÆ÷
 void  PIDIncMotorCtrl(int16 TARGET_MOTOR_ENCODER);                      // µç»ú PIDÔöÁ¿Ê½¿ØÖÆÆ÷
-// void PidLocCtrl(PIDConntroller *pid, float measuredVal);                 // PIDÎ»ÖÃÊ½¿ØÖÆÆ÷Êä³ö
-// void PidIncCtrl(PIDController *pid, float measuredVal);                 // PIDÔöÁ¿Ê½¿ØÖÆÆ÷Êä³ö
-void move_filter_init(move_filter_struct *move_filter);                 // »¬¶¯Æ½¾ùÂË²¨³õÊ¼»¯
-void move_filter_calc(move_filter_struct *move_filter, int32_t new_data); // »¬¶¯Æ½¾ùÂË²¨¼ÆËã
 //===================================================º¯ÊıÉùÃ÷END===================================================
 #endif /* CODE_PID_H_ */

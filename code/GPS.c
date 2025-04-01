@@ -304,20 +304,23 @@ void drawPoints()
                 max_distance = get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LOT[Task1_Start_Point], max_latitude, GPS_GET_LOT[Task1_Start_Point]);
             }
         }
+        ips200_show_float(192, 16 * 0, get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LOT[Task1_Start_Point], GPS_GET_LAT[Task1_Start_Point + 1], GPS_GET_LOT[Task1_Start_Point + 1]), 3, 1);
         ips200_show_float(192, 16 * 1, distance, 3, 1);
         ips200_show_float(192, 16 * 2, max_distance, 3, 1);
     }
     if(start_point == Task2_Start_Point)
     {
+        ips200_show_float(192, 16 * 0, get_two_points_distance(GPS_GET_LAT[Task2_Start_Point], GPS_GET_LOT[Task2_Start_Point], GPS_GET_LAT[Task2_Start_Point + 1], GPS_GET_LOT[Task2_Start_Point + 1]), 3, 1);
         for(int8 i = Task2_Start_Point; i < Task2_Start_Point + Task2_Bucket + 1; i++)
         {
             double distance = get_two_points_distance(GPS_GET_LAT[i], GPS_GET_LOT[i], GPS_GET_LAT[i + 1], GPS_GET_LOT[i]);
-            ips200_show_float(192, 16 * (i - Task2_Start_Point), distance, 2, 2);
+            ips200_show_float(192, 16 * (i - Task2_Start_Point) + 1, distance, 2, 2);
         }
     }
     if(start_point == Task3_Start_Point)
     {
         double distance = get_two_points_distance(GPS_GET_LAT[Turn_Point], GPS_GET_LOT[Turn_Point], GPS_GET_LAT[Turn_Point], GPS_GET_LOT[Turn_Point + 1]);
+        ips200_show_float(192, 16 * 0, get_two_points_distance(GPS_GET_LAT[Task3_Start_Point], GPS_GET_LOT[Task3_Start_Point], GPS_GET_LAT[Task3_Start_Point + 1], GPS_GET_LOT[Task3_Start_Point + 1]), 3, 1);
         ips200_show_float(192, 16 * 1, distance, 2, 2);
     }
     ips200_show_float(176, 16 * 17, Actual_Dist, 3, 3);

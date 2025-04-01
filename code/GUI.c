@@ -1467,6 +1467,7 @@ void Key_Ctrl_Menu()
                         Task_Flag = 1;
                         initCoordinateSystem();
                         LED_Buzzer_Flag_Ctrl(LED1);
+                        ips200_clear();
                     }
                     if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
                     {
@@ -1474,6 +1475,7 @@ void Key_Ctrl_Menu()
                         Task_Flag = 2;
                         initCoordinateSystem();
                         LED_Buzzer_Flag_Ctrl(LED1);
+                        ips200_clear();
                     }
                     if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
                     {
@@ -1481,6 +1483,7 @@ void Key_Ctrl_Menu()
                         Task_Flag = 3;
                         initCoordinateSystem();
                         LED_Buzzer_Flag_Ctrl(LED1);
+                        ips200_clear();
                     }
                     if(key_get_state(KEY_2) == KEY_LONG_PRESS)
                     {
