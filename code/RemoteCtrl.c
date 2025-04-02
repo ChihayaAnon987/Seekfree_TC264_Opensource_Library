@@ -1,23 +1,23 @@
 /*
  * RemoteCtrl.c
  *
- *  Created on: 2025Äê1ÔÂ12ÈÕ
+ *  Created on: 2025å¹´1æœˆ12æ—¥
  *      Author: 20483
  */
 
 #include "zf_common_headfile.h"
 
-int   Control_Flag               = 0;  // Ò£¿ØÆ÷¿ØÖÆ±êÖ¾Î»
+int   Control_Flag               = 0;  // é¥æ§å™¨æ§åˆ¶æ ‡å¿—ä½
 int   Center_Flag                = 0;
-int   Fall_Flag                  = 0;  // uart½ÓÊÕ»úÍÑÂä±êÖ¾Î»
-int   Channal_3_Press_Flag       = 0;  // Í¨µÀ3°´¼üÊÇ·ñ°´ÏÂ
-int   Channal_5_Press_Flag       = 0;  // Í¨µÀ5°´¼üÊÇ·ñ°´ÏÂ
-int   Channal_6_Press_Flag       = 0;  // Í¨µÀ6°´¼üÊÇ·ñ°´ÏÂ
-int   last_Channal_3             = 0;  // Í¨µÀ3ÉÏÒ»¸ö×´Ì¬
-int   last_Channal_5             = 0;  // Í¨µÀ5ÉÏÒ»¸ö×´Ì¬
-int   last_Channal_6             = 0;  // Í¨µÀ6ÉÏÒ»¸ö×´Ì¬
-int16 RemoteCtrl_Speed;                // Ò£¿ØÆ÷ËÙ¶È¿ØÖÆÁ¿
-int16 RemoteCtrl_Direction;            // Ò£¿ØÆ÷·½Ïò¿ØÖÆÁ¿
+int   Fall_Flag                  = 0;  // uartæ¥æ”¶æœºè„±è½æ ‡å¿—ä½
+int   Channal_3_Press_Flag       = 0;  // é€šé“3æŒ‰é”®æ˜¯å¦æŒ‰ä¸‹
+int   Channal_5_Press_Flag       = 0;  // é€šé“5æŒ‰é”®æ˜¯å¦æŒ‰ä¸‹
+int   Channal_6_Press_Flag       = 0;  // é€šé“6æŒ‰é”®æ˜¯å¦æŒ‰ä¸‹
+int   last_Channal_3             = 0;  // é€šé“3ä¸Šä¸€ä¸ªçŠ¶æ€
+int   last_Channal_5             = 0;  // é€šé“5ä¸Šä¸€ä¸ªçŠ¶æ€
+int   last_Channal_6             = 0;  // é€šé“6ä¸Šä¸€ä¸ªçŠ¶æ€
+int16 RemoteCtrl_Speed;                // é¥æ§å™¨é€Ÿåº¦æ§åˆ¶é‡
+int16 RemoteCtrl_Direction;            // é¥æ§å™¨æ–¹å‘æ§åˆ¶é‡
 
 void RemoteCtrl_Program()
 {
@@ -71,7 +71,7 @@ void RemoteCtrl_Direction_Speed()
             }
         #endif
         
-        // ×Ô¶¯¹éÎ»
+        // è‡ªåŠ¨å½’ä½
         if(Channal_5_Press_Flag == 1)
         {
             Start_Flag = 1;
@@ -135,10 +135,10 @@ void RemoteCtrl_Direction_Speed()
         else
         {
             Center_Flag = 0;
-            Servo_Set(SERVO_MOTOR_MID - RemoteCtrl_Direction);                          // ¶æ»ú½Ç¶È
+            Servo_Set(SERVO_MOTOR_MID - RemoteCtrl_Direction);                          // èˆµæœºè§’åº¦
         }
 
-        // ×Ô¶¯¹éÎ»
+        // è‡ªåŠ¨å½’ä½
         if(Channal_5_Press_Flag == 1)
         {
             Start_Flag = 1;
