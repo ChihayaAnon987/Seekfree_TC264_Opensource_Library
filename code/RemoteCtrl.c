@@ -7,8 +7,9 @@
 
 #include "zf_common_headfile.h"
 
-int   Control_Flag               = 0;  // 遥控器控制标志位，每按下一次翻转一次，当它为1时是遥控模式，为0时是循迹模式，默认循迹（为0）
+int   Control_Flag               = 0;  // 遥控器控制标志位
 int   Center_Flag                = 0;
+int   Fall_Flag                  = 0;  // uart接收机脱落标志位
 int   Channal_3_Press_Flag       = 0;  // 通道3按键是否按下
 int   Channal_5_Press_Flag       = 0;  // 通道5按键是否按下
 int   Channal_6_Press_Flag       = 0;  // 通道6按键是否按下
@@ -20,7 +21,7 @@ int16 RemoteCtrl_Direction;            // 遥控器方向控制量
 
 void RemoteCtrl_Program()
 {
-    if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0)
+    if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
     {
         #if BLDC_ENABLE
             BLDC_Ctrl(0);
@@ -33,6 +34,7 @@ void RemoteCtrl_Program()
         Is_Channal_3_Press();
         Is_Channal_5_Press();
         Is_Channal_6_Press();
+        UART_RECEIVER_FALL();
         RemoteCtrl_Direction_Speed();
         CtrlMode_Switch();
     }
@@ -43,7 +45,7 @@ void RemoteCtrl_Direction_Speed()
     if(Control_Flag == 1)
     {
         #if MOTOR_LOOP_ENABLE == 0
-            if(uart_receiver.channel[1] - 1056 > 100)
+            if(uart_receiver.channel[1] - 1292 > 100)
             {
                 #if BLDC_ENABLE
                     BLDC_Ctrl(GpsTgtEncod[9]);
@@ -51,7 +53,7 @@ void RemoteCtrl_Direction_Speed()
                     DRV8701_MOTOR_DRIVER(GpsTgtEncod[9]);
                 #endif
             }
-            else if(uart_receiver.channel[1] - 1056 < -100)
+            else if(uart_receiver.channel[1] - 1292 < -100)
             {
                 #if BLDC_ENABLE
                     BLDC_Ctrl(-GpsTgtEncod[9]);
@@ -136,7 +138,7 @@ void RemoteCtrl_Direction_Speed()
         #if MOTOR_LOOP_ENABLE
             RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 500 / 800);
         #else
-            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 5000 / 800);
+            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1292) * 5000 / 800);
             #if BLDC_ENABLE
                 BLDC_Ctrl(RemoteCtrl_Speed);
             #else
@@ -241,4 +243,21 @@ void Is_Channal_6_Press()
         Channal_6_Press_Flag = 1;
     }
     last_Channal_6 = uart_receiver.channel[5];
+}
+
+void UART_RECEIVER_FALL()
+{
+    static int8 time = 0;
+    if(uart_receiver.finsh_flag == 1)
+    {
+        time = System_Time;
+        Fall_Flag = 0;
+    }
+    else
+    {
+        if(System_Time - time > 1000)
+        {
+            Fall_Flag = 1;
+        }
+    }
 }

@@ -80,11 +80,11 @@ void Point_Switch()
             Track_Points_NUM ++;
             LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
             Delta_Angle = get_two_points_azimuth(Start_Lat, Start_Lon, gnss.latitude, gnss.longitude);
-            if(Delta_Angle > 355 || Delta_Angle < 5)
+            if(Delta_Angle > 359 || Delta_Angle < 1)
             {
                 Delta_Angle = 0;
             }
-            if(fabs(Delta_Angle - 180) < 5)
+            if(fabs(Delta_Angle - 180) < 1)
             {
                 Delta_Angle = 180;
             }

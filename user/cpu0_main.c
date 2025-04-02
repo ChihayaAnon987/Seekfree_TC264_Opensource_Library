@@ -106,42 +106,33 @@ int core0_main(void)
         Get_Gps();
         Point_Switch();
 #if UART_RECEIVER_ENABLE
-        if(Control_Flag == 0)
+        if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
         {
-            if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0)
-            {
-                Target_Encoder = 0;             // Ò£¿ØÆ÷Ê§¿Ø±£»¤
-                LED_Buzzer_Flag_Ctrl(LED3);
-            }
-            else
+            LED_Buzzer_Flag_Ctrl(LED3);
+        }
+        else
+        {
+            if(Control_Flag == 0)
             {
                 Track_Follow();
-            }
-            PDLocServoCtrl();                              // ¶æ»ú PDÎ»ÖÃÊ½¿ØÖÆ
-            #if MOTOR_LOOP_ENABLE == 0
-                #if BLDC_ENABLE
-                    BLDC_Ctrl(Target_Encoder);
-                #else
-                    DRV8701_MOTOR_DRIVER(Target_Encoder);
+                PDLocServoCtrl();
+                #if MOTOR_LOOP_ENABLE == 0
+                    #if BLDC_ENABLE
+                        BLDC_Ctrl(Target_Encoder);
+                    #else
+                        DRV8701_MOTOR_DRIVER(Target_Encoder);
+                    #endif
                 #endif
-            #endif
-        }
-        if(Control_Flag == 1)
-        {
-            if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0)
-            {
-                Target_Encoder = 0;             // Ò£¿ØÆ÷Ê§¿Ø±£»¤
-                LED_Buzzer_Flag_Ctrl(LED3);
             }
-            else
+            if(Control_Flag == 1)
             {
                 Track_Follow();
+                PDLocServoCtrl();
             }
-            PDLocServoCtrl();
-        }
-        if(Control_Flag == 2 && Center_Flag == 1)
-        {
-            PDLocServoCtrl();
+            if(Control_Flag == 2 && Center_Flag == 1)
+            {
+                PDLocServoCtrl();
+            }
         }
 #else
         Track_Follow();

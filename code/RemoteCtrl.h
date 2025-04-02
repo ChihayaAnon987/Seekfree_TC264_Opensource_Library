@@ -25,8 +25,9 @@
 
 
 //===================================================全局变量BEG===================================================
-extern int    Control_Flag;                                    // 遥控器控制标志位，每按下一次翻转一次，当它为1时是遥控模式，为0时是循迹模式
+extern int    Control_Flag;                                    // 遥控器控制标志位
 extern int    Center_Flag;                                     // 遥控居中标志位
+extern int    Fall_Flag;                                       // uart接收机脱落标志位
 extern int    Channal_3_Press_Flag;                            // 通道3按键是否按下
 extern int    Channal_5_Press_Flag;                            // 通道5按键是否按下
 extern int    Channal_6_Press_Flag;                            // 通道6按键是否按下
@@ -42,6 +43,7 @@ void CtrlMode_Switch(void);                                    // 控制模式切换
 void Is_Channal_3_Press(void);                                 // 检测通道3是否按下
 void Is_Channal_5_Press(void);                                 // 检测通道5是否按下
 void Is_Channal_6_Press(void);                                 // 检测通道6是否按下
+void UART_RECEIVER_FALL(void);                                 // 检测uart接收机是否脱落
 //===================================================函数声明END===================================================
 
 
