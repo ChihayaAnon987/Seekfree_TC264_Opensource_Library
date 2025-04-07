@@ -36,7 +36,7 @@
 
     4. **20届方案**：
        - 解决GPS导航中的点位漂移问题。
-       - 记录发车位置的坐标（`GPS_GET_LAT[0]`, `GPS_GET_LON[0]`），并依次采集路径坐标（`GPS_GET_LAT[i]`, `GPS_GET_LON[i]`）。
+       - 记录发车位置的坐标（`Point[0].latitude`, `Point[0].lonitude`），并依次采集路径坐标（`Point[i].latitude`, `Point[i].lonitude`）。
        - 发车时，获取当前车的坐标（`Start_Lat`, `Start_Lon`），计算静态漂移值（`Delta_Lat`, `Delta_Lon`）。
        - 将后续所有采集的GPS坐标加上这个偏差值，避免GPS漂移。
        - 如果踩点时GPS数据已经偏移，可以通过显示GPS点位到屏幕，根据路径图手动修正部分偏移点位，结合GPS矫正导航，实现精准导航效果。
@@ -75,8 +75,6 @@ float  Lon_Fix    = 1.0;            // 经度修正系数
 double Delta_x      = 0;            // 位移
 double Delta_y      = 0;            // 位移
 double Distance     = 0;            // 自身距下一个点的距离
-double GPS_GET_LAT[NUM_GPS_DATA];   // 纬度
-double GPS_GET_LOT[NUM_GPS_DATA];   // 经度
 GpsPoint Point[NUM_GPS_DATA];       // 存储点位的结构体
 float  GpsSpeed    = 0;             // 速度
 float  GpsAccel    = 0;             // 加速度
@@ -177,8 +175,8 @@ void initCoordinateSystem()
         for(i = Task1_Start_Point; i < (Task1_Start_Point + Task1_Points); i++)
         {
             // 将经度差和纬度差转换为实际距离（米）
-            double dx = (GPS_GET_LOT[i] - GPS_GET_LOT[Task1_Start_Point]) * LON_TO_METER;
-            double dy = (GPS_GET_LAT[i] - GPS_GET_LAT[Task1_Start_Point]) * LAT_TO_METER;
+            double dx = (Point[i].lonitude - Point[Task1_Start_Point].lonitude) * LON_TO_METER;
+            double dy = (Point[i].latitude - Point[Task1_Start_Point].latitude) * LAT_TO_METER;
             if(dx < min_dx) min_dx = dx;
             if(dx > max_dx) max_dx = dx;
             if(dy < min_dy) min_dy = dy;
@@ -191,8 +189,8 @@ void initCoordinateSystem()
         point_count = Task2_Points;
         for(i = Task2_Start_Point; i < (Task2_Start_Point + Task2_Points); i++)
         {
-            double dx = (GPS_GET_LOT[i] - GPS_GET_LOT[Task2_Start_Point]) * LON_TO_METER;
-            double dy = (GPS_GET_LAT[i] - GPS_GET_LAT[Task2_Start_Point]) * LAT_TO_METER;
+            double dx = (Point[i].lonitude - Point[Task2_Start_Point].lonitude) * LON_TO_METER;
+            double dy = (Point[i].latitude - Point[Task2_Start_Point].latitude) * LAT_TO_METER;
             if(dx < min_dx) min_dx = dx;
             if(dx > max_dx) max_dx = dx;
             if(dy < min_dy) min_dy = dy;
@@ -205,8 +203,8 @@ void initCoordinateSystem()
         point_count = Task3_Points;
         for(i = Task3_Start_Point; i < (Task3_Start_Point + Task3_Points); i++)
         {
-            double dx = (GPS_GET_LOT[i] - GPS_GET_LOT[Task3_Start_Point]) * LON_TO_METER;
-            double dy = (GPS_GET_LAT[i] - GPS_GET_LAT[Task3_Start_Point]) * LAT_TO_METER;
+            double dx = (Point[i].lonitude - Point[Task3_Start_Point].lonitude) * LON_TO_METER;
+            double dy = (Point[i].latitude - Point[Task3_Start_Point].latitude) * LAT_TO_METER;
             if(dx < min_dx) min_dx = dx;
             if(dx > max_dx) max_dx = dx;
             if(dy < min_dy) min_dy = dy;
@@ -254,9 +252,9 @@ void drawPoints()
 
         uint16_t screen_x, screen_y;
         static uint16_t last_screen_x = 0, last_screen_y = 0;
-        if(GPS_GET_LAT[i] != 0 && GPS_GET_LOT[i] != 0)
+        if(Point[i].latitude != 0 && Point[i].lonitude != 0)
         {
-            gpsToScreen(GPS_GET_LAT[i], GPS_GET_LOT[i], &screen_x, &screen_y, start_point);
+            gpsToScreen(Point[i].latitude, Point[i].lonitude, &screen_x, &screen_y, start_point);
         }
         else
         {
@@ -288,15 +286,15 @@ void drawPoints()
     }
     if(start_point == Task1_Start_Point)
     {
-        double distance = get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LOT[Task1_Start_Point], GPS_GET_LAT[Task1_Start_Point + 1], GPS_GET_LOT[Task1_Start_Point]);
+        double distance = get_two_points_distance(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 1].latitude, Point[Task1_Start_Point].lonitude);
         static double max_latitude = 0;
         static double max_distance = 0;
-        if(GPS_GET_LAT[Task1_Start_Point] < GPS_GET_LAT[Task1_Start_Point + 1]) // 向北发车
+        if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 1].latitude) // 向北发车
         {
             if(gnss.latitude > max_latitude)
             {
                 max_latitude = gnss.latitude;
-                max_distance = get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LOT[Task1_Start_Point], max_latitude, GPS_GET_LOT[Task1_Start_Point]);
+                max_distance = get_two_points_distance(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, max_latitude, Point[Task1_Start_Point].lonitude);
             }
         }
         else // 向南发车
@@ -304,10 +302,10 @@ void drawPoints()
             if(gnss.latitude < max_latitude)
             {
                 max_latitude = gnss.latitude;
-                max_distance = get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LOT[Task1_Start_Point], max_latitude, GPS_GET_LOT[Task1_Start_Point]);
+                max_distance = get_two_points_distance(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, max_latitude, Point[Task1_Start_Point].lonitude);
             }
         }
-        ips200_show_float(192, 16 * 0, get_two_points_distance(GPS_GET_LAT[Task1_Start_Point], GPS_GET_LOT[Task1_Start_Point], GPS_GET_LAT[Task1_Start_Point + 1], GPS_GET_LOT[Task1_Start_Point + 1]), 3, 1);
+        ips200_show_float(192, 16 * 0, get_two_points_distance(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 1].latitude, Point[Task1_Start_Point + 1].lonitude), 3, 1);
         ips200_show_float(192, 16 * 1, distance, 3, 1);
         ips200_show_float(192, 16 * 2, max_distance, 3, 1);
     }
@@ -315,12 +313,12 @@ void drawPoints()
     {
         static double max_latitude = 0;
         static double max_distance = 0;
-        if(GPS_GET_LAT[Task2_Road_Genera] < GPS_GET_LAT[Task2_Road_Genera + 1]) // 向北发车
+        if(Point[Task2_Road_Genera].latitude < Point[Task2_Road_Genera + 1].latitude) // 向北发车
         {
             if(gnss.latitude > max_latitude)
             {
                 max_latitude = gnss.latitude;
-                max_distance = get_two_points_distance(GPS_GET_LAT[Task2_Road_Genera], GPS_GET_LOT[Task2_Road_Genera], max_latitude, GPS_GET_LOT[Task2_Road_Genera]);
+                max_distance = get_two_points_distance(Point[Task2_Road_Genera].latitude, Point[Task2_Road_Genera].lonitude, max_latitude, Point[Task2_Road_Genera].lonitude);
             }
         }
         else // 向南发车
@@ -328,21 +326,21 @@ void drawPoints()
             if(gnss.latitude < max_latitude)
             {
                 max_latitude = gnss.latitude;
-                max_distance = get_two_points_distance(GPS_GET_LAT[Task2_Road_Genera], GPS_GET_LOT[Task2_Road_Genera], max_latitude, GPS_GET_LOT[Task2_Road_Genera]);
+                max_distance = get_two_points_distance(Point[Task2_Road_Genera].latitude, Point[Task2_Road_Genera].lonitude, max_latitude, Point[Task2_Road_Genera].lonitude);
             }
         }
         ips200_show_float(192, 16 * 0, max_distance, 3, 1);
-        ips200_show_float(192, 16 * 1, get_two_points_distance(GPS_GET_LAT[Task2_Road_Genera], GPS_GET_LOT[Task2_Road_Genera], GPS_GET_LAT[Task2_Road_Genera], GPS_GET_LOT[Task2_Start_Point]), 3, 1);
+        ips200_show_float(192, 16 * 1, get_two_points_distance(Point[Task2_Road_Genera].latitude, Point[Task2_Road_Genera].lonitude, Point[Task2_Road_Genera].latitude, Point[Task2_Start_Point].lonitude), 3, 1);
         for(int8 i = Task2_Road_Genera; i < Task2_Road_Genera + Task2_Bucket + 1; i++)
         {
-            double distance = get_two_points_distance(GPS_GET_LAT[i], GPS_GET_LOT[Task2_Road_Genera], GPS_GET_LAT[i + 1], GPS_GET_LOT[Task2_Road_Genera]);
+            double distance = get_two_points_distance(Point[i].latitude, Point[Task2_Road_Genera].lonitude, Point[i + 1].latitude, Point[Task2_Road_Genera].lonitude);
             ips200_show_float(192, 16 * (i - Task2_Road_Genera + 2), distance, 2, 2);
         }
     }
     if(start_point == Task3_Start_Point)
     {
-        double distance = get_two_points_distance(GPS_GET_LAT[Turn_Point], GPS_GET_LOT[Turn_Point], GPS_GET_LAT[Turn_Point], GPS_GET_LOT[Turn_Point + 1]);
-        ips200_show_float(192, 16 * 0, get_two_points_distance(GPS_GET_LAT[Task3_Start_Point], GPS_GET_LOT[Task3_Start_Point], GPS_GET_LAT[Task3_Start_Point + 1], GPS_GET_LOT[Task3_Start_Point + 1]), 3, 1);
+        double distance = get_two_points_distance(Point[Turn_Point].latitude, Point[Turn_Point].lonitude, Point[Turn_Point].latitude, Point[Turn_Point + 1].lonitude);
+        ips200_show_float(192, 16 * 0, get_two_points_distance(Point[Task3_Start_Point].latitude, Point[Task3_Start_Point].lonitude, Point[Task3_Start_Point + 1].latitude, Point[Task3_Start_Point + 1].lonitude), 3, 1);
         ips200_show_float(192, 16 * 1, distance, 2, 2);
     }
     ips200_show_float(176, 16 * 17, Actual_Dist, 3, 3);
@@ -353,8 +351,8 @@ void drawPoints()
 void gpsToScreen(double lat, double lon, uint16_t *screen_x, uint16_t *screen_y, int start_point)
 {
     // 计算任务起始点作为原点
-    const double origin_lon = GPS_GET_LOT[start_point];
-    const double origin_lat = GPS_GET_LAT[start_point];
+    const double origin_lon = Point[start_point].lonitude;
+    const double origin_lat = Point[start_point].latitude;
 
     double dx = (lon - origin_lon) * LON_TO_METER;
     double dy = (lat - origin_lat) * LAT_TO_METER;
@@ -393,7 +391,7 @@ void Road_Generator_Init()
     // 第一步: 计算发车朝向
     // 北: 1    南: -1
     int8 Toward;
-    double Azimuth = get_two_points_azimuth(GPS_GET_LAT[Task2_Start_Point], GPS_GET_LOT[Task2_Start_Point], GPS_GET_LAT[Task2_Start_Point + Task2_Bucket + 1], GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1]);
+    double Azimuth = get_two_points_azimuth(Point[Task2_Start_Point].latitude, Point[Task2_Start_Point].lonitude, Point[Task2_Start_Point + Task2_Bucket + 1].latitude, Point[Task2_Start_Point + Task2_Bucket + 1].lonitude);
     if(Azimuth > 350 || Azimuth < 10)
     {
         Toward = 1;
@@ -403,44 +401,44 @@ void Road_Generator_Init()
         Toward = -1;
     }
     
-    GPS_GET_LAT[12] = GPS_GET_LAT[11] + Toward * 0.000022;
-    GPS_GET_LAT[13] = GPS_GET_LAT[12] + Toward * 0.000023;
-    GPS_GET_LAT[14] = GPS_GET_LAT[13] + Toward * 0.000022;
+    Point[12].latitude = Point[11].latitude + Toward * 0.000022;
+    Point[13].latitude = Point[12].latitude + Toward * 0.000023;
+    Point[14].latitude = Point[13].latitude + Toward * 0.000022;
 
-    GPS_GET_LOT[12] = GPS_GET_LOT[11];
-    GPS_GET_LOT[13] = GPS_GET_LOT[11];
-    GPS_GET_LOT[14] = GPS_GET_LOT[11];
+    Point[12].lonitude = Point[11].lonitude;
+    Point[13].lonitude = Point[11].lonitude;
+    Point[14].lonitude = Point[11].lonitude;
     
     // 起始点赋值
-    GPS_GET_LAT[Task2_Start_Point] = GPS_GET_LAT[Task2_Road_Genera];
-    GPS_GET_LOT[Task2_Start_Point] = GPS_GET_LOT[Task2_Road_Genera];
+    Point[Task2_Start_Point].latitude = Point[Task2_Road_Genera].latitude;
+    Point[Task2_Start_Point].lonitude = Point[Task2_Road_Genera].lonitude;
 
     
     // 锥桶点
     int8 sign = 1;
     for(int i = Task2_Road_Genera + 1; i < Task2_Road_Genera + Task2_Bucket + 1; i++)
     {
-        GPS_GET_LAT[i + Differ1] = GPS_GET_LAT[i] - Toward * 0.000001 * Advan_Scales;
-        GPS_GET_LOT[i + Differ1] = GPS_GET_LOT[Task2_Road_Genera] - Toward * sign * 0.000001 * Task2_Scales;
-        GPS_GET_LAT[Differ2 - i] = GPS_GET_LAT[i] + Toward * 0.000001 * Advan_Scales;
-        GPS_GET_LOT[Differ2 - i] = GPS_GET_LOT[Task2_Road_Genera] + Toward * sign * 0.000001 * Task2_Scales;
+        Point[i + Differ1].latitude = Point[i].latitude - Toward * 0.000001 * Advan_Scales;
+        Point[i + Differ1].lonitude = Point[Task2_Road_Genera].lonitude - Toward * sign * 0.000001 * Task2_Scales;
+        Point[Differ2 - i].latitude = Point[i].latitude + Toward * 0.000001 * Advan_Scales;
+        Point[Differ2 - i].lonitude = Point[Task2_Road_Genera].lonitude + Toward * sign * 0.000001 * Task2_Scales;
         sign = -sign;
     }
 
     // 掉头点
-    GPS_GET_LAT[Task2_Start_Point + Task2_Bucket + 1] = GPS_GET_LAT[Task2_Road_Genera + Task2_Bucket + 1];
-    GPS_GET_LAT[Task2_Start_Point + Task2_Bucket + 2] = GPS_GET_LAT[Task2_Road_Genera + Task2_Bucket + 1] + Toward * 0.000004;
-    GPS_GET_LAT[Task2_Start_Point + Task2_Bucket + 3] = GPS_GET_LAT[Task2_Road_Genera + Task2_Bucket + 1];
+    Point[Task2_Start_Point + Task2_Bucket + 1].latitude = Point[Task2_Road_Genera + Task2_Bucket + 1].latitude;
+    Point[Task2_Start_Point + Task2_Bucket + 2].latitude = Point[Task2_Road_Genera + Task2_Bucket + 1].latitude + Toward * 0.000004;
+    Point[Task2_Start_Point + Task2_Bucket + 3].latitude = Point[Task2_Road_Genera + Task2_Bucket + 1].latitude;
 
-    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1] = GPS_GET_LOT[Task2_Road_Genera + Task2_Bucket + Differ1];
-    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 2] = GPS_GET_LOT[Task2_Road_Genera];
-    GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3] = GPS_GET_LOT[Differ2 - Task2_Road_Genera - Task2_Bucket];
+    Point[Task2_Start_Point + Task2_Bucket + 1].lonitude = Point[Task2_Road_Genera + Task2_Bucket + Differ1].lonitude;
+    Point[Task2_Start_Point + Task2_Bucket + 2].lonitude = Point[Task2_Road_Genera].lonitude;
+    Point[Task2_Start_Point + Task2_Bucket + 3].lonitude = Point[Differ2 - Task2_Road_Genera - Task2_Bucket].lonitude;
     
     // 终点赋值
-    GPS_GET_LAT[Task2_Start_Point + Task2_Points - 1] = GPS_GET_LAT[Task2_Road_Genera];
-    GPS_GET_LOT[Task2_Start_Point + Task2_Points - 1] = GPS_GET_LOT[Task2_Start_Point + Task2_Points - 2];
+    Point[Task2_Start_Point + Task2_Points - 1].latitude = Point[Task2_Road_Genera].latitude;
+    Point[Task2_Start_Point + Task2_Points - 1].lonitude = Point[Task2_Start_Point + Task2_Points - 2].lonitude;
 
-    GPS_GET_LOT[28] -= Toward * 0.000008;
+    Point[28].lonitude -= Toward * 0.000008;
 
     Point_NUM = Task2_Start_Point + Task2_Points;
     FLASH_FIX_GPS();
@@ -450,12 +448,12 @@ void Task3_Road_Fix()
 {
     for(int16 i = Task3_Start_Point; i < Turn_Point + 1; i++)
     {
-        GPS_GET_LOT[i] = GPS_GET_LOT[Task3_Start_Point];
+        Point[i].lonitude = Point[Task3_Start_Point].lonitude;
     }
-    GPS_GET_LAT[Turn_Point + 1] = GPS_GET_LAT[Turn_Point];
+    Point[Turn_Point + 1].latitude = Point[Turn_Point].latitude;
     for(int16 i = Turn_Point + 1; i < Task3_Start_Point + Task3_Points; i++)
     {
-        GPS_GET_LOT[i] = GPS_GET_LOT[Turn_Point + 1];
+        Point[i].lonitude = Point[Turn_Point + 1].lonitude;
     }
     Point_NUM = Task3_Start_Point + Task3_Points;
     FLASH_FIX_GPS();

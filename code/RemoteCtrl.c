@@ -77,23 +77,23 @@ void RemoteCtrl_Direction_Speed()
             Start_Flag = 1;
             if(Task_Flag == 1)
             {
-                GPS_GET_LAT[8] = GPS_GET_LAT[Task1_Start_Point];
-                GPS_GET_LOT[8] = GPS_GET_LOT[Task1_Start_Point];
+                Point[8].latitude = Point[Task1_Start_Point].latitude;
+                Point[8].lonitude = Point[Task1_Start_Point].lonitude;
             }
             else if(Task_Flag == 2)
             {
-                GPS_GET_LAT[8] = GPS_GET_LAT[Task2_Start_Point];
-                GPS_GET_LOT[8] = GPS_GET_LOT[Task2_Start_Point];
+                Point[8].latitude = Point[Task2_Start_Point].latitude;
+                Point[8].lonitude = Point[Task2_Start_Point].lonitude;
             }
             else if(Task_Flag == 3)
             {
-                GPS_GET_LAT[8] = GPS_GET_LAT[Task3_Start_Point];
-                GPS_GET_LOT[8] = GPS_GET_LOT[Task3_Start_Point];
+                Point[8].latitude = Point[Task3_Start_Point].latitude;
+                Point[8].lonitude = Point[Task3_Start_Point].lonitude;
             }
             else
             {
-                GPS_GET_LAT[8] = GPS_GET_LAT[Task1_Start_Point];
-                GPS_GET_LOT[8] = GPS_GET_LOT[Task1_Start_Point];
+                Point[8].latitude = Point[Task1_Start_Point].latitude;
+                Point[8].lonitude = Point[Task1_Start_Point].lonitude;
             }
             Track_Points_NUM = 8;
         }
@@ -144,23 +144,23 @@ void RemoteCtrl_Direction_Speed()
             Start_Flag = 1;
             if(Task_Flag == 1)
             {
-                GPS_GET_LAT[8] = GPS_GET_LAT[Task1_Start_Point];
-                GPS_GET_LOT[8] = GPS_GET_LOT[Task1_Start_Point];
+                Point[8].latitude = Point[Task1_Start_Point].latitude;
+                Point[8].lonitude = Point[Task1_Start_Point].lonitude;
             }
             else if(Task_Flag == 2)
             {
-                GPS_GET_LAT[8] = GPS_GET_LAT[Task2_Start_Point];
-                GPS_GET_LOT[8] = GPS_GET_LOT[Task2_Start_Point];
+                Point[8].latitude = Point[Task2_Start_Point].latitude;
+                Point[8].lonitude = Point[Task2_Start_Point].lonitude;
             }
             else if(Task_Flag == 3)
             {
-                GPS_GET_LAT[8] = GPS_GET_LAT[Task3_Start_Point];
-                GPS_GET_LOT[8] = GPS_GET_LOT[Task3_Start_Point];
+                Point[8].latitude = Point[Task3_Start_Point].latitude;
+                Point[8].lonitude = Point[Task3_Start_Point].lonitude;
             }
             else
             {
-                GPS_GET_LAT[8] = GPS_GET_LAT[Task1_Start_Point];
-                GPS_GET_LOT[8] = GPS_GET_LOT[Task1_Start_Point];
+                Point[8].latitude = Point[Task1_Start_Point].latitude;
+                Point[8].lonitude = Point[Task1_Start_Point].lonitude;
             }
             Track_Points_NUM = 8;
         }

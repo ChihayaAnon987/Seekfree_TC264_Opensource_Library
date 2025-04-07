@@ -53,7 +53,7 @@ void FLASH_GET_GPS()
                 {
                     lat_union[i].uint32_type[0] = flash_union_buffer[i * 4 + 1].uint32_type;  // 纬度高 32 位
                     lat_union[i].uint32_type[1] = flash_union_buffer[i * 4 + 2].uint32_type;  // 纬度低 32 位
-                    GPS_GET_LAT[i] = lat_union[i].double_type;                                // 纬度
+                    Point[i].latitude = lat_union[i].double_type;                                // 纬度
                 }
             }
             if(flash_union_buffer[i * 4 + 3].uint32_type != 0)
@@ -62,7 +62,7 @@ void FLASH_GET_GPS()
                 {
                     lon_union[i].uint32_type[0] = flash_union_buffer[i * 4 + 3].uint32_type;  // 经度高 32 位
                     lon_union[i].uint32_type[1] = flash_union_buffer[i * 4 + 4].uint32_type;  // 经度低 32 位
-                    GPS_GET_LOT[i] = lon_union[i].double_type;                                // 经度
+                    Point[i].lonitude = lon_union[i].double_type;                                // 经度
                 }
             }
         }
@@ -81,8 +81,8 @@ void FLASH_FIX_GPS()
 {
     for(int i = 0; i < NUM_GPS_DATA; i++)
     {
-        lat_union[i].double_type = GPS_GET_LAT[i];
-        lon_union[i].double_type = GPS_GET_LOT[i];
+        lat_union[i].double_type = Point[i].latitude;
+        lon_union[i].double_type = Point[i].lonitude;
     }
     FLASH_SAV_GPS();
 }

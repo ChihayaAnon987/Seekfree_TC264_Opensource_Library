@@ -17,7 +17,7 @@ Parameter_set Parameter_set0=
 };
 
 int    key_value;
-int    Point          = 0;    // 菜单点位
+int    Point0         = 0;    // 菜单点位
 int    Point1         = 0;
 int    Point2         = 0;
 int    Point3         = 0;
@@ -618,18 +618,18 @@ void Points_menu(void)
     {
         ips200_show_string( 16, 16 * 0, "Lat:");
         ips200_show_string(128, 16 * 0, "Lon:");
-        ips200_show_uint  (184, 16 * 0, Point, 3);
+        ips200_show_uint  (184, 16 * 0, Point0, 3);
         ips200_show_string(208, 16 * 0, "/");
         ips200_show_uint  (216, 16 * 0, NUM_GPS_DATA - 1, 3);
     
-        int Page = Point / Page_Point_Num;
-        int RightArrow = Point % Page_Point_Num + 1;
+        int Page = Point0 / Page_Point_Num;
+        int RightArrow = Point0 % Page_Point_Num + 1;
     
         ips200_show_string(0, 16 * RightArrow, "->");
         for(int i = 1; i <= Page_Point_Num; i++)
         {
-            ips200_show_float ( 16, 16 * i, GPS_GET_LAT[i - 1 + Page * Page_Point_Num], 3, 6);
-            ips200_show_float (128, 16 * i, GPS_GET_LOT[i - 1 + Page * Page_Point_Num], 3, 6);
+            ips200_show_float ( 16, 16 * i, Point[i - 1 + Page * Page_Point_Num].latitude, 3, 6);
+            ips200_show_float (128, 16 * i, Point[i - 1 + Page * Page_Point_Num].lonitude, 3, 6);
             if(i  + Page * 10 == NUM_GPS_DATA)
             {
                 break;
@@ -1099,8 +1099,8 @@ void Key_Ctrl_Menu()
                 {
                     lat_union[Point_NUM].double_type = gnss.latitude; // 偶数储存纬度latitude
                     lon_union[Point_NUM].double_type = gnss.longitude;// 奇数储存经度longitude
-                    GPS_GET_LAT[Point_NUM] = gnss.latitude;
-                    GPS_GET_LOT[Point_NUM] = gnss.longitude;
+                    Point[Point_NUM].latitude = gnss.latitude;
+                    Point[Point_NUM].lonitude = gnss.longitude;
                     Point_NUM++;
                 }
             }
@@ -1440,17 +1440,17 @@ void Key_Ctrl_Menu()
                 {
                     if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
                     {
-                        if(Point > 0)
+                        if(Point0 > 0)
                         {
-                            Point = Point - 1;
+                            Point0 = Point0 - 1;
                             ips200_clear();
                         }
                     }
                     if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
                     {
-                        if(Point < NUM_GPS_DATA - 1)
+                        if(Point0 < NUM_GPS_DATA - 1)
                         {
-                            Point = Point + 1;
+                            Point0 = Point0 + 1;
                             ips200_clear();
                         }
                     }
@@ -1494,19 +1494,19 @@ void Key_Ctrl_Menu()
             {
                 if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
                 {
-                    GPS_GET_LAT[Point] += 0.000001;
+                    Point[Point0].latitude += 0.000001;
                 }
                 if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
                 {
-                    GPS_GET_LAT[Point] -= 0.000001;
+                    Point[Point0].latitude -= 0.000001;
                 }
                 if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
                 {
-                    GPS_GET_LOT[Point] += 0.000001;
+                    Point[Point0].lonitude += 0.000001;
                 }
                 if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
                 {
-                    GPS_GET_LOT[Point] -= 0.000001;
+                    Point[Point0].lonitude -= 0.000001;
                 }
             }
 

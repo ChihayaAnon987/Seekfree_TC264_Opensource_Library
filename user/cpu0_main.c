@@ -84,18 +84,18 @@ int core0_main(void)
             Start_Lon = gnss.longitude;
             if(Task_Flag == 1)
             {
-                Delta_Lat = gnss.latitude - GPS_GET_LAT[Task1_Start_Point];
-                Delta_Lon = gnss.longitude - GPS_GET_LOT[Task1_Start_Point];
+                Delta_Lat = gnss.latitude  - Point[Task1_Start_Point].latitude;
+                Delta_Lon = gnss.longitude - Point[Task1_Start_Point].lonitude;
             }
             if(Task_Flag == 2)
             {
-                Delta_Lat = gnss.latitude - GPS_GET_LAT[Task2_Start_Point];
-                Delta_Lon = gnss.longitude - GPS_GET_LOT[Task2_Start_Point];
+                Delta_Lat = gnss.latitude  - Point[Task2_Start_Point].latitude;
+                Delta_Lon = gnss.longitude - Point[Task2_Start_Point].lonitude;
             }
             if(Task_Flag == 3)
             {
-                Delta_Lat = gnss.latitude - GPS_GET_LAT[Task3_Start_Point];
-                Delta_Lon = gnss.longitude - GPS_GET_LOT[Task3_Start_Point];
+                Delta_Lat = gnss.latitude  - Point[Task3_Start_Point].latitude;
+                Delta_Lon = gnss.longitude - Point[Task3_Start_Point].lonitude;
             }
         }
     }

@@ -72,7 +72,7 @@ void Track_Follow()
 // 切换点位
 void Point_Switch()
 {
-    Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
+    Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
     if(Track_Points_NUM == Task1_Start_Point || Track_Points_NUM == Task2_Start_Point || Track_Points_NUM == Task3_Start_Point)
     {
         if (Distance > GpsDistance[Track_Points_NUM])
@@ -94,9 +94,9 @@ void Point_Switch()
     {
         if(Distance < GpsDistance[Track_Points_NUM])
         {
-            if(GPS_GET_LAT[Task1_Start_Point] < GPS_GET_LAT[Task1_Start_Point + 1])  // 向北发车
+            if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 1].latitude)  // 向北发车
             {
-                if(GPS_GET_LOT[Task1_Start_Point + 1] < GPS_GET_LOT[Task1_Start_Point + 2]) // 右拐弯
+                if(Point[Task1_Start_Point + 1].lonitude < Point[Task1_Start_Point + 2].lonitude) // 右拐弯
                 {
                     while (TRUE)
                     {
@@ -131,7 +131,7 @@ void Point_Switch()
             }
             else //向南发车
             {
-                if(GPS_GET_LOT[Task1_Start_Point + 1] < GPS_GET_LOT[Task1_Start_Point + 2]) // 左拐弯
+                if(Point[Task1_Start_Point + 1].lonitude < Point[Task1_Start_Point + 2].lonitude) // 左拐弯
                 {
                     while (TRUE)
                     {
@@ -172,9 +172,9 @@ void Point_Switch()
     {
         if(Distance < GpsDistance[Track_Points_NUM])
         {
-            if(GPS_GET_LAT[Task2_Road_Genera + Task2_Bucket + 1] > GPS_GET_LAT[Task2_Road_Genera]) // 向北发车
+            if(Point[Task2_Road_Genera + Task2_Bucket + 1].latitude > Point[Task2_Road_Genera].latitude) // 向北发车
             {
-                if(GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1] > GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3])  // 左拐弯
+                if(Point[Task2_Start_Point + Task2_Bucket + 1].lonitude > Point[Task2_Start_Point + Task2_Bucket + 3].lonitude)  // 左拐弯
                 {
                     while(TRUE)
                     {
@@ -209,7 +209,7 @@ void Point_Switch()
             }
             else  // 向南发车
             {
-                if(GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 1] > GPS_GET_LOT[Task2_Start_Point + Task2_Bucket + 3])  // 右拐弯
+                if(Point[Task2_Start_Point + Task2_Bucket + 1].lonitude > Point[Task2_Start_Point + Task2_Bucket + 3].lonitude)  // 右拐弯
                 {
                     while(TRUE)
                     {
@@ -250,9 +250,9 @@ void Point_Switch()
     {
         if(Distance < GpsDistance[Track_Points_NUM])
         {
-            if(GPS_GET_LAT[Task3_Start_Point] < GPS_GET_LAT[Turn_Point]) // 向北发车
+            if(Point[Task3_Start_Point].latitude < Point[Turn_Point].latitude) // 向北发车
             {
-                if(GPS_GET_LOT[Turn_Point] < GPS_GET_LOT[Turn_Point + 1]) // 右拐弯
+                if(Point[Turn_Point].lonitude < Point[Turn_Point + 1].lonitude) // 右拐弯
                 {
                     while (TRUE)
                     {
@@ -287,7 +287,7 @@ void Point_Switch()
             }
             else // 向南发车
             {
-                if(GPS_GET_LOT[Turn_Point] < GPS_GET_LOT[Turn_Point + 1]) // 左拐弯
+                if(Point[Turn_Point].lonitude < Point[Turn_Point + 1].lonitude) // 左拐弯
                 {
                     while (TRUE)
                     {
@@ -333,7 +333,7 @@ void Point_Switch()
         }
     }
 
-    Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, GPS_GET_LAT[Track_Points_NUM], GPS_GET_LOT[Track_Points_NUM]);
+    Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
     Angle -= Delta_Angle;
     if(Angle > 180)
     {
