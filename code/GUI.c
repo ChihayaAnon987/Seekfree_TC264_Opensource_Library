@@ -16,7 +16,6 @@ Parameter_set Parameter_set0=
     SERVO_MOTOR_MID             // 舵机机械可调中值
 };
 
-int    func_index     = 0;
 int    key_value;
 int    Point          = 0;    // 菜单点位
 int    Point1         = 0;
@@ -33,6 +32,7 @@ float  Star_Time      = 0;
 float  Stop_Time      = 0;
 double Actual_Dist    = 0;
 seekfree_assistant_oscilloscope_struct oscilloscope_data;
+gui_menu_enum func_index = 0;
 
 
 menu_table table[33]=
@@ -1090,7 +1090,7 @@ void Key_Ctrl_Menu()
     if(gpio_get_level(SWITCH2))           // 拨码开关在下表示执行存储数据
     {
         // GPS采点
-        if(func_index == 1)
+        if(func_index == enum_secon_menu00)
         {
             // KEY1或者通道3按下都可以记录点位
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS || Channal_3_Press_Flag)
@@ -1138,7 +1138,7 @@ void Key_Ctrl_Menu()
         }
 
         // ServoP调节
-        if(func_index == 5)
+        if(func_index == enum_third_menu00)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1159,7 +1159,7 @@ void Key_Ctrl_Menu()
         }
 
         // ServoI调节
-        if(func_index == 6)
+        if(func_index == enum_third_menu01)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1180,7 +1180,7 @@ void Key_Ctrl_Menu()
         }
 
         // ServoD调节
-        if(func_index == 7)
+        if(func_index == enum_third_menu02)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1201,7 +1201,7 @@ void Key_Ctrl_Menu()
         }
 
         // MotorP调节
-        if(func_index == 8)
+        if(func_index == enum_third_menu03)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1232,7 +1232,7 @@ void Key_Ctrl_Menu()
         }
 
         // MotorI调节
-        if(func_index == 9)
+        if(func_index == enum_third_menu04)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1263,7 +1263,7 @@ void Key_Ctrl_Menu()
         }
 
         //MotorD调节
-        if(func_index == 10)
+        if(func_index == enum_third_menu05)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1293,12 +1293,12 @@ void Key_Ctrl_Menu()
             }
         }
 
-        if(func_index == 12)
+        if(func_index == enum_secon_menu03)
         {
         }
 
         // 调试速度
-        if(func_index == 14)
+        if(func_index == enum_secon_menu04)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1337,7 +1337,7 @@ void Key_Ctrl_Menu()
         }
 
         // 换点距离
-        if(func_index == 15)
+        if(func_index == enum_secon_menu05)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1373,7 +1373,7 @@ void Key_Ctrl_Menu()
         }
 
         // 任务点位设置
-        if(func_index == 16)
+        if(func_index == enum_secon_menu06)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1426,7 +1426,7 @@ void Key_Ctrl_Menu()
         }
 
         //点位查看调节
-        if(func_index == 20)
+        if(func_index == enum_secon_menu08)
         {
             // 拨码开关在上表示点位切换
             if(!gpio_get_level(SWITCH1))
@@ -1473,6 +1473,7 @@ void Key_Ctrl_Menu()
                     {
                         Track_Points_NUM = Task2_Start_Point;
                         Task_Flag = 2;
+                        Road_Generator_Init();
                         initCoordinateSystem();
                         LED_Buzzer_Flag_Ctrl(LED1);
                         ips200_clear();
@@ -1481,17 +1482,10 @@ void Key_Ctrl_Menu()
                     {
                         Track_Points_NUM = Task3_Start_Point;
                         Task_Flag = 3;
+                        Task3_Road_Fix();
                         initCoordinateSystem();
                         LED_Buzzer_Flag_Ctrl(LED1);
                         ips200_clear();
-                    }
-                    if(key_get_state(KEY_2) == KEY_LONG_PRESS)
-                    {
-                        Road_Generator_Init();
-                    }
-                    if(key_get_state(KEY_3) == KEY_LONG_PRESS)
-                    {
-                        Task3_Road_Fix();
                     }
                 }
             }
@@ -1518,7 +1512,7 @@ void Key_Ctrl_Menu()
 
         }
 
-        if(func_index == 22)
+        if(func_index == enum_secon_menu09)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1530,7 +1524,7 @@ void Key_Ctrl_Menu()
             }
         }
 
-        if(func_index == 24)
+        if(func_index == enum_secon_menu10)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1550,7 +1544,7 @@ void Key_Ctrl_Menu()
             }
         }
 
-        if(func_index == 26)
+        if(func_index == enum_secon_menu11)
         {
             // 按下KEY1从Flash中获取经纬度数据
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
@@ -1576,7 +1570,7 @@ void Key_Ctrl_Menu()
             }
         }
 
-        if(func_index == 28)
+        if(func_index == enum_secon_menu12)
         {
             // 要测试时请注释掉PDLocServoCtrl()中的Servo_Set
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
@@ -1601,7 +1595,7 @@ void Key_Ctrl_Menu()
             }
         }
 
-        if(func_index == 30)
+        if(func_index == enum_secon_menu13)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1803,7 +1797,7 @@ void Key_Ctrl_Menu()
             }
         }
 
-        if(func_index == 32)
+        if(func_index == enum_secon_menu14)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {

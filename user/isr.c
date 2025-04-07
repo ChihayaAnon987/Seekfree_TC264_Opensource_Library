@@ -72,11 +72,11 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
     }
     if(Control_Flag == 1)
     {
-        if(uart_receiver.channel[1] - 1056 > 100)
+        if(uart_receiver.channel[1] - CHANNAL2_MIDDLE_LEVEL > 100)
         {
             PIDIncMotorCtrl(GpsTgtEncod[9]);
         }
-        else if(uart_receiver.channel[1] - 1056 < -100)
+        else if(uart_receiver.channel[1] - CHANNAL2_MIDDLE_LEVEL < -100)
         {
             PIDIncMotorCtrl(-GpsTgtEncod[9]);
         }

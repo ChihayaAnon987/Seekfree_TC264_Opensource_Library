@@ -45,7 +45,7 @@ void RemoteCtrl_Direction_Speed()
     if(Control_Flag == 1)
     {
         #if MOTOR_LOOP_ENABLE == 0
-            if(uart_receiver.channel[1] - 1292 > 100)
+            if(uart_receiver.channel[1] - CHANNAL2_MIDDLE_LEVEL > 100)
             {
                 #if BLDC_ENABLE
                     BLDC_Ctrl(GpsTgtEncod[9]);
@@ -53,7 +53,7 @@ void RemoteCtrl_Direction_Speed()
                     DRV8701_MOTOR_DRIVER(GpsTgtEncod[9]);
                 #endif
             }
-            else if(uart_receiver.channel[1] - 1292 < -100)
+            else if(uart_receiver.channel[1] - CHANNAL2_MIDDLE_LEVEL < -100)
             {
                 #if BLDC_ENABLE
                     BLDC_Ctrl(-GpsTgtEncod[9]);
@@ -100,33 +100,36 @@ void RemoteCtrl_Direction_Speed()
     }
     if(Control_Flag == 2)
     {
-        RemoteCtrl_Direction = (int16)((856 - uart_receiver.channel[0]) * 24 / 800);
+        #if MOTOR_LOOP_ENABLE
+            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - CHANNAL2_MIDDLE_LEVEL) * 500 / 800);
+        #else
+            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - CHANNAL2_MIDDLE_LEVEL) * 5000 / 800);
+            #if BLDC_ENABLE
+                BLDC_Ctrl(RemoteCtrl_Speed);
+            #else
+                DRV8701_MOTOR_DRIVER(RemoteCtrl_Speed);
+            #endif
+        #endif
+
+        RemoteCtrl_Direction = (int16)((CHANNAL1_MIDDLE_LEVEL - uart_receiver.channel[0]) * 24 / 800);
         static float CenterAngle;
-        if(fabs(856 - uart_receiver.channel[0]) < 20)
+        if(fabs(CHANNAL1_MIDDLE_LEVEL - uart_receiver.channel[0]) < 20)
         {
+            if(Center_Flag == 1)
+            {
+                if(RemoteCtrl_Speed > 0)
+                {
+                    Angle_Error = -K_Straight * (angle[2] - CenterAngle);
+                }
+                else
+                {
+                    Angle_Error =  K_Straight * (angle[2] - CenterAngle);
+                }
+            }
             if(Center_Flag == 0)
             {
                 CenterAngle = angle[2];
                 Center_Flag = 1;
-            }
-            if(Center_Flag == 1)
-            {
-                if(RemoteCtrl_Speed != 0)
-                {
-                    if(RemoteCtrl_Speed > 0)
-                    {
-                        Angle_Error = -K_Straight * (angle[2] - CenterAngle);
-                    }
-                    else
-                    {
-                        Angle_Error =  K_Straight * (angle[2] - CenterAngle);
-                    }
-                }
-                else
-                {
-                    Angle_Error = 0;
-                }
-
             }
         }
         else
@@ -134,17 +137,6 @@ void RemoteCtrl_Direction_Speed()
             Center_Flag = 0;
             Servo_Set(SERVO_MOTOR_MID - RemoteCtrl_Direction);                          // 舵机角度
         }
-
-        #if MOTOR_LOOP_ENABLE
-            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1056) * 500 / 800);
-        #else
-            RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - 1292) * 5000 / 800);
-            #if BLDC_ENABLE
-                BLDC_Ctrl(RemoteCtrl_Speed);
-            #else
-                DRV8701_MOTOR_DRIVER(RemoteCtrl_Speed);
-            #endif
-        #endif
 
         // 自动归位
         if(Channal_5_Press_Flag == 1)
@@ -247,7 +239,7 @@ void Is_Channal_6_Press()
 
 void UART_RECEIVER_FALL()
 {
-    static int8 time = 0;
+    static float time = 0;
     if(uart_receiver.finsh_flag == 1)
     {
         time = System_Time;
@@ -255,7 +247,7 @@ void UART_RECEIVER_FALL()
     }
     else
     {
-        if(System_Time - time > 1000)
+        if(System_Time - time > 1.0f)
         {
             Fall_Flag = 1;
         }

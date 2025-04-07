@@ -51,7 +51,9 @@
     Lon+0.000001 是 90° (东)
     Lon-0.000001 是 270°(西)
 */
-
+// 重构：
+// 1.科目二路径生成重写
+// 2.拐弯逻辑重写
 
 uint32_t Point_NUM = 0;             // 已采集点数
 float    K_Gps     = 0.4;           // 衔接部分的权重
@@ -75,6 +77,7 @@ double Delta_y      = 0;            // 位移
 double Distance     = 0;            // 自身距下一个点的距离
 double GPS_GET_LAT[NUM_GPS_DATA];   // 纬度
 double GPS_GET_LOT[NUM_GPS_DATA];   // 经度
+GpsPoint Point[NUM_GPS_DATA];       // 存储点位的结构体
 float  GpsSpeed    = 0;             // 速度
 float  GpsAccel    = 0;             // 加速度
 float  GpsMaxSpeed = 0;             // 最大速度
@@ -310,11 +313,30 @@ void drawPoints()
     }
     if(start_point == Task2_Start_Point)
     {
-        ips200_show_float(192, 16 * 0, get_two_points_distance(GPS_GET_LAT[Task2_Start_Point], GPS_GET_LOT[Task2_Start_Point], GPS_GET_LAT[Task2_Start_Point + 1], GPS_GET_LOT[Task2_Start_Point + 1]), 3, 1);
-        for(int8 i = Task2_Start_Point; i < Task2_Start_Point + Task2_Bucket + 1; i++)
+        static double max_latitude = 0;
+        static double max_distance = 0;
+        if(GPS_GET_LAT[Task2_Road_Genera] < GPS_GET_LAT[Task2_Road_Genera + 1]) // 向北发车
         {
-            double distance = get_two_points_distance(GPS_GET_LAT[i], GPS_GET_LOT[i], GPS_GET_LAT[i + 1], GPS_GET_LOT[i]);
-            ips200_show_float(192, 16 * (i - Task2_Start_Point) + 1, distance, 2, 2);
+            if(gnss.latitude > max_latitude)
+            {
+                max_latitude = gnss.latitude;
+                max_distance = get_two_points_distance(GPS_GET_LAT[Task2_Road_Genera], GPS_GET_LOT[Task2_Road_Genera], max_latitude, GPS_GET_LOT[Task2_Road_Genera]);
+            }
+        }
+        else // 向南发车
+        {
+            if(gnss.latitude < max_latitude)
+            {
+                max_latitude = gnss.latitude;
+                max_distance = get_two_points_distance(GPS_GET_LAT[Task2_Road_Genera], GPS_GET_LOT[Task2_Road_Genera], max_latitude, GPS_GET_LOT[Task2_Road_Genera]);
+            }
+        }
+        ips200_show_float(192, 16 * 0, max_distance, 3, 1);
+        ips200_show_float(192, 16 * 1, get_two_points_distance(GPS_GET_LAT[Task2_Road_Genera], GPS_GET_LOT[Task2_Road_Genera], GPS_GET_LAT[Task2_Road_Genera], GPS_GET_LOT[Task2_Start_Point]), 3, 1);
+        for(int8 i = Task2_Road_Genera; i < Task2_Road_Genera + Task2_Bucket + 1; i++)
+        {
+            double distance = get_two_points_distance(GPS_GET_LAT[i], GPS_GET_LOT[Task2_Road_Genera], GPS_GET_LAT[i + 1], GPS_GET_LOT[Task2_Road_Genera]);
+            ips200_show_float(192, 16 * (i - Task2_Road_Genera + 2), distance, 2, 2);
         }
     }
     if(start_point == Task3_Start_Point)
@@ -381,6 +403,14 @@ void Road_Generator_Init()
         Toward = -1;
     }
     
+    GPS_GET_LAT[12] = GPS_GET_LAT[11] + Toward * 0.000022;
+    GPS_GET_LAT[13] = GPS_GET_LAT[12] + Toward * 0.000023;
+    GPS_GET_LAT[14] = GPS_GET_LAT[13] + Toward * 0.000022;
+
+    GPS_GET_LOT[12] = GPS_GET_LOT[11];
+    GPS_GET_LOT[13] = GPS_GET_LOT[11];
+    GPS_GET_LOT[14] = GPS_GET_LOT[11];
+    
     // 起始点赋值
     GPS_GET_LAT[Task2_Start_Point] = GPS_GET_LAT[Task2_Road_Genera];
     GPS_GET_LOT[Task2_Start_Point] = GPS_GET_LOT[Task2_Road_Genera];
@@ -409,6 +439,8 @@ void Road_Generator_Init()
     // 终点赋值
     GPS_GET_LAT[Task2_Start_Point + Task2_Points - 1] = GPS_GET_LAT[Task2_Road_Genera];
     GPS_GET_LOT[Task2_Start_Point + Task2_Points - 1] = GPS_GET_LOT[Task2_Start_Point + Task2_Points - 2];
+
+    GPS_GET_LOT[28] -= Toward * 0.000008;
 
     Point_NUM = Task2_Start_Point + Task2_Points;
     FLASH_FIX_GPS();

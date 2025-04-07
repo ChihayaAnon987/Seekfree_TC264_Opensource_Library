@@ -25,6 +25,15 @@
 //===================================================宏定义END===================================================
 
 
+//===================================================类型定义BEG===================================================
+typedef struct                                                 // GPS点位
+{
+    double latitude;                                           // 纬度
+    double lonitude;                                           // 经度
+} GpsPoint;
+//===================================================类型定义END===================================================
+
+
 //===================================================全局变量BEG===================================================
 extern uint32_t Point_NUM;                                     // 当前采集的 GPS 点数量
 extern float    K_Gps;                                         // 衔接部分的权重
@@ -48,6 +57,7 @@ extern double   Delta_x;                                       // 位移
 extern double   Delta_y;                                       // 位移
 extern double   GPS_GET_LAT[NUM_GPS_DATA];                     // 存储纬度数据的数组
 extern double   GPS_GET_LOT[NUM_GPS_DATA];                     // 存储经度数据的数组
+extern GpsPoint Point[NUM_GPS_DATA];                           // 存储点位的结构体
 extern int8     Task1_Points;                                  // 科目一所用点位数量
 extern int8     Task2_Bucket;                                  // 科目二锥桶数量
 extern int8     Task2_Points;                                  // 科目二所用点位数量

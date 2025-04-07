@@ -21,7 +21,7 @@ void FLASH_SAV_GPS()
         {
             flash_erase_page(FLASH_SECTION_INDEX, FLASH_PAGE_INDEX);                // 擦除这一页
         }
-        for (int i = 0; i < Point_NUM; i++)
+        for (int i = 0; i < NUM_GPS_DATA; i++)
         {
             flash_union_buffer[i * 4 + 1].uint32_type = lat_union[i].uint32_type[0];  // 纬度高 32 位
             flash_union_buffer[i * 4 + 2].uint32_type = lat_union[i].uint32_type[1];  // 纬度低 32 位
@@ -45,7 +45,7 @@ void FLASH_GET_GPS()
     {
         flash_read_page_to_buffer(FLASH_SECTION_INDEX, FLASH_PAGE_INDEX);
         Point_NUM = flash_union_buffer[0].uint32_type;
-        for(int i = 0; i < Point_NUM; i++)
+        for(int i = 0; i < NUM_GPS_DATA; i++)
         {
             if(flash_union_buffer[i * 4 + 1].uint32_type != 0)
             {
@@ -79,7 +79,7 @@ void FLASH_GET_GPS()
 // 修正 Gps 数据
 void FLASH_FIX_GPS()
 {
-    for(int i = 0; i < Point_NUM; i++)
+    for(int i = 0; i < NUM_GPS_DATA; i++)
     {
         lat_union[i].double_type = GPS_GET_LAT[i];
         lon_union[i].double_type = GPS_GET_LOT[i];
