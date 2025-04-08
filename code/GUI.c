@@ -115,10 +115,13 @@ void main_menu0(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName0[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName1[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName2[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
@@ -139,10 +142,10 @@ void main_menu1(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
@@ -163,10 +166,10 @@ void main_menu2(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
@@ -187,10 +190,10 @@ void main_menu3(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
@@ -211,10 +214,10 @@ void main_menu4(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
@@ -235,10 +238,10 @@ void main_menu5(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
@@ -259,10 +262,10 @@ void main_menu6(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
@@ -283,10 +286,10 @@ void main_menu7(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
@@ -307,10 +310,10 @@ void main_menu8(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
@@ -331,10 +334,10 @@ void main_menu9(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
@@ -355,10 +358,10 @@ void main_menu10(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 
@@ -379,10 +382,10 @@ void main_menu11(void)
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
-    ips200_show_chinese(112,  0, 16, TeamName1[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 16, 16, TeamName2[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 32, 16, TeamName3[0], 1, RGB565_PURPLE);
-    ips200_show_chinese(112, 48, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 0, 16, TeamName3[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 1, 16, TeamName4[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 2, 16, TeamName5[0], 1, RGB565_PURPLE);
+    ips200_show_chinese(112, 16 * 3, 16, TeamName6[0], 1, RGB565_PURPLE);
     ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
 }
 /////////////////////////////////¶þ²ã²Ëµ¥-------------------------------------------------
@@ -1332,6 +1335,21 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)
             {
+                Point1 = Task1_Start_Point;
+                ips200_clear();
+            }
+            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
+            {
+                Point1 = Task2_Start_Point;
+                ips200_clear();
+            }
+            if(key_get_state(KEY_3) == KEY_LONG_PRESS)
+            {
+                Point1 = Task3_Start_Point;
+                ips200_clear();
+            }
+            if(key_get_state(KEY_4) == KEY_LONG_PRESS)
+            {
                 FLASH_SAV_PAR();
             }
         }
@@ -1365,8 +1383,27 @@ void Key_Ctrl_Menu()
                 {
                     GpsDistance[Point1] -= 0.10;
                 }
+                if(GpsDistance[Point1] < 0.10)
+                {
+                    GpsDistance[Point1] = 0;
+                }
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            {
+                Point1 = Task1_Start_Point;
+                ips200_clear();
+            }
+            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
+            {
+                Point1 = Task2_Start_Point;
+                ips200_clear();
+            }
+            if(key_get_state(KEY_3) == KEY_LONG_PRESS)
+            {
+                Point1 = Task3_Start_Point;
+                ips200_clear();
+            }
+            if(key_get_state(KEY_4) == KEY_LONG_PRESS)
             {
                 FLASH_SAV_PAR();
             }
