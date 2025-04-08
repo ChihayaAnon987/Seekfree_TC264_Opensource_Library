@@ -82,7 +82,8 @@ void drawGrid(void);                                           // 绘制网格及坐标
 void drawPoints(void);
 void updateCarPosition(void);
 void gpsToScreen(double lat, double lon, uint16_t *screen_x, uint16_t *screen_y, int start_point);
-void Road_Generator_Init(void);                                // 路径生成初始化
+void Task1_Road_Fix(void);                                     // 科目一路径修正
+void Task2_Road_Gen(void);                                     // 科目二路径生成
 void Task3_Road_Fix(void);                                     // 科目三路径修正
 //===================================================函数声明END===================================================
 

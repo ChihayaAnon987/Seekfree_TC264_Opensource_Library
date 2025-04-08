@@ -1465,6 +1465,8 @@ void Key_Ctrl_Menu()
                     {
                         Track_Points_NUM = Task1_Start_Point;
                         Task_Flag = 1;
+                        Turn_Angle = get_two_points_azimuth(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 2].latitude, Point[Task1_Start_Point + 2].lonitude);
+                        Task1_Road_Fix();
                         initCoordinateSystem();
                         LED_Buzzer_Flag_Ctrl(LED1);
                         ips200_clear();
@@ -1473,7 +1475,8 @@ void Key_Ctrl_Menu()
                     {
                         Track_Points_NUM = Task2_Start_Point;
                         Task_Flag = 2;
-                        Road_Generator_Init();
+                        Turn_Angle = get_two_points_azimuth(Point[Task2_Start_Point + Task2_Bucket + 2].latitude, Point[Task2_Start_Point + Task2_Bucket + 2].lonitude, Point[Task2_Start_Point + Task2_Bucket + 3].latitude, Point[Task2_Start_Point + Task2_Bucket + 3].lonitude);
+                        Task2_Road_Gen();
                         initCoordinateSystem();
                         LED_Buzzer_Flag_Ctrl(LED1);
                         ips200_clear();
@@ -1482,6 +1485,7 @@ void Key_Ctrl_Menu()
                     {
                         Track_Points_NUM = Task3_Start_Point;
                         Task_Flag = 3;
+                        Turn_Angle = get_two_points_azimuth(Point[Task3_Start_Point].latitude, Point[Task3_Start_Point].lonitude, Point[Turn_Point + 1].latitude, Point[Turn_Point + 1].lonitude);
                         Task3_Road_Fix();
                         initCoordinateSystem();
                         LED_Buzzer_Flag_Ctrl(LED1);
@@ -1803,19 +1807,25 @@ void Key_Ctrl_Menu()
             {
                 Track_Points_NUM = Task1_Start_Point;
                 Task_Flag = 1;
+                Turn_Angle = get_two_points_azimuth(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 2].latitude, Point[Task1_Start_Point + 2].lonitude);
                 initCoordinateSystem();
+                ips200_clear();
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
                 Track_Points_NUM = Task2_Start_Point;
                 Task_Flag = 2;
+                Turn_Angle = get_two_points_azimuth(Point[Task2_Start_Point + Task2_Bucket + 2].latitude, Point[Task2_Start_Point + Task2_Bucket + 2].lonitude, Point[Task2_Start_Point + Task2_Bucket + 3].latitude, Point[Task2_Start_Point + Task2_Bucket + 3].lonitude);
                 initCoordinateSystem();
+                ips200_clear();
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
                 Track_Points_NUM = Task3_Start_Point;
                 Task_Flag = 3;
+                Turn_Angle = get_two_points_azimuth(Point[Task3_Start_Point].latitude, Point[Task3_Start_Point].lonitude, Point[Turn_Point + 1].latitude, Point[Turn_Point + 1].lonitude);
                 initCoordinateSystem();
+                ips200_clear();
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {

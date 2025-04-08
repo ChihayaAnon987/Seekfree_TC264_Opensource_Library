@@ -18,6 +18,7 @@ extern float  K_Straight;                                      // 走直线系数
 extern int8   Hole_Point;                                      // 标记桥洞点位
 extern int8   Ramp_Point;                                      // 标记坡道点位
 extern int8   Turn_Point;                                      // 标记掉头点位
+extern double Turn_Angle;                                      // 掉头方向
 //===================================================全局变量END===================================================
 
 

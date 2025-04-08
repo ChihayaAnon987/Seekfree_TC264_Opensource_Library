@@ -16,6 +16,7 @@ float  K_Straight      = 1.7;       // 走直线系数
 int8   Hole_Point      =  52;       // 标记桥洞点位
 int8   Ramp_Point      =  52;       // 标记坡道点位
 int8   Turn_Point      =  55;       // 标记掉头点位
+double Turn_Angle      =   0;       // 掉头方向
 
 /****************************************************************************************************
 //  @brief      核心循迹逻辑
@@ -94,73 +95,35 @@ void Point_Switch()
     {
         if(Distance < GpsDistance[Track_Points_NUM])
         {
-            if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 1].latitude)  // 向北发车
+            if((Turn_Angle > 0 && Turn_Angle < 90) || (Turn_Angle > 180 && Turn_Angle < 270))
             {
-                if(Point[Task1_Start_Point + 1].lonitude < Point[Task1_Start_Point + 2].lonitude) // 右拐弯
+                while(TRUE)
                 {
-                    while (TRUE)
+                    Servo_Set(SERVO_MOTOR_RMAX);
+                    #if BLDC_ENABLE
+                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #else
+                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #endif
+                    if(fabs(angle[2] - 180) < 5)
                     {
-                        Servo_Set(SERVO_MOTOR_RMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
-                    }
-                }
-                else  // 左拐弯
-                {
-                    while (TRUE)
-                    {
-                        Servo_Set(SERVO_MOTOR_LMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
+                        break;
                     }
                 }
             }
-            else //向南发车
+            else if((Turn_Angle > 90 && Turn_Angle < 180) || (Turn_Angle > 270 && Turn_Angle < 360))
             {
-                if(Point[Task1_Start_Point + 1].lonitude < Point[Task1_Start_Point + 2].lonitude) // 左拐弯
+                while(TRUE)
                 {
-                    while (TRUE)
+                    Servo_Set(SERVO_MOTOR_LMAX);
+                    #if BLDC_ENABLE
+                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #else
+                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #endif
+                    if(fabs(angle[2] - 180) < 5)
                     {
-                        Servo_Set(SERVO_MOTOR_LMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
-                    }
-                }
-                else  // 右拐弯
-                {
-                    while (TRUE)
-                    {
-                        Servo_Set(SERVO_MOTOR_RMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
+                        break;
                     }
                 }
             }
@@ -172,73 +135,35 @@ void Point_Switch()
     {
         if(Distance < GpsDistance[Track_Points_NUM])
         {
-            if(Point[Task2_Road_Genera + Task2_Bucket + 1].latitude > Point[Task2_Road_Genera].latitude) // 向北发车
+            if((Turn_Angle > 0 && Turn_Angle < 90) || (Turn_Angle > 180 && Turn_Angle < 270))
             {
-                if(Point[Task2_Start_Point + Task2_Bucket + 1].lonitude > Point[Task2_Start_Point + Task2_Bucket + 3].lonitude)  // 左拐弯
+                while(TRUE)
                 {
-                    while(TRUE)
+                    Servo_Set(SERVO_MOTOR_RMAX);
+                    #if BLDC_ENABLE
+                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #else
+                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #endif
+                    if(fabs(angle[2] - 180) < 5)
                     {
-                        Servo_Set(SERVO_MOTOR_LMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
-                    }
-                }
-                else  // 右拐弯
-                {
-                    while(TRUE)
-                    {
-                        Servo_Set(SERVO_MOTOR_RMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
+                        break;
                     }
                 }
             }
-            else  // 向南发车
+            else if((Turn_Angle > 90 && Turn_Angle < 180) || (Turn_Angle > 270 && Turn_Angle < 360))
             {
-                if(Point[Task2_Start_Point + Task2_Bucket + 1].lonitude > Point[Task2_Start_Point + Task2_Bucket + 3].lonitude)  // 右拐弯
+                while(TRUE)
                 {
-                    while(TRUE)
+                    Servo_Set(SERVO_MOTOR_LMAX);
+                    #if BLDC_ENABLE
+                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #else
+                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #endif
+                    if(fabs(angle[2] - 180) < 5)
                     {
-                        Servo_Set(SERVO_MOTOR_RMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
-                    }
-                }
-                else  // 左拐弯
-                {
-                    while(TRUE)
-                    {
-                        Servo_Set(SERVO_MOTOR_LMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
+                        break;
                     }
                 }
             }
@@ -250,73 +175,35 @@ void Point_Switch()
     {
         if(Distance < GpsDistance[Track_Points_NUM])
         {
-            if(Point[Task3_Start_Point].latitude < Point[Turn_Point].latitude) // 向北发车
+            if((Turn_Angle > 0 && Turn_Angle < 90) || (Turn_Angle > 180 && Turn_Angle < 270))
             {
-                if(Point[Turn_Point].lonitude < Point[Turn_Point + 1].lonitude) // 右拐弯
+                while(TRUE)
                 {
-                    while (TRUE)
+                    Servo_Set(SERVO_MOTOR_RMAX);
+                    #if BLDC_ENABLE
+                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #else
+                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #endif
+                    if(fabs(angle[2] - 180) < 5)
                     {
-                        Servo_Set(SERVO_MOTOR_RMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
-                    }
-                }
-                else // 左拐弯
-                {
-                    while (TRUE)
-                    {
-                        Servo_Set(SERVO_MOTOR_LMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
+                        break;
                     }
                 }
             }
-            else // 向南发车
+            else if((Turn_Angle > 90 && Turn_Angle < 180) || (Turn_Angle > 270 && Turn_Angle < 360))
             {
-                if(Point[Turn_Point].lonitude < Point[Turn_Point + 1].lonitude) // 左拐弯
+                while(TRUE)
                 {
-                    while (TRUE)
+                    Servo_Set(SERVO_MOTOR_LMAX);
+                    #if BLDC_ENABLE
+                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #else
+                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #endif
+                    if(fabs(angle[2] - 180) < 5)
                     {
-                        Servo_Set(SERVO_MOTOR_LMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
-                    }
-                }
-                else // 右拐弯
-                {
-                    while (TRUE)
-                    {
-                        Servo_Set(SERVO_MOTOR_RMAX);
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #else
-                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
-                        #endif
-                        if(fabs(angle[2] - 180) < 5)
-                        {
-                            break;
-                        }
+                        break;
                     }
                 }
             }
