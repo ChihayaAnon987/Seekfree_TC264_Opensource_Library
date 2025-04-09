@@ -47,9 +47,22 @@ void Track_Follow()
     {
         Star_Time = System_Time;
     }
+
     if(Track_Points_NUM == Task1_Start_Point || Track_Points_NUM == Task2_Start_Point || Track_Points_NUM == Task3_Start_Point)
     {
         Angle_Error = -K_Straight * angle[2];
+    }
+    else if(Track_Points_NUM == Task1_Start_Point + Task1_Points)
+    {
+        Angle_Error = 0;
+    }
+    else if(Track_Points_NUM == Task2_Start_Point + Task2_Points)
+    {
+        Angle_Error = 0;
+    }
+    else if(Track_Points_NUM == Task3_Start_Point + Task3_Points)
+    {
+        Angle_Error = 0;
     }
     else
     {
@@ -101,12 +114,13 @@ void Point_Switch()
                 {
                     Servo_Set(SERVO_MOTOR_RMAX);
                     #if MOTOR_LOOP_ENABLE == 0
-                    
                         #if BLDC_ENABLE
                             BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
                         #else
                             DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
                         #endif
+                    #else
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -125,6 +139,8 @@ void Point_Switch()
                         #else
                             DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
                         #endif
+                    #else
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -151,6 +167,8 @@ void Point_Switch()
                         #else
                             DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
                         #endif
+                    #else
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -169,6 +187,8 @@ void Point_Switch()
                         #else
                             DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
                         #endif
+                    #else
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -195,6 +215,8 @@ void Point_Switch()
                         #else
                             DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
                         #endif
+                    #else
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -213,6 +235,8 @@ void Point_Switch()
                         #else
                             DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
                         #endif
+                    #else
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
