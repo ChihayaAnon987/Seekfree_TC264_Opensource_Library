@@ -21,6 +21,7 @@ int    Point0         = 0;    // 菜单点位
 int    Point1         = 0;
 int    Point2         = 0;
 int    Point3         = 0;
+int    Point4         = 0;
 int8   Map_Flag       = 1;
 int    Task_Point_Set = 1;
 int16  Task_Flag      = 0;
@@ -35,7 +36,7 @@ seekfree_assistant_oscilloscope_struct oscilloscope_data;
 gui_menu_enum func_index = 0;
 
 
-menu_table table[33]=
+menu_table table[38]=
 {
     // current, up, down, back, enter
 
@@ -90,11 +91,16 @@ menu_table table[33]=
 
     // 菜单10
     {enum_first_menu10, enum_first_menu09, enum_first_menu11, enum_first_menu10, enum_secon_menu13, main_menu10},       // 参数设置一层
-    {enum_secon_menu13, enum_secon_menu13, enum_secon_menu13, enum_first_menu10, enum_secon_menu13, Param_Set},         // 参数设置二层
-    
+    {enum_secon_menu13, enum_secon_menu15, enum_secon_menu14, enum_first_menu10, enum_third_menu06, LoopEnable_Param},  // 闭环参数设置二层
+    {enum_secon_menu14, enum_secon_menu13, enum_secon_menu15, enum_first_menu10, enum_third_menu07, LoopDisable_Param}, // 开环参数设置二层
+    {enum_secon_menu15, enum_secon_menu14, enum_secon_menu13, enum_first_menu10, enum_third_menu08, Param_Set},         // 其他参数设置二层
+    {enum_third_menu06, enum_third_menu06, enum_third_menu06, enum_secon_menu13, enum_third_menu06, LoopEnable_menu},   // 闭环参数设置三层
+    {enum_third_menu07, enum_third_menu07, enum_third_menu07, enum_secon_menu14, enum_third_menu07, LoopDisable_menu},  // 闭环参数设置三层
+    {enum_third_menu08, enum_third_menu08, enum_third_menu08, enum_secon_menu15, enum_third_menu08, Param_Set_menu},    // 闭环参数设置三层
+
     // 菜单11
-    {enum_first_menu11, enum_first_menu10, enum_first_menu00, enum_first_menu11, enum_secon_menu14, main_menu11},       // 任务选择一层
-    {enum_secon_menu14, enum_secon_menu14, enum_secon_menu14, enum_first_menu11, enum_secon_menu14, Task_Select}        // 任务选择二层
+    {enum_first_menu11, enum_first_menu10, enum_first_menu00, enum_first_menu11, enum_secon_menu16, main_menu11},       // 任务选择一层
+    {enum_secon_menu16, enum_secon_menu16, enum_secon_menu16, enum_first_menu11, enum_secon_menu16, Task_Select}        // 任务选择二层
 };
 
 /////////////////////////////////一层菜单-------------------------------------------------
@@ -784,82 +790,26 @@ void Servo_menu()
     ips200_show_uint(   96, 16 * 5, Servo_Angle, 3);
 }
 
-void Param_Set()
+void LoopEnable_Param()
 {
-    int Page = Point2 / Page_Point_Num;
-    int RightArrow = Point2 % Page_Point_Num;
-    ips200_show_string(0, 16 * RightArrow, "-->");
-    if(Page == 0)
-    {
-        ips200_show_string( 24, 16 * 0, "Fly_Slope_Alpha:");
-        ips200_show_string( 24, 16 * 1, "K_Straight     :");
-        ips200_show_string( 24, 16 * 2, "2000DutyServoKp:");
-        ips200_show_string( 24, 16 * 3, "2000DutyServoKd:");
-        ips200_show_string( 24, 16 * 4, "3000DutyServoKp:");
-        ips200_show_string( 24, 16 * 5, "3000DutyServoKd:");
-        ips200_show_string( 24, 16 * 6, "4500DutyServoKp:");
-        ips200_show_string( 24, 16 * 7, "4500DutyServoKd:");
-        ips200_show_int(   152, 16 * 0, Fly_Slope_Alpha, 4);
-        ips200_show_float( 152, 16 * 1, K_Straight, 1, 3);
-        ips200_show_float( 152, 16 * 2, From_0000_To_2000_ServoPD.Kp, 1, 2);
-        ips200_show_float( 152, 16 * 3, From_0000_To_2000_ServoPD.Kd, 1, 2);
-        ips200_show_float( 152, 16 * 4, From_2000_To_4000_ServoPD.Kp, 1, 2);
-        ips200_show_float( 152, 16 * 5, From_2000_To_4000_ServoPD.Kd, 1, 2);
-        ips200_show_float( 152, 16 * 6, From_4000_To_5000_ServoPD.Kp, 1, 2);
-        ips200_show_float( 152, 16 * 7, From_4000_To_5000_ServoPD.Kd, 1, 2);
-    }
-    if(Page == 1)
-    {
-        ips200_show_string( 24, 16 * 0, "5500DutyServoKp:");
-        ips200_show_string( 24, 16 * 1, "5500DutyServoKd:");
-        ips200_show_string( 24, 16 * 2, "6500DutyServoKp:");
-        ips200_show_string( 24, 16 * 3, "6500DutyServoKd:");
-        ips200_show_string( 24, 16 * 4, "7500DutyServoKp:");
-        ips200_show_string( 24, 16 * 5, "7500DutyServoKd:");
-        ips200_show_string( 24, 16 * 6, "8500DutyServoKp:");
-        ips200_show_string( 24, 16 * 7, "8500DutyServoKd:");
-        ips200_show_float( 152, 16 * 0, From_5000_To_6000_ServoPD.Kp, 1, 2);
-        ips200_show_float( 152, 16 * 1, From_5000_To_6000_ServoPD.Kd, 1, 2);
-        ips200_show_float( 152, 16 * 2, From_6000_To_7000_ServoPD.Kp, 1, 2);
-        ips200_show_float( 152, 16 * 3, From_6000_To_7000_ServoPD.Kd, 1, 2);
-        ips200_show_float( 152, 16 * 4, From_7000_To_8000_ServoPD.Kp, 1, 2);
-        ips200_show_float( 152, 16 * 5, From_7000_To_8000_ServoPD.Kd, 1, 2);
-        ips200_show_float( 152, 16 * 6, From_8000_To_9000_ServoPD.Kp, 1, 2);
-        ips200_show_float( 152, 16 * 7, From_8000_To_9000_ServoPD.Kd, 1, 2);
-    }
-    if(Page == 2)
-    {
-        ips200_show_string( 24, 16 * 0, "9500DutyServoKp:");
-        ips200_show_string( 24, 16 * 1, "9500DutyServoKd:");
-        ips200_show_string( 24, 16 * 2, "Task2_Scales:");
-        ips200_show_string( 24, 16 * 3, "Advan_Scales:");
-        ips200_show_string( 24, 16 * 4, "Turn_Point:");
-        ips200_show_string( 24, 16 * 5, "Delay_Time2:");
-        ips200_show_float( 152, 16 * 0, From_9000_To_9900_ServoPD.Kp, 1, 2);
-        ips200_show_float( 152, 16 * 1, From_9000_To_9900_ServoPD.Kd, 1, 2);
-        ips200_show_int(   128, 16 * 2, Task2_Scales, 3);
-        ips200_show_int(   128, 16 * 3, Advan_Scales, 3);
-        ips200_show_int(   120, 16 * 4, Turn_Point  , 3);
-    }
-
-    if(Point2 == 0)
-    {
-        ips200_show_string(  0, 16 *  9, "KEY1:Up");
-        ips200_show_string(  0, 16 * 10, "KEY2:Down");
-        ips200_show_string(120, 16 *  9, "KEY3:K+100");
-        ips200_show_string(120, 16 * 10, "KEY4:K-100");
-    }
-    else
-    {
-        ips200_show_string(  0, 16 *  9, "KEY1:Up");
-        ips200_show_string(  0, 16 * 10, "KEY2:Down");
-        ips200_show_string(120, 16 *  9, "KEY3:K+0.01");
-        ips200_show_string(120, 16 * 10, "KEY4:K-0.01");
-    }
-
-
+    ips200_show_string( 0, 16 * 0, "-->LoopEnablePar");
+    ips200_show_string( 0, 16 * 1, "   LoopDisablePa");
+    ips200_show_string( 0, 16 * 2, "   OtherParamSet");
 }
 
+void LoopDisable_Param()
+{
+    ips200_show_string( 0, 16 * 0, "   LoopEnablePar");
+    ips200_show_string( 0, 16 * 1, "-->LoopDisablePa");
+    ips200_show_string( 0, 16 * 2, "   OtherParamSet");
+}
+
+void Param_Set()
+{
+    ips200_show_string( 0, 16 * 0, "   LoopEnablePar");
+    ips200_show_string( 0, 16 * 1, "   LoopDisablePa");
+    ips200_show_string( 0, 16 * 2, "-->OtherParamSet");
+}
 
 void Task_Select()
 {
@@ -1099,7 +1049,146 @@ void MotorD_menu(void)
 #endif
 }
 
+void LoopEnable_menu()
+{
+    int8 Page = Point2 / Page_Point_Num;
+    int8 RightArrow = Point2 % Page_Point_Num;
+    ips200_show_string(0, 16 * RightArrow, "-->");
+    if(Page == 0)
+    {
+        ips200_show_string( 24, 16 * 0, "0100EncoderKp:");
+        ips200_show_string( 24, 16 * 1, "0100EncoderKd:");
+        ips200_show_string( 24, 16 * 2, "0200EncoderKp:");
+        ips200_show_string( 24, 16 * 3, "0200EncoderKd:");
+        ips200_show_string( 24, 16 * 4, "0300EncoderKp:");
+        ips200_show_string( 24, 16 * 5, "0300EncoderKd:");
+        ips200_show_string( 24, 16 * 6, "0400EncoderKp:");
+        ips200_show_string( 24, 16 * 7, "0400EncoderKd:");
+        ips200_show_float( 136, 16 * 0, Encoder0100_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 1, Encoder0100_ServoPD.Kd, 1, 2);
+        ips200_show_float( 136, 16 * 2, Encoder0200_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 3, Encoder0200_ServoPD.Kd, 1, 2);
+        ips200_show_float( 136, 16 * 4, Encoder0300_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 5, Encoder0300_ServoPD.Kd, 1, 2);
+        ips200_show_float( 136, 16 * 6, Encoder0400_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 7, Encoder0400_ServoPD.Kd, 1, 2);
+    }
+    if(Page == 1)
+    {
+        ips200_show_string( 24, 16 * 0, "0500EncoderKp:");
+        ips200_show_string( 24, 16 * 1, "0500EncoderKd:");
+        ips200_show_string( 24, 16 * 2, "0600EncoderKp:");
+        ips200_show_string( 24, 16 * 3, "0600EncoderKd:");
+        ips200_show_string( 24, 16 * 4, "0700EncoderKp:");
+        ips200_show_string( 24, 16 * 5, "0700EncoderKd:");
+        ips200_show_string( 24, 16 * 6, "0800EncoderKp:");
+        ips200_show_string( 24, 16 * 7, "0800EncoderKd:");
+        ips200_show_float( 136, 16 * 0, Encoder0500_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 1, Encoder0500_ServoPD.Kd, 1, 2);
+        ips200_show_float( 136, 16 * 2, Encoder0600_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 3, Encoder0600_ServoPD.Kd, 1, 2);
+        ips200_show_float( 136, 16 * 4, Encoder0700_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 5, Encoder0700_ServoPD.Kd, 1, 2);
+        ips200_show_float( 136, 16 * 6, Encoder0800_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 7, Encoder0800_ServoPD.Kd, 1, 2);
+    }
+    if(Page == 2)
+    {
+        ips200_show_string( 24, 16 * 0, "0900EncoderKp:");
+        ips200_show_string( 24, 16 * 1, "0900EncoderKd:");
+        ips200_show_string( 24, 16 * 2, "1000EncoderKp:");
+        ips200_show_string( 24, 16 * 3, "1000EncoderKd:");
+        ips200_show_string( 24, 16 * 4, "1100EncoderKp:");
+        ips200_show_string( 24, 16 * 5, "1100EncoderKd:");
+        ips200_show_string( 24, 16 * 6, "1200EncoderKp:");
+        ips200_show_string( 24, 16 * 7, "1200EncoderKd:");
+        ips200_show_float( 136, 16 * 0, Encoder0900_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 1, Encoder0900_ServoPD.Kd, 1, 2);
+        ips200_show_float( 136, 16 * 2, Encoder1000_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 3, Encoder1000_ServoPD.Kd, 1, 2);
+        ips200_show_float( 136, 16 * 4, Encoder1100_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 5, Encoder1100_ServoPD.Kd, 1, 2);
+        ips200_show_float( 136, 16 * 6, Encoder1200_ServoPD.Kp, 1, 2);
+        ips200_show_float( 136, 16 * 7, Encoder1200_ServoPD.Kd, 1, 2);
+    }
+    ips200_show_string(  0, 16 *  9, "KEY1:Up");
+    ips200_show_string(  0, 16 * 10, "KEY2:Down");
+    ips200_show_string(120, 16 *  9, "KEY3:+0.01");
+    ips200_show_string(120, 16 * 10, "KEY4:-0.01");
+}
 
+void LoopDisable_menu()
+{
+    int8 Page = Point3 / Page_Point_Num;
+    int8 RightArrow = Point3 % Page_Point_Num;
+    ips200_show_string(0, 16 * RightArrow, "-->");
+    if(Page == 0)
+    {
+        ips200_show_string( 24, 16 * 0, "2000DutyServoKp:");
+        ips200_show_string( 24, 16 * 1, "2000DutyServoKd:");
+        ips200_show_string( 24, 16 * 2, "3000DutyServoKp:");
+        ips200_show_string( 24, 16 * 3, "3000DutyServoKd:");
+        ips200_show_string( 24, 16 * 4, "4500DutyServoKp:");
+        ips200_show_string( 24, 16 * 5, "4500DutyServoKd:");
+        ips200_show_string( 24, 16 * 6, "5500DutyServoKp:");
+        ips200_show_string( 24, 16 * 7, "5500DutyServoKd:");
+        ips200_show_float( 152, 16 * 0, From_0000_To_2000_ServoPD.Kp, 1, 2);
+        ips200_show_float( 152, 16 * 1, From_0000_To_2000_ServoPD.Kd, 1, 2);
+        ips200_show_float( 152, 16 * 2, From_2000_To_4000_ServoPD.Kp, 1, 2);
+        ips200_show_float( 152, 16 * 3, From_2000_To_4000_ServoPD.Kd, 1, 2);
+        ips200_show_float( 152, 16 * 4, From_4000_To_5000_ServoPD.Kp, 1, 2);
+        ips200_show_float( 152, 16 * 5, From_4000_To_5000_ServoPD.Kd, 1, 2);
+        ips200_show_float( 152, 16 * 6, From_5000_To_6000_ServoPD.Kp, 1, 2);
+        ips200_show_float( 152, 16 * 7, From_5000_To_6000_ServoPD.Kd, 1, 2);
+    }
+    if(Page == 1)
+    {
+        ips200_show_string( 24, 16 * 0, "6500DutyServoKp:");
+        ips200_show_string( 24, 16 * 1, "6500DutyServoKd:");
+        ips200_show_string( 24, 16 * 2, "7500DutyServoKp:");
+        ips200_show_string( 24, 16 * 3, "7500DutyServoKd:");
+        ips200_show_string( 24, 16 * 4, "8500DutyServoKp:");
+        ips200_show_string( 24, 16 * 5, "8500DutyServoKd:");
+        ips200_show_string( 24, 16 * 6, "9500DutyServoKp:");
+        ips200_show_string( 24, 16 * 7, "9500DutyServoKd:");
+        ips200_show_float( 152, 16 * 0, From_6000_To_7000_ServoPD.Kp, 1, 2);
+        ips200_show_float( 152, 16 * 1, From_6000_To_7000_ServoPD.Kd, 1, 2);
+        ips200_show_float( 152, 16 * 2, From_7000_To_8000_ServoPD.Kp, 1, 2);
+        ips200_show_float( 152, 16 * 3, From_7000_To_8000_ServoPD.Kd, 1, 2);
+        ips200_show_float( 152, 16 * 4, From_8000_To_9000_ServoPD.Kp, 1, 2);
+        ips200_show_float( 152, 16 * 5, From_8000_To_9000_ServoPD.Kd, 1, 2);
+        ips200_show_float( 152, 16 * 6, From_9000_To_9900_ServoPD.Kp, 1, 2);
+        ips200_show_float( 152, 16 * 7, From_9000_To_9900_ServoPD.Kd, 1, 2);
+    }
+    ips200_show_string(  0, 16 *  9, "KEY1:Up");
+    ips200_show_string(  0, 16 * 10, "KEY2:Down");
+    ips200_show_string(120, 16 *  9, "KEY3:+0.01");
+    ips200_show_string(120, 16 * 10, "KEY4:-0.01");
+}
+
+void Param_Set_menu()
+{
+    int8 Page = Point4 / Page_Point_Num;
+    int8 RightArrow = Point4 % Page_Point_Num;
+    ips200_show_string(0, 16 * RightArrow, "-->");
+    if(Page == 0)
+    {
+        ips200_show_string( 24, 16 * 0, "Fly_Slope_Alpha:");
+        ips200_show_string( 24, 16 * 1, "K_Straight     :");
+        ips200_show_string( 24, 16 * 2, "Task2_Scales:");
+        ips200_show_string( 24, 16 * 3, "Advan_Scales:");
+        ips200_show_string( 24, 16 * 4, "Turn_Point:");
+        ips200_show_int(   152, 16 * 0, Fly_Slope_Alpha, 4);
+        ips200_show_float( 152, 16 * 1, K_Straight, 1, 3);
+        ips200_show_int(   128, 16 * 2, Task2_Scales, 3);
+        ips200_show_int(   128, 16 * 3, Advan_Scales, 3);
+        ips200_show_int(   120, 16 * 4, Turn_Point  , 3);
+    }
+    ips200_show_string(  0, 16 *  9, "KEY1:Up");
+    ips200_show_string(  0, 16 * 10, "KEY2:Down");
+    ips200_show_string(120, 16 *  9, "KEY3:K+0.01");
+    ips200_show_string(120, 16 * 10, "KEY4:K-0.01");
+}
 
 void Key_Ctrl_Menu()
 {
@@ -1669,7 +1758,7 @@ void Key_Ctrl_Menu()
             }
         }
 
-        if(func_index == enum_secon_menu13)
+        if(func_index == enum_third_menu06)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -1681,7 +1770,7 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                if(Point2 < 100)
+                if(Point2 < 23)
                 {
                     Point2 = Point2 + 1;
                     ips200_clear();
@@ -1691,174 +1780,198 @@ void Key_Ctrl_Menu()
             {
                 if(Point2 == 0)
                 {
-                    Fly_Slope_Alpha += 100;
+                    Encoder0100_ServoPD.Kp += 0.01;
                 }
                 if(Point2 == 1)
                 {
-                    K_Straight += 0.01;
+                    Encoder0100_ServoPD.Kd += 0.01;
                 }
                 if(Point2 == 2)
                 {
-                    From_0000_To_2000_ServoPD.Kp += 0.01;
+                    Encoder0200_ServoPD.Kp += 0.01;
                 }
                 if(Point2 == 3)
                 {
-                    From_0000_To_2000_ServoPD.Kd += 0.01;
+                    Encoder0200_ServoPD.Kd += 0.01;
                 }
                 if(Point2 == 4)
                 {
-                    From_2000_To_4000_ServoPD.Kp += 0.01;
+                    Encoder0300_ServoPD.Kp += 0.01;
                 }
                 if(Point2 == 5)
                 {
-                    From_2000_To_4000_ServoPD.Kd += 0.01;
+                    Encoder0300_ServoPD.Kd += 0.01;
                 }
                 if(Point2 == 6)
                 {
-                    From_4000_To_5000_ServoPD.Kp += 0.01;
+                    Encoder0400_ServoPD.Kp += 0.01;
                 }
                 if(Point2 == 7)
                 {
-                    From_4000_To_5000_ServoPD.Kd += 0.01;
+                    Encoder0400_ServoPD.Kd += 0.01;
                 }
                 if(Point2 == 8)
                 {
-                    From_5000_To_6000_ServoPD.Kp += 0.01;
+                    Encoder0500_ServoPD.Kp += 0.01;
                 }
                 if(Point2 == 9)
                 {
-                    From_5000_To_6000_ServoPD.Kd += 0.01;
+                    Encoder0500_ServoPD.Kd += 0.01;
                 }
                 if(Point2 == 10)
                 {
-                    From_6000_To_7000_ServoPD.Kp += 0.01;
+                    Encoder0600_ServoPD.Kp += 0.01;
                 }
                 if(Point2 == 11)
                 {
-                    From_6000_To_7000_ServoPD.Kd += 0.01;
+                    Encoder0600_ServoPD.Kd += 0.01;
                 }
                 if(Point2 == 12)
                 {
-                    From_7000_To_8000_ServoPD.Kp += 0.01;
+                    Encoder0700_ServoPD.Kp += 0.01;
                 }
                 if(Point2 == 13)
                 {
-                    From_7000_To_8000_ServoPD.Kd += 0.01;
+                    Encoder0700_ServoPD.Kd += 0.01;
                 }
                 if(Point2 == 14)
                 {
-                    From_8000_To_9000_ServoPD.Kp += 0.01;
+                    Encoder0800_ServoPD.Kp += 0.01;
                 }
                 if(Point2 == 15)
                 {
-                    From_8000_To_9000_ServoPD.Kd += 0.01;
+                    Encoder0800_ServoPD.Kd += 0.01;
                 }
                 if(Point2 == 16)
                 {
-                    From_9000_To_9900_ServoPD.Kp += 0.01;
+                    Encoder0900_ServoPD.Kp += 0.01;
                 }
                 if(Point2 == 17)
                 {
-                    From_9000_To_9900_ServoPD.Kd += 0.01;
+                    Encoder0900_ServoPD.Kd += 0.01;
                 }
                 if(Point2 == 18)
                 {
-                    Task2_Scales += 1;
+                    Encoder1000_ServoPD.Kp += 0.01;
                 }
                 if(Point2 == 19)
                 {
-                    Advan_Scales += 1;
+                    Encoder1000_ServoPD.Kd += 0.01;
                 }
                 if(Point2 == 20)
                 {
-                    Turn_Point += 1;
+                    Encoder1100_ServoPD.Kp += 0.01;
+                }
+                if(Point2 == 21)
+                {
+                    Encoder1100_ServoPD.Kd += 0.01;
+                }
+                if(Point2 == 22)
+                {
+                    Encoder1200_ServoPD.Kp += 0.01;
+                }
+                if(Point2 == 23)
+                {
+                    Encoder1200_ServoPD.Kd += 0.01;
                 }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
                 if(Point2 == 0)
                 {
-                    Fly_Slope_Alpha -= 100;
+                    Encoder0100_ServoPD.Kp -= 0.01;
                 }
                 if(Point2 == 1)
                 {
-                    K_Straight -= 0.01;
+                    Encoder0100_ServoPD.Kd -= 0.01;
                 }
                 if(Point2 == 2)
                 {
-                    From_0000_To_2000_ServoPD.Kp -= 0.01;
+                    Encoder0200_ServoPD.Kp -= 0.01;
                 }
                 if(Point2 == 3)
                 {
-                    From_0000_To_2000_ServoPD.Kd -= 0.01;
+                    Encoder0200_ServoPD.Kd -= 0.01;
                 }
                 if(Point2 == 4)
                 {
-                    From_2000_To_4000_ServoPD.Kp -= 0.01;
+                    Encoder0300_ServoPD.Kp -= 0.01;
                 }
                 if(Point2 == 5)
                 {
-                    From_2000_To_4000_ServoPD.Kd -= 0.01;
+                    Encoder0300_ServoPD.Kd -= 0.01;
                 }
                 if(Point2 == 6)
                 {
-                    From_4000_To_5000_ServoPD.Kp -= 0.01;
+                    Encoder0400_ServoPD.Kp -= 0.01;
                 }
                 if(Point2 == 7)
                 {
-                    From_4000_To_5000_ServoPD.Kd -= 0.01;
+                    Encoder0400_ServoPD.Kd -= 0.01;
                 }
                 if(Point2 == 8)
                 {
-                    From_5000_To_6000_ServoPD.Kp -= 0.01;
+                    Encoder0500_ServoPD.Kp -= 0.01;
                 }
                 if(Point2 == 9)
                 {
-                    From_5000_To_6000_ServoPD.Kd -= 0.01;
+                    Encoder0500_ServoPD.Kd -= 0.01;
                 }
                 if(Point2 == 10)
                 {
-                    From_6000_To_7000_ServoPD.Kp -= 0.01;
+                    Encoder0600_ServoPD.Kp -= 0.01;
                 }
                 if(Point2 == 11)
                 {
-                    From_6000_To_7000_ServoPD.Kd -= 0.01;
+                    Encoder0600_ServoPD.Kd -= 0.01;
                 }
                 if(Point2 == 12)
                 {
-                    From_7000_To_8000_ServoPD.Kp -= 0.01;
+                    Encoder0700_ServoPD.Kp -= 0.01;
                 }
                 if(Point2 == 13)
                 {
-                    From_7000_To_8000_ServoPD.Kd -= 0.01;
+                    Encoder0700_ServoPD.Kd -= 0.01;
                 }
                 if(Point2 == 14)
                 {
-                    From_8000_To_9000_ServoPD.Kp -= 0.01;
+                    Encoder0800_ServoPD.Kp -= 0.01;
                 }
                 if(Point2 == 15)
                 {
-                    From_8000_To_9000_ServoPD.Kd -= 0.01;
+                    Encoder0800_ServoPD.Kd -= 0.01;
                 }
                 if(Point2 == 16)
                 {
-                    From_9000_To_9900_ServoPD.Kp -= 0.01;
+                    Encoder0900_ServoPD.Kp -= 0.01;
                 }
                 if(Point2 == 17)
                 {
-                    From_9000_To_9900_ServoPD.Kd -= 0.01;
+                    Encoder0900_ServoPD.Kd -= 0.01;
                 }
                 if(Point2 == 18)
                 {
-                    Task2_Scales -= 1;
+                    Encoder1000_ServoPD.Kp -= 0.01;
                 }
                 if(Point2 == 19)
                 {
-                    Advan_Scales -= 1;
+                    Encoder1000_ServoPD.Kd -= 0.01;
                 }
                 if(Point2 == 20)
                 {
-                    Turn_Point -= 1;
+                    Encoder1100_ServoPD.Kp -= 0.01;
+                }
+                if(Point2 == 21)
+                {
+                    Encoder1100_ServoPD.Kd -= 0.01;
+                }
+                if(Point2 == 22)
+                {
+                    Encoder1200_ServoPD.Kp -= 0.01;
+                }
+                if(Point2 == 23)
+                {
+                    Encoder1200_ServoPD.Kd -= 0.01;
                 }
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)
@@ -1871,7 +1984,227 @@ void Key_Ctrl_Menu()
             }
         }
 
-        if(func_index == enum_secon_menu14)
+        if(func_index == enum_third_menu07)
+        {
+            if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
+            {
+                if(Point3 > 0)
+                {
+                    Point3 = Point3 - 1;
+                    ips200_clear();
+                }
+            }
+            if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
+            {
+                if(Point3 < 15)
+                {
+                    Point3 = Point3 + 1;
+                    ips200_clear();
+                }
+            }
+            if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
+            {
+                if(Point3 == 0)
+                {
+                    From_0000_To_2000_ServoPD.Kp += 0.01;
+                }
+                if(Point3 == 1)
+                {
+                    From_0000_To_2000_ServoPD.Kd += 0.01;
+                }
+                if(Point3 == 2)
+                {
+                    From_2000_To_4000_ServoPD.Kp += 0.01;
+                }
+                if(Point3 == 3)
+                {
+                    From_2000_To_4000_ServoPD.Kd += 0.01;
+                }
+                if(Point3 == 4)
+                {
+                    From_4000_To_5000_ServoPD.Kp += 0.01;
+                }
+                if(Point3 == 5)
+                {
+                    From_4000_To_5000_ServoPD.Kd += 0.01;
+                }
+                if(Point3 == 6)
+                {
+                    From_5000_To_6000_ServoPD.Kp += 0.01;
+                }
+                if(Point3 == 7)
+                {
+                    From_5000_To_6000_ServoPD.Kd += 0.01;
+                }
+                if(Point3 == 8)
+                {
+                    From_6000_To_7000_ServoPD.Kp += 0.01;
+                }
+                if(Point3 == 9)
+                {
+                    From_6000_To_7000_ServoPD.Kd += 0.01;
+                }
+                if(Point3 == 10)
+                {
+                    From_7000_To_8000_ServoPD.Kp += 0.01;
+                }
+                if(Point3 == 11)
+                {
+                    From_7000_To_8000_ServoPD.Kd += 0.01;
+                }
+                if(Point3 == 12)
+                {
+                    From_8000_To_9000_ServoPD.Kp += 0.01;
+                }
+                if(Point3 == 13)
+                {
+                    From_8000_To_9000_ServoPD.Kd += 0.01;
+                }
+                if(Point3 == 14)
+                {
+                    From_9000_To_9900_ServoPD.Kp += 0.01;
+                }
+                if(Point3 == 15)
+                {
+                    From_9000_To_9900_ServoPD.Kd += 0.01;
+                }
+            }
+            if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
+            {
+                if(Point3 == 0)
+                {
+                    From_0000_To_2000_ServoPD.Kp -= 0.01;
+                }
+                if(Point3 == 1)
+                {
+                    From_0000_To_2000_ServoPD.Kd -= 0.01;
+                }
+                if(Point3 == 2)
+                {
+                    From_2000_To_4000_ServoPD.Kp -= 0.01;
+                }
+                if(Point3 == 3)
+                {
+                    From_2000_To_4000_ServoPD.Kd -= 0.01;
+                }
+                if(Point3 == 4)
+                {
+                    From_4000_To_5000_ServoPD.Kp -= 0.01;
+                }
+                if(Point3 == 5)
+                {
+                    From_4000_To_5000_ServoPD.Kd -= 0.01;
+                }
+                if(Point3 == 6)
+                {
+                    From_5000_To_6000_ServoPD.Kp -= 0.01;
+                }
+                if(Point3 == 7)
+                {
+                    From_5000_To_6000_ServoPD.Kd -= 0.01;
+                }
+                if(Point3 == 8)
+                {
+                    From_6000_To_7000_ServoPD.Kp -= 0.01;
+                }
+                if(Point3 == 9)
+                {
+                    From_6000_To_7000_ServoPD.Kd -= 0.01;
+                }
+                if(Point3 == 10)
+                {
+                    From_7000_To_8000_ServoPD.Kp -= 0.01;
+                }
+                if(Point3 == 11)
+                {
+                    From_7000_To_8000_ServoPD.Kd -= 0.01;
+                }
+                if(Point3 == 12)
+                {
+                    From_8000_To_9000_ServoPD.Kp -= 0.01;
+                }
+                if(Point3 == 13)
+                {
+                    From_8000_To_9000_ServoPD.Kd -= 0.01;
+                }
+                if(Point3 == 14)
+                {
+                    From_9000_To_9900_ServoPD.Kp -= 0.01;
+                }
+                if(Point3 == 15)
+                {
+                    From_9000_To_9900_ServoPD.Kd -= 0.01;
+                }
+            }
+        }
+
+        if(func_index == enum_third_menu08)
+        {
+            if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
+            {
+                if(Point4 > 0)
+                {
+                    Point4 = Point4 - 1;
+                    ips200_clear();
+                }
+            }
+            if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
+            {
+                if(Point4 < 5)
+                {
+                    Point4 = Point4 + 1;
+                    ips200_clear();
+                }
+            }
+            if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
+            {
+                if(Point4 == 0)
+                {
+                    Fly_Slope_Alpha += 100;
+                }
+                if(Point4 == 1)
+                {
+                    K_Straight += 0.1;
+                }
+                if(Point4 == 2)
+                {
+                    Task2_Scales += 1;
+                }
+                if(Point4 == 3)
+                {
+                    Advan_Scales += 1;
+                }
+                if(Point4 == 4)
+                {
+                    Turn_Point += 1;
+                }
+            }
+            if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
+            {
+                if(Point4 == 0)
+                {
+                    Fly_Slope_Alpha -= 100;
+                }
+                if(Point4 == 1)
+                {
+                    K_Straight -= 0.1;
+                }
+                if(Point4 == 2)
+                {
+                    Task2_Scales -= 1;
+                }
+                if(Point4 == 3)
+                {
+                    Advan_Scales -= 1;
+                }
+                if(Point4 == 4)
+                {
+                    Turn_Point -= 1;
+                }
+            }
+        }
+        
+        if(func_index == enum_secon_menu16)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {

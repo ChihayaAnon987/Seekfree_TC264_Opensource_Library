@@ -57,10 +57,15 @@ typedef enum
     enum_secon_menu12,                                         // 二级菜单12, 舵机
 
     enum_first_menu10,                                         // 一级菜单10, ParamSet
-    enum_secon_menu13,                                         // 二级菜单13, 参数设置
+    enum_secon_menu13,                                         // 二级菜单13, 闭环参数
+    enum_secon_menu14,                                         // 二级菜单14，开环参数
+    enum_secon_menu15,                                         // 二级菜单15，其他参数
+    enum_third_menu06,                                         // 三级菜单06, 闭环参数
+    enum_third_menu07,                                         // 三级菜单07, 开环参数
+    enum_third_menu08,                                         // 三级菜单08, 其他参数
 
     enum_first_menu11,                                         // 一级菜单11, TaskSelect
-    enum_secon_menu14,                                         // 二级菜单14, 任务选择
+    enum_secon_menu16,                                         // 二级菜单16, 任务选择
 }gui_menu_enum;
 //===================================================枚举定义END===================================================
 
@@ -131,7 +136,9 @@ void ZongZuanF(void);                                          // 菜单：总钻风
 void Imu963_menu(void);                                        // 菜单：IMU963
 void Flash_menu(void);                                         // 菜单：Flash
 void Servo_menu(void);                                         // 菜单：舵机
-void Param_Set(void);                                          // 菜单：参数设置
+void LoopEnable_Param(void);                                   // 菜单：闭环参数
+void LoopDisable_Param(void);                                  // 菜单：开环参数
+void Param_Set(void);                                          // 菜单：其他参数
 void Task_Select(void);                                        // 菜单：任务选择
 //===================================================二级菜单END===================================================
 
@@ -143,6 +150,9 @@ void ServoD_menu(void);                                        // 菜单：ServoD
 void MotorP_menu(void);                                        // 菜单：MotorP
 void MotorI_menu(void);                                        // 菜单：MotorI
 void MotorD_menu(void);                                        // 菜单：MotorD
+void LoopEnable_menu(void);                                    // 菜单：闭环参数
+void LoopDisable_menu(void);                                   // 菜单：开环参数
+void Param_Set_menu(void);                                     // 菜单：其他参数
 //===================================================三级菜单END===================================================
 
 

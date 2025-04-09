@@ -23,10 +23,12 @@ void RemoteCtrl_Program()
 {
     if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
     {
-        #if BLDC_ENABLE
-            BLDC_Ctrl(0);
-        #else
-            DRV8701_MOTOR_DRIVER(0);
+        #if MOTOR_LOOP_ENABLE == 0
+            #if BLDC_ENABLE
+                BLDC_Ctrl(0);
+            #else
+                DRV8701_MOTOR_DRIVER(0);
+            #endif
         #endif
     }
     else

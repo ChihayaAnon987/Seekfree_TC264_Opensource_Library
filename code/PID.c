@@ -21,6 +21,18 @@ ServoPD From_6000_To_7000_ServoPD = {0.47, 0.53};   // 用65%占空比作为参考，含左
 ServoPD From_7000_To_8000_ServoPD = {0.28, 0.68};   // 用75%占空比作为参考，含左不含右
 ServoPD From_8000_To_9000_ServoPD = {0.40, 0.75};   // 用85%占空比作为参考，含左不含右
 ServoPD From_9000_To_9900_ServoPD = {0.40, 0.40};   // 用95%占空比作为参考，含左且含右
+ServoPD Encoder0100_ServoPD       = {1.75, 0.75};   // [0   , 150 )
+ServoPD Encoder0200_ServoPD       = {1.10, 0.55};   // [150 , 250 )
+ServoPD Encoder0300_ServoPD       = {0.85, 0.40};   // [250 , 350 )
+ServoPD Encoder0400_ServoPD       = {0.85, 0.40};   // [350 , 450 )
+ServoPD Encoder0500_ServoPD       = {0.86, 0.41};   // [450 , 550 )
+ServoPD Encoder0600_ServoPD       = {0.86, 0.41};   // [550 , 650 )
+ServoPD Encoder0700_ServoPD       = {0.86, 0.41};   // [650 , 750 )
+ServoPD Encoder0800_ServoPD       = {0.86, 0.41};   // [750 , 850 )
+ServoPD Encoder0900_ServoPD       = {0.86, 0.41};   // [850 , 950 )
+ServoPD Encoder1000_ServoPD       = {0.86, 0.41};   // [950 , 1050)
+ServoPD Encoder1100_ServoPD       = {0.86, 0.41};   // [1050, 1150)
+ServoPD Encoder1200_ServoPD       = {0.86, 0.41};   // [1150, 1250)
 
 /****************************************************************************************************
 //  @brief      限制范围
@@ -106,50 +118,70 @@ void PDLocServoCtrl()
     PID_SERVO.current_error = Angle_Error;
     PID_SERVO.derivative    = PID_SERVO.current_error - PID_SERVO.last_error;
     #if MOTOR_LOOP_ENABLE
-        if(PID_MOTOR.output >= 0 && PID_MOTOR.output <= 2000)
+        if(Target_Encoder >= 0 && Target_Encoder < 150)
         {
-            PID_SERVO.output = From_0000_To_2000_ServoPD.Kp * PID_SERVO.current_error +
-            From_0000_To_2000_ServoPD.Kd * PID_SERVO.derivative;
+            PID_SERVO.output = Encoder0100_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder0100_ServoPD.Kd * PID_SERVO.derivative;
         }
-        else if(PID_MOTOR.output > 2000 && PID_MOTOR.output < 4000)
+        else if(Target_Encoder >= 150 && Target_Encoder < 250)
         {
-            PID_SERVO.output = From_2000_To_4000_ServoPD.Kp * PID_SERVO.current_error +
-            From_2000_To_4000_ServoPD.Kd * PID_SERVO.derivative;
+            PID_SERVO.output = Encoder0200_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder0200_ServoPD.Kd * PID_SERVO.derivative;
         }
-        else if(PID_MOTOR.output >= 4000 && PID_MOTOR.output < 5000)
+        else if(Target_Encoder >= 250 && Target_Encoder < 350)
         {
-            PID_SERVO.output = From_4000_To_5000_ServoPD.Kp * PID_SERVO.current_error +
-            From_4000_To_5000_ServoPD.Kd * PID_SERVO.derivative;
+            PID_SERVO.output = Encoder0300_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder0300_ServoPD.Kd * PID_SERVO.derivative;
         }
-        else if(PID_MOTOR.output >= 5000 && PID_MOTOR.output < 6000)
+        else if(Target_Encoder >= 350 && Target_Encoder < 450)
         {
-            PID_SERVO.output = From_5000_To_6000_ServoPD.Kp * PID_SERVO.current_error +
-            From_5000_To_6000_ServoPD.Kd * PID_SERVO.derivative;
+            PID_SERVO.output = Encoder0400_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder0400_ServoPD.Kd * PID_SERVO.derivative;
         }
-        else if(PID_MOTOR.output >= 6000 && PID_MOTOR.output < 7000)
+        else if(Target_Encoder >= 450 && Target_Encoder < 550)
         {
-            PID_SERVO.output = From_6000_To_7000_ServoPD.Kp * PID_SERVO.current_error +
-            From_6000_To_7000_ServoPD.Kd * PID_SERVO.derivative;
+            PID_SERVO.output = Encoder0500_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder0500_ServoPD.Kd * PID_SERVO.derivative;
         }
-        else if(PID_MOTOR.output >= 7000 && PID_MOTOR.output < 8000)
+        else if(Target_Encoder >= 550 && Target_Encoder < 650)
         {
-            PID_SERVO.output = From_7000_To_8000_ServoPD.Kp * PID_SERVO.current_error +
-            From_7000_To_8000_ServoPD.Kd * PID_SERVO.derivative;
+            PID_SERVO.output = Encoder0600_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder0600_ServoPD.Kd * PID_SERVO.derivative;
         }
-        else if(PID_MOTOR.output >= 8000 && PID_MOTOR.output < 9000)
+        else if(Target_Encoder >= 650 && Target_Encoder < 750)
         {
-            PID_SERVO.output = From_8000_To_9000_ServoPD.Kp * PID_SERVO.current_error +
-            From_8000_To_9000_ServoPD.Kd * PID_SERVO.derivative;
+            PID_SERVO.output = Encoder0700_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder0700_ServoPD.Kd * PID_SERVO.derivative;
         }
-        else if(PID_MOTOR.output >= 9000 && PID_MOTOR.output <= 10000)
+        else if(Target_Encoder >= 750 && Target_Encoder < 850)
         {
-            PID_SERVO.output = From_9000_To_9900_ServoPD.Kp * PID_SERVO.current_error +
-            From_9000_To_9900_ServoPD.Kd * PID_SERVO.derivative;
+            PID_SERVO.output = Encoder0800_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder0800_ServoPD.Kd * PID_SERVO.derivative;
+        }
+        else if(Target_Encoder >= 850 && Target_Encoder < 950)
+        {
+            PID_SERVO.output = Encoder0900_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder0900_ServoPD.Kd * PID_SERVO.derivative;
+        }
+        else if(Target_Encoder >= 950 && Target_Encoder < 1050)
+        {
+            PID_SERVO.output = Encoder1000_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder1000_ServoPD.Kd * PID_SERVO.derivative;
+        }
+        else if(Target_Encoder >= 1050 && Target_Encoder < 1150)
+        {
+            PID_SERVO.output = Encoder1100_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder1100_ServoPD.Kd * PID_SERVO.derivative;
+        }
+        else if(Target_Encoder >= 1150 && Target_Encoder < 1250)
+        {
+            PID_SERVO.output = Encoder1200_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder1200_ServoPD.Kd * PID_SERVO.derivative;
         }
         else
         {
-            PID_SERVO.output = Parameter_set0.ServePID[0] * PID_SERVO.current_error +
-            Parameter_set0.ServePID[2] * PID_SERVO.derivative;
+            PID_SERVO.output = Encoder1200_ServoPD.Kp * PID_SERVO.current_error +
+            Encoder1200_ServoPD.Kd * PID_SERVO.derivative;
         }
     #else
         if(Target_Encoder >= 0 && Target_Encoder <= 2000)
@@ -226,12 +258,12 @@ void PIDIncMotorCtrl(int16 TARGET_MOTOR_ENCODER)
 #if BLDC_ENABLE
     if(MOTOR_DUTY >= 0)
     {
-        gpio_set_level(DIR_CH1, 0);
+        gpio_set_level(DIR_CH1, 1);
         pwm_set_duty  (PWM_CH1, MOTOR_DUTY);
     }
     else
     {
-        gpio_set_level(DIR_CH1, 1);
+        gpio_set_level(DIR_CH1, 0);
         pwm_set_duty  (PWM_CH1, -MOTOR_DUTY);
     }
 #else

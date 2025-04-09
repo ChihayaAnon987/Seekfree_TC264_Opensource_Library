@@ -100,10 +100,13 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_RMAX);
-                    #if BLDC_ENABLE
-                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #if MOTOR_LOOP_ENABLE == 0
+                    
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #else
+                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #endif
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -116,10 +119,12 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_LMAX);
-                    #if BLDC_ENABLE
-                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #else
+                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #endif
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -140,10 +145,12 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_RMAX);
-                    #if BLDC_ENABLE
-                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #else
+                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #endif
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -156,10 +163,12 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_LMAX);
-                    #if BLDC_ENABLE
-                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #else
+                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #endif
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -180,10 +189,12 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_RMAX);
-                    #if BLDC_ENABLE
-                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #else
+                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #endif
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -196,10 +207,12 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_LMAX);
-                    #if BLDC_ENABLE
-                        BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #else
+                            DRV8701_MOTOR_DRIVER(GpsTgtEncod[Track_Points_NUM + 1]);
+                        #endif
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {

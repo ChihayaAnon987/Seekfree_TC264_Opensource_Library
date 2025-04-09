@@ -48,6 +48,18 @@ extern ServoPD From_6000_To_7000_ServoPD;                      // 舵机PD
 extern ServoPD From_7000_To_8000_ServoPD;                      // 舵机PD
 extern ServoPD From_8000_To_9000_ServoPD;                      // 舵机PD
 extern ServoPD From_9000_To_9900_ServoPD;                      // 舵机PD
+extern ServoPD Encoder0100_ServoPD;                            // 舵机PD
+extern ServoPD Encoder0200_ServoPD;                            // 舵机PD
+extern ServoPD Encoder0300_ServoPD;                            // 舵机PD
+extern ServoPD Encoder0400_ServoPD;                            // 舵机PD
+extern ServoPD Encoder0500_ServoPD;                            // 舵机PD
+extern ServoPD Encoder0600_ServoPD;                            // 舵机PD
+extern ServoPD Encoder0700_ServoPD;                            // 舵机PD
+extern ServoPD Encoder0800_ServoPD;                            // 舵机PD
+extern ServoPD Encoder0900_ServoPD;                            // 舵机PD
+extern ServoPD Encoder1000_ServoPD;                            // 舵机PD
+extern ServoPD Encoder1100_ServoPD;                            // 舵机PD
+extern ServoPD Encoder1200_ServoPD;                            // 舵机PD
 //===================================================全局变量END===================================================
 
 

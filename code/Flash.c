@@ -153,6 +153,30 @@ void FLASH_SAV_PAR()
     flash_union_buffer[29].int8_type  = Task2_Scales;
     flash_union_buffer[30].int8_type  = Advan_Scales;
     flash_union_buffer[31].int8_type  = Turn_Point;
+    flash_union_buffer[32].float_type  = Encoder0100_ServoPD.Kp;
+    flash_union_buffer[33].float_type  = Encoder0100_ServoPD.Kd;
+    flash_union_buffer[34].float_type  = Encoder0200_ServoPD.Kp;
+    flash_union_buffer[35].float_type  = Encoder0200_ServoPD.Kd;
+    flash_union_buffer[36].float_type  = Encoder0300_ServoPD.Kp;
+    flash_union_buffer[37].float_type  = Encoder0300_ServoPD.Kd;
+    flash_union_buffer[38].float_type  = Encoder0400_ServoPD.Kp;
+    flash_union_buffer[39].float_type  = Encoder0400_ServoPD.Kd;
+    flash_union_buffer[40].float_type  = Encoder0500_ServoPD.Kp;
+    flash_union_buffer[41].float_type  = Encoder0500_ServoPD.Kd;
+    flash_union_buffer[42].float_type  = Encoder0600_ServoPD.Kp;
+    flash_union_buffer[43].float_type  = Encoder0600_ServoPD.Kd;
+    flash_union_buffer[44].float_type  = Encoder0700_ServoPD.Kp;
+    flash_union_buffer[45].float_type  = Encoder0700_ServoPD.Kd;
+    flash_union_buffer[46].float_type  = Encoder0800_ServoPD.Kp;
+    flash_union_buffer[47].float_type  = Encoder0800_ServoPD.Kd;
+    flash_union_buffer[48].float_type  = Encoder0900_ServoPD.Kp;
+    flash_union_buffer[49].float_type  = Encoder0900_ServoPD.Kd;
+    flash_union_buffer[50].float_type  = Encoder1000_ServoPD.Kp;
+    flash_union_buffer[51].float_type  = Encoder1000_ServoPD.Kd;
+    flash_union_buffer[52].float_type  = Encoder1100_ServoPD.Kp;
+    flash_union_buffer[53].float_type  = Encoder1100_ServoPD.Kd;
+    flash_union_buffer[54].float_type  = Encoder1200_ServoPD.Kp;
+    flash_union_buffer[55].float_type  = Encoder1200_ServoPD.Kd;
 
     // 换点距离和速度数组
     for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
@@ -218,6 +242,30 @@ void FLASH_GET_PAR()
         Task2_Scales = flash_union_buffer[29].int8_type;
         Advan_Scales = flash_union_buffer[30].int8_type;
         Turn_Point   = flash_union_buffer[31].int8_type;
+        Encoder0100_ServoPD.Kp = flash_union_buffer[32].float_type;
+        Encoder0100_ServoPD.Kd = flash_union_buffer[33].float_type;
+        Encoder0200_ServoPD.Kp = flash_union_buffer[34].float_type;
+        Encoder0200_ServoPD.Kd = flash_union_buffer[35].float_type;
+        Encoder0300_ServoPD.Kp = flash_union_buffer[36].float_type;
+        Encoder0300_ServoPD.Kd = flash_union_buffer[37].float_type;
+        Encoder0400_ServoPD.Kp = flash_union_buffer[38].float_type;
+        Encoder0400_ServoPD.Kd = flash_union_buffer[39].float_type;
+        Encoder0500_ServoPD.Kp = flash_union_buffer[40].float_type;
+        Encoder0500_ServoPD.Kd = flash_union_buffer[41].float_type;
+        Encoder0600_ServoPD.Kp = flash_union_buffer[42].float_type;
+        Encoder0600_ServoPD.Kd = flash_union_buffer[43].float_type;
+        Encoder0700_ServoPD.Kp = flash_union_buffer[44].float_type;
+        Encoder0700_ServoPD.Kd = flash_union_buffer[45].float_type;
+        Encoder0800_ServoPD.Kp = flash_union_buffer[46].float_type;
+        Encoder0800_ServoPD.Kd = flash_union_buffer[47].float_type;
+        Encoder0900_ServoPD.Kp = flash_union_buffer[48].float_type;
+        Encoder0900_ServoPD.Kd = flash_union_buffer[49].float_type;
+        Encoder1000_ServoPD.Kp = flash_union_buffer[50].float_type;
+        Encoder1000_ServoPD.Kd = flash_union_buffer[51].float_type;
+        Encoder1100_ServoPD.Kp = flash_union_buffer[52].float_type;
+        Encoder1100_ServoPD.Kd = flash_union_buffer[53].float_type;
+        Encoder1200_ServoPD.Kp = flash_union_buffer[54].float_type;
+        Encoder1200_ServoPD.Kd = flash_union_buffer[55].float_type;
 
         // 换点距离和速度数组
         for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
@@ -265,7 +313,19 @@ void FLASH_PRI_PAR()
         printf("From_7000_To_8000_ServoPD: Kp = %f, Kd = %f\r\n", From_7000_To_8000_ServoPD.Kp, From_7000_To_8000_ServoPD.Kd);
         printf("From_8000_To_9000_ServoPD: Kp = %f, Kd = %f\r\n", From_8000_To_9000_ServoPD.Kp, From_8000_To_9000_ServoPD.Kd);
         printf("From_9000_To_9900_ServoPD: Kp = %f, Kd = %f\r\n", From_9000_To_9900_ServoPD.Kp, From_9000_To_9900_ServoPD.Kd);
-
+        printf("Encoder0100_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0100_ServoPD.Kp, Encoder0100_ServoPD.Kd);
+        printf("Encoder0200_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0200_ServoPD.Kp, Encoder0200_ServoPD.Kd);
+        printf("Encoder0300_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0300_ServoPD.Kp, Encoder0300_ServoPD.Kd);
+        printf("Encoder0400_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0400_ServoPD.Kp, Encoder0400_ServoPD.Kd);
+        printf("Encoder0500_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0500_ServoPD.Kp, Encoder0500_ServoPD.Kd);
+        printf("Encoder0600_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0600_ServoPD.Kp, Encoder0600_ServoPD.Kd);
+        printf("Encoder0700_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0700_ServoPD.Kp, Encoder0700_ServoPD.Kd);
+        printf("Encoder0800_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0800_ServoPD.Kp, Encoder0800_ServoPD.Kd);
+        printf("Encoder0900_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0900_ServoPD.Kp, Encoder0900_ServoPD.Kd);
+        printf("Encoder1000_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1000_ServoPD.Kp, Encoder1000_ServoPD.Kd);
+        printf("Encoder1100_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1100_ServoPD.Kp, Encoder1100_ServoPD.Kd);
+        printf("Encoder1200_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1200_ServoPD.Kp, Encoder1200_ServoPD.Kd);
+        
         for(int16 i = 0; i < NUM_GPS_DATA; i++)
         {
             if(GpsDistance[i] != 0)
