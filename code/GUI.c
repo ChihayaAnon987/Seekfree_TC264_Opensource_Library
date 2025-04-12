@@ -36,7 +36,7 @@ seekfree_assistant_oscilloscope_struct oscilloscope_data;
 gui_menu_enum func_index = 0;
 
 
-menu_table table[38]=
+menu_table table[41]=
 {
     // current, up, down, back, enter
 
@@ -100,7 +100,10 @@ menu_table table[38]=
 
     // 菜单11
     {enum_first_menu11, enum_first_menu10, enum_first_menu00, enum_first_menu11, enum_secon_menu16, main_menu11},       // 任务选择一层
-    {enum_secon_menu16, enum_secon_menu16, enum_secon_menu16, enum_first_menu11, enum_secon_menu16, Task_Select}        // 任务选择二层
+    {enum_secon_menu16, enum_secon_menu17, enum_secon_menu17, enum_first_menu11, enum_third_menu09, Task_Select_menu},  // 任务选择二层, 科目一、二、三
+    {enum_secon_menu17, enum_secon_menu16, enum_secon_menu16, enum_first_menu11, enum_third_menu10, Task_Four_menu},    // 任务选择二层, 科目四
+    {enum_third_menu09, enum_third_menu09, enum_third_menu09, enum_secon_menu16, enum_third_menu09, Task_Select},       // 任务选择三层, 科目一、二、三
+    {enum_third_menu10, enum_third_menu10, enum_third_menu10, enum_secon_menu17, enum_third_menu10, Task_Four},         // 任务选择三层, 科目四
 };
 
 /////////////////////////////////一层菜单-------------------------------------------------
@@ -746,6 +749,7 @@ void Imu963_menu()
     ips200_show_string( 0, 16 * 5, "angle[2]:");
     ips200_show_string( 0, 16 * 6, "Kp_Ah:");
     ips200_show_string( 0, 16 * 7, "Ki_Ah:");
+    ips200_show_string( 0, 16 * 8, "System_Time:");
 
     ips200_show_float( 80, 16 * 0, Z_360 > 180 ? Z_360 - 360 : Z_360, 3, 3);
     ips200_show_float(128, 16 * 1, IMU_Data.gyro_z, 3, 3);
@@ -755,6 +759,8 @@ void Imu963_menu()
     ips200_show_float( 72, 16 * 5, angle[2], 3, 3);
     ips200_show_float( 48, 16 * 6, Kp_Ah, 3, 3);
     ips200_show_float( 48, 16 * 7, Ki_Ah, 3, 3);
+    ips200_show_float( 96, 16 * 8, System_Time, 3, 3);
+    ips200_show_float( 96, 16 * 9, ((int16)System_Time / 10) * 0.122, 3, 3);
 
 #if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
@@ -811,54 +817,17 @@ void Param_Set()
     ips200_show_string( 0, 16 * 2, "-->OtherParamSet");
 }
 
-void Task_Select()
+void Task_Select_menu()
 {
-    if(!gpio_get_level(SWITCH1))
-    {
-        ips200_show_string(  0, 16 *  0, "Track_Point:");
-        ips200_show_uint(   96, 16 *  0, Track_Points_NUM, 3);
-        ips200_show_string(  0, 16 *  1, "Distance:");
-        ips200_show_float(  72, 16 *  1, Distance, 3, 3);
-        ips200_show_string(  0, 16 *  2, "GPS_Angle:");
-        ips200_show_float(  80, 16 *  2, Angle, 3, 3);
-        ips200_show_string(  0, 16 *  3, "Yaw:");
-        ips200_show_float(  32, 16 *  3, angle[2], 3, 3);
-        ips200_show_string(  0, 16 *  4, "Angle_Error:");
-        ips200_show_float(  96, 16 *  4, Angle_Error, 3, 6);
-        ips200_show_string(  0, 16 *  5, "Delta_Angle:");
-        ips200_show_float(  96, 16 *  5, Delta_Angle, 3, 6);
-        ips200_show_string(  0, 16 *  6, "Delta_Lat:");
-        ips200_show_float(  80, 16 *  6, Delta_Lat, 3, 6);
-        ips200_show_string(  0, 16 *  7, "Delta_Lon:");
-        ips200_show_float(  80, 16 *  7, Delta_Lon, 3, 6);
-        ips200_show_float(   0, 16 *  8, gnss.latitude, 3, 6);
-        ips200_show_float(  96, 16 *  8, gnss.longitude, 3, 6);
-        ips200_show_string(  0, 16 *  9, "Servo Angle:");
-        ips200_show_uint(   96, 16 *  9, Servo_Angle, 3);
-        ips200_show_string(  0, 16 * 10, "TagtEncoder:");
-        ips200_show_int(    96, 16 * 10, Target_Encoder, 4);
-        ips200_show_string(  0, 16 * 11, "KEY1:Task1");
-        ips200_show_string(120, 16 * 11, "KEY2:Task2");
-        ips200_show_string(  0, 16 * 12, "KEY3:Task3");
-        ips200_show_string(120, 16 * 12, "KEY4:Start");
-    }
-    if(gpio_get_level(SWITCH1))
-    {
-        drawGrid();
-        drawPoints();
-        updateCarPosition();
-    }
-#if WIRELESS_UART_ENABLE
-    seekfree_assistant_oscilloscope_send(&oscilloscope_data);
-    oscilloscope_data.data[0] = Angle_Error;
-    oscilloscope_data.data[1] = Distance;
-    oscilloscope_data.data[2] = GpsDistance[Track_Points_NUM];
-    oscilloscope_data.data[3] = Track_Points_NUM;
-    oscilloscope_data.data[4] = Angle;
-    oscilloscope_data.data[5] = angle[2];
-#endif
+    ips200_show_string(  0, 16 * 0, "-->Task1To3");
+    ips200_show_string(  0, 16 * 1, "   TaskFour");
 }
 
+void Task_Four_menu()
+{
+    ips200_show_string(  0, 16 * 0, "   Task1To3");
+    ips200_show_string(  0, 16 * 1, "-->TaskFour");
+}
 
 /////////////////////////////////三层菜单-------------------------------------------------
 
@@ -925,6 +894,7 @@ void ServoI_menu(void)
     oscilloscope_data.data[3] = Angle;
 #endif
 }
+
 void ServoD_menu(void)
 {
     ips200_show_string(  0, 16 * 0, "   ServoP:");
@@ -1019,7 +989,6 @@ void MotorI_menu(void)
 #endif
 }
 
-
 void MotorD_menu(void)
 {
     ips200_show_string(  0, 16 * 0, "   MotorP:");
@@ -1047,6 +1016,98 @@ void MotorD_menu(void)
     oscilloscope_data.data[1] = Encoder;
     oscilloscope_data.data[2] = Test_Encoder;
 #endif
+}
+
+void Task_Select(void)
+{
+    if(!gpio_get_level(SWITCH1))
+    {
+        ips200_show_string(  0, 16 *  0, "Track_Point:");
+        ips200_show_uint(   96, 16 *  0, Track_Points_NUM, 3);
+        ips200_show_string(  0, 16 *  1, "Distance:");
+        ips200_show_float(  72, 16 *  1, Distance, 3, 3);
+        ips200_show_string(  0, 16 *  2, "GPS_Angle:");
+        ips200_show_float(  80, 16 *  2, Angle, 3, 3);
+        ips200_show_string(  0, 16 *  3, "Yaw:");
+        ips200_show_float(  32, 16 *  3, angle[2], 3, 3);
+        ips200_show_string(  0, 16 *  4, "Angle_Error:");
+        ips200_show_float(  96, 16 *  4, Angle_Error, 3, 6);
+        ips200_show_string(  0, 16 *  5, "Delta_Angle:");
+        ips200_show_float(  96, 16 *  5, Delta_Angle, 3, 6);
+        ips200_show_string(  0, 16 *  6, "Delta_Lat:");
+        ips200_show_float(  80, 16 *  6, Delta_Lat, 3, 6);
+        ips200_show_string(  0, 16 *  7, "Delta_Lon:");
+        ips200_show_float(  80, 16 *  7, Delta_Lon, 3, 6);
+        ips200_show_float(   0, 16 *  8, gnss.latitude, 3, 6);
+        ips200_show_float(  96, 16 *  8, gnss.longitude, 3, 6);
+        ips200_show_string(  0, 16 *  9, "Servo Angle:");
+        ips200_show_uint(   96, 16 *  9, Servo_Angle, 3);
+        ips200_show_string(  0, 16 * 10, "TagtEncoder:");
+        ips200_show_int(    96, 16 * 10, Target_Encoder, 4);
+        ips200_show_string(  0, 16 * 11, "KEY1:Task1");
+        ips200_show_string(120, 16 * 11, "KEY2:Task2");
+        ips200_show_string(  0, 16 * 12, "KEY3:Task3");
+        ips200_show_string(120, 16 * 12, "KEY4:Start");
+    }
+    if(gpio_get_level(SWITCH1))
+    {
+        drawGrid();
+        drawPoints();
+        updateCarPosition();
+    }
+#if WIRELESS_UART_ENABLE
+    seekfree_assistant_oscilloscope_send(&oscilloscope_data);
+    oscilloscope_data.data[0] = Angle_Error;
+    oscilloscope_data.data[1] = Distance;
+    oscilloscope_data.data[2] = GpsDistance[Track_Points_NUM];
+    oscilloscope_data.data[3] = Track_Points_NUM;
+    oscilloscope_data.data[4] = Angle;
+    oscilloscope_data.data[5] = angle[2];
+#endif
+}
+
+void Task_Four(void)
+{
+    ips200_draw_line(  4,   4, 235,   4, RGB565_PURPLE);
+    ips200_draw_line(  4,  40, 235,  40, RGB565_PURPLE);
+    ips200_draw_line(  4,   4,   4,  40, RGB565_PURPLE);
+    ips200_draw_line(235,   4, 235,  40, RGB565_PURPLE);
+
+    ips200_draw_line(  4,  44, 235,  44, RGB565_PURPLE);
+    ips200_draw_line(  4, 284, 235, 284, RGB565_PURPLE);
+    ips200_draw_line(  4,  44,   4, 284, RGB565_PURPLE);
+    ips200_draw_line(235,  44, 235, 284, RGB565_PURPLE);
+
+    ips200_draw_line(  0, 318, 239, 318, RGB565_CYAN);
+    ips200_draw_line(  0, 319, 239, 319, RGB565_CYAN);
+    ips200_show_chinese( 56, 286, 32, Chinese04[0], 1, RGB565_CYAN);
+    ips200_show_chinese( 88, 286, 32, Chinese05[0], 1, RGB565_CYAN);
+    ips200_show_chinese(120, 286, 32, Chinese35[0], 1, RGB565_CYAN);
+    ips200_show_chinese(152, 286, 32, Chinese36[0], 1, RGB565_CYAN);
+
+    // 按键获取语音
+    // ips200_show_chinese(  5,   5, 32, Chinese00[0], 1, RGB565_CYAN);
+    // ips200_show_chinese( 37,   5, 32, Chinese01[0], 1, RGB565_CYAN);
+    // ips200_show_chinese( 69,   5, 32, Chinese02[0], 1, RGB565_CYAN);
+    // ips200_show_chinese(101,   5, 32, Chinese03[0], 1, RGB565_CYAN);
+    // ips200_show_chinese(133,   5, 32, Chinese04[0], 1, RGB565_CYAN);
+    // ips200_show_chinese(165,   5, 32, Chinese05[0], 1, RGB565_CYAN);
+
+    // 录音识别中
+    // ips200_show_chinese(  5,   5, 32, Chinese37[0], 1, RGB565_CYAN);
+    // ips200_show_chinese( 37,   5, 32, Chinese05[0], 1, RGB565_CYAN);
+    // ips200_show_chinese( 69,   5, 32, Chinese35[0], 1, RGB565_CYAN);
+    // ips200_show_chinese(101,   5, 32, Chinese36[0], 1, RGB565_CYAN);
+    // ips200_show_chinese(133,   5, 32, Chinese38[0], 1, RGB565_CYAN);
+
+    // 命令解析并执行
+    ips200_show_chinese(  5,   5, 32, Chinese41[0], 1, RGB565_CYAN);
+    ips200_show_chinese( 37,   5, 32, Chinese42[0], 1, RGB565_CYAN);
+    ips200_show_chinese( 69,   5, 32, Chinese43[0], 1, RGB565_CYAN);
+    ips200_show_chinese(101,   5, 32, Chinese44[0], 1, RGB565_CYAN);
+    ips200_show_chinese(133,   5, 32, Chinese45[0], 1, RGB565_CYAN);
+    ips200_show_chinese(165,   5, 32, Chinese46[0], 1, RGB565_CYAN);
+    ips200_show_chinese(197,   5, 32, Chinese14[0], 1, RGB565_CYAN);
 }
 
 void LoopEnable_menu()

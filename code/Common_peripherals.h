@@ -30,6 +30,7 @@
 #define KEY2                    (P20_7)                      // 按键2 控制引脚
 #define KEY3                    (P11_2)                      // 按键3 控制引脚
 #define KEY4                    (P11_3)                      // 按键4 控制引脚
+#define KEY5                    (P20_2)                      // 按键5 控制引脚
 
 #define SWITCH1                 (P33_11)                     // 开关1 控制引脚
 #define SWITCH2                 (P33_12)                     // 开关2 控制引脚

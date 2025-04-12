@@ -56,7 +56,7 @@
 #define WIFI_UART_INDEX         (UART_2)                                        // WIFI 模块 所使用到的串口
 #define WIFI_UART_TX_PIN        (UART2_RX_P10_6)                                // 连接 WIFI 模块 TX
 #define WIFI_UART_RX_PIN        (UART2_TX_P10_5)                                // 连接 WIFI 模块 RX
-#define WIFI_UART_BAUD          (115200)                                        // 模块工作波特率
+#define WIFI_UART_BAUD          (1500000)                                        // 模块工作波特率
 #define WIFI_UART_RTS_PIN       (P10_2)                                         // 定义流控位引脚  指示当前模块是否可以接受数据  0-可以继续接收  1-不可以继续接收
 #define WIFI_UART_HARDWARE_RST  (1)                                             // 定义是否使用硬件复位引脚 0-使用软件复位 1-使用硬件 RST
 #if WIFI_UART_HARDWARE_RST                                                      // 建议使用硬件复位引脚 否则容易出现单片机复位后无法正常初始化模块
@@ -66,7 +66,7 @@
 
 
 //==============================================定义 WIFI_UART 基本参数===================================================
-#define WIFI_UART_BUFFER_SIZE   (256)                                           // 定义接收缓存区大小
+#define WIFI_UART_BUFFER_SIZE   (2048)                                           // 定义接收缓存区大小
 
 #define WIFI_UART_AUTO_CONNECT  (0)                                             // 定义是否初始化时建立TCP或者UDP连接    0-不连接  1-自动连接TCP服务器  2-自动连接UDP服务器  3：自动建立TCP服务器
 

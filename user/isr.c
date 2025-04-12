@@ -47,13 +47,10 @@ IFX_INTERRUPT(cc60_pit_ch0_isr, 0, CCU6_0_CH0_ISR_PRIORITY)
     pit_clear_flag(CCU60_CH0);
 
     // 0.005s中断，200Hz
-
     AHRS_getYawPitchRoll(angle);
-    if(gyro_Offset_flag == 1)
-    {
-        IMU_YAW_integral();  //积分出角度值
-    }
- 
+    System_Time_Count();                            // 系统时间计时
+
+
 
 }
 
@@ -110,7 +107,6 @@ IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
     pit_clear_flag(CCU61_CH1);
 
     // 0.005s中断，200Hz
-    System_Time_Count();                            // 系统时间计时
 }
 // **************************** PIT中断函数 ****************************
 

@@ -356,7 +356,7 @@ void AHRS_AHRSupdate(float gx, float gy, float gz, float ax, float ay, float az,
     // 第二步：DCM矩阵旋转
     vx = 2 * (q1q3 - q0q2);
     vy = 2 * (q0q1 + q2q3);
-    vz = q0q0 - q1q1 - q2q2 + q3q3 ;
+    vz = q0q0 - q1q1 - q2q2 + q3q3;
 
     // 第三步：在机体坐标系下做向量叉积得到补偿数据
     ex = ay * vz - az * vy ;
@@ -373,11 +373,16 @@ void AHRS_AHRSupdate(float gx, float gy, float gz, float ax, float ay, float az,
     gz = gz + Kp_Ah * ez + ezInt;
 
     // 第五步：按照四元数微分公式进行四元数更新
-    q0 = q0 + (-q1*gx - q2*gy - q3*gz)*halfT;
-    q1 = q1 + (q0*gx + q2*gz - q3*gy)*halfT;
-    q2 = q2 + (q0*gy - q1*gz + q3*gx)*halfT;
-    q3 = q3 + (q0*gz + q1*gy - q2*gx)*halfT;
+    q0 = q0 + (-q1 * gx - q2 * gy - q3 * gz) * halfT;
+    q1 = q1 + ( q0 * gx + q2 * gz - q3 * gy) * halfT;
+    q2 = q2 + ( q0 * gy - q1 * gz + q3 * gx) * halfT;
+    q3 = q3 + ( q0 * gz + q1 * gy - q2 * gx) * halfT;
 
+    norm = invSqrt(q0*q0 + q1*q1 + q2*q2 + q3*q3);
+    q0 = q0 * norm;
+    q1 = q1 * norm;
+    q2 = q2 * norm;
+    q3 = q3 * norm;
 }
 #endif
 
@@ -423,6 +428,7 @@ void AHRS_getYawPitchRoll(float * angles)
     angles[1] =  asin( 2 * q[0] * q[2] - 2 * q[1] * q[3]) * 180 / PI;                                        // 俯仰角pitch
     angles[2] = -atan2(2 * q[0] * q[3] + 2 * q[1] * q[2], -2 * q[2] * q[2] - 2 * q[3] * q[3] + 1) * 180 / PI;// 偏航角yaw
 
+    // angle[2] -= ((int16)System_Time / 10) * 0.122;
     if(angle[2] < -180)
     {
         angle[2] += 360;

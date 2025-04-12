@@ -65,7 +65,10 @@ typedef enum
     enum_third_menu08,                                         // 三级菜单08, 其他参数
 
     enum_first_menu11,                                         // 一级菜单11, TaskSelect
-    enum_secon_menu16,                                         // 二级菜单16, 任务选择
+    enum_secon_menu16,                                         // 二级菜单16, 科目一到三
+    enum_secon_menu17,                                         // 二级菜单17, 科目四
+    enum_third_menu09,                                         // 三级菜单09, 科目一、二、三
+    enum_third_menu10,                                         // 三级菜单10, 科目四
 }gui_menu_enum;
 //===================================================枚举定义END===================================================
 
@@ -139,7 +142,8 @@ void Servo_menu(void);                                         // 菜单：舵机
 void LoopEnable_Param(void);                                   // 菜单：闭环参数
 void LoopDisable_Param(void);                                  // 菜单：开环参数
 void Param_Set(void);                                          // 菜单：其他参数
-void Task_Select(void);                                        // 菜单：任务选择
+void Task_Select_menu(void);                                   // 菜单：科目一、二、三
+void Task_Four_menu(void);                                     // 菜单：科目四
 //===================================================二级菜单END===================================================
 
 
@@ -153,6 +157,8 @@ void MotorD_menu(void);                                        // 菜单：MotorD
 void LoopEnable_menu(void);                                    // 菜单：闭环参数
 void LoopDisable_menu(void);                                   // 菜单：开环参数
 void Param_Set_menu(void);                                     // 菜单：其他参数
+void Task_Select(void);                                        // 菜单：科目一、二、三
+void Task_Four(void);                                          // 菜单：科目四
 //===================================================三级菜单END===================================================
 
 

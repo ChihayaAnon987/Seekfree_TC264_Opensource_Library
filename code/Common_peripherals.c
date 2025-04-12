@@ -213,6 +213,7 @@ void KEY_Init()
     gpio_init(KEY2, GPI, GPIO_HIGH, GPI_PULL_UP);// 初始化  KEY2输入 默认高电平 上拉输入
     gpio_init(KEY3, GPI, GPIO_HIGH, GPI_PULL_UP);// 初始化  KEY3输入 默认高电平 上拉输入
     gpio_init(KEY4, GPI, GPIO_HIGH, GPI_PULL_UP);// 初始化  KEY4输入 默认高电平 上拉输入
+    gpio_init(KEY5, GPI, GPIO_HIGH, GPI_PULL_UP);// 初始化  KEY5输入 默认高电平 上拉输入
 
     gpio_init(SWITCH1, GPI,GPIO_HIGH, GPI_FLOATING_IN);// 初始化  SWITCH1输出 默认高电平 浮空输入
     gpio_init(SWITCH2, GPI,GPIO_HIGH, GPI_FLOATING_IN);// 初始化  SWITCH2输出 默认高电平 浮空输入
