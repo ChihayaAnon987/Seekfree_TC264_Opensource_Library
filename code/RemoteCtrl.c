@@ -92,6 +92,11 @@ void RemoteCtrl_Direction_Speed()
                 Point[8].latitude = Point[Task3_Start_Point].latitude;
                 Point[8].lonitude = Point[Task3_Start_Point].lonitude;
             }
+            else if(Task_Flag == 4)
+            {
+                Point[8].latitude = Point[Task4_Start_Point].latitude;
+                Point[8].lonitude = Point[Task3_Start_Point].lonitude;
+            }
             else
             {
                 Point[8].latitude = Point[Task1_Start_Point].latitude;
@@ -158,6 +163,11 @@ void RemoteCtrl_Direction_Speed()
             {
                 Point[8].latitude = Point[Task3_Start_Point].latitude;
                 Point[8].lonitude = Point[Task3_Start_Point].lonitude;
+            }
+            else if(Task_Flag == 4)
+            {
+                Point[8].latitude = Point[Task4_Start_Point].latitude;
+                Point[8].lonitude = Point[Task4_Start_Point].lonitude;
             }
             else
             {

@@ -81,6 +81,11 @@ int core0_main(void)
             Delta_Lat = gnss.latitude  - Point[Task3_Start_Point].latitude;
             Delta_Lon = gnss.longitude - Point[Task3_Start_Point].lonitude;
         }
+        if(Task_Flag == 4)
+        {
+            Delta_Lat = gnss.latitude  - Point[Task4_Start_Point].latitude;
+            Delta_Lon = gnss.longitude - Point[Task3_Start_Point].lonitude;
+        }
         #if UART_RECEIVER_ENABLE
             if(Control_Flag == 1)
             {
@@ -90,6 +95,9 @@ int core0_main(void)
             {
                 PDLocServoCtrl();
             }
+        #endif
+        #if WIFI_UART_ENABLE
+            audio_loop();
         #endif
         if(Start_Flag == 1)
         {
@@ -111,20 +119,34 @@ int core0_main(void)
         {
             if(Control_Flag == 0)
             {
-                Track_Follow();
-                PDLocServoCtrl();
-                #if MOTOR_LOOP_ENABLE == 0
-                    #if BLDC_ENABLE
-                        BLDC_Ctrl(Target_Encoder);
-                    #else
-                        DRV8701_MOTOR_DRIVER(Target_Encoder);
+                if(Task_Flag == 4)
+                {
+                    Task4_Finish();
+                }
+                else
+                {
+                    Track_Follow();
+                    PDLocServoCtrl();
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(Target_Encoder);
+                        #else
+                            DRV8701_MOTOR_DRIVER(Target_Encoder);
+                        #endif
                     #endif
-                #endif
+                }
             }
             if(Control_Flag == 1)
             {
-                Track_Follow();
-                PDLocServoCtrl();
+                if(Task_Flag == 4)
+                {
+                    Task4_Finish();
+                }
+                else
+                {
+                    Track_Follow();
+                    PDLocServoCtrl();
+                }
             }
             if(Control_Flag == 2 && Center_Flag == 1)
             {
@@ -132,8 +154,15 @@ int core0_main(void)
             }
         }
 #else
-        Track_Follow();
-        PDLocServoCtrl();                              // 舵机 PD位置式控制
+        if(Task_Flag == 4)
+        {
+            Task4_Finish();
+        }
+        else
+        {
+            Track_Follow();
+            PDLocServoCtrl();                              // 舵机 PD位置式控制
+        }
         #if MOTOR_LOOP_ENABLE == 0
             #if BLDC_ENABLE
                 BLDC_Ctrl(Target_Encoder);

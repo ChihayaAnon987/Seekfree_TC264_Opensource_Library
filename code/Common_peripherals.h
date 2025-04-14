@@ -9,11 +9,12 @@
 #define CODE_COMMON_PERIPHERALS_H_
 
 //===================================================宏定义BEG===================================================
-#define UART_RECEIVER_ENABLE     (1)                         // 0: 不启用遥控器    1: 启用遥控器
+#define UART_RECEIVER_ENABLE     (0)                         // 0: 不启用遥控器    1: 启用遥控器
 #define WIRELESS_UART_ENABLE     (0)                         // 0: 不启用无线串口  1: 启用无线串口
 #define MT9V03X_ENABLE           (0)                         // 0: 不启用摄像头    1: 启用摄像头
 #define BLDC_ENABLE              (1)                         // 0: 不启用无刷      1: 启用无刷
 #define MOTOR_LOOP_ENABLE        (0)                         // 0: 开环控制        1: 闭环PID控制
+#define WIFI_UART_ENABLE         (1)                         // 0: 不启用WIFI串口  1: 启用WIFI串口
 
 #define IPS200_TYPE     (IPS200_TYPE_SPI)
 // 双排排针 并口两寸屏 这里宏定义填写 IPS200_TYPE_PARALLEL8

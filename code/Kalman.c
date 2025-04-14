@@ -429,14 +429,7 @@ void AHRS_getYawPitchRoll(float * angles)
     angles[2] = -atan2(2 * q[0] * q[3] + 2 * q[1] * q[2], -2 * q[2] * q[2] - 2 * q[3] * q[3] + 1) * 180 / PI;// Æ«º½½Çyaw
 
     // angle[2] -= ((int16)System_Time / 10) * 0.122;
-    if(angle[2] < -180)
-    {
-        angle[2] += 360;
-    }
-    if(angle[2] > 180)
-    {
-        angle[2] -= 360;
-    }
+    angle[2] = LimitFabs180(angle[2]);
 }
 
 

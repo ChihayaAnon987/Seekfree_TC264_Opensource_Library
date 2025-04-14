@@ -14,6 +14,7 @@
 #define Task2_Road_Genera   (     10      )                  // 科目二路径生成起始点
 #define Task2_Start_Point   (     20      )                  // 科目二起始点位
 #define Task3_Start_Point   (     50      )                  // 科目三起始点位
+#define Task4_Start_Point   (     80      )                  // 科目四起始点位
 #define QS                  (   8.99266   )                  // 坐标变换常数
 #define MARGIN              (     20      )                  // 屏幕边缘预留距离
 #define POINT_COLOR         (  RGB565_RED )                  // 点颜色

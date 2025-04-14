@@ -62,6 +62,7 @@ extern const uint8      Chinese43[8][16];   // ½â
 extern const uint8      Chinese44[8][16];   // Îö
 extern const uint8      Chinese45[8][16];   // ²¢
 extern const uint8      Chinese46[8][16];   // Ö´
+extern const uint8      Chinese47[8][16];   // Ïò
 extern const uint8      Chinese99[8][16];   // ??
 
 

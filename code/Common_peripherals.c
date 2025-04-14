@@ -28,11 +28,14 @@ void CPU0_Init()
 #if WIRELESS_UART_ENABLE
     wireless_uart_init();                                           // 初始化无线串口
 #endif
+#if WIFI_UART_ENABLE
+    audio_init();
+#endif
     Oscilloscope_Init(8);                                           // 逐飞示波器初始化
     pit_ms_init(CCU60_CH0, 5);                                      // 中断，IMU数据采集
     pit_ms_init(CCU60_CH1, 5);                                      // 中断 编码器、舵机电机PID
     pit_ms_init(CCU61_CH0, 100);                                    // 中断 GPS数据解析
-    pit_ms_init(CCU61_CH1, 5);                                      // 中断 遥控器
+    // pit_ms_init(CCU61_CH1, 5);                                      // 中断 遥控器
 }
 
 void CPU1_Init()
@@ -44,7 +47,7 @@ void CPU1_Init()
 #endif
     key_init(10);                                                   // 按键初始化
     ips200_Init();                                                  // 屏幕初始化
-    Buzzer_Check(200);                                              // 自检，表示初始化成功
+//    Buzzer_Check(200);                                              // 自检，表示初始化成功
 }
 
 void ips200_Init()

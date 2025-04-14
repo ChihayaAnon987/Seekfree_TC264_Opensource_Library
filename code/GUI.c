@@ -1077,6 +1077,7 @@ void Task_Four(void)
     ips200_draw_line(  4, 284, 235, 284, RGB565_PURPLE);
     ips200_draw_line(  4,  44,   4, 284, RGB565_PURPLE);
     ips200_draw_line(235,  44, 235, 284, RGB565_PURPLE);
+    ips200_draw_line(  4, 267, 235, 267, RGB565_PURPLE);
 
     ips200_draw_line(  0, 318, 239, 318, RGB565_CYAN);
     ips200_draw_line(  0, 319, 239, 319, RGB565_CYAN);
@@ -1085,6 +1086,11 @@ void Task_Four(void)
     ips200_show_chinese(120, 286, 32, Chinese35[0], 1, RGB565_CYAN);
     ips200_show_chinese(152, 286, 32, Chinese36[0], 1, RGB565_CYAN);
 
+    ips200_show_int ( 24, 268, Action_Flag[0], 2);
+    ips200_show_int ( 64, 268, Action_Flag[1], 2);
+    ips200_show_int (104, 268, Action_Flag[2], 2);
+    ips200_show_int (144, 268, Action_Flag[3], 2);
+    ips200_show_int (184, 268, Action_Flag[4], 2);
     // 按键获取语音
     // ips200_show_chinese(  5,   5, 32, Chinese00[0], 1, RGB565_CYAN);
     // ips200_show_chinese( 37,   5, 32, Chinese01[0], 1, RGB565_CYAN);
@@ -2265,7 +2271,7 @@ void Key_Ctrl_Menu()
             }
         }
         
-        if(func_index == enum_secon_menu16)
+        if(func_index == enum_third_menu09)
         {
             if(key_get_state(KEY_1) == KEY_SHORT_PRESS)
             {
@@ -2289,6 +2295,27 @@ void Key_Ctrl_Menu()
                 Task_Flag = 3;
                 Turn_Angle = get_two_points_azimuth(Point[Task3_Start_Point].latitude, Point[Task3_Start_Point].lonitude, Point[Turn_Point + 1].latitude, Point[Turn_Point + 1].lonitude);
                 initCoordinateSystem();
+                ips200_clear();
+            }
+            if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
+            {
+                Start_Flag = 1;
+                LED_Buzzer_Flag_Ctrl(LED3);
+            }
+        }
+
+        if(func_index == enum_third_menu10)
+        {
+            if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
+            {
+                // 语音识别接口
+                Recognize_Command();
+            }
+            if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
+            {
+                Track_Points_NUM = Task4_Start_Point;
+                Task_Flag = 4;
+                LED_Buzzer_Flag_Ctrl(LED1);
                 ips200_clear();
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)

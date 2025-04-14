@@ -17,6 +17,50 @@ int8   Hole_Point      =  52;       // 标记桥洞点位
 int8   Ramp_Point      =  52;       // 标记坡道点位
 int8   Turn_Point      =  55;       // 标记掉头点位
 double Turn_Angle      =   0;       // 掉头方向
+int8   Action_Flag[ACTION_COUNT]  = {0};    // 科目四动作标志位
+int8   Task_Four_Turn_Flag        = 0;      // 科目四转圈标志位
+char   Dictation_Result[1024]     = {0};    // 语音听写结果
+
+FuzzyCommand fuzzyTable[] =
+{
+    {"打开双闪灯", FLASHING_LIGHT},
+    {"双闪灯", FLASHING_LIGHT},
+    {"打开左转灯", LEFTTURN_LIGHT},
+    {"左转灯", LEFTTURN_LIGHT},
+    {"打开右转灯", RIGHTURN_LIGHT},
+    {"右转灯", RIGHTURN_LIGHT},
+    {"打开近光灯", LOWBEAN_HLIGHT},
+    {"近光灯", LOWBEAN_HLIGHT},
+    {"打开远光灯", HIGBEAN_HLIGHT},
+    {"远光灯", HIGBEAN_HLIGHT},
+    {"打开雾灯", FOG_LIGHT},
+    {"雾灯", FOG_LIGHT},
+    {"向前直行十米", HEAD_STRAIGHT},
+    {"向前直行10米", HEAD_STRAIGHT},
+    {"向前直行", HEAD_STRAIGHT},
+    {"直行十米", HEAD_STRAIGHT},
+    {"后退直行十米", BACK_STRAIGHT},
+    {"后退直行10米", BACK_STRAIGHT},
+    {"直行十米", BACK_STRAIGHT},
+    {"蛇形前进十米", SNAKE_ADVANCE},
+    {"蛇形前进10米", SNAKE_ADVANCE},
+    {"前进十米", SNAKE_ADVANCE},
+    {"蛇形后退十米", SNAKE_BACK},
+    {"蛇形后退10米", SNAKE_BACK},
+    {"蛇形后退", SNAKE_BACK},
+    {"逆时针转一圈", ROTATE_ANTICLOCK},
+    {"逆时针", ROTATE_ANTICLOCK},
+    {"逆", ROTATE_ANTICLOCK},
+    {"顺时针转一圈", ROTATE_CLOCKWISE},
+    {"顺时针", ROTATE_CLOCKWISE},
+    {"顺", ROTATE_CLOCKWISE},
+    {"停进停车区一", PARK_AREA_ONE},
+    {"停车区一", PARK_AREA_ONE},
+    {"停进停车区二", PARK_AREA_TWO},
+    {"停车区二", PARK_AREA_TWO},
+    {"停进停车区三", PARK_AREA_THREE},
+    {"停车区三", PARK_AREA_THREE},
+};
 
 /****************************************************************************************************
 //  @brief      核心循迹逻辑
@@ -66,21 +110,347 @@ void Track_Follow()
     }
     else
     {
-        if((Angle - angle[2]) > 180)
-        {
-            Angle_Error = Angle - angle[2] - 360;
-        }
-        else if((Angle - angle[2]) < -180)
-        {
-            Angle_Error = Angle - angle[2] + 360;
-        }
-        else
-        {
-            Angle_Error = Angle - angle[2];
-        }
+        Angle_Error = LimitFabs180(Angle - angle[2]);
     }
     Target_Encoder = GpsTgtEncod[Track_Points_NUM];
 
+
+}
+
+void Task4_Finish()
+{
+    for(int i = 0; i < ACTION_COUNT; i++)
+    {
+        switch(Action_Flag[i])
+        {
+            case FLASHING_LIGHT:
+            {
+                // 打开双闪灯
+                system_delay_ms(1000);
+                Action_Flag[i] = 0;
+                break;
+            }
+            case LEFTTURN_LIGHT:
+            {
+                // 打开左转灯
+                system_delay_ms(1000);
+                Action_Flag[i] = 0;
+                break;
+            }
+            case RIGHTURN_LIGHT:
+            {
+                // 打开右转灯
+                system_delay_ms(1000);
+                Action_Flag[i] = 0;
+                break;
+            }
+            case LOWBEAN_HLIGHT:
+            {
+                // 打开近光灯
+                system_delay_ms(1000);
+                Action_Flag[i] = 0;
+                break;
+            }
+            case HIGBEAN_HLIGHT:
+            {
+                // 打开远光灯
+                system_delay_ms(1000);
+                Action_Flag[i] = 0;
+                break;
+            }
+            case FOG_LIGHT:
+            {
+                // 打开雾灯
+                system_delay_ms(1000);
+                Action_Flag[i] = 0;
+                break;
+            }
+            case HEAD_STRAIGHT:
+            {
+                // 向前直行十米
+                float Straight_Angle = 0;
+                if(Straight_Angle == 0)
+                {
+                    Straight_Angle = angle[2];
+                }
+                while(TRUE)
+                {
+                    Get_Gps();
+                    Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    if(Distance > GpsDistance[Track_Points_NUM])
+                    {
+                        LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                        break;
+                    }
+                    Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    Angle -= Delta_Angle;
+                    Angle = LimitFabs180(Angle);
+
+                    Angle_Error = -K_Straight * (angle[2] - Straight_Angle);
+                    PDLocServoCtrl();
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM];
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(Target_Encoder);
+                        #else
+                            DRV8701_MOTOR_DRIVER(Target_Encoder);
+                        #endif
+                    #endif
+                }
+                Action_Flag[i] = 0;
+                break;
+            }
+            case BACK_STRAIGHT:
+            {
+                // 后退直行十米
+                float Straight_Angle = 0;
+                if(Straight_Angle == 0)
+                {
+                    Straight_Angle = angle[2];
+                }
+                while(TRUE)
+                {
+                    Get_Gps();
+                    Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    if(Distance > GpsDistance[Track_Points_NUM])
+                    {
+                        LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                        break;
+                    }
+                    Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    Angle -= Delta_Angle;
+                    Angle = LimitFabs180(Angle);
+
+                    Angle_Error =  K_Straight * (angle[2] - Straight_Angle);
+                    PDLocServoCtrl();
+                    Target_Encoder = -GpsTgtEncod[Track_Points_NUM];
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(Target_Encoder);
+                        #else
+                            DRV8701_MOTOR_DRIVER(Target_Encoder);
+                        #endif
+                    #endif
+                }
+                Action_Flag[i] = 0;
+                break;
+            }
+            case SNAKE_ADVANCE:
+            {
+                // 蛇形前进十米
+                float Snack_Angle = 30;
+                while(TRUE)
+                {
+                    Get_Gps();
+                    Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    if(Distance > GpsDistance[Track_Points_NUM])
+                    {
+                        LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                        break;
+                    }
+
+                    Angle_Error = -LimitFabs180(angle[2] - Snack_Angle);
+                    PDLocServoCtrl();
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM];
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(Target_Encoder);
+                        #else
+                            DRV8701_MOTOR_DRIVER(Target_Encoder);
+                        #endif
+                    #endif
+                    if(Angle_Error < 5)
+                    {
+                        system_delay_ms(500);
+                        Snack_Angle = -Snack_Angle;
+                    }
+                }
+                Action_Flag[i] = 0;
+                break;
+            }
+            case SNAKE_BACK:
+            {
+                // 蛇形后退十米
+                float Snack_Angle = 30;
+                while(TRUE)
+                {
+                    Get_Gps();
+                    Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    if(Distance > GpsDistance[Track_Points_NUM])
+                    {
+                        LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                        break;
+                    }
+
+                    Angle_Error = LimitFabs180(angle[2] - Snack_Angle);
+                    PDLocServoCtrl();
+                    Target_Encoder = -GpsTgtEncod[Track_Points_NUM];
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(Target_Encoder);
+                        #else
+                            DRV8701_MOTOR_DRIVER(Target_Encoder);
+                        #endif
+                    #endif
+                    if(Angle_Error < 5)
+                    {
+                        system_delay_ms(500);
+                        Snack_Angle = -Snack_Angle;
+                    }
+                }
+                Action_Flag[i] = 0;
+                break;
+            }
+            case ROTATE_ANTICLOCK:
+            {
+                // 逆时针转一圈
+                Task_Four_Turn_Flag = 1;
+                while(TRUE)
+                {
+                    Servo_Set(SERVO_MOTOR_LMAX);
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM];
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(Target_Encoder);
+                        #else
+                            DRV8701_MOTOR_DRIVER(Target_Encoder);
+                        #endif
+                    #endif
+                    if(fabs(Z_360) > 350)
+                    {
+                        Task_Four_Turn_Flag = 0;
+                        break;
+                    }
+                }
+                Action_Flag[i] = 0;
+                break;
+            }
+            case ROTATE_CLOCKWISE:
+            {
+                // 顺时针转一圈
+                Task_Four_Turn_Flag = 1;
+                while(TRUE)
+                {
+                    Servo_Set(SERVO_MOTOR_RMAX);
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM];
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(Target_Encoder);
+                        #else
+                            DRV8701_MOTOR_DRIVER(Target_Encoder);
+                        #endif
+                    #endif
+                    if(fabs(Z_360) > 350)
+                    {
+                        Task_Four_Turn_Flag = 0;
+                        break;
+                    }
+                }
+                Action_Flag[i] = 0;
+                break;
+            }
+            case PARK_AREA_ONE:
+            {
+                // 停进停车区一
+                Track_Points_NUM = Task4_Start_Point + 1;
+                while(TRUE)
+                {
+                    Get_Gps();
+                    Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    if(Distance < GpsDistance[Track_Points_NUM])
+                    {
+                        Track_Points_NUM = Task4_Start_Point + 4;
+                        LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                        break;
+                    }
+                    Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    Angle -= Delta_Angle;
+                    Angle = LimitFabs180(Angle);
+
+                    Angle_Error = LimitFabs180(Angle - angle[2]);
+                    PDLocServoCtrl();
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM];
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(Target_Encoder);
+                        #else
+                            DRV8701_MOTOR_DRIVER(Target_Encoder);
+                        #endif
+                    #endif
+                }
+                Action_Flag[i] = 0;
+                break;
+            }
+            case PARK_AREA_TWO:
+            {
+                // 停进停车区二
+                Track_Points_NUM = Task4_Start_Point + 2;
+                while(TRUE)
+                {
+                    Get_Gps();
+                    Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    if(Distance < GpsDistance[Track_Points_NUM])
+                    {
+                        Track_Points_NUM = Task4_Start_Point + 4;
+                        LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                        break;
+                    }
+                    Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    Angle -= Delta_Angle;
+                    Angle = LimitFabs180(Angle);
+
+                    Angle_Error = LimitFabs180(Angle - angle[2]);
+                    PDLocServoCtrl();
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM];
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(Target_Encoder);
+                        #else
+                            DRV8701_MOTOR_DRIVER(Target_Encoder);
+                        #endif
+                    #endif
+                }
+                Action_Flag[i] = 0;
+                break;
+            }
+            case PARK_AREA_THREE:
+            {
+                // 停进停车区三
+                Track_Points_NUM = Task4_Start_Point + 3;
+                while(TRUE)
+                {
+                    Get_Gps();
+                    Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    if(Distance < GpsDistance[Track_Points_NUM])
+                    {
+                        Track_Points_NUM = Task4_Start_Point + 4;
+                        LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                        break;
+                    }
+                    Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    Angle -= Delta_Angle;
+                    Angle = LimitFabs180(Angle);
+
+                    Angle_Error = LimitFabs180(Angle - angle[2]);
+                    PDLocServoCtrl();
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM];
+                    #if MOTOR_LOOP_ENABLE == 0
+                        #if BLDC_ENABLE
+                            BLDC_Ctrl(Target_Encoder);
+                        #else
+                            DRV8701_MOTOR_DRIVER(Target_Encoder);
+                        #endif
+                    #endif
+                }
+                Action_Flag[i] = 0;
+                break;
+            }
+            default:
+            {
+                break;
+            }
+        }
+    }
 }
 
 // 切换点位
@@ -102,6 +472,13 @@ void Point_Switch()
             {
                 Delta_Angle = 180;
             }
+        }
+    }
+    else if(Track_Points_NUM == Task4_Start_Point)
+    {
+        if(Distance > GpsDistance[Track_Points_NUM])
+        {
+            LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
         }
     }
     else if(Track_Points_NUM == Task1_Start_Point + 1) // 科目一拐弯
@@ -248,6 +625,14 @@ void Point_Switch()
             LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
         }
     }
+    else if(Track_Points_NUM == Task4_Start_Point + 1 || Track_Points_NUM == Task4_Start_Point + 2 || Track_Points_NUM == Task4_Start_Point + 3)
+    {
+        if(Distance < GpsDistance[Track_Points_NUM])
+        {
+            Track_Points_NUM = Task4_Start_Point + 4;
+            LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+        }
+    }
     else
     {
         if(Distance < GpsDistance[Track_Points_NUM])
@@ -259,14 +644,7 @@ void Point_Switch()
 
     Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
     Angle -= Delta_Angle;
-    if(Angle > 180)
-    {
-        Angle -= 360;
-    }
-    if(Angle < -180)
-    {
-        Angle += 360;
-    }
+    Angle = LimitFabs180(Angle);
     
     if(Stop_Time == 0)
     {
@@ -285,7 +663,76 @@ void Point_Switch()
     }
 }
 
+void Recognize_Command()
+{
+    int FUZZY_COUNT = (sizeof(fuzzyTable)/sizeof(fuzzyTable[0]));
+    int outputLen = strlen(Dictation_Result);
+    int pos = 0;          // 当前扫描位置
+    int cmdFound = 0;     // 已经找到的命令数
 
+    while (cmdFound < ACTION_COUNT && pos < outputLen)
+    {
+        int bestOffset = 2147483647;
+        int bestIndex = -1;
+        // 遍历所有模糊匹配表的命令，查找离当前位置最近的匹配项
+        for (int i = 0; i < FUZZY_COUNT; i++)
+        {
+            char *p = strstr(&Dictation_Result[pos], fuzzyTable[i].fuzzyStr);
+            if (p != NULL)
+            {
+                int offset = p - &Dictation_Result[pos];
+                // 如果该匹配比前面找到的更靠前，则更新
+                if (offset < bestOffset)
+                {
+                    bestOffset = offset;
+                    bestIndex = i;
+                }
+            }
+        }
+
+        // 如果没有匹配到任何命令，则结束解析
+        if (bestIndex == -1)
+        {
+            // printf("在位置 %d 无法匹配到任何命令，解析终止！\n", pos);
+            break;
+        }
+
+        // 如果匹配不在当前位置，则说明前面的部分未识别
+        if (bestOffset > 0)
+        {
+            // printf("提示：在位置 %d 有 %d 个字符未能匹配，自动跳过这些字符。\n", pos, bestOffset);
+            pos += bestOffset;
+        }
+
+        // 记录匹配到的命令的标志位
+        Action_Flag[cmdFound] = fuzzyTable[bestIndex].flag;
+        cmdFound++;
+
+        // 更新 pos，跳过匹配到的字符串
+        pos += strlen(fuzzyTable[bestIndex].fuzzyStr);
+    }
+
+    // 输出解析结果
+    printf("解析得到的 Action_Flag 标志位如下：\n");
+    for (int i = 0; i < cmdFound; i++)
+    {
+        printf("Action_Flag[%d] = %d\n", i, Action_Flag[i]);
+    }
+    printf("%s\n", Dictation_Result);
+}
+
+float LimitFabs180(float angle)
+{
+    if(angle > 180)
+    {
+        angle -= 360;
+    }
+    else if(angle < -180)
+    {
+        angle += 360;
+    }
+    return angle;
+}
 
 
 

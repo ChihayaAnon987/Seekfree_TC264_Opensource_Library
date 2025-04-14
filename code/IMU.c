@@ -51,16 +51,6 @@ void IMU_YAW_integral()
     {
         Z_360 -= IMU_Data.gyro_z * 0.005;
     }
-
-    while(Z_360 < 0)
-    {
-        Z_360 += 360;
-    }
-    while(Z_360 > 360)
-    {
-        Z_360 -= 360;
-    }
-
 }
 
 // IMU≥ı ºªØ

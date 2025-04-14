@@ -125,6 +125,12 @@
 #include "Kalman.h"
 #include "Camera.h"
 #include "Picture.h"
+#include "asr_audio.h"
+#include "asr_ctrl.h"
+#include "base64.h"
+#include "hmac_sha256.h"
+#include "sha1.h"
+#include "websocket_client.h"
 //=====================================================”√ªß≤„======================================================
 
 #endif
