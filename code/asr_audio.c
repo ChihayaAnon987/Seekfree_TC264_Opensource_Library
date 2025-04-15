@@ -72,7 +72,6 @@ void extract_content_fields(const char* input, char* output)
 {
     const char* ptr = input;
     char w_value[256];
-    output[0] = '\0';  // 初始化输出字符串为空
     while(*ptr)
     {
         // 查找 "w":" 模式
@@ -156,7 +155,7 @@ void websocket_get_url(const char* base_url, char* url_out)
 // 语音识别定时器回调函数
 void audio_callback()
 {
-    if(gpio_get_level(ASR_BUTTON) == 0 && !audio_start_flag && audio_get_count == -1)
+    if(gpio_get_level(ASR_BUTTON) == 0 && !audio_start_flag && audio_get_count == -1 && func_index == enum_third_menu10)
     {
         audio_get_count = 0;
         audio_server_link_flag = 0;

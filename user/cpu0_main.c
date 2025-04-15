@@ -162,14 +162,15 @@ int core0_main(void)
         {
             Track_Follow();
             PDLocServoCtrl();                              // 舵机 PD位置式控制
-        }
-        #if MOTOR_LOOP_ENABLE == 0
-            #if BLDC_ENABLE
-                BLDC_Ctrl(Target_Encoder);
-            #else
-                DRV8701_MOTOR_DRIVER(Target_Encoder);
+            #if MOTOR_LOOP_ENABLE == 0
+                #if BLDC_ENABLE
+                    BLDC_Ctrl(Target_Encoder);
+                #else
+                    DRV8701_MOTOR_DRIVER(Target_Encoder);
+                #endif
             #endif
-        #endif
+        }
+
 #endif
         // 此处编写需要循环执行的代码
     }

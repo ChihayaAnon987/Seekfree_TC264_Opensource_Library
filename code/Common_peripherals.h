@@ -15,6 +15,7 @@
 #define BLDC_ENABLE              (1)                         // 0: 不启用无刷      1: 启用无刷
 #define MOTOR_LOOP_ENABLE        (0)                         // 0: 开环控制        1: 闭环PID控制
 #define WIFI_UART_ENABLE         (1)                         // 0: 不启用WIFI串口  1: 启用WIFI串口
+#define CAR_NUMBER               (1)                         // 0: 0号车           1: 1号车
 
 #define IPS200_TYPE     (IPS200_TYPE_SPI)
 // 双排排针 并口两寸屏 这里宏定义填写 IPS200_TYPE_PARALLEL8
@@ -53,9 +54,16 @@
 
 #define SERVO_MOTOR_PWM             (ATOM1_CH1_P33_9)        // 定义主板上舵机对应引脚
 #define SERVO_MOTOR_FREQ            (300)                    // 定义主板上舵机频率  请务必注意范围 50-300
-#define SERVO_MOTOR_RMAX            (85)                     // 右，定义主板上舵机活动范围 角度
-#define SERVO_MOTOR_MID             (109)                    // 中值
-#define SERVO_MOTOR_LMAX            (133)                    // 左，定义主板上舵机活动范围 角度
+#if CAR_NUMBER == 0
+#define SERVO_MOTOR_RMAX            (85)
+#define SERVO_MOTOR_MID             (109)
+#define SERVO_MOTOR_LMAX            (133)
+#elif CAR_NUMBER == 1
+#define SERVO_MOTOR_RMAX            (85)
+#define SERVO_MOTOR_MID             (109)
+#define SERVO_MOTOR_LMAX            (133)
+#endif
+
 #define SERVO_MOTOR_RMIN_DUTY       (SERVO_MOTOR_DUTY(SERVO_MOTOR_RMAX))     // 右，定义主板上舵机活动范围 占空比
 #define SERVO_MOTOR_MID_DUTY        (SERVO_MOTOR_DUTY(SERVO_MOTOR_MID))      // 中值 占空比
 #define SERVO_MOTOR_LMIN_DUTY       (SERVO_MOTOR_DUTY(SERVO_MOTOR_LMAX))     // 左，定义主板上舵机活动范围 占空比

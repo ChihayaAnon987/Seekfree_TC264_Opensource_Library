@@ -565,7 +565,7 @@ void Distance_menu(void)
     ips200_show_string(160, 16 * RightArrow, "-->");
     for(int i = 1; i <= Page_Point_Num; i++)
     {
-        ips200_show_float (184, 16 * i, GpsDistance[i - 1 + Page * Page_Point_Num], 1, 3);
+        ips200_show_float (184, 16 * i, GpsDistance[i - 1 + Page * Page_Point_Num], 2, 2);
     }
 
     ips200_show_string(  0, 16 *  9, "KEY1:Point-1");
@@ -1091,29 +1091,42 @@ void Task_Four(void)
     ips200_show_int (104, 268, Action_Flag[2], 2);
     ips200_show_int (144, 268, Action_Flag[3], 2);
     ips200_show_int (184, 268, Action_Flag[4], 2);
-    // 按键获取语音
-    // ips200_show_chinese(  5,   5, 32, Chinese00[0], 1, RGB565_CYAN);
-    // ips200_show_chinese( 37,   5, 32, Chinese01[0], 1, RGB565_CYAN);
-    // ips200_show_chinese( 69,   5, 32, Chinese02[0], 1, RGB565_CYAN);
-    // ips200_show_chinese(101,   5, 32, Chinese03[0], 1, RGB565_CYAN);
-    // ips200_show_chinese(133,   5, 32, Chinese04[0], 1, RGB565_CYAN);
-    // ips200_show_chinese(165,   5, 32, Chinese05[0], 1, RGB565_CYAN);
 
-    // 录音识别中
-    // ips200_show_chinese(  5,   5, 32, Chinese37[0], 1, RGB565_CYAN);
-    // ips200_show_chinese( 37,   5, 32, Chinese05[0], 1, RGB565_CYAN);
-    // ips200_show_chinese( 69,   5, 32, Chinese35[0], 1, RGB565_CYAN);
-    // ips200_show_chinese(101,   5, 32, Chinese36[0], 1, RGB565_CYAN);
-    // ips200_show_chinese(133,   5, 32, Chinese38[0], 1, RGB565_CYAN);
+    process_string(Dictation_Result);
 
-    // 命令解析并执行
-    ips200_show_chinese(  5,   5, 32, Chinese41[0], 1, RGB565_CYAN);
-    ips200_show_chinese( 37,   5, 32, Chinese42[0], 1, RGB565_CYAN);
-    ips200_show_chinese( 69,   5, 32, Chinese43[0], 1, RGB565_CYAN);
-    ips200_show_chinese(101,   5, 32, Chinese44[0], 1, RGB565_CYAN);
-    ips200_show_chinese(133,   5, 32, Chinese45[0], 1, RGB565_CYAN);
-    ips200_show_chinese(165,   5, 32, Chinese46[0], 1, RGB565_CYAN);
-    ips200_show_chinese(197,   5, 32, Chinese14[0], 1, RGB565_CYAN);
+    if(!audio_start_flag && Dictation_Result[0] == '\0')
+    {
+        // 按键获取语音
+        ips200_show_chinese(  5,   5, 32, Chinese00[0], 1, RGB565_CYAN);
+        ips200_show_chinese( 37,   5, 32, Chinese01[0], 1, RGB565_CYAN);
+        ips200_show_chinese( 69,   5, 32, Chinese02[0], 1, RGB565_CYAN);
+        ips200_show_chinese(101,   5, 32, Chinese03[0], 1, RGB565_CYAN);
+        ips200_show_chinese(133,   5, 32, Chinese04[0], 1, RGB565_CYAN);
+        ips200_show_chinese(165,   5, 32, Chinese05[0], 1, RGB565_CYAN);
+        ips200_show_chinese(197,   5, 32, Chinese57[0], 1, RGB565_CYAN);
+    }
+    if(audio_start_flag && audio_server_link_flag )
+    {
+        // 录音识别中
+        ips200_show_chinese(  5,   5, 32, Chinese37[0], 1, RGB565_CYAN);
+        ips200_show_chinese( 37,   5, 32, Chinese05[0], 1, RGB565_CYAN);
+        ips200_show_chinese( 69,   5, 32, Chinese35[0], 1, RGB565_CYAN);
+        ips200_show_chinese(101,   5, 32, Chinese36[0], 1, RGB565_CYAN);
+        ips200_show_chinese(133,   5, 32, Chinese38[0], 1, RGB565_CYAN);
+        ips200_show_chinese(165,   5, 32, Chinese57[0], 1, RGB565_CYAN);
+        ips200_show_chinese(197,   5, 32, Chinese57[0], 1, RGB565_CYAN);
+    }
+    if(!audio_start_flag && Dictation_Result[0] != '\0' && !audio_send_data_flag)
+    {
+        // 命令解析并执行
+        ips200_show_chinese(  5,   5, 32, Chinese41[0], 1, RGB565_CYAN);
+        ips200_show_chinese( 37,   5, 32, Chinese42[0], 1, RGB565_CYAN);
+        ips200_show_chinese( 69,   5, 32, Chinese43[0], 1, RGB565_CYAN);
+        ips200_show_chinese(101,   5, 32, Chinese44[0], 1, RGB565_CYAN);
+        ips200_show_chinese(133,   5, 32, Chinese45[0], 1, RGB565_CYAN);
+        ips200_show_chinese(165,   5, 32, Chinese46[0], 1, RGB565_CYAN);
+        ips200_show_chinese(197,   5, 32, Chinese14[0], 1, RGB565_CYAN);
+    }
 }
 
 void LoopEnable_menu()
@@ -2310,6 +2323,14 @@ void Key_Ctrl_Menu()
             {
                 // 语音识别接口
                 Recognize_Command();
+                LED_Buzzer_Flag_Ctrl(LED3);
+            }
+            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
+            {
+                // 初始化识别结果
+                Dictation_Result[0] = '\0';
+                ips200_clear();
+                LED_Buzzer_Flag_Ctrl(LED4);
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {

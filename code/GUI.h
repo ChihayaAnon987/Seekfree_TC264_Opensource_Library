@@ -96,6 +96,7 @@ typedef struct
 
 
 //===================================================全局变量BEG===================================================
+extern gui_menu_enum func_index;                                // 页面
 extern Parameter_set Parameter_set0;                            // 参数集合
 extern seekfree_assistant_oscilloscope_struct oscilloscope_data;// 初始化逐飞助手示波器的结构体
 extern double Test_Angle;                                       // 调试用

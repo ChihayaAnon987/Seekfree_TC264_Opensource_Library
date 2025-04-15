@@ -63,6 +63,16 @@ extern const uint8      Chinese44[8][16];   // Îö
 extern const uint8      Chinese45[8][16];   // ²¢
 extern const uint8      Chinese46[8][16];   // Ö´
 extern const uint8      Chinese47[8][16];   // Ïò
+extern const uint8      Chinese48[8][16];   // 10
+extern const uint8      Chinese49[8][16];   // Ë«
+extern const uint8      Chinese50[8][16];   // ÉÁ
+extern const uint8      Chinese51[8][16];   // ×ó
+extern const uint8      Chinese52[8][16];   // ÓÒ
+extern const uint8      Chinese53[8][16];   // 1/
+extern const uint8      Chinese54[8][16];   // 2/
+extern const uint8      Chinese55[8][16];   // 3/
+extern const uint8      Chinese56[8][16];   // £¬
+extern const uint8      Chinese57[8][16];   // ¡£
 extern const uint8      Chinese99[8][16];   // ??
 
 

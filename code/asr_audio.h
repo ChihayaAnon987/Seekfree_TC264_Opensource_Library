@@ -3,6 +3,10 @@
 #include "base64.h"  
 #include "asr_ctrl.h"
 
+extern uint8       audio_start_flag;                                      // 语音识别开始标志位
+extern uint8       audio_server_link_flag;                                // 语音识别连接服务器标志位
+extern uint8       audio_send_data_flag;                                  // 语音识别发送数据标志位
+extern int         audio_get_count;                                       // 音频数据计数
 
 void audio_init(void);
 void audio_callback(void);

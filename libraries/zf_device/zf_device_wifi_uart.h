@@ -74,7 +74,7 @@
 #error "WIFI_UART_AUTO_CONNECT 的值只能为 [0,1,2,3]"
 #else
 #define WIFI_UART_TARGET_IP     "192.168.186.36"                                 // 连接目标的 IP
-#define WIFI_UART_TARGET_PORT   "8081"                                          // 连接目标的端口
+#define WIFI_UART_TARGET_PORT   "8082"                                          // 连接目标的端口
 #define WIFI_UART_LOCAL_PORT    "8080"                                          // 本机端口
 #endif
 //==============================================定义 WIFI_UART 基本参数===================================================
