@@ -1094,7 +1094,7 @@ void Task_Four(void)
 
     process_string(Dictation_Result);
 
-    if(!audio_start_flag && Dictation_Result[0] == '\0')
+    if(!audio_start_flag && !audio_server_link_flag)
     {
         // 按键获取语音
         ips200_show_chinese(  5,   5, 32, Chinese00[0], 1, RGB565_CYAN);
@@ -1105,7 +1105,11 @@ void Task_Four(void)
         ips200_show_chinese(165,   5, 32, Chinese05[0], 1, RGB565_CYAN);
         ips200_show_chinese(197,   5, 32, Chinese57[0], 1, RGB565_CYAN);
     }
-    if(audio_start_flag && audio_server_link_flag )
+    if(audio_start_flag && !audio_server_link_flag)
+    {
+        // 连接服务器中
+    }
+    if(audio_start_flag && audio_server_link_flag)
     {
         // 录音识别中
         ips200_show_chinese(  5,   5, 32, Chinese37[0], 1, RGB565_CYAN);
@@ -1116,7 +1120,7 @@ void Task_Four(void)
         ips200_show_chinese(165,   5, 32, Chinese57[0], 1, RGB565_CYAN);
         ips200_show_chinese(197,   5, 32, Chinese57[0], 1, RGB565_CYAN);
     }
-    if(!audio_start_flag && Dictation_Result[0] != '\0' && !audio_send_data_flag)
+    if(!audio_start_flag && audio_server_link_flag)
     {
         // 命令解析并执行
         ips200_show_chinese(  5,   5, 32, Chinese41[0], 1, RGB565_CYAN);

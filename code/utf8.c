@@ -8,48 +8,84 @@
 #include "zf_common_headfile.h"
 
 
-// char   Dictation_Result[1024] = {'\0'};    // 语音听写结果
-char Dictation_Result[1024] = "顺时针，10，绕，1，2，3。";
+char   Dictation_Result[1024] = {'\0'};    // 语音听写结果
+// char Dictation_Result[1024] = "打开双闪灯，打开右转灯，向前直行10米，顺，停进停车区3";
 
 FuzzyCommand fuzzyTable[] =
 {
     {"打开双闪灯", FLASHING_LIGHT},
     {"双闪灯", FLASHING_LIGHT},
+    {"双", FLASHING_LIGHT},
+    {"闪", FLASHING_LIGHT},
+
     {"打开左转灯", LEFTTURN_LIGHT},
     {"左转灯", LEFTTURN_LIGHT},
+    {"左", LEFTTURN_LIGHT},
+
     {"打开右转灯", RIGHTURN_LIGHT},
     {"右转灯", RIGHTURN_LIGHT},
+    {"右", RIGHTURN_LIGHT},
+
     {"打开近光灯", LOWBEAN_HLIGHT},
     {"近光灯", LOWBEAN_HLIGHT},
+    {"近", LOWBEAN_HLIGHT},
+
     {"打开远光灯", HIGBEAN_HLIGHT},
     {"远光灯", HIGBEAN_HLIGHT},
+    {"远", HIGBEAN_HLIGHT},
+
     {"打开雾灯", FOG_LIGHT},
     {"雾灯", FOG_LIGHT},
+    {"雾", FOG_LIGHT},
+
     {"向前直行十米", HEAD_STRAIGHT},
     {"向前直行10米", HEAD_STRAIGHT},
     {"向前直行", HEAD_STRAIGHT},
-    {"直行十米", HEAD_STRAIGHT},
+
     {"后退直行十米", BACK_STRAIGHT},
     {"后退直行10米", BACK_STRAIGHT},
-    {"直行十米", BACK_STRAIGHT},
+    {"后退直行", BACK_STRAIGHT},
+
     {"蛇形前进十米", SNAKE_ADVANCE},
     {"蛇形前进10米", SNAKE_ADVANCE},
-    {"前进十米", SNAKE_ADVANCE},
+    {"蛇形前进", SNAKE_ADVANCE},
+    {"前进", SNAKE_ADVANCE},
+
     {"蛇形后退十米", SNAKE_BACK},
     {"蛇形后退10米", SNAKE_BACK},
     {"蛇形后退", SNAKE_BACK},
+
     {"逆时针转一圈", ROTATE_ANTICLOCK},
     {"逆时针", ROTATE_ANTICLOCK},
+    {"逆", ROTATE_ANTICLOCK},
+
     {"顺时针转一圈", ROTATE_CLOCKWISE},
     {"顺时针", ROTATE_CLOCKWISE},
+    {"顺", ROTATE_CLOCKWISE},
+
+    {"停进停车区一", PARK_AREA_ONE},
+    {"停进停车区1", PARK_AREA_ONE},
     {"停车区一", PARK_AREA_ONE},
+    {"停车区1", PARK_AREA_ONE},
+
+    {"停进停车区二", PARK_AREA_TWO},
+    {"停进停车区2", PARK_AREA_TWO},
     {"停车区二", PARK_AREA_TWO},
+    {"停车区2", PARK_AREA_TWO},
+    {"二", PARK_AREA_TWO},
+    {"2", PARK_AREA_TWO},
+
+    {"停进停车区三", PARK_AREA_THREE},
+    {"停进停车区3", PARK_AREA_THREE},
     {"停车区三", PARK_AREA_THREE},
+    {"停车区3", PARK_AREA_THREE},
+    {"三", PARK_AREA_THREE},
+    {"3", PARK_AREA_THREE},
 };
 
 void Recognize_Command()
 {
-    int16 FUZZY_COUNT = 32;
+    int16 FUZZY_COUNT = sizeof(fuzzyTable) / sizeof(fuzzyTable[0]);
     int32 outputLen = strlen(Dictation_Result);
     int16 pos = 0;          // 当前扫描位置
     int16 cmdFound = 0;     // 已经找到的命令数
