@@ -9,7 +9,7 @@
 
 
 char   Dictation_Result[1024] = {'\0'};    // 语音听写结果
-// char Dictation_Result[1024] = "打开双闪灯，打开右转灯，向前直行10米，顺时针转一圈，停进停车区3，1，2，而";
+// char Dictation_Result[1024] = "打开双闪灯，打开左转灯，蛇形前进10米，顺时针转一圈，停进停车区2。";
 
 FuzzyCommand fuzzyTable[] =
 {
@@ -89,7 +89,7 @@ void Recognize_Command()
     int32 outputLen = strlen(Dictation_Result);
     int16 pos = 0;          // 当前扫描位置
     int16 cmdFound = 0;     // 已经找到的命令数
-    printf("%s\n", Dictation_Result);
+    // printf("%s\n", Dictation_Result);
     while (cmdFound < ACTION_COUNT && pos < outputLen)
     {
         int16 bestOffset = 10000;

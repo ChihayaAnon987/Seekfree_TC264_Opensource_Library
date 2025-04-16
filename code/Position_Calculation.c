@@ -19,7 +19,8 @@ int8   Turn_Point      =  55;       // 标记掉头点位
 double Turn_Angle      =   0;       // 掉头方向
 int8   Action_Flag[ACTION_COUNT]  = {0};    // 科目四动作标志位
 int8   Task_Four_Turn_Flag        = 0;      // 科目四转圈标志位
-
+float  Snack_Advance              = 3;      // 蛇形前进偏移
+float  Snack_Back                 = 3;      // 蛇形后退偏移
 
 /****************************************************************************************************
 //  @brief      核心循迹逻辑
@@ -85,49 +86,67 @@ void Task4_Finish()
             case FLASHING_LIGHT:
             {
                 // 打开双闪灯
-                system_delay_ms(1000);
+                gpio_set_level(LED1, 0);
+                system_delay_ms(3000);
+                gpio_set_level(LED1, 1);
                 Action_Flag[i] = 0;
                 break;
             }
             case LEFTTURN_LIGHT:
             {
                 // 打开左转灯
-                system_delay_ms(1000);
+                gpio_set_level(LED2, 0);
+                system_delay_ms(3000);
+                gpio_set_level(LED2, 1);
                 Action_Flag[i] = 0;
                 break;
             }
             case RIGHTURN_LIGHT:
             {
                 // 打开右转灯
-                system_delay_ms(1000);
+                gpio_set_level(LED3, 0);
+                system_delay_ms(3000);
+                gpio_set_level(LED3, 1);
                 Action_Flag[i] = 0;
                 break;
             }
             case LOWBEAN_HLIGHT:
             {
                 // 打开近光灯
-                system_delay_ms(1000);
+                gpio_set_level(LED4, 0);
+                system_delay_ms(3000);
+                gpio_set_level(LED4, 1);
                 Action_Flag[i] = 0;
                 break;
             }
             case HIGBEAN_HLIGHT:
             {
                 // 打开远光灯
-                system_delay_ms(1000);
+                gpio_set_level(LED1, 0);
+                gpio_set_level(LED2, 0);
+                system_delay_ms(3000);
+                gpio_set_level(LED1, 1);
+                gpio_set_level(LED2, 1);
                 Action_Flag[i] = 0;
                 break;
             }
             case FOG_LIGHT:
             {
                 // 打开雾灯
-                system_delay_ms(1000);
+                gpio_set_level(LED3, 0);
+                gpio_set_level(LED4, 0);
+                system_delay_ms(3000);
+                gpio_set_level(LED3, 1);
+                gpio_set_level(LED4, 1);
                 Action_Flag[i] = 0;
                 break;
             }
             case HEAD_STRAIGHT:
             {
                 // 向前直行十米
+                Track_Points_NUM = Task4_Start_Point;
                 float Straight_Angle = 0;
+                int8 Correct_Flag = 0;
                 if(Straight_Angle == 0)
                 {
                     Straight_Angle = angle[2];
@@ -136,14 +155,25 @@ void Task4_Finish()
                 {
                     Get_Gps();
                     Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    if(Distance > GpsDistance[Task3_Start_Point] && Correct_Flag == 0)
+                    {
+                        Correct_Flag = 1;
+                        Delta_Angle = get_two_points_azimuth(Start_Lat, Start_Lon, gnss.latitude, gnss.longitude);
+                        if(Delta_Angle > 359 || Delta_Angle < 1)
+                        {
+                            Delta_Angle = 0;
+                        }
+                        if(fabs(Delta_Angle - 180) < 1)
+                        {
+                            Delta_Angle = 180;
+                        }
+                        LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                    }
                     if(Distance > GpsDistance[Track_Points_NUM])
                     {
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
                         break;
                     }
-                    Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
-                    Angle -= Delta_Angle;
-                    Angle = LimitFabs180(Angle);
 
                     Angle_Error = -K_Straight * (angle[2] - Straight_Angle);
                     PDLocServoCtrl();
@@ -162,7 +192,9 @@ void Task4_Finish()
             case BACK_STRAIGHT:
             {
                 // 后退直行十米
+                Track_Points_NUM = Task4_Start_Point;
                 float Straight_Angle = 0;
+                int8 Correct_Flag = 0;
                 if(Straight_Angle == 0)
                 {
                     Straight_Angle = angle[2];
@@ -171,14 +203,26 @@ void Task4_Finish()
                 {
                     Get_Gps();
                     Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    if(Distance > GpsDistance[Task3_Start_Point] && Correct_Flag == 0)
+                    {
+                        Correct_Flag = 1;
+                        Delta_Angle = get_two_points_azimuth(Start_Lat, Start_Lon, gnss.latitude, gnss.longitude);
+                        if(Delta_Angle > 359 || Delta_Angle < 1)
+                        {
+                            Delta_Angle = 0;
+                        }
+                        if(fabs(Delta_Angle - 180) < 1)
+                        {
+                            Delta_Angle = 180;
+                        }
+                        Delta_Angle -= 180;
+                        LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                    }
                     if(Distance > GpsDistance[Track_Points_NUM])
                     {
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
                         break;
                     }
-                    Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
-                    Angle -= Delta_Angle;
-                    Angle = LimitFabs180(Angle);
 
                     Angle_Error =  K_Straight * (angle[2] - Straight_Angle);
                     PDLocServoCtrl();
@@ -197,19 +241,35 @@ void Task4_Finish()
             case SNAKE_ADVANCE:
             {
                 // 蛇形前进十米
-                float Snack_Angle = 30;
+                Track_Points_NUM = Task4_Start_Point;
+                int8 Correct_Flag = 0;
+                double angle = 0;
                 while(TRUE)
                 {
                     Get_Gps();
                     Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    if(Distance > GpsDistance[Task3_Start_Point] && Correct_Flag == 0)
+                    {
+                        Correct_Flag = 1;
+                        Delta_Angle = get_two_points_azimuth(Start_Lat, Start_Lon, gnss.latitude, gnss.longitude);
+                        if(Delta_Angle > 359 || Delta_Angle < 1)
+                        {
+                            Delta_Angle = 0;
+                        }
+                        if(fabs(Delta_Angle - 180) < 1)
+                        {
+                            Delta_Angle = 180;
+                        }
+                        LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                    }
                     if(Distance > GpsDistance[Track_Points_NUM])
                     {
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
                         break;
                     }
-
-                    Angle_Error = -LimitFabs180(angle[2] - Snack_Angle);
-                    PDLocServoCtrl();
+                    Servo_Set(SERVO_MOTOR_MID - 30 * sin(angle) + Snack_Advance);
+                    angle += 0.1;
+                    system_delay_ms(50);
                     Target_Encoder = GpsTgtEncod[Track_Points_NUM];
                     #if MOTOR_LOOP_ENABLE == 0
                         #if BLDC_ENABLE
@@ -218,11 +278,6 @@ void Task4_Finish()
                             DRV8701_MOTOR_DRIVER(Target_Encoder);
                         #endif
                     #endif
-                    if(Angle_Error < 5)
-                    {
-                        system_delay_ms(500);
-                        Snack_Angle = -Snack_Angle;
-                    }
                 }
                 Action_Flag[i] = 0;
                 break;
@@ -230,19 +285,37 @@ void Task4_Finish()
             case SNAKE_BACK:
             {
                 // 蛇形后退十米
-                float Snack_Angle = 30;
+                Track_Points_NUM = Task4_Start_Point;
+                int8 Correct_Flag = 0;
+                double angle = 0;
                 while(TRUE)
                 {
                     Get_Gps();
                     Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
+                    if(Distance > GpsDistance[Task3_Start_Point] && Correct_Flag == 0)
+                    {
+                        Correct_Flag = 1;
+                        Delta_Angle = get_two_points_azimuth(Start_Lat, Start_Lon, gnss.latitude, gnss.longitude);
+                        if(Delta_Angle > 359 || Delta_Angle < 1)
+                        {
+                            Delta_Angle = 0;
+                        }
+                        if(fabs(Delta_Angle - 180) < 1)
+                        {
+                            Delta_Angle = 180;
+                        }
+                        Delta_Angle -= 180;
+                        LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                    }
                     if(Distance > GpsDistance[Track_Points_NUM])
                     {
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
                         break;
                     }
 
-                    Angle_Error = LimitFabs180(angle[2] - Snack_Angle);
-                    PDLocServoCtrl();
+                    Servo_Set(SERVO_MOTOR_MID - 30 * sin(angle) + Snack_Back);
+                    angle += 0.1;
+                    system_delay_ms(50);
                     Target_Encoder = -GpsTgtEncod[Track_Points_NUM];
                     #if MOTOR_LOOP_ENABLE == 0
                         #if BLDC_ENABLE
@@ -251,11 +324,6 @@ void Task4_Finish()
                             DRV8701_MOTOR_DRIVER(Target_Encoder);
                         #endif
                     #endif
-                    if(Angle_Error < 5)
-                    {
-                        system_delay_ms(500);
-                        Snack_Angle = -Snack_Angle;
-                    }
                 }
                 Action_Flag[i] = 0;
                 break;

@@ -14,7 +14,7 @@
 #define MT9V03X_ENABLE           (0)                         // 0: 不启用摄像头    1: 启用摄像头
 #define BLDC_ENABLE              (1)                         // 0: 不启用无刷      1: 启用无刷
 #define MOTOR_LOOP_ENABLE        (0)                         // 0: 开环控制        1: 闭环PID控制
-#define WIFI_UART_ENABLE         (1)                         // 0: 不启用WIFI串口  1: 启用WIFI串口
+#define WIFI_UART_ENABLE         (0)                         // 0: 不启用WIFI串口  1: 启用WIFI串口
 #define CAR_NUMBER               (1)                         // 0: 0号车           1: 1号车
 
 #define IPS200_TYPE     (IPS200_TYPE_SPI)
@@ -59,9 +59,9 @@
 #define SERVO_MOTOR_MID             (109)
 #define SERVO_MOTOR_LMAX            (133)
 #elif CAR_NUMBER == 1
-#define SERVO_MOTOR_RMAX            (85)
-#define SERVO_MOTOR_MID             (109)
-#define SERVO_MOTOR_LMAX            (133)
+#define SERVO_MOTOR_RMAX            (65)
+#define SERVO_MOTOR_MID             (95)
+#define SERVO_MOTOR_LMAX            (125)
 #endif
 
 #define SERVO_MOTOR_RMIN_DUTY       (SERVO_MOTOR_DUTY(SERVO_MOTOR_RMAX))     // 右，定义主板上舵机活动范围 占空比

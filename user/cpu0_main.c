@@ -84,7 +84,7 @@ int core0_main(void)
         if(Task_Flag == 4)
         {
             Delta_Lat = gnss.latitude  - Point[Task4_Start_Point].latitude;
-            Delta_Lon = gnss.longitude - Point[Task3_Start_Point].lonitude;
+            Delta_Lon = gnss.longitude - Point[Task4_Start_Point].lonitude;
         }
         #if UART_RECEIVER_ENABLE
             if(Control_Flag == 1)

@@ -177,6 +177,9 @@ void FLASH_SAV_PAR()
     flash_union_buffer[53].float_type  = Encoder1100_ServoPD.Kd;
     flash_union_buffer[54].float_type  = Encoder1200_ServoPD.Kp;
     flash_union_buffer[55].float_type  = Encoder1200_ServoPD.Kd;
+    
+    flash_union_buffer[56].float_type  = Snack_Advance;
+    flash_union_buffer[57].float_type  = Snack_Back;
 
     // 换点距离和速度数组
     for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
@@ -267,6 +270,8 @@ void FLASH_GET_PAR()
         Encoder1200_ServoPD.Kp = flash_union_buffer[54].float_type;
         Encoder1200_ServoPD.Kd = flash_union_buffer[55].float_type;
 
+        Snack_Advance = flash_union_buffer[56].float_type;
+        Snack_Back    = flash_union_buffer[57].float_type;
         // 换点距离和速度数组
         for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
         {
@@ -325,7 +330,9 @@ void FLASH_PRI_PAR()
         printf("Encoder1000_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1000_ServoPD.Kp, Encoder1000_ServoPD.Kd);
         printf("Encoder1100_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1100_ServoPD.Kp, Encoder1100_ServoPD.Kd);
         printf("Encoder1200_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1200_ServoPD.Kp, Encoder1200_ServoPD.Kd);
-        
+        printf("Snack_Advance: %f\r\n", Snack_Advance);
+        printf("Snack_Back: %f\r\n", Snack_Back);
+
         for(int16 i = 0; i < NUM_GPS_DATA; i++)
         {
             if(GpsDistance[i] != 0)

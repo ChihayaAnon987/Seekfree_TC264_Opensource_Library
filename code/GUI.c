@@ -1093,6 +1093,10 @@ void Task_Four(void)
     ips200_show_int (184, 268, Action_Flag[4], 2);
 
     process_string(Dictation_Result);
+    if(Start_Flag == 0)
+    {
+        Recognize_Command();
+    }
 
     if(!audio_start_flag && !audio_server_link_flag)
     {
@@ -1262,11 +1266,15 @@ void Param_Set_menu()
         ips200_show_string( 24, 16 * 2, "Task2_Scales:");
         ips200_show_string( 24, 16 * 3, "Advan_Scales:");
         ips200_show_string( 24, 16 * 4, "Turn_Point:");
+        ips200_show_string( 24, 16 * 5, "Snack_Advance:");
+        ips200_show_string( 24, 16 * 6, "Snack_Back:");
         ips200_show_int(   152, 16 * 0, Fly_Slope_Alpha, 4);
         ips200_show_float( 152, 16 * 1, K_Straight, 1, 3);
         ips200_show_int(   128, 16 * 2, Task2_Scales, 3);
         ips200_show_int(   128, 16 * 3, Advan_Scales, 3);
         ips200_show_int(   120, 16 * 4, Turn_Point  , 3);
+        ips200_show_float( 136, 16 * 5, Snack_Advance, 2, 1);
+        ips200_show_float( 112, 16 * 6, Snack_Back ,2, 1);
     }
     ips200_show_string(  0, 16 *  9, "KEY1:Up");
     ips200_show_string(  0, 16 * 10, "KEY2:Down");
@@ -2220,6 +2228,14 @@ void Key_Ctrl_Menu()
                     From_9000_To_9900_ServoPD.Kd -= 0.01;
                 }
             }
+            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            {
+                FLASH_SAV_PAR();
+            }
+            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
+            {
+                FLASH_PRI_PAR();
+            }
         }
 
         if(func_index == enum_third_menu08)
@@ -2234,7 +2250,7 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                if(Point4 < 5)
+                if(Point4 < 6)
                 {
                     Point4 = Point4 + 1;
                     ips200_clear();
@@ -2262,6 +2278,14 @@ void Key_Ctrl_Menu()
                 {
                     Turn_Point += 1;
                 }
+                if(Point4 == 5)
+                {
+                    Snack_Advance += 1.0f;
+                }
+                if(Point4 == 6)
+                {
+                    Snack_Back += 1.0f;
+                }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
@@ -2285,6 +2309,22 @@ void Key_Ctrl_Menu()
                 {
                     Turn_Point -= 1;
                 }
+                if(Point4 == 5)
+                {
+                    Snack_Advance -= 1.0f;
+                }
+                if(Point4 == 6)
+                {
+                    Snack_Back -= 1.0f;
+                }
+            }
+            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            {
+                FLASH_SAV_PAR();
+            }
+            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
+            {
+                FLASH_PRI_PAR();
             }
         }
         
@@ -2325,14 +2365,9 @@ void Key_Ctrl_Menu()
         {
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                // 语音识别接口
-                Recognize_Command();
-                LED_Buzzer_Flag_Ctrl(LED3);
-            }
-            if(key_get_state(KEY_2) == KEY_LONG_PRESS)
-            {
                 // 初始化识别结果
                 Dictation_Result[0] = '\0';
+                memset(Action_Flag, 0, ACTION_COUNT);
                 ips200_clear();
                 LED_Buzzer_Flag_Ctrl(LED4);
             }
@@ -2341,7 +2376,10 @@ void Key_Ctrl_Menu()
                 Track_Points_NUM = Task4_Start_Point;
                 Task_Flag = 4;
                 LED_Buzzer_Flag_Ctrl(LED1);
-                ips200_clear();
+            }
+            if(key_get_state(KEY_3) == KEY_LONG_PRESS)
+            {
+                Recognize_Command();
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
