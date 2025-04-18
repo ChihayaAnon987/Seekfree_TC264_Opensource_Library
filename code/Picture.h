@@ -73,6 +73,13 @@ extern const uint8      Chinese54[8][16];   // 2
 extern const uint8      Chinese55[8][16];   // 3
 extern const uint8      Chinese56[8][16];   // ，
 extern const uint8      Chinese57[8][16];   // 。
+extern const uint8      Chinese58[8][16];   // 正
+extern const uint8      Chinese59[8][16];   // 在
+extern const uint8      Chinese60[8][16];   // 连
+extern const uint8      Chinese61[8][16];   // 接
+extern const uint8      Chinese62[8][16];   // 服
+extern const uint8      Chinese63[8][16];   // 务
+extern const uint8      Chinese64[8][16];   // 器
 extern const uint8      Chinese99[8][16];   // ??
 
 

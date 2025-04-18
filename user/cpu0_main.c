@@ -128,11 +128,7 @@ int core0_main(void)
                     Track_Follow();
                     PDLocServoCtrl();
                     #if MOTOR_LOOP_ENABLE == 0
-                        #if BLDC_ENABLE
-                            BLDC_Ctrl(Target_Encoder);
-                        #else
-                            DRV8701_MOTOR_DRIVER(Target_Encoder);
-                        #endif
+                        MOTOR_Ctrl(Target_Encoder);
                     #endif
                 }
             }
@@ -163,11 +159,7 @@ int core0_main(void)
             Track_Follow();
             PDLocServoCtrl();                              // 舵机 PD位置式控制
             #if MOTOR_LOOP_ENABLE == 0
-                #if BLDC_ENABLE
-                    BLDC_Ctrl(Target_Encoder);
-                #else
-                    DRV8701_MOTOR_DRIVER(Target_Encoder);
-                #endif
+                MOTOR_Ctrl(Target_Encoder);
             #endif
         }
 

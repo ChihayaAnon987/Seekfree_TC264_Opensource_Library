@@ -84,13 +84,8 @@ void CPU0_Init(void);                                          // CPU0 初始化
 void CPU1_Init(void);                                          // CPU1 初始化
 void ips200_Init(void);                                        // 屏幕初始化
 void Oscilloscope_Init(uint8 Channel_Num);                     // 无线串口初始化
-#if BLDC_ENABLE
-void BLDC_Init(void);                                          // 无刷初始化
-void BLDC_Ctrl(int16 MOTOR_PWM);                               // 无刷驱动
-#else
-void DRV8701_Init(void);                                       // 电机初始化
-void DRV8701_MOTOR_DRIVER(int Motor_PWM);                      // 电机驱动
-#endif
+void MOTOR_Init(void);                                         // 电机初始化
+void MOTOR_Ctrl(int16 MOTOR_PWM);                              // 电机驱动
 void Encoder_Get(void);                                        // 编码器读取
 void SERVO_Init(void);                                         // 舵机初始化
 void Servo_SetTest(int16 angle);                               // 舵机驱动，用于调试

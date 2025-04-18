@@ -75,25 +75,6 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
         // PIDIncMotorCtrl(Test_Encoder);
         PIDIncMotorCtrl(Target_Encoder);
     }
-    if(Control_Flag == 1)
-    {
-        if(uart_receiver.channel[1] - CHANNAL2_MIDDLE_LEVEL > 100)
-        {
-            PIDIncMotorCtrl(GpsTgtEncod[9]);
-        }
-        else if(uart_receiver.channel[1] - CHANNAL2_MIDDLE_LEVEL < -100)
-        {
-            PIDIncMotorCtrl(-GpsTgtEncod[9]);
-        }
-        else
-        {
-            PIDIncMotorCtrl(0);
-        }
-    }
-    if(Control_Flag == 2)
-    {
-        PIDIncMotorCtrl(RemoteCtrl_Speed);
-    }
 #endif
     // Servo_SetTest(Servo_Angle);
     Encoder_Get();

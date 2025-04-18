@@ -1111,7 +1111,14 @@ void Task_Four(void)
     }
     if(audio_start_flag && !audio_server_link_flag)
     {
-        // 连接服务器中
+        // 正在连接服务器
+        ips200_show_chinese(  5,   5, 32, Chinese58[0], 1, RGB565_CYAN);
+        ips200_show_chinese( 37,   5, 32, Chinese59[0], 1, RGB565_CYAN);
+        ips200_show_chinese( 69,   5, 32, Chinese60[0], 1, RGB565_CYAN);
+        ips200_show_chinese(101,   5, 32, Chinese61[0], 1, RGB565_CYAN);
+        ips200_show_chinese(133,   5, 32, Chinese62[0], 1, RGB565_CYAN);
+        ips200_show_chinese(165,   5, 32, Chinese63[0], 1, RGB565_CYAN);
+        ips200_show_chinese(197,   5, 32, Chinese64[0], 1, RGB565_CYAN);
     }
     if(audio_start_flag && audio_server_link_flag)
     {

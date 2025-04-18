@@ -16,11 +16,7 @@ void CPU0_Init()
     IMU_Init();                                                     // IMU初始化
     gnss_init(TAU1201);                                             // GPS初始化
     SERVO_Init();                                                   // 舵机初始化
-#if BLDC_ENABLE
-    BLDC_Init();                                                    // 无刷初始化
-#else
-    DRV8701_Init();                                                 // 电机初始化
-#endif
+    MOTOR_Init();                                                   // 电机初始化
     encoder_dir_init(ENCODER1_TIM, ENCODER1_PLUS, ENCODER1_DIR);    // 编码器初始化
 #if UART_RECEIVER_ENABLE
     uart_receiver_init();                                           // sbus接收机初始化
@@ -68,36 +64,19 @@ void Oscilloscope_Init(uint8 Channel_Num)
     oscilloscope_data.channel_num = Channel_Num;
 }
 
-#if BLDC_ENABLE
-void BLDC_Init()
+void MOTOR_Init()
 {
+#if BLDC_ENABLE
     gpio_init(DIR_CH1, GPO, 1, GPO_PUSH_PULL);
     pwm_init (PWM_CH1, 1000, 0);
+#else
+    gpio_init(DIR_CH1, GPO, 0, GPO_PUSH_PULL);
+    pwm_init (PWM_CH1, 17000, 0);
+#endif
 }
 
-void BLDC_Ctrl(int16 MOTOR_PWM)
+void MOTOR_Ctrl(int16 MOTOR_PWM)
 {
-    // static int16 current_pwm = 0;
-    // int16 target_pwm = (int16)IntClip(MOTOR_PWM, -PWM_DUTY_MAX, PWM_DUTY_MAX);
-    // if(target_pwm < current_pwm)
-    // {
-    //     current_pwm -= (current_pwm - target_pwm > 1000) ? 1000 : (current_pwm - target_pwm);
-    // }
-    // else
-    // {
-    //     current_pwm = target_pwm;
-    // }
-    // if(current_pwm >= 0)
-    // {
-    //     gpio_set_level(DIR_CH1, 1);
-    //     pwm_set_duty  (PWM_CH1, current_pwm);
-    // }
-    // else
-    // {
-    //     gpio_set_level(DIR_CH1, 0);
-    //     pwm_set_duty  (PWM_CH1, -current_pwm);
-    // }
-
     static int16 current_pwm = 0;
     int16 target_pwm = (int16)IntClip(MOTOR_PWM, -PWM_DUTY_MAX, PWM_DUTY_MAX);
     if(target_pwm < current_pwm)
@@ -108,6 +87,7 @@ void BLDC_Ctrl(int16 MOTOR_PWM)
     {
         current_pwm += (target_pwm - current_pwm > 1000) ? 1000 : (target_pwm - current_pwm);
     }
+#if BLDC_ENABLE
     if(current_pwm >= 0)
     {
         gpio_set_level(DIR_CH1, 1);
@@ -118,42 +98,19 @@ void BLDC_Ctrl(int16 MOTOR_PWM)
         gpio_set_level(DIR_CH1, 0);
         pwm_set_duty  (PWM_CH1, -current_pwm);
     }
-
-    // MOTOR_PWM = (int16)IntClip(MOTOR_PWM, -PWM_DUTY_MAX, PWM_DUTY_MAX);
-    // if(MOTOR_PWM >= 0)
-    // {
-    //     gpio_set_level(DIR_CH1, 1);
-    //     pwm_set_duty  (PWM_CH1, MOTOR_PWM);
-    // }
-    // else
-    // {
-    //     gpio_set_level(DIR_CH1, 0);
-    //     pwm_set_duty  (PWM_CH1, -MOTOR_PWM);
-    // }
-}
 #else
-void DRV8701_Init()
-{
-    gpio_init(DIR_CH1, GPO, 0, GPO_PUSH_PULL);
-    pwm_init (PWM_CH1, 17000, 0);
-
-}
-
-void DRV8701_MOTOR_DRIVER(int Motor_PWM)
-{
-    Motor_PWM = IntClip(Motor_PWM, -PWM_DUTY_MAX, PWM_DUTY_MAX); // 限幅
-    if(Motor_PWM >= 0)                      // 电机正转
+    if(current_pwm >= 0)
     {
         gpio_set_level(DIR_CH1, 0);
-        pwm_set_duty  (PWM_CH1, Motor_PWM);
+        pwm_set_duty  (PWM_CH1, current_pwm);
     }
-    else                                // 电机反转
+    else
     {
         gpio_set_level(DIR_CH1, 1);
-        pwm_set_duty  (PWM_CH1, -Motor_PWM);
+        pwm_set_duty  (PWM_CH1, -current_pwm);
     }
-}
 #endif
+}
 
 void Encoder_Get()
 {
