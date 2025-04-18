@@ -73,6 +73,7 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
     if(Control_Flag == 0)
     {
         // PIDIncMotorCtrl(Test_Encoder);
+        // Servo_Set(SERVO_MOTOR_RMAX);
         PIDIncMotorCtrl(Target_Encoder);
     }
 #endif
@@ -94,6 +95,8 @@ IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
 {
     interrupt_global_enable(0);                     // ¿ªÆôÖÐ¶ÏÇ¶Ì×
     pit_clear_flag(CCU61_CH1);
+
+    // 125usÖÐ¶Ï£¬8000Hz
 #if WIFI_UART_ENABLE
     audio_callback();
 #endif

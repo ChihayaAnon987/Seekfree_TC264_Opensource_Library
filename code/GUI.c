@@ -957,6 +957,14 @@ void MotorP_menu(void)
     oscilloscope_data.data[0] = PID_MOTOR.output;
     oscilloscope_data.data[1] = Encoder;
     oscilloscope_data.data[2] = Test_Encoder;
+
+    uint8_t data_buffer[32];
+    uint8_t data_len;
+    data_len = (uint8_t)wireless_uart_read_buffer(data_buffer, 32);
+    if(data_len != 0)
+    {
+        Test_Encoder = (int16)func_str_to_int((char *)data_buffer);
+    }
 #endif
 }
 
@@ -986,6 +994,14 @@ void MotorI_menu(void)
     oscilloscope_data.data[0] = PID_MOTOR.output;
     oscilloscope_data.data[1] = Encoder;
     oscilloscope_data.data[2] = Test_Encoder;
+
+    uint8_t data_buffer[32];
+    uint8_t data_len;
+    data_len = (uint8_t)wireless_uart_read_buffer(data_buffer, 32);
+    if(data_len != 0)
+    {
+        Test_Encoder = (int16)func_str_to_int((char *)data_buffer);
+    }
 #endif
 }
 
@@ -1015,6 +1031,14 @@ void MotorD_menu(void)
     oscilloscope_data.data[0] = PID_MOTOR.output;
     oscilloscope_data.data[1] = Encoder;
     oscilloscope_data.data[2] = Test_Encoder;
+
+    uint8_t data_buffer[32];
+    uint8_t data_len;
+    data_len = (uint8_t)wireless_uart_read_buffer(data_buffer, 32);
+    if(data_len != 0)
+    {
+        Test_Encoder = (int16)func_str_to_int((char *)data_buffer);
+    }
 #endif
 }
 
