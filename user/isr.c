@@ -70,12 +70,18 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
 
     // 0.005s÷–∂œ£¨200Hz
 #if MOTOR_LOOP_ENABLE
-    if(Control_Flag == 0)
-    {
+    #if UART_RECEIVER_ENABLE
+        if(Control_Flag == 0)
+        {
+            // PIDIncMotorCtrl(Test_Encoder);
+            // Servo_Set(SERVO_MOTOR_RMAX);
+            PIDIncMotorCtrl(Target_Encoder);
+        }
+    #else
         // PIDIncMotorCtrl(Test_Encoder);
         // Servo_Set(SERVO_MOTOR_RMAX);
         PIDIncMotorCtrl(Target_Encoder);
-    }
+    #endif
 #endif
     // Servo_SetTest(Servo_Angle);
     Encoder_Get();

@@ -439,10 +439,9 @@ void Task4_Finish()
             default:
             {
                 Servo_Set(SERVO_MOTOR_MID);
+                Target_Encoder = 0;
                 #if MOTOR_LOOP_ENABLE == 0
-                    MOTOR_Ctrl(0);
-                #else
-                    Target_Encoder = 0;
+                    MOTOR_Ctrl(Target_Encoder);
                 #endif
                 break;
             }
@@ -487,10 +486,9 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_RMAX);
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        MOTOR_Ctrl(Target_Encoder);
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -503,10 +501,9 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_LMAX);
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        MOTOR_Ctrl(Target_Encoder);
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -527,10 +524,9 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_RMAX);
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        MOTOR_Ctrl(Target_Encoder);
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -543,10 +539,9 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_LMAX);
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        MOTOR_Ctrl(Target_Encoder);
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -567,10 +562,9 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_RMAX);
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        MOTOR_Ctrl(Target_Encoder);
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
@@ -583,10 +577,9 @@ void Point_Switch()
                 while(TRUE)
                 {
                     Servo_Set(SERVO_MOTOR_LMAX);
+                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
                     #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(GpsTgtEncod[Track_Points_NUM + 1]);
-                    #else
-                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        MOTOR_Ctrl(Target_Encoder);
                     #endif
                     if(fabs(angle[2] - 180) < 5)
                     {
