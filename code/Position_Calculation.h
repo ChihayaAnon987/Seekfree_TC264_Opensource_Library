@@ -42,6 +42,7 @@ extern int8   Action_Flag[ACTION_COUNT];                       // 科目四动作标志
 extern int8   Task_Four_Turn_Flag;                             // 科目四转圈标志位
 extern float  Snack_Advance;                                   // 蛇形前进偏移
 extern float  Snack_Back;                                      // 蛇形后退偏移
+extern float  Task4_Delta_Angle;                               // 科目四发车角度
 //===================================================全局变量END===================================================
 
 

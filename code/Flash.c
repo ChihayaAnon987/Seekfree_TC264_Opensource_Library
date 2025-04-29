@@ -180,6 +180,7 @@ void FLASH_SAV_PAR()
     
     flash_union_buffer[56].float_type  = Snack_Advance;
     flash_union_buffer[57].float_type  = Snack_Back;
+    flash_union_buffer[58].float_type  = Task4_Delta_Angle;
 
     // 换点距离和速度数组
     for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
@@ -272,6 +273,8 @@ void FLASH_GET_PAR()
 
         Snack_Advance = flash_union_buffer[56].float_type;
         Snack_Back    = flash_union_buffer[57].float_type;
+        Task4_Delta_Angle = flash_union_buffer[58].float_type;
+
         // 换点距离和速度数组
         for(int i = 100; i < 100 + NUM_GPS_DATA; i++)
         {

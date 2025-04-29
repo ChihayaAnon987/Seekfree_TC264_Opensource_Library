@@ -34,7 +34,8 @@ float  Stop_Time      = 0;
 double Actual_Dist    = 0;
 seekfree_assistant_oscilloscope_struct oscilloscope_data;
 gui_menu_enum func_index = 0;
-
+uint8_t data_buffer[32];
+uint8_t data_len;
 
 menu_table table[41]=
 {
@@ -958,12 +959,19 @@ void MotorP_menu(void)
     oscilloscope_data.data[1] = Encoder;
     oscilloscope_data.data[2] = Test_Encoder;
 
-    uint8_t data_buffer[32];
-    uint8_t data_len;
     data_len = (uint8_t)wireless_uart_read_buffer(data_buffer, 32);
     if(data_len != 0)
     {
-        Test_Encoder = (int16)func_str_to_int((char *)data_buffer);
+        int32 get_encoder = func_str_to_int((char *)data_buffer);
+        if(get_encoder <= 1500)
+        {
+            Test_Encoder = (int16)get_encoder;
+        }
+        else
+        {
+            Test_Encoder = 0;
+        }
+        memset(data_buffer, 0, 32);
     }
 #endif
 }
@@ -995,12 +1003,19 @@ void MotorI_menu(void)
     oscilloscope_data.data[1] = Encoder;
     oscilloscope_data.data[2] = Test_Encoder;
 
-    uint8_t data_buffer[32];
-    uint8_t data_len;
     data_len = (uint8_t)wireless_uart_read_buffer(data_buffer, 32);
     if(data_len != 0)
     {
-        Test_Encoder = (int16)func_str_to_int((char *)data_buffer);
+        int32 get_encoder = func_str_to_int((char *)data_buffer);
+        if(get_encoder <= 1500)
+        {
+            Test_Encoder = (int16)get_encoder;
+        }
+        else
+        {
+            Test_Encoder = 0;
+        }
+        memset(data_buffer, 0, 32);
     }
 #endif
 }
@@ -1032,12 +1047,19 @@ void MotorD_menu(void)
     oscilloscope_data.data[1] = Encoder;
     oscilloscope_data.data[2] = Test_Encoder;
 
-    uint8_t data_buffer[32];
-    uint8_t data_len;
     data_len = (uint8_t)wireless_uart_read_buffer(data_buffer, 32);
     if(data_len != 0)
     {
-        Test_Encoder = (int16)func_str_to_int((char *)data_buffer);
+        int32 get_encoder = func_str_to_int((char *)data_buffer);
+        if(get_encoder <= 1500)
+        {
+            Test_Encoder = (int16)get_encoder;
+        }
+        else
+        {
+            Test_Encoder = 0;
+        }
+        memset(data_buffer, 0, 32);
     }
 #endif
 }
@@ -1299,6 +1321,7 @@ void Param_Set_menu()
         ips200_show_string( 24, 16 * 4, "Turn_Point:");
         ips200_show_string( 24, 16 * 5, "Snack_Advance:");
         ips200_show_string( 24, 16 * 6, "Snack_Back:");
+        ips200_show_string( 24, 16 * 7, "Task4_Delta_Angle:");
         ips200_show_int(   152, 16 * 0, Fly_Slope_Alpha, 4);
         ips200_show_float( 152, 16 * 1, K_Straight, 1, 3);
         ips200_show_int(   128, 16 * 2, Task2_Scales, 3);
@@ -1306,11 +1329,12 @@ void Param_Set_menu()
         ips200_show_int(   120, 16 * 4, Turn_Point  , 3);
         ips200_show_float( 136, 16 * 5, Snack_Advance, 2, 1);
         ips200_show_float( 112, 16 * 6, Snack_Back ,2, 1);
+        ips200_show_float( 176, 16 * 7, Task4_Delta_Angle, 3, 1);
     }
     ips200_show_string(  0, 16 *  9, "KEY1:Up");
     ips200_show_string(  0, 16 * 10, "KEY2:Down");
-    ips200_show_string(120, 16 *  9, "KEY3:K+0.01");
-    ips200_show_string(120, 16 * 10, "KEY4:K-0.01");
+    ips200_show_string(120, 16 *  9, "KEY3:K+");
+    ips200_show_string(120, 16 * 10, "KEY4:K-");
 }
 
 void Key_Ctrl_Menu()
@@ -2281,7 +2305,7 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                if(Point4 < 6)
+                if(Point4 < 7)
                 {
                     Point4 = Point4 + 1;
                     ips200_clear();
@@ -2311,11 +2335,15 @@ void Key_Ctrl_Menu()
                 }
                 if(Point4 == 5)
                 {
-                    Snack_Advance += 1.0f;
+                    Snack_Advance += 0.5f;
                 }
                 if(Point4 == 6)
                 {
-                    Snack_Back += 1.0f;
+                    Snack_Back += 0.5f;
+                }
+                if(Point4 == 7)
+                {
+                    Task4_Delta_Angle = 0;
                 }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
@@ -2342,11 +2370,15 @@ void Key_Ctrl_Menu()
                 }
                 if(Point4 == 5)
                 {
-                    Snack_Advance -= 1.0f;
+                    Snack_Advance -= 0.5f;
                 }
                 if(Point4 == 6)
                 {
-                    Snack_Back -= 1.0f;
+                    Snack_Back -= 0.5f;
+                }
+                if(Point4 == 7)
+                {
+                    Task4_Delta_Angle = 180;
                 }
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)
