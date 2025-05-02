@@ -50,7 +50,8 @@ extern float  Task4_Start_Direc;                               // 科目四发车角度
 void Track_Follow(void);                                       // 核心循迹程序
 void Task4_Finish(void);                                       // 完成科目四
 void Point_Switch(void);                                       // 点位切换
-float LimitFabs180(float angle);                               // 角度限制(-180到180)
+float LimitFabs180(float angle);                               // 角度限制[-180, 180]
+float LimitFabs360(float angle);                               // 角度限制[0, 360)
 //===================================================函数声明END===================================================
 
 #endif /* CODE_POSITION_CALCULATION_H_ */

@@ -2451,7 +2451,7 @@ void Key_Ctrl_Menu()
                 Track_Points_NUM = Task4_Start_Point;
                 if(Task_Flag == 4)
                 {
-                    Task4_Start_Direc = LimitFabs180(Task4_Start_Direc + 90);
+                    Task4_Start_Direc = LimitFabs360(Task4_Start_Direc + 90);
                     FLASH_SAV_PAR();
                 }
                 Task_Flag = 4;

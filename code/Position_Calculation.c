@@ -582,6 +582,18 @@ float LimitFabs180(float angle)
     return angle;
 }
 
+float LimitFabs360(float angle)
+{
+    if(angle >= 360)
+    {
+        angle -= 360;
+    }
+    else if(angle < 0)
+    {
+        angle += 360;
+    }
+    return angle;
+}
 
 
 
