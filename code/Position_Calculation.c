@@ -21,7 +21,7 @@ int8   Action_Flag[ACTION_COUNT]  = {0};    // 科目四动作标志位
 int8   Task_Four_Turn_Flag        = 0;      // 科目四转圈标志位
 float  Snack_Advance              = 3;      // 蛇形前进偏移
 float  Snack_Back                 = 3;      // 蛇形后退偏移
-float  Task4_Delta_Angle          = 0;      // 科目四发车角度
+float  Task4_Start_Direc          = 0;      // 科目四发车角度
 
 /****************************************************************************************************
 //  @brief      核心循迹逻辑
@@ -307,7 +307,7 @@ void Task4_Finish()
                         break;
                     }
                     Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
-                    Angle -= Task4_Delta_Angle;
+                    Angle -= Task4_Start_Direc;
                     Angle = LimitFabs180(Angle);
 
                     Angle_Error = LimitFabs180(Angle - angle[2]);
@@ -335,7 +335,7 @@ void Task4_Finish()
                         break;
                     }
                     Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
-                    Angle -= Task4_Delta_Angle;
+                    Angle -= Task4_Start_Direc;
                     Angle = LimitFabs180(Angle);
 
                     Angle_Error = LimitFabs180(Angle - angle[2]);
@@ -363,7 +363,7 @@ void Task4_Finish()
                         break;
                     }
                     Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
-                    Angle -= Delta_Angle;
+                    Angle -= Task4_Start_Direc;
                     Angle = LimitFabs180(Angle);
 
                     Angle_Error = LimitFabs180(Angle - angle[2]);

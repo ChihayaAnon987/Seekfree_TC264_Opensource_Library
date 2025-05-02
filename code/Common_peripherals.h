@@ -11,7 +11,7 @@
 //===================================================宏定义BEG===================================================
 #define UART_RECEIVER_ENABLE     (1)                         // 0: 不启用遥控器    1: 启用遥控器
 #define WIRELESS_UART_ENABLE     (0)                         // 0: 不启用无线串口  1: 启用无线串口
-#define WIFI_UART_ENABLE         (0)                         // 0: 不启用WIFI串口  1: 启用WIFI串口
+#define WIFI_UART_ENABLE         (0)                         // 0: 不启用WIFI串口  1: 启用WIFI串口  遥控器、无线串口、WIFI串口只能启用一个
 #define CAR_NUMBER               (0)                         // 0: 0号车           1: 1号车
 #define MT9V03X_ENABLE           (0)                         // 0: 不启用摄像头    1: 启用摄像头
 #define BLDC_ENABLE              (1)                         // 0: 不启用无刷      1: 启用无刷

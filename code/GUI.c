@@ -1132,11 +1132,31 @@ void Task_Four(void)
     ips200_show_chinese(120, 286, 32, Chinese35[0], 1, RGB565_CYAN);
     ips200_show_chinese(152, 286, 32, Chinese36[0], 1, RGB565_CYAN);
 
-    ips200_show_int ( 24, 268, Action_Flag[0], 2);
-    ips200_show_int ( 64, 268, Action_Flag[1], 2);
-    ips200_show_int (104, 268, Action_Flag[2], 2);
-    ips200_show_int (144, 268, Action_Flag[3], 2);
-    ips200_show_int (184, 268, Action_Flag[4], 2);
+    ips200_show_int   ( 24, 268, Action_Flag[0], 2);
+    ips200_show_int   ( 64, 268, Action_Flag[1], 2);
+    ips200_show_int   (104, 268, Action_Flag[2], 2);
+    ips200_show_int   (144, 268, Action_Flag[3], 2);
+    ips200_show_int   (184, 268, Action_Flag[4], 2);
+    if(Task4_Start_Direc == 0)
+    {
+        ips200_show_string( 24, 268, "N");
+    }
+    else if(Task4_Start_Direc == 90)
+    {
+        ips200_show_string( 24, 268, "E");
+    }
+    else if(Task4_Start_Direc == 180)
+    {
+        ips200_show_string( 24, 268, "S");
+    }
+    else if(Task4_Start_Direc == 270)
+    {
+        ips200_show_string( 24, 268, "W");
+    }
+    else
+    {
+        ips200_show_string( 24, 268, "?");
+    }
 
     process_string(Dictation_Result);
     if(Start_Flag == 0)
@@ -1321,7 +1341,7 @@ void Param_Set_menu()
         ips200_show_string( 24, 16 * 4, "Turn_Point:");
         ips200_show_string( 24, 16 * 5, "Snack_Advance:");
         ips200_show_string( 24, 16 * 6, "Snack_Back:");
-        ips200_show_string( 24, 16 * 7, "Task4_Delta_Angle:");
+        // ips200_show_string( 24, 16 * 7, "Task4_Start_Direc:");
         ips200_show_int(   152, 16 * 0, Fly_Slope_Alpha, 4);
         ips200_show_float( 152, 16 * 1, K_Straight, 1, 3);
         ips200_show_int(   128, 16 * 2, Task2_Scales, 3);
@@ -1329,7 +1349,7 @@ void Param_Set_menu()
         ips200_show_int(   120, 16 * 4, Turn_Point  , 3);
         ips200_show_float( 136, 16 * 5, Snack_Advance, 2, 1);
         ips200_show_float( 112, 16 * 6, Snack_Back ,2, 1);
-        ips200_show_float( 176, 16 * 7, Task4_Delta_Angle, 3, 1);
+        // ips200_show_float( 176, 16 * 7, Task4_Start_Direc, 3, 1);
     }
     ips200_show_string(  0, 16 *  9, "KEY1:Up");
     ips200_show_string(  0, 16 * 10, "KEY2:Down");
@@ -2305,7 +2325,7 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                if(Point4 < 7)
+                if(Point4 < 6)
                 {
                     Point4 = Point4 + 1;
                     ips200_clear();
@@ -2341,10 +2361,6 @@ void Key_Ctrl_Menu()
                 {
                     Snack_Back += 0.5f;
                 }
-                if(Point4 == 7)
-                {
-                    Task4_Delta_Angle = 0;
-                }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
@@ -2375,10 +2391,6 @@ void Key_Ctrl_Menu()
                 if(Point4 == 6)
                 {
                     Snack_Back -= 0.5f;
-                }
-                if(Point4 == 7)
-                {
-                    Task4_Delta_Angle = 180;
                 }
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)
@@ -2437,8 +2449,12 @@ void Key_Ctrl_Menu()
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
                 Track_Points_NUM = Task4_Start_Point;
+                if(Task_Flag == 4)
+                {
+                    Task4_Start_Direc = LimitFabs180(Task4_Start_Direc + 90);
+                    FLASH_SAV_PAR();
+                }
                 Task_Flag = 4;
-                LED_Buzzer_Flag_Ctrl(LED1);
             }
             if(key_get_state(KEY_3) == KEY_LONG_PRESS)
             {
