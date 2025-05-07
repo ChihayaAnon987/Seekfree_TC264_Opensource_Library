@@ -19,10 +19,11 @@
 #define MARGIN              (     20      )                  // 屏幕边缘预留距离
 #define POINT_COLOR         (  RGB565_RED )                  // 点颜色
 #define POINT_SIZE          (      2      )                  // 点半径（像素）
-#define LAT_TO_METER        (  111319.0   )                  // 纬度变化1°对应的长度(m)(深圳)
-#define LON_TO_METER        (  102907.0   )                  // 经度变化1°对应的长度(m)
-#define METER_TO_LAT        (  0.00000898 )                  // 变化1m对应的纬度
-#define METER_TO_LON        (  0.00000972 )                  // 变化1m对应的经度
+#define LAT_TO_METER        (  111319.0   )                  // 纬度变化1°对应的长度(m)
+#define LON_TO_METER        (  102907.0   )                  // 经度变化1°对应的长度(m)(深圳)
+// #define LON_TO_METER        (   96125.0   )                  // 经度变化1°对应的长度(m)(杭州)
+#define METER_TO_LAT(x)     (x / LAT_TO_METER)               // 变化x米对应的纬度
+#define METER_TO_LON(x)     (x / LON_TO_METER)               // 变化x米对应的经度
 //===================================================宏定义END===================================================
 
 
@@ -59,10 +60,13 @@ extern double   Delta_y;                                       // 位移
 extern GpsPoint Point[NUM_GPS_DATA];                           // 存储点位的结构体
 extern int8     Task1_Points;                                  // 科目一所用点位数量
 extern int8     Task2_Bucket;                                  // 科目二锥桶数量
+extern float    Bucket_Dista;                                  // 锥桶间距
+extern float    Start_To_Bucket;                               // 起点到锥桶的偏移量
 extern int8     Task2_Points;                                  // 科目二所用点位数量
-extern int8     Task3_Points;                                  // 科目三所用点位数量
 extern int8     Task2_Scales;                                  // 科目二标尺
 extern int8     Advan_Scales;                                  // 预测标尺
+extern int8     Task3_Points;                                  // 科目三所用点位数量
+extern float    Task3_Width;                                   // 科目三间距宽
 extern float    GpsDistance[NUM_GPS_DATA];                     // 存储换点距离的数组
 extern int16    GpsTgtEncod[NUM_GPS_DATA];                     // 存储点位速度的数组
 extern float    GpsSpeed;                                      // 速度

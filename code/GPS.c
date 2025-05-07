@@ -79,10 +79,13 @@ float  GpsMaxSpeed = 0;             // 最大速度
 float  GpsMaxAccel = 0;             // 最大加速度
 int8   Task1_Points = 5;            // 科目一所用点位数量
 int8   Task2_Bucket = 4;            // 科目二锥桶数量
+float  Bucket_Dista = 2.5f;         // 锥桶间距
+float  Start_To_Bucket = 0;         // 起点到锥桶的偏移量
 int8   Task2_Points = 13;           // 科目二所用点位数量
-int8   Task3_Points = 9;            // 科目三所用点位数量
 int8   Task2_Scales = 6;            // 科目二标尺
 int8   Advan_Scales = 1;            // 预测标尺
+int8   Task3_Points = 9;            // 科目三所用点位数量
+float  Task3_Width  = 3.75f;        // 科目三间距宽
 double min_dx, max_dx, min_dy, max_dy;
 double range_x, range_y;
 double scale;                       // 缩放因子（单位：像素/米）
@@ -447,19 +450,16 @@ void Task2_Road_Gen()
         Toward = -1;
     }
     
-    for(int i =Task2_Road_Genera + 2; i < Task2_Road_Genera + Task2_Bucket + 2; i++)
+    for(int i = Task2_Road_Genera + 2; i < Task2_Road_Genera + Task2_Bucket + 1; i++)
     {
         Point[i].lonitude = Point[Task2_Road_Genera + 1].lonitude;
+        Point[i].latitude = Point[Task2_Road_Genera + 1].latitude + Toward * METER_TO_LAT(Bucket_Dista) * (i - Task2_Road_Genera - 1);
     }
+    Point[Task2_Road_Genera + Task2_Bucket + 1].lonitude = Point[Task2_Road_Genera + 1].lonitude;
 
-    // 锥桶间距2.5m
-    Point[12].latitude = Point[11].latitude + Toward * 0.000022;
-    Point[13].latitude = Point[12].latitude + Toward * 0.000023;
-    Point[14].latitude = Point[13].latitude + Toward * 0.000022;
-    
     // 起始点赋值
     Point[Task2_Start_Point].latitude = Point[Task2_Road_Genera].latitude;
-    Point[Task2_Start_Point].lonitude = Point[Task2_Road_Genera].lonitude;
+    Point[Task2_Start_Point].lonitude = Point[Task2_Road_Genera].lonitude + METER_TO_LON(Start_To_Bucket);
 
     // 终点赋值
     Point[Task2_Start_Point + Task2_Points - 1].latitude = Point[Task2_Road_Genera].latitude;
@@ -475,7 +475,6 @@ void Task2_Road_Gen()
         Point[Differ2 - i].lonitude = Point[Task2_Road_Genera + 1 + i].lonitude + Toward * 0.000001 * Task2_Scales * sign;
         sign = -sign;
     }
-    Point[Task2_Start_Point + Task2_Bucket + 5].lonitude -= Toward * 0.000008;
 
     // 掉头点赋值
     Point[Task2_Start_Point + Task2_Bucket + 2].latitude = Point[Task2_Road_Genera + Task2_Bucket + 1].latitude;
@@ -483,11 +482,14 @@ void Task2_Road_Gen()
     Point[Task2_Start_Point + Task2_Bucket + 3].latitude = Point[Task2_Road_Genera + Task2_Bucket + 1].latitude + Toward * 0.000002 * Task2_Scales;
     Point[Task2_Start_Point + Task2_Bucket + 3].lonitude = Point[Task2_Start_Point + Task2_Bucket + 5].lonitude;
 
+    // Point[Task2_Start_Point + Task2_Bucket + 5].lonitude -= Toward * 0.000008;
+    
     // 起点到锥桶, 拐弯区到锥桶点赋值
-    Point[Task2_Start_Point + 1].latitude = Point[Task2_Start_Point + 2].latitude - Toward * 0.000027; // 3m
+    Point[Task2_Start_Point + 1].latitude = Point[Task2_Start_Point + 2].latitude - Toward * METER_TO_LAT(3); // 3m
     Point[Task2_Start_Point + 1].lonitude = Point[Task2_Start_Point + 2].lonitude;
-    Point[Task2_Start_Point + Task2_Bucket + 4].latitude = Point[Task2_Start_Point + Task2_Bucket + 5].latitude + Toward * 0.000027;
+    Point[Task2_Start_Point + Task2_Bucket + 4].latitude = Point[Task2_Start_Point + Task2_Bucket + 5].latitude + Toward * METER_TO_LAT(3);
     Point[Task2_Start_Point + Task2_Bucket + 4].lonitude = Point[Task2_Start_Point + Task2_Bucket + 5].lonitude;
+
 
     FLASH_FIX_GPS();
 }
@@ -499,6 +501,7 @@ void Task3_Road_Fix()
         Point[i].lonitude = Point[Task3_Start_Point].lonitude;
     }
     Point[Turn_Point + 1].latitude = Point[Turn_Point].latitude;
+    Point[Turn_Point + 1].lonitude = Point[Turn_Point].lonitude + METER_TO_LON(Task3_Width);
     for(int16 i = Turn_Point + 1; i < Task3_Start_Point + Task3_Points; i++)
     {
         Point[i].lonitude = Point[Turn_Point + 1].lonitude;

@@ -394,9 +394,14 @@ void AHRS_AHRSupdate(float gx, float gy, float gz, float ax, float ay, float az,
 ****************************************************************************************************/
 void AHRS_getQ(float * q)
 {
-    AHRS_AHRSupdate(ANGLE_TO_RAD(imu963ra_gyro_transition(imu963ra_gyro_x - Gyro_Offset.Xdata)),
-                    ANGLE_TO_RAD(imu963ra_gyro_transition(imu963ra_gyro_y - Gyro_Offset.Ydata)),
-                    ANGLE_TO_RAD(imu963ra_gyro_transition(imu963ra_gyro_z - Gyro_Offset.Zdata)),
+    // AHRS_AHRSupdate(ANGLE_TO_RAD(imu963ra_gyro_transition(imu963ra_gyro_x - Gyro_Offset.Xdata)),
+    //                 ANGLE_TO_RAD(imu963ra_gyro_transition(imu963ra_gyro_y - Gyro_Offset.Ydata)),
+    //                 ANGLE_TO_RAD(imu963ra_gyro_transition(imu963ra_gyro_z - Gyro_Offset.Zdata)),
+    //                 imu963ra_acc_x, imu963ra_acc_y, imu963ra_acc_z,
+    //                 imu963ra_mag_x, imu963ra_mag_y, imu963ra_mag_z);
+    AHRS_AHRSupdate(ANGLE_TO_RAD(fabs(imu963ra_gyro_transition(imu963ra_gyro_x - Gyro_Offset.Xdata)) >= 0.15 ? imu963ra_gyro_transition(imu963ra_gyro_x - Gyro_Offset.Xdata) : 0),
+                    ANGLE_TO_RAD(fabs(imu963ra_gyro_transition(imu963ra_gyro_y - Gyro_Offset.Ydata)) >= 0.15 ? imu963ra_gyro_transition(imu963ra_gyro_y - Gyro_Offset.Ydata) : 0),
+                    ANGLE_TO_RAD(fabs(imu963ra_gyro_transition(imu963ra_gyro_z - Gyro_Offset.Zdata)) >= 0.15 ? imu963ra_gyro_transition(imu963ra_gyro_z - Gyro_Offset.Zdata) : 0),
                     imu963ra_acc_x, imu963ra_acc_y, imu963ra_acc_z,
                     imu963ra_mag_x, imu963ra_mag_y, imu963ra_mag_z);
     // 将陀螺仪的测量值转成弧度每秒
@@ -428,7 +433,7 @@ void AHRS_getYawPitchRoll(float * angles)
     angles[1] =  asin( 2 * q[0] * q[2] - 2 * q[1] * q[3]) * 180 / PI;                                        // 俯仰角pitch
     angles[2] = -atan2(2 * q[0] * q[3] + 2 * q[1] * q[2], -2 * q[2] * q[2] - 2 * q[3] * q[3] + 1) * 180 / PI;// 偏航角yaw
 
-    // angle[2] -= ((int16)System_Time / 10) * 0.122;
+    // angle[2] -= ((int16)System_Time / 1) * 0.0122;
     angle[2] = LimitFabs180(angle[2]);
 }
 

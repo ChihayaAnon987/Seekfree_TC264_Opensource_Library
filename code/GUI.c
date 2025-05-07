@@ -761,7 +761,7 @@ void Imu963_menu()
     ips200_show_float( 48, 16 * 6, Kp_Ah, 3, 3);
     ips200_show_float( 48, 16 * 7, Ki_Ah, 3, 3);
     ips200_show_float( 96, 16 * 8, System_Time, 3, 3);
-    ips200_show_float( 96, 16 * 9, ((int16)System_Time / 10) * 0.122, 3, 3);
+    ips200_show_float( 96, 16 * 9, ((int16)System_Time / 1) * 0.0122, 3, 3);
 
 #if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
@@ -1341,7 +1341,7 @@ void Param_Set_menu()
         ips200_show_string( 24, 16 * 4, "Turn_Point:");
         ips200_show_string( 24, 16 * 5, "Snack_Advance:");
         ips200_show_string( 24, 16 * 6, "Snack_Back:");
-        // ips200_show_string( 24, 16 * 7, "Task4_Start_Direc:");
+        ips200_show_string( 24, 16 * 7, "Bucket_Dista:");
         ips200_show_int(   152, 16 * 0, Fly_Slope_Alpha, 4);
         ips200_show_float( 152, 16 * 1, K_Straight, 1, 3);
         ips200_show_int(   128, 16 * 2, Task2_Scales, 3);
@@ -1349,7 +1349,14 @@ void Param_Set_menu()
         ips200_show_int(   120, 16 * 4, Turn_Point  , 3);
         ips200_show_float( 136, 16 * 5, Snack_Advance, 2, 1);
         ips200_show_float( 112, 16 * 6, Snack_Back ,2, 1);
-        // ips200_show_float( 176, 16 * 7, Task4_Start_Direc, 3, 1);
+        ips200_show_float( 128, 16 * 7, Bucket_Dista, 3, 3);
+    }
+    if(Page == 1)
+    {
+        ips200_show_string(  24, 16 * 0, "Start_To_Bucket:");
+        ips200_show_string(  24, 16 * 1, "Task3_Width:");
+        ips200_show_float(  152, 16 * 0, Start_To_Bucket, 1, 3);
+        ips200_show_float(  120, 16 * 1, Task3_Width, 1, 3);
     }
     ips200_show_string(  0, 16 *  9, "KEY1:Up");
     ips200_show_string(  0, 16 * 10, "KEY2:Down");
@@ -2325,7 +2332,7 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                if(Point4 < 6)
+                if(Point4 < 9)
                 {
                     Point4 = Point4 + 1;
                     ips200_clear();
@@ -2361,6 +2368,18 @@ void Key_Ctrl_Menu()
                 {
                     Snack_Back += 0.5f;
                 }
+                if(Point4 == 7)
+                {
+                    Bucket_Dista += 0.05f;
+                }
+                if(Point4 == 8)
+                {
+                    Start_To_Bucket += 0.05f;
+                }
+                if(Point4 == 9)
+                {
+                    Task3_Width += 0.05f;
+                }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
@@ -2392,6 +2411,18 @@ void Key_Ctrl_Menu()
                 {
                     Snack_Back -= 0.5f;
                 }
+                if(Point4 == 7)
+                {
+                    Bucket_Dista -= 0.05f;
+                }
+                if(Point4 == 8)
+                {
+                    Start_To_Bucket -= 0.05f;
+                }
+                if(Point4 == 9)
+                {
+                    Task3_Width -= 0.05f;
+                }
             }
             if(key_get_state(KEY_1) == KEY_LONG_PRESS)
             {
@@ -2400,6 +2431,19 @@ void Key_Ctrl_Menu()
             if(key_get_state(KEY_2) == KEY_LONG_PRESS)
             {
                 FLASH_PRI_PAR();
+            }
+            if(key_get_state(KEY_3) == KEY_LONG_PRESS)
+            {
+                if(Point4 == 8)
+                {
+                    Start_To_Bucket = -Start_To_Bucket;
+                }
+                if(Point4 == 9)
+                {
+                    Task3_Width = -Task3_Width;
+                }
+                LED_Buzzer_Flag_Ctrl(LED1);
+                system_delay_ms(500);
             }
         }
         
