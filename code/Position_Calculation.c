@@ -57,15 +57,15 @@ void Track_Follow()
     {
         Angle_Error = -K_Straight * angle[2];
     }
-    else if(Track_Points_NUM == Task1_Start_Point + Task1_Points)
+    else if(Track_Points_NUM == Task1_Start_Point + Task1_Points + 1)
     {
         Angle_Error = 0;
     }
-    else if(Track_Points_NUM == Task2_Start_Point + Task2_Points)
+    else if(Track_Points_NUM == Task2_Start_Point + Task2_Points + 1)
     {
         Angle_Error = 0;
     }
-    else if(Track_Points_NUM == Task3_Start_Point + Task3_Points)
+    else if(Track_Points_NUM == Task3_Start_Point + Task3_Points + 1)
     {
         Angle_Error = 0;
     }
@@ -455,7 +455,7 @@ void Point_Switch()
             LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
         }
     }
-    else if(Track_Points_NUM == Task2_Start_Point + Task2_Bucket + 1)  // 科目二拐弯
+    else if(Track_Points_NUM == Task2_Start_Point + Task2_Bucket + 2)  // 科目二拐弯
     {
         if(Distance < GpsDistance[Track_Points_NUM])
         {

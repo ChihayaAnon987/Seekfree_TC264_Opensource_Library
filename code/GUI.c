@@ -1139,23 +1139,23 @@ void Task_Four(void)
     ips200_show_int   (184, 268, Action_Flag[4], 2);
     if(Task4_Start_Direc == 0)
     {
-        ips200_show_string( 24, 268, "N");
+        ips200_show_string(224, 268, "N");
     }
     else if(Task4_Start_Direc == 90)
     {
-        ips200_show_string( 24, 268, "E");
+        ips200_show_string(224, 268, "E");
     }
     else if(Task4_Start_Direc == 180)
     {
-        ips200_show_string( 24, 268, "S");
+        ips200_show_string(224, 268, "S");
     }
     else if(Task4_Start_Direc == 270)
     {
-        ips200_show_string( 24, 268, "W");
+        ips200_show_string(224, 268, "W");
     }
     else
     {
-        ips200_show_string( 24, 268, "?");
+        ips200_show_string(224, 268, "?");
     }
 
     process_string(Dictation_Result);

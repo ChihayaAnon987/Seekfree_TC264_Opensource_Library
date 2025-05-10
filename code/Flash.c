@@ -297,65 +297,61 @@ void FLASH_GET_PAR()
 
 void FLASH_PRI_PAR()
 {
-    static int8 Print_Flag = 0;
-    if(Print_Flag == 0)
+    printf("ServoPID[0]:%f\r\n", Parameter_set0.ServePID[0]);
+    printf("ServoPID[1]:%f\r\n", Parameter_set0.ServePID[1]);
+    printf("ServoPID[2]:%f\r\n", Parameter_set0.ServePID[2]);
+    
+    printf("MotorPID[0]:%f\r\n", Parameter_set0.SpeedPID[0]);
+    printf("MotorPID[1]:%f\r\n", Parameter_set0.SpeedPID[1]);
+    printf("MotorPID[2]:%f\r\n", Parameter_set0.SpeedPID[2]);
+
+    printf("Task1Points:%d\r\n", Task1_Points);
+    printf("Task2Bucket:%d\r\n", Task2_Bucket);
+    printf("Task3Points:%d\r\n", Task3_Points);
+
+    printf("Fly_Slope_Alpha:%d\r\n", Fly_Slope_Alpha);
+    printf("K_Straight:%f\r\n", K_Straight);
+    printf("Task2_Scales:%d\r\n", Task2_Scales);
+    printf("Advan_Scales:%d\r\n", Advan_Scales);
+    printf("Turn_Point:%d\r\n", Turn_Point);
+
+    printf("From_0000_To_2000_ServoPD: Kp = %f, Kd = %f\r\n", From_0000_To_2000_ServoPD.Kp, From_0000_To_2000_ServoPD.Kd);
+    printf("From_2000_To_4000_ServoPD: Kp = %f, Kd = %f\r\n", From_2000_To_4000_ServoPD.Kp, From_2000_To_4000_ServoPD.Kd);
+    printf("From_4000_To_5000_ServoPD: Kp = %f, Kd = %f\r\n", From_4000_To_5000_ServoPD.Kp, From_4000_To_5000_ServoPD.Kd);
+    printf("From_5000_To_6000_ServoPD: Kp = %f, Kd = %f\r\n", From_5000_To_6000_ServoPD.Kp, From_5000_To_6000_ServoPD.Kd);
+    printf("From_6000_To_7000_ServoPD: Kp = %f, Kd = %f\r\n", From_6000_To_7000_ServoPD.Kp, From_6000_To_7000_ServoPD.Kd);
+    printf("From_7000_To_8000_ServoPD: Kp = %f, Kd = %f\r\n", From_7000_To_8000_ServoPD.Kp, From_7000_To_8000_ServoPD.Kd);
+    printf("From_8000_To_9000_ServoPD: Kp = %f, Kd = %f\r\n", From_8000_To_9000_ServoPD.Kp, From_8000_To_9000_ServoPD.Kd);
+    printf("From_9000_To_9900_ServoPD: Kp = %f, Kd = %f\r\n", From_9000_To_9900_ServoPD.Kp, From_9000_To_9900_ServoPD.Kd);
+    printf("Encoder0100_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0100_ServoPD.Kp, Encoder0100_ServoPD.Kd);
+    printf("Encoder0200_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0200_ServoPD.Kp, Encoder0200_ServoPD.Kd);
+    printf("Encoder0300_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0300_ServoPD.Kp, Encoder0300_ServoPD.Kd);
+    printf("Encoder0400_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0400_ServoPD.Kp, Encoder0400_ServoPD.Kd);
+    printf("Encoder0500_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0500_ServoPD.Kp, Encoder0500_ServoPD.Kd);
+    printf("Encoder0600_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0600_ServoPD.Kp, Encoder0600_ServoPD.Kd);
+    printf("Encoder0700_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0700_ServoPD.Kp, Encoder0700_ServoPD.Kd);
+    printf("Encoder0800_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0800_ServoPD.Kp, Encoder0800_ServoPD.Kd);
+    printf("Encoder0900_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0900_ServoPD.Kp, Encoder0900_ServoPD.Kd);
+    printf("Encoder1000_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1000_ServoPD.Kp, Encoder1000_ServoPD.Kd);
+    printf("Encoder1100_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1100_ServoPD.Kp, Encoder1100_ServoPD.Kd);
+    printf("Encoder1200_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1200_ServoPD.Kp, Encoder1200_ServoPD.Kd);
+    printf("Snack_Advance: %f\r\n", Snack_Advance);
+    printf("Snack_Back: %f\r\n", Snack_Back);
+
+    for(int16 i = 0; i < NUM_GPS_DATA; i++)
     {
-        Print_Flag = 1;
-        printf("ServoPID[0]:%f\r\n", Parameter_set0.ServePID[0]);
-        printf("ServoPID[1]:%f\r\n", Parameter_set0.ServePID[1]);
-        printf("ServoPID[2]:%f\r\n", Parameter_set0.ServePID[2]);
-        
-        printf("MotorPID[0]:%f\r\n", Parameter_set0.SpeedPID[0]);
-        printf("MotorPID[1]:%f\r\n", Parameter_set0.SpeedPID[1]);
-        printf("MotorPID[2]:%f\r\n", Parameter_set0.SpeedPID[2]);
-
-        printf("Task1Points:%d\r\n", Task1_Points);
-        printf("Task2Bucket:%d\r\n", Task2_Bucket);
-        printf("Task3Points:%d\r\n", Task3_Points);
-
-        printf("Fly_Slope_Alpha:%d\r\n", Fly_Slope_Alpha);
-        printf("K_Straight:%f\r\n", K_Straight);
-        printf("Task2_Scales:%d\r\n", Task2_Scales);
-        printf("Advan_Scales:%d\r\n", Advan_Scales);
-        printf("Turn_Point:%d\r\n", Turn_Point);
-
-        printf("From_0000_To_2000_ServoPD: Kp = %f, Kd = %f\r\n", From_0000_To_2000_ServoPD.Kp, From_0000_To_2000_ServoPD.Kd);
-        printf("From_2000_To_4000_ServoPD: Kp = %f, Kd = %f\r\n", From_2000_To_4000_ServoPD.Kp, From_2000_To_4000_ServoPD.Kd);
-        printf("From_4000_To_5000_ServoPD: Kp = %f, Kd = %f\r\n", From_4000_To_5000_ServoPD.Kp, From_4000_To_5000_ServoPD.Kd);
-        printf("From_5000_To_6000_ServoPD: Kp = %f, Kd = %f\r\n", From_5000_To_6000_ServoPD.Kp, From_5000_To_6000_ServoPD.Kd);
-        printf("From_6000_To_7000_ServoPD: Kp = %f, Kd = %f\r\n", From_6000_To_7000_ServoPD.Kp, From_6000_To_7000_ServoPD.Kd);
-        printf("From_7000_To_8000_ServoPD: Kp = %f, Kd = %f\r\n", From_7000_To_8000_ServoPD.Kp, From_7000_To_8000_ServoPD.Kd);
-        printf("From_8000_To_9000_ServoPD: Kp = %f, Kd = %f\r\n", From_8000_To_9000_ServoPD.Kp, From_8000_To_9000_ServoPD.Kd);
-        printf("From_9000_To_9900_ServoPD: Kp = %f, Kd = %f\r\n", From_9000_To_9900_ServoPD.Kp, From_9000_To_9900_ServoPD.Kd);
-        printf("Encoder0100_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0100_ServoPD.Kp, Encoder0100_ServoPD.Kd);
-        printf("Encoder0200_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0200_ServoPD.Kp, Encoder0200_ServoPD.Kd);
-        printf("Encoder0300_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0300_ServoPD.Kp, Encoder0300_ServoPD.Kd);
-        printf("Encoder0400_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0400_ServoPD.Kp, Encoder0400_ServoPD.Kd);
-        printf("Encoder0500_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0500_ServoPD.Kp, Encoder0500_ServoPD.Kd);
-        printf("Encoder0600_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0600_ServoPD.Kp, Encoder0600_ServoPD.Kd);
-        printf("Encoder0700_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0700_ServoPD.Kp, Encoder0700_ServoPD.Kd);
-        printf("Encoder0800_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0800_ServoPD.Kp, Encoder0800_ServoPD.Kd);
-        printf("Encoder0900_ServoPD: Kp = %f, Kd = %f\r\n", Encoder0900_ServoPD.Kp, Encoder0900_ServoPD.Kd);
-        printf("Encoder1000_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1000_ServoPD.Kp, Encoder1000_ServoPD.Kd);
-        printf("Encoder1100_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1100_ServoPD.Kp, Encoder1100_ServoPD.Kd);
-        printf("Encoder1200_ServoPD: Kp = %f, Kd = %f\r\n", Encoder1200_ServoPD.Kp, Encoder1200_ServoPD.Kd);
-        printf("Snack_Advance: %f\r\n", Snack_Advance);
-        printf("Snack_Back: %f\r\n", Snack_Back);
-
-        for(int16 i = 0; i < NUM_GPS_DATA; i++)
+        if(GpsDistance[i] != 0)
         {
-            if(GpsDistance[i] != 0)
-            {
-                printf("GpsDistance[%d]:%f\r\n", i, GpsDistance[i]);
-            }
+            printf("GpsDistance[%d]:%f\r\n", i, GpsDistance[i]);
         }
-        for(int16 i = 0; i < NUM_GPS_DATA; i++)
-        {
-            if(GpsTgtEncod[i] != 0)
-            {
-                printf("GpsTgtEncod[%d]:%d\r\n", i, GpsTgtEncod[i]);
-            }
-        }
-        LED_Buzzer_Flag_Ctrl(LED1);
     }
+    for(int16 i = 0; i < NUM_GPS_DATA; i++)
+    {
+        if(GpsTgtEncod[i] != 0)
+        {
+            printf("GpsTgtEncod[%d]:%d\r\n", i, GpsTgtEncod[i]);
+        }
+    }
+    LED_Buzzer_Flag_Ctrl(LED1);
+    system_delay_ms(1000);
 }
