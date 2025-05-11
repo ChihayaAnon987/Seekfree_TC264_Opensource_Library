@@ -496,18 +496,17 @@ void Task2_Road_Gen()
 
 void Task3_Road_Fix()
 {
-    for(int16 i = Task3_Start_Point; i < Turn_Point + 1; i++)
+    for(int16 i = Task3_Start_Point + 1; i < Turn_Point + 1; i++)
     {
         Point[i].lonitude = Point[Task3_Start_Point].lonitude;
     }
     Point[Turn_Point + 1].latitude = Point[Turn_Point].latitude;
     Point[Turn_Point + 1].lonitude = Point[Turn_Point].lonitude + METER_TO_LON(Task3_Width);
-    for(int16 i = Turn_Point + 1; i < Task3_Start_Point + Task3_Points; i++)
+    for(int16 i = Turn_Point + 2; i < Task3_Start_Point + Task3_Points; i++)
     {
         Point[i].lonitude = Point[Turn_Point + 1].lonitude;
     }
     Point[Task3_Start_Point + Task3_Points - 1].latitude = Point[Task3_Start_Point].latitude;
-    Point[Task3_Start_Point + Task3_Points - 1].lonitude = Point[Task3_Start_Point].lonitude;
 
     FLASH_FIX_GPS();
 }
