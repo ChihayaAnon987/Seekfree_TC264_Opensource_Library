@@ -2475,9 +2475,8 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
-                LED_Buzzer_Flag_Ctrl(LED3);
-                system_delay_ms(3000);
                 Start_Flag = 1;
+                LED_Buzzer_Flag_Ctrl(LED3);
             }
         }
 
@@ -2507,9 +2506,8 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
-                LED_Buzzer_Flag_Ctrl(LED3);
-                system_delay_ms(3000);
                 Start_Flag = 1;
+                LED_Buzzer_Flag_Ctrl(LED3);
             }
         }
     }
