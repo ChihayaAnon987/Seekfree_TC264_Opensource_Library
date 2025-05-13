@@ -86,59 +86,62 @@ void Task4_Finish()
         {
             case FLASHING_LIGHT:
             {
-                // 打开双闪灯
-                gpio_set_level(LED1, 0);
-                system_delay_ms(1000);
-                gpio_set_level(LED1, 1);
+                
+                dot_matrix_screen_set_brightness(5000);         // 设置点阵亮度
+                dot_matrix_screen_show_string("123");           // 双闪灯123
+                system_delay_ms(2900);
+                dot_matrix_screen_show_string("   ");
+                system_delay_ms(100);
                 Action_Flag[i] = 0;
                 break;
             }
             case LEFTTURN_LIGHT:
             {
-                // 打开左转灯
-                gpio_set_level(LED2, 0);
-                system_delay_ms(1000);
-                gpio_set_level(LED2, 1);
+                dot_matrix_screen_set_brightness(5000);         // 设置点阵亮度
+                dot_matrix_screen_show_string("456");           // 左转灯456
+                system_delay_ms(2900);
+                dot_matrix_screen_show_string("   ");
+                system_delay_ms(100);
                 Action_Flag[i] = 0;
                 break;
             }
             case RIGHTURN_LIGHT:
             {
-                // 打开右转灯
-                gpio_set_level(LED3, 0);
-                system_delay_ms(1000);
-                gpio_set_level(LED3, 1);
+                dot_matrix_screen_set_brightness(5000);         // 设置点阵亮度
+                dot_matrix_screen_show_string("789");           // 右转灯789
+                system_delay_ms(2900);
+                dot_matrix_screen_show_string("   ");
+                system_delay_ms(100);
                 Action_Flag[i] = 0;
                 break;
             }
             case LOWBEAN_HLIGHT:
             {
-                // 打开近光灯
-                gpio_set_level(LED4, 0);
-                system_delay_ms(1000);
-                gpio_set_level(LED4, 1);
+                dot_matrix_screen_set_brightness(5000);         // 设置点阵亮度
+                dot_matrix_screen_show_string("!%*");           // 近光灯!%*
+                system_delay_ms(2900);
+                dot_matrix_screen_show_string("   ");
+                system_delay_ms(100);
                 Action_Flag[i] = 0;
                 break;
             }
             case HIGBEAN_HLIGHT:
             {
-                // 打开远光灯
-                gpio_set_level(LED1, 0);
-                gpio_set_level(LED2, 0);
-                system_delay_ms(1000);
-                gpio_set_level(LED1, 1);
-                gpio_set_level(LED2, 1);
+                dot_matrix_screen_set_brightness(5000);         // 设置点阵亮度
+                dot_matrix_screen_show_string("!%&");           // 远光灯!%&
+                system_delay_ms(2900);
+                dot_matrix_screen_show_string("   ");
+                system_delay_ms(100);
                 Action_Flag[i] = 0;
                 break;
             }
             case FOG_LIGHT:
             {
-                // 打开雾灯
-                gpio_set_level(LED3, 0);
-                gpio_set_level(LED4, 0);
-                system_delay_ms(1000);
-                gpio_set_level(LED3, 1);
-                gpio_set_level(LED4, 1);
+                dot_matrix_screen_set_brightness(5000);         // 设置点阵亮度
+                dot_matrix_screen_show_string("!%+");           // 雾灯!%+
+                system_delay_ms(2900);
+                dot_matrix_screen_show_string("   ");
+                system_delay_ms(100);
                 Action_Flag[i] = 0;
                 break;
             }

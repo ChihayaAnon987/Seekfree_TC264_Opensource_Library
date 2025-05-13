@@ -18,6 +18,7 @@ void CPU0_Init()
     SERVO_Init();                                                   // 舵机初始化
     MOTOR_Init();                                                   // 电机初始化
     encoder_dir_init(ENCODER1_TIM, ENCODER1_PLUS, ENCODER1_DIR);    // 编码器初始化
+    dot_matrix_screen_init();                                       // 点阵屏幕初始化
 #if UART_RECEIVER_ENABLE
     uart_receiver_init();                                           // sbus接收机初始化
 #endif

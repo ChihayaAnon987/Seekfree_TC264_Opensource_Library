@@ -106,6 +106,8 @@
 #include "zf_device_wifi_uart.h"
 #include "zf_device_wifi_spi.h"
 #include "zf_device_wireless_uart.h"
+#include "zf_device_dot_matrix_screen.h"
+#include "zf_device_tld7002.h"
 //===================================================外接设备驱动层===================================================
 
 //====================================================应用组件层====================================================

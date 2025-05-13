@@ -174,7 +174,7 @@ IFX_INTERRUPT(exti_ch3_ch7_isr, 0, EXTI_CH3_CH7_INT_PRIO)
     if(exti_flag_get(ERU_CH7_REQ16_P15_1))          // 通道7中断
     {
         exti_flag_clear(ERU_CH7_REQ16_P15_1);
-
+        dot_matrix_screen_scan();
 
 
 
@@ -224,6 +224,7 @@ IFX_INTERRUPT(uart1_rx_isr, 0, UART1_RX_INT_PRIO)
 {
     interrupt_global_enable(0);                     // 开启中断嵌套
     camera_uart_handler();
+    tld7002_callback();
 }
 
 // 串口2默认连接到无线转串口模块
