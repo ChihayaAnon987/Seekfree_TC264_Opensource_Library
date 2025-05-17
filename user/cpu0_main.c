@@ -101,7 +101,7 @@ int core0_main(void)
         #endif
         if(Start_Flag == 1)
         {
-            system_delay_ms(2000);
+            system_delay_ms(1000);
             break;
         }
     }

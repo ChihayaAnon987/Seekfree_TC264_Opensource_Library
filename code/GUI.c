@@ -691,8 +691,8 @@ void Points_menu(void)
     {
         drawGrid();
         drawPoints();
-        updateCarPosition();
     }
+    updateCarPosition();
 
 }
 
@@ -1099,8 +1099,8 @@ void Task_Select(void)
     {
         drawGrid();
         drawPoints();
-        updateCarPosition();
     }
+    updateCarPosition();
 #if WIRELESS_UART_ENABLE
     seekfree_assistant_oscilloscope_send(&oscilloscope_data);
     oscilloscope_data.data[0] = Angle_Error;

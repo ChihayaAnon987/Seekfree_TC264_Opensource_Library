@@ -92,6 +92,7 @@
 #include "zf_device_imu963ra.h"
 #include "zf_device_ips114.h"
 #include "zf_device_ips200.h"
+#include "zf_device_ips200pro.h"
 #include "zf_device_key.h"
 #include "zf_device_mpu6050.h"
 #include "zf_device_mt9v03x.h"

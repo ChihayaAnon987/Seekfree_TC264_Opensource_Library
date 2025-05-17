@@ -409,10 +409,16 @@ void updateCarPosition()
         static uint16_t last_x = 0, last_y = 0;
         static double last_Lat = 0, last_Lon = 0;
         gpsToScreen(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, &x, &y, start_point);
-        ips200_draw_point(x, y, RGB565_YELLOW);
+        if((func_index == enum_third_menu09 && gpio_get_level(SWITCH1)) || (func_index == enum_secon_menu08 && Map_Flag == -1))
+        {
+            ips200_draw_point(x, y, RGB565_YELLOW);
+        }
         if(last_x != 0 && last_y != 0)
         {
-            ips200_draw_line (x, y, last_x, last_y, RGB565_YELLOW);
+            if((func_index == enum_third_menu09 && gpio_get_level(SWITCH1)) || (func_index == enum_secon_menu08 && Map_Flag == -1))
+            {
+                ips200_draw_line (x, y, last_x, last_y, RGB565_YELLOW);
+            }
             Actual_Dist += get_two_points_distance(last_Lat, last_Lon, gnss.latitude, gnss.longitude);
         }
         last_x = x;
