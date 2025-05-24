@@ -122,6 +122,7 @@ void main_menu0(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
@@ -149,6 +150,7 @@ void main_menu1(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
@@ -176,6 +178,7 @@ void main_menu2(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
@@ -203,6 +206,7 @@ void main_menu3(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
@@ -230,6 +234,7 @@ void main_menu4(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
@@ -257,6 +262,7 @@ void main_menu5(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
@@ -284,6 +290,7 @@ void main_menu6(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
@@ -311,6 +318,7 @@ void main_menu7(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
@@ -338,6 +346,7 @@ void main_menu8(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
@@ -365,6 +374,7 @@ void main_menu9(void)
     ips200_show_string(136, 16 * 1, "-->SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
@@ -392,6 +402,7 @@ void main_menu10(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "-->ParamSet  ");
     ips200_show_string(136, 16 * 3, "   TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);
@@ -419,6 +430,7 @@ void main_menu11(void)
     ips200_show_string(136, 16 * 1, "   SevroTest ");
     ips200_show_string(136, 16 * 2, "   ParamSet  ");
     ips200_show_string(136, 16 * 3, "-->TaskSelect");
+    ips200_show_string(  0, 16 * 12,   VERSION_INFO);
     ips200_draw_line  (108,   0, 108, 184, RGB565_PURPLE);
     ips200_draw_line  (132,   0, 132, 184, RGB565_PURPLE);
     ips200_draw_line  (  0, 184, 239, 184, RGB565_PURPLE);

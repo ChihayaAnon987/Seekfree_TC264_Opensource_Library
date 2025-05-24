@@ -57,7 +57,7 @@ void Track_Follow()
     {
         Angle_Error = -K_Straight * angle[2];
     }
-    else if(Track_Points_NUM == Task1_Start_Point + Task1_Points + 1)
+    else if(Track_Points_NUM == Task1_Start_Point + Task1_Points)
     {
         Angle_Error = 0;
     }
@@ -420,7 +420,7 @@ void Point_Switch()
             LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
         }
     }
-    else if(Track_Points_NUM == Task1_Start_Point + 1) // 科目一拐弯
+    else if(Track_Points_NUM == Task1_Start_Point + 2) // 科目一拐弯
     {
         if(Distance < GpsDistance[Track_Points_NUM])
         {
@@ -428,33 +428,50 @@ void Point_Switch()
             {
                 while(TRUE)
                 {
-                    Servo_Set(SERVO_MOTOR_RMAX);
-                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
-                    #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(Target_Encoder);
-                    #endif
-                    if(fabs(angle[2] - 180) < 5)
+                    if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
                     {
-                        break;
+                        MOTOR_Ctrl(0);
+                        LED_Buzzer_Flag_Ctrl(LED3);
                     }
+                    else
+                    {
+                        Servo_Set(SERVO_MOTOR_RMAX);
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
+                    }
+
                 }
             }
             else if((Turn_Angle > 90 && Turn_Angle < 180) || (Turn_Angle > 270 && Turn_Angle < 360))
             {
                 while(TRUE)
                 {
-                    Servo_Set(SERVO_MOTOR_LMAX);
-                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
-                    #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(Target_Encoder);
-                    #endif
-                    if(fabs(angle[2] - 180) < 5)
+                    if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
                     {
-                        break;
+                        MOTOR_Ctrl(0);
+                        LED_Buzzer_Flag_Ctrl(LED3);
+                    }
+                    else
+                    {
+                        Servo_Set(SERVO_MOTOR_LMAX);
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
                     }
                 }
             }
-            Track_Points_NUM = Task1_Start_Point + 3;
+            Track_Points_NUM = Task1_Start_Point + 4;
             LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
         }
     }
@@ -466,14 +483,22 @@ void Point_Switch()
             {
                 while(TRUE)
                 {
-                    Servo_Set(SERVO_MOTOR_RMAX);
-                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
-                    #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(Target_Encoder);
-                    #endif
-                    if(fabs(angle[2] - 180) < 5)
+                    if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
                     {
-                        break;
+                        MOTOR_Ctrl(0);
+                        LED_Buzzer_Flag_Ctrl(LED3);
+                    }
+                    else
+                    {
+                        Servo_Set(SERVO_MOTOR_RMAX);
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
                     }
                 }
             }
@@ -481,14 +506,22 @@ void Point_Switch()
             {
                 while(TRUE)
                 {
-                    Servo_Set(SERVO_MOTOR_LMAX);
-                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
-                    #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(Target_Encoder);
-                    #endif
-                    if(fabs(angle[2] - 180) < 5)
+                    if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
                     {
-                        break;
+                        MOTOR_Ctrl(0);
+                        LED_Buzzer_Flag_Ctrl(LED3);
+                    }
+                    else
+                    {
+                        Servo_Set(SERVO_MOTOR_LMAX);
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
                     }
                 }
             }
@@ -504,14 +537,22 @@ void Point_Switch()
             {
                 while(TRUE)
                 {
-                    Servo_Set(SERVO_MOTOR_RMAX);
-                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
-                    #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(Target_Encoder);
-                    #endif
-                    if(fabs(angle[2] - 180) < 5)
+                    if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
                     {
-                        break;
+                        MOTOR_Ctrl(0);
+                        LED_Buzzer_Flag_Ctrl(LED3);
+                    }
+                    else
+                    {
+                        Servo_Set(SERVO_MOTOR_RMAX);
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
                     }
                 }
             }
@@ -519,14 +560,22 @@ void Point_Switch()
             {
                 while(TRUE)
                 {
-                    Servo_Set(SERVO_MOTOR_LMAX);
-                    Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
-                    #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(Target_Encoder);
-                    #endif
-                    if(fabs(angle[2] - 180) < 5)
+                    if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
                     {
-                        break;
+                        MOTOR_Ctrl(0);
+                        LED_Buzzer_Flag_Ctrl(LED3);
+                    }
+                    else
+                    {
+                        Servo_Set(SERVO_MOTOR_LMAX);
+                        Target_Encoder = GpsTgtEncod[Track_Points_NUM + 1];
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
+                        if(fabs(angle[2] - 180) < 5)
+                        {
+                            break;
+                        }
                     }
                 }
             }

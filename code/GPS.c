@@ -284,12 +284,13 @@ void drawPoints()
         last_screen_x = screen_x;
         last_screen_y = screen_y;
     }
+
+    static double max_latitude = 0;
+    static double max_distance = 0;
     if(start_point == Task1_Start_Point)
     {
         double distance = get_two_points_distance(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 1].latitude, Point[Task1_Start_Point].lonitude);
-        static double max_latitude = 0;
-        static double max_distance = 0;
-        if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 1].latitude) // 向北发车
+        if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 2].latitude) // 向北发车
         {
             if(gnss.latitude > max_latitude)
             {
@@ -312,8 +313,6 @@ void drawPoints()
     }
     if(start_point == Task2_Start_Point)
     {
-        static double max_latitude = 0;
-        static double max_distance = 0;
         if(Point[Task2_Road_Genera].latitude < Point[Task2_Road_Genera + 1].latitude) // 向北发车
         {
             if(gnss.latitude > max_latitude)
@@ -344,8 +343,6 @@ void drawPoints()
     }
     if(start_point == Task3_Start_Point)
     {
-        static double max_latitude = 0;
-        static double max_distance = 0;
         if(Point[Task3_Start_Point].latitude < Point[Turn_Point].latitude) // 向北发车
         {
             if(gnss.latitude > max_latitude)
@@ -432,9 +429,19 @@ void updateCarPosition()
 void Task1_Road_Fix()
 {
     Point[Task1_Start_Point + 1].lonitude = Point[Task1_Start_Point].lonitude;
-    Point[Task1_Start_Point + 2].latitude = Point[Task1_Start_Point + 1].latitude;
-    Point[Task1_Start_Point + 3].latitude = Point[Task1_Start_Point].latitude;
-    Point[Task1_Start_Point + 3].lonitude = Point[Task1_Start_Point].lonitude;
+    Point[Task1_Start_Point + 2].lonitude = Point[Task1_Start_Point].lonitude;
+    if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 2].latitude)  // 向北发车
+    {
+        Point[Task1_Start_Point + 1].latitude = Point[Task1_Start_Point + 2].latitude - METER_TO_LAT(5);
+    }
+    else
+    {
+        Point[Task1_Start_Point + 1].latitude = Point[Task1_Start_Point + 2].latitude + METER_TO_LAT(5);
+    }
+
+    Point[Task1_Start_Point + 4].lonitude = Point[Task1_Start_Point + 3].lonitude;
+    Point[Task1_Start_Point + 3].latitude = Point[Task1_Start_Point + 2].latitude;
+    Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point].latitude;
 
 }
 

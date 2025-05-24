@@ -27,12 +27,12 @@ void RemoteCtrl_Program()
     }
     else
     {
+        UART_RECEIVER_FALL();
+        CtrlMode_Switch();
         Is_Channal_3_Press();
         Is_Channal_5_Press();
         Is_Channal_6_Press();
-        UART_RECEIVER_FALL();
         RemoteCtrl_Direction_Speed();
-        CtrlMode_Switch();
     }
 }
 
@@ -52,47 +52,16 @@ void RemoteCtrl_Direction_Speed()
         {
             MOTOR_Ctrl(0);
         }
-        
-        // 自动归位
-        if(Channal_5_Press_Flag == 1)
-        {
-            Start_Flag = 1;
-            if(Task_Flag == 1)
-            {
-                Point[8].latitude = Point[Task1_Start_Point].latitude;
-                Point[8].lonitude = Point[Task1_Start_Point].lonitude;
-            }
-            else if(Task_Flag == 2)
-            {
-                Point[8].latitude = Point[Task2_Start_Point].latitude;
-                Point[8].lonitude = Point[Task2_Start_Point].lonitude;
-            }
-            else if(Task_Flag == 3)
-            {
-                Point[8].latitude = Point[Task3_Start_Point].latitude;
-                Point[8].lonitude = Point[Task3_Start_Point].lonitude;
-            }
-            else if(Task_Flag == 4)
-            {
-                Point[8].latitude = Point[Task4_Start_Point].latitude;
-                Point[8].lonitude = Point[Task3_Start_Point].lonitude;
-            }
-            else
-            {
-                Point[8].latitude = Point[Task1_Start_Point].latitude;
-                Point[8].lonitude = Point[Task1_Start_Point].lonitude;
-            }
-            Track_Points_NUM = 8;
-        }
     }
+
     if(Control_Flag == 2)
     {
         RemoteCtrl_Speed = (int16)((uart_receiver.channel[1] - CHANNAL2_MIDDLE_LEVEL) * 5000 / 800);
         MOTOR_Ctrl(RemoteCtrl_Speed);
 
-        RemoteCtrl_Direction = (int16)((CHANNAL1_MIDDLE_LEVEL - uart_receiver.channel[0]) * 24 / 800);
+        RemoteCtrl_Direction = (int16)((CHANNAL1_MIDDLE_LEVEL - uart_receiver.channel[0]) * 90 / 800);
         static float CenterAngle;
-        if(fabs(CHANNAL1_MIDDLE_LEVEL - uart_receiver.channel[0]) < 20)
+        if(fabs(CHANNAL1_MIDDLE_LEVEL - uart_receiver.channel[0]) < 40)
         {
             if(Center_Flag == 1)
             {
@@ -105,7 +74,7 @@ void RemoteCtrl_Direction_Speed()
                     Angle_Error =  K_Straight * (angle[2] - CenterAngle);
                 }
             }
-            if(Center_Flag == 0)
+            else
             {
                 CenterAngle = angle[2];
                 Center_Flag = 1;
@@ -114,9 +83,12 @@ void RemoteCtrl_Direction_Speed()
         else
         {
             Center_Flag = 0;
-            Servo_Set(SERVO_MOTOR_MID - RemoteCtrl_Direction);                          // 舵机角度
+            Angle_Error = RemoteCtrl_Direction;
         }
+    }
 
+    if(Control_Flag == 1 || Control_Flag == 2)
+    {
         // 自动归位
         if(Channal_5_Press_Flag == 1)
         {
