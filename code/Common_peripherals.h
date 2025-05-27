@@ -56,9 +56,9 @@
 #define SERVO_MOTOR_PWM             (ATOM1_CH1_P33_9)        // 定义主板上舵机对应引脚
 #define SERVO_MOTOR_FREQ            (300)                    // 定义主板上舵机频率  请务必注意范围 50-300
 #if CAR_NUMBER == 0
-#define SERVO_MOTOR_RMAX            (85)
-#define SERVO_MOTOR_MID             (109)
-#define SERVO_MOTOR_LMAX            (133)
+#define SERVO_MOTOR_RMAX            (66)
+#define SERVO_MOTOR_MID             (92)
+#define SERVO_MOTOR_LMAX            (128)
 #elif CAR_NUMBER == 1
 #define SERVO_MOTOR_RMAX            (65)
 #define SERVO_MOTOR_MID             (95)
