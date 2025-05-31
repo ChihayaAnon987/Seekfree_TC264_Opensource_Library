@@ -44,6 +44,8 @@ RM := rm -rf
 -include libraries/infineon_libraries/Service/CpuGeneric/StdIf/subdir.mk
 -include libraries/infineon_libraries/Service/CpuGeneric/If/subdir.mk
 -include libraries/infineon_libraries/Infra/Platform/Tricore/Compilers/subdir.mk
+-include code/xfapi/subdir.mk
+-include code/TLD7002_control/subdir.mk
 -include code/subdir.mk
 ifneq ($(MAKECMDGOALS),clean)
 ifneq ($(strip $(C++_DEPS)),)

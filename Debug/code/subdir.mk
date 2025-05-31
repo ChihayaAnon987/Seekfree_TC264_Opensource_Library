@@ -4,6 +4,7 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../code/Camera.c \
 ../code/Common_peripherals.c \
 ../code/Flash.c \
 ../code/GPS.c \
@@ -11,10 +12,12 @@ C_SRCS += \
 ../code/IMU.c \
 ../code/Kalman.c \
 ../code/PID.c \
+../code/Picture.c \
 ../code/Position_Calculation.c \
 ../code/RemoteCtrl.c 
 
 COMPILED_SRCS += \
+code/Camera.src \
 code/Common_peripherals.src \
 code/Flash.src \
 code/GPS.src \
@@ -22,10 +25,12 @@ code/GUI.src \
 code/IMU.src \
 code/Kalman.src \
 code/PID.src \
+code/Picture.src \
 code/Position_Calculation.src \
 code/RemoteCtrl.src 
 
 C_DEPS += \
+code/Camera.d \
 code/Common_peripherals.d \
 code/Flash.d \
 code/GPS.d \
@@ -33,10 +38,12 @@ code/GUI.d \
 code/IMU.d \
 code/Kalman.d \
 code/PID.d \
+code/Picture.d \
 code/Position_Calculation.d \
 code/RemoteCtrl.d 
 
 OBJS += \
+code/Camera.o \
 code/Common_peripherals.o \
 code/Flash.o \
 code/GPS.o \
@@ -44,11 +51,16 @@ code/GUI.o \
 code/IMU.o \
 code/Kalman.o \
 code/PID.o \
+code/Picture.o \
 code/Position_Calculation.o \
 code/RemoteCtrl.o 
 
 
 # Each subdirectory must supply rules for building sources it contributes
+code/Camera.src: ../code/Camera.c code/subdir.mk
+	cctc -cs --dep-file="$(*F).d" --misrac-version=2004 -D__CPU__=tc26xb "-fD:/ADS/ADS_TC264/Seekfree_TC264_Opensource_Library/Debug/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=1 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc26xb -Y0 -N0 -Z0 -o "$@" "$<"
+code/Camera.o: code/Camera.src code/subdir.mk
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
 code/Common_peripherals.src: ../code/Common_peripherals.c code/subdir.mk
 	cctc -cs --dep-file="$(*F).d" --misrac-version=2004 -D__CPU__=tc26xb "-fD:/ADS/ADS_TC264/Seekfree_TC264_Opensource_Library/Debug/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=1 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc26xb -Y0 -N0 -Z0 -o "$@" "$<"
 code/Common_peripherals.o: code/Common_peripherals.src code/subdir.mk
@@ -77,6 +89,10 @@ code/PID.src: ../code/PID.c code/subdir.mk
 	cctc -cs --dep-file="$(*F).d" --misrac-version=2004 -D__CPU__=tc26xb "-fD:/ADS/ADS_TC264/Seekfree_TC264_Opensource_Library/Debug/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=1 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc26xb -Y0 -N0 -Z0 -o "$@" "$<"
 code/PID.o: code/PID.src code/subdir.mk
 	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
+code/Picture.src: ../code/Picture.c code/subdir.mk
+	cctc -cs --dep-file="$(*F).d" --misrac-version=2004 -D__CPU__=tc26xb "-fD:/ADS/ADS_TC264/Seekfree_TC264_Opensource_Library/Debug/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=1 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc26xb -Y0 -N0 -Z0 -o "$@" "$<"
+code/Picture.o: code/Picture.src code/subdir.mk
+	astc -Og -Os --no-warnings= --error-limit=42 -o  "$@" "$<"
 code/Position_Calculation.src: ../code/Position_Calculation.c code/subdir.mk
 	cctc -cs --dep-file="$(*F).d" --misrac-version=2004 -D__CPU__=tc26xb "-fD:/ADS/ADS_TC264/Seekfree_TC264_Opensource_Library/Debug/TASKING_C_C___Compiler-Include_paths__-I_.opt" --iso=99 --c++14 --language=+volatile --exceptions --anachronisms --fp-model=1 -O0 --tradeoff=4 --compact-max-size=200 -g -Wc-w544 -Wc-w557 -Ctc26xb -Y0 -N0 -Z0 -o "$@" "$<"
 code/Position_Calculation.o: code/Position_Calculation.src code/subdir.mk
@@ -89,7 +105,7 @@ code/RemoteCtrl.o: code/RemoteCtrl.src code/subdir.mk
 clean: clean-code
 
 clean-code:
-	-$(RM) code/Common_peripherals.d code/Common_peripherals.o code/Common_peripherals.src code/Flash.d code/Flash.o code/Flash.src code/GPS.d code/GPS.o code/GPS.src code/GUI.d code/GUI.o code/GUI.src code/IMU.d code/IMU.o code/IMU.src code/Kalman.d code/Kalman.o code/Kalman.src code/PID.d code/PID.o code/PID.src code/Position_Calculation.d code/Position_Calculation.o code/Position_Calculation.src code/RemoteCtrl.d code/RemoteCtrl.o code/RemoteCtrl.src
+	-$(RM) code/Camera.d code/Camera.o code/Camera.src code/Common_peripherals.d code/Common_peripherals.o code/Common_peripherals.src code/Flash.d code/Flash.o code/Flash.src code/GPS.d code/GPS.o code/GPS.src code/GUI.d code/GUI.o code/GUI.src code/IMU.d code/IMU.o code/IMU.src code/Kalman.d code/Kalman.o code/Kalman.src code/PID.d code/PID.o code/PID.src code/Picture.d code/Picture.o code/Picture.src code/Position_Calculation.d code/Position_Calculation.o code/Position_Calculation.src code/RemoteCtrl.d code/RemoteCtrl.o code/RemoteCtrl.src
 
 .PHONY: clean-code
 

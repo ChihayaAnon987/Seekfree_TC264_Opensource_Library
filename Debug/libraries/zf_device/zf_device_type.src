@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc35464a --dep-file=zf_device_type.d -c99 --fp-model=1cFLNRSTZ -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x -D__CPU__=tc26xb -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_common -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_components -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_device -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_driver -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/zf_device/zf_device_type.src ../libraries/zf_device/zf_device_type.c"
+	.compiler_invocation	"ctc -f cc15516a --dep-file=zf_device_type.d -c99 --fp-model=1cFLNRSTZ -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x -D__CPU__=tc26xb -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code\\\\TLD7002_control -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code\\\\xfapi -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_common -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_components -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_device -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_driver -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/zf_device/zf_device_type.src ../libraries/zf_device/zf_device_type.c"
 	.compiler_name		"ctc"
 	;source	'../libraries/zf_device/zf_device_type.c'
 
@@ -12,14 +12,14 @@ $TC16X
 	.align	2
 	
 ; Function type_default_callback
-.L13:
+.L21:
 type_default_callback:	.type	func
 	ret
-.L75:
+.L87:
 	
 __type_default_callback_function_end:
 	.size	type_default_callback,__type_default_callback_function_end-type_default_callback
-.L43:
+.L51:
 	; End of function
 	
 	.sdecl	'.text.zf_device_type.set_camera_type',code,cluster('set_camera_type')
@@ -28,58 +28,58 @@ __type_default_callback_function_end:
 	
 	.global	set_camera_type
 ; Function set_camera_type
-.L15:
+.L23:
 set_camera_type:	.type	func
 	movh.a	a15,#@his(camera_type)
 	lea	a15,[a15]@los(camera_type)
-.L84:
+.L96:
 	st.b	[a15],d4
-.L85:
+.L97:
 	jnz.a	a6,.L2
-.L86:
+.L98:
 	movh.a	a6,#@his(type_default_callback)
 	lea	a6,[a6]@los(type_default_callback)
-.L87:
+.L99:
 	j	.L3
 .L2:
 .L3:
 	movh.a	a15,#@his(camera_uart_handler)
 	lea	a15,[a15]@los(camera_uart_handler)
-.L88:
+.L100:
 	st.a	[a15],a6
-.L89:
+.L101:
 	jnz.a	a4,.L4
-.L90:
+.L102:
 	movh.a	a4,#@his(type_default_callback)
 	lea	a4,[a4]@los(type_default_callback)
-.L91:
+.L103:
 	j	.L5
 .L4:
 .L5:
 	movh.a	a15,#@his(camera_vsync_handler)
 	lea	a15,[a15]@los(camera_vsync_handler)
-.L92:
+.L104:
 	st.a	[a15],a4
-.L93:
+.L105:
 	jnz.a	a5,.L6
-.L94:
+.L106:
 	movh.a	a5,#@his(type_default_callback)
 	lea	a5,[a5]@los(type_default_callback)
-.L95:
+.L107:
 	j	.L7
 .L6:
 .L7:
 	movh.a	a15,#@his(camera_dma_handler)
 	lea	a15,[a15]@los(camera_dma_handler)
-.L96:
+.L108:
 	st.a	[a15],a5
-.L97:
+.L109:
 	ret
-.L60:
+.L72:
 	
 __set_camera_type_function_end:
 	.size	set_camera_type,__set_camera_type_function_end-set_camera_type
-.L28:
+.L36:
 	; End of function
 	
 	.sdecl	'.text.zf_device_type.set_wireless_type',code,cluster('set_wireless_type')
@@ -88,32 +88,67 @@ __set_camera_type_function_end:
 	
 	.global	set_wireless_type
 ; Function set_wireless_type
-.L17:
+.L25:
 set_wireless_type:	.type	func
 	movh.a	a15,#@his(wireless_type)
 	lea	a15,[a15]@los(wireless_type)
-.L102:
+.L114:
 	st.b	[a15],d4
-.L103:
-	jnz.a	a4,.L8
-.L104:
+.L115:
+	jne	d4,#5,.L8
+.L116:
+	jnz.a	a4,.L9
+.L117:
 	movh.a	a4,#@his(type_default_callback)
 	lea	a4,[a4]@los(type_default_callback)
-.L105:
-	j	.L9
-.L8:
+.L118:
+	j	.L10
 .L9:
+.L10:
+	movh.a	a15,#@his(wireless_module_spi_handler)
+	lea	a15,[a15]@los(wireless_module_spi_handler)
+.L119:
+	st.a	[a15],a4
+.L120:
+	j	.L11
+.L8:
+	jne	d4,#6,.L12
+.L121:
+	jnz.a	a4,.L13
+.L122:
+	movh.a	a4,#@his(type_default_callback)
+	lea	a4,[a4]@los(type_default_callback)
+.L123:
+	j	.L14
+.L13:
+.L14:
+	movh.a	a15,#@his(uart_receiver_handler)
+	lea	a15,[a15]@los(uart_receiver_handler)
+.L124:
+	st.a	[a15],a4
+.L125:
+	j	.L15
+.L12:
+	jnz.a	a4,.L16
+.L126:
+	movh.a	a4,#@his(type_default_callback)
+	lea	a4,[a4]@los(type_default_callback)
+.L127:
+	j	.L17
+.L16:
+.L17:
 	movh.a	a15,#@his(wireless_module_uart_handler)
 	lea	a15,[a15]@los(wireless_module_uart_handler)
-.L106:
+.L128:
 	st.a	[a15],a4
-.L107:
+.L15:
+.L11:
 	ret
-.L67:
+.L79:
 	
 __set_wireless_type_function_end:
 	.size	set_wireless_type,__set_wireless_type_function_end-set_wireless_type
-.L33:
+.L41:
 	; End of function
 	
 	.sdecl	'.text.zf_device_type.set_tof_type',code,cluster('set_tof_type')
@@ -122,32 +157,32 @@ __set_wireless_type_function_end:
 	
 	.global	set_tof_type
 ; Function set_tof_type
-.L19:
+.L27:
 set_tof_type:	.type	func
 	movh.a	a15,#@his(tof_type)
 	lea	a15,[a15]@los(tof_type)
-.L112:
+.L133:
 	st.b	[a15],d4
-.L113:
-	jnz.a	a4,.L10
-.L114:
+.L134:
+	jnz.a	a4,.L18
+.L135:
 	movh.a	a4,#@his(type_default_callback)
 	lea	a4,[a4]@los(type_default_callback)
-.L115:
-	j	.L11
-.L10:
-.L11:
+.L136:
+	j	.L19
+.L18:
+.L19:
 	movh.a	a15,#@his(tof_module_exti_handler)
 	lea	a15,[a15]@los(tof_module_exti_handler)
-.L116:
+.L137:
 	st.a	[a15],a4
-.L117:
+.L138:
 	ret
-.L71:
+.L83:
 	
 __set_tof_type_function_end:
 	.size	set_tof_type,__set_tof_type_function_end-set_tof_type
-.L38:
+.L46:
 	; End of function
 	
 	.sdecl	'.data.zf_device_type.camera_type',data,cluster('camera_type')
@@ -190,6 +225,20 @@ wireless_type:	.type	object
 wireless_module_uart_handler:	.type	object
 	.size	wireless_module_uart_handler,4
 	.word	type_default_callback
+	.sdecl	'.data.zf_device_type.wireless_module_spi_handler',data,cluster('wireless_module_spi_handler')
+	.sect	'.data.zf_device_type.wireless_module_spi_handler'
+	.global	wireless_module_spi_handler
+	.align	4
+wireless_module_spi_handler:	.type	object
+	.size	wireless_module_spi_handler,4
+	.word	type_default_callback
+	.sdecl	'.data.zf_device_type.uart_receiver_handler',data,cluster('uart_receiver_handler')
+	.sect	'.data.zf_device_type.uart_receiver_handler'
+	.global	uart_receiver_handler
+	.align	4
+uart_receiver_handler:	.type	object
+	.size	uart_receiver_handler,4
+	.word	type_default_callback
 	.sdecl	'.data.zf_device_type.tof_type',data,cluster('tof_type')
 	.sect	'.data.zf_device_type.tof_type'
 	.global	tof_type
@@ -211,19 +260,19 @@ tof_module_exti_handler:	.type	object
 	.calls	'set_tof_type','',0
 	.sdecl	'.debug_info',debug
 	.sect	'.debug_info'
-.L21:
-	.word	1071
+.L29:
+	.word	1082
 	.half	3
-	.word	.L22
+	.word	.L30
 	.byte	4
-.L20:
+.L28:
 	.byte	1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1
-	.word	.L23
-.L61:
-	.byte	2,1,44,9,1,3
+	.word	.L31
+.L73:
+	.byte	2,1,45,9,1,3
 	.byte	'NO_CAMERE',0,0,3
 	.byte	'CAMERA_BIN_IIC',0,1,3
 	.byte	'CAMERA_BIN_UART',0,2,3
@@ -232,126 +281,127 @@ tof_module_exti_handler:	.type	object
 	.word	280
 	.byte	5
 	.word	280
-.L63:
+.L75:
 	.byte	6
-	.byte	'callback_function',0,1,73,16
+	.byte	'callback_function',0,1,75,16
 	.word	288
-.L68:
-	.byte	2,1,53,9,1,3
+.L80:
+	.byte	2,1,54,9,1,3
 	.byte	'NO_WIRELESS',0,0,3
 	.byte	'WIRELESS_UART',0,1,3
 	.byte	'BLE6A20',0,2,3
 	.byte	'BLUETOOTH_CH9141',0,3,3
 	.byte	'WIFI_UART',0,4,3
-	.byte	'RECEIVER_UART',0,5,0
-.L72:
-	.byte	2,1,63,9,1,3
+	.byte	'WIFI_SPI',0,5,3
+	.byte	'RECEIVER_UART',0,6,0
+.L84:
+	.byte	2,1,65,9,1,3
 	.byte	'NO_TOF',0,0,3
 	.byte	'TOF_DL1A',0,1,3
 	.byte	'TOF_DL1B',0,2,0,7
 	.byte	'__INDIRECT__',0,2,1,1,1,1,1,8
 	.byte	'short int',0,2,5,6
 	.byte	'__wchar_t',0,2,1,1
-	.word	469
+	.word	480
 	.byte	8
 	.byte	'unsigned int',0,4,7,6
 	.byte	'__size_t',0,2,1,1
-	.word	500
+	.word	511
 	.byte	8
 	.byte	'int',0,4,5,6
 	.byte	'__ptrdiff_t',0,2,1,1
-	.word	533
+	.word	544
 	.byte	9,1,5
-	.word	560
+	.word	571
 	.byte	6
 	.byte	'__codeptr',0,2,1,1
-	.word	562
+	.word	573
 	.byte	6
 	.byte	'__intptr_t',0,2,1,1
-	.word	533
+	.word	544
 	.byte	6
 	.byte	'__uintptr_t',0,2,1,1
-	.word	500
+	.word	511
 	.byte	8
 	.byte	'unsigned short int',0,2,7,6
 	.byte	'_iob_flag_t',0,3,82,25
-	.word	624
+	.word	635
 	.byte	8
 	.byte	'unsigned char',0,1,8,6
 	.byte	'uint8',0,4,105,29
-	.word	666
+	.word	677
 	.byte	6
 	.byte	'uint16',0,4,109,29
-	.word	624
+	.word	635
 	.byte	8
 	.byte	'unsigned long int',0,4,7,6
 	.byte	'uint32',0,4,113,29
-	.word	712
+	.word	723
 	.byte	8
 	.byte	'unsigned long long int',0,8,7,6
 	.byte	'uint64',0,4,118,29
-	.word	748
+	.word	759
 	.byte	6
 	.byte	'sint16',0,4,126,29
-	.word	469
+	.word	480
 	.byte	8
 	.byte	'long int',0,4,5,6
 	.byte	'sint32',0,4,131,1,29
-	.word	804
+	.word	815
 	.byte	8
 	.byte	'long long int',0,8,5,6
 	.byte	'sint64',0,4,138,1,29
-	.word	832
+	.word	843
 	.byte	8
 	.byte	'float',0,4,4,6
 	.byte	'float32',0,4,167,1,29
-	.word	865
+	.word	876
 	.byte	10
 	.byte	'void',0,5
-	.word	891
+	.word	902
 	.byte	6
 	.byte	'pvoid',0,5,57,28
-	.word	897
+	.word	908
 	.byte	6
 	.byte	'Ifx_TickTime',0,5,79,28
-	.word	832
+	.word	843
 	.byte	8
 	.byte	'char',0,1,6,6
 	.byte	'int8',0,6,54,29
-	.word	937
+	.word	948
 	.byte	6
 	.byte	'int16',0,6,55,29
-	.word	469
+	.word	480
 	.byte	6
 	.byte	'int32',0,6,56,29
-	.word	533
+	.word	544
 	.byte	6
 	.byte	'int64',0,6,57,29
-	.word	832
+	.word	843
 	.byte	6
-	.byte	'camera_type_enum',0,1,51,2
+	.byte	'camera_type_enum',0,1,52,2
 	.word	193
 	.byte	6
-	.byte	'wireless_type_enum',0,1,61,2
+	.byte	'wireless_type_enum',0,1,63,2
 	.word	319
 	.byte	6
-	.byte	'tof_type_enum',0,1,68,2
-	.word	412
+	.byte	'tof_type_enum',0,1,70,2
+	.word	423
 	.byte	0
 	.sdecl	'.debug_abbrev',debug
 	.sect	'.debug_abbrev'
-.L22:
+.L30:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,16,6,0,0,2,4,1,58,15,59,15,57,15,11,15,0,0,3,40,0,3,8,28,13,0,0,4
 	.byte	21,0,54,15,39,12,0,0,5,15,0,73,19,0,0,6,22,0,3,8,58,15,59,15,57,15,73,19,0,0,7,46,0,3,8,58,15,59,15,57
 	.byte	15,54,15,63,12,60,12,0,0,8,36,0,3,8,11,15,62,15,0,0,9,21,0,54,15,0,0,10,59,0,3,8,0,0,0
 	.sdecl	'.debug_line',debug
 	.sect	'.debug_line'
-.L23:
-	.word	.L77-.L76
-.L76:
+.L31:
+	.word	.L89-.L88
+.L88:
 	.half	3
-	.word	.L79-.L78
-.L78:
+	.word	.L91-.L90
+.L90:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1
 	.byte	'D:\\AURIX-Studio-1.10.2\\tools\\Compilers\\Tasking_1.1r8\\ctc\\include\\',0
 	.byte	'D:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std',0
@@ -362,521 +412,593 @@ tof_module_exti_handler:	.type	object
 	.byte	'Platform_Types.h',0,2,0,0
 	.byte	'ifx_types.h',0,2,0,0
 	.byte	'zf_common_typedef.h',0,3,0,0,0
-.L79:
-.L77:
+.L91:
+.L89:
 	.sdecl	'.debug_info',debug,cluster('set_camera_type')
 	.sect	'.debug_info'
-.L24:
+.L32:
 	.word	344
 	.half	3
-	.word	.L25
+	.word	.L33
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1
-	.word	.L27,.L26
+	.word	.L35,.L34
 	.byte	2
-	.word	.L20
+	.word	.L28
 	.byte	3
-	.byte	'set_camera_type',0,1,74,7,1,1,1
-	.word	.L15,.L60,.L14
+	.byte	'set_camera_type',0,1,77,7,1,1,1
+	.word	.L23,.L72,.L22
 	.byte	4
-	.byte	'type_set',0,1,74,41
-	.word	.L61,.L62
+	.byte	'type_set',0,1,77,41
+	.word	.L73,.L74
 	.byte	4
-	.byte	'vsync_callback',0,1,74,69
-	.word	.L63,.L64
+	.byte	'vsync_callback',0,1,77,69
+	.word	.L75,.L76
 	.byte	4
-	.byte	'dma_callback',0,1,74,103
-	.word	.L63,.L65
+	.byte	'dma_callback',0,1,77,103
+	.word	.L75,.L77
 	.byte	4
-	.byte	'uart_callback',0,1,74,135,1
-	.word	.L63,.L66
+	.byte	'uart_callback',0,1,77,135,1
+	.word	.L75,.L78
 	.byte	5
-	.word	.L15,.L60
+	.word	.L23,.L72
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('set_camera_type')
 	.sect	'.debug_abbrev'
-.L25:
+.L33:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('set_camera_type')
 	.sect	'.debug_line'
-.L26:
-	.word	.L81-.L80
-.L80:
+.L34:
+	.word	.L93-.L92
+.L92:
 	.half	3
-	.word	.L83-.L82
-.L82:
+	.word	.L95-.L94
+.L94:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../libraries/zf_device/zf_device_type.c',0,0,0,0,0
-.L83:
+.L95:
 	.byte	5,5,7,0,5,2
-	.word	.L15
-	.byte	3,203,0,1,5,17,9
-	.half	.L84-.L15
+	.word	.L23
+	.byte	3,206,0,1,5,17,9
+	.half	.L96-.L23
 	.byte	1,5,28,9
-	.half	.L85-.L84
-	.byte	3,1,1,5,55,7,9
-	.half	.L86-.L85
-	.byte	1,5,78,9
-	.half	.L87-.L86
-	.byte	1,5,5,9
-	.half	.L3-.L87
-	.byte	1,5,25,9
-	.half	.L88-.L3
-	.byte	1,5,29,9
-	.half	.L89-.L88
-	.byte	3,1,1,5,57,7,9
-	.half	.L90-.L89
-	.byte	1,5,80,9
-	.half	.L91-.L90
-	.byte	1,5,5,9
-	.half	.L5-.L91
-	.byte	1,5,26,9
-	.half	.L92-.L5
-	.byte	1,5,27,9
-	.half	.L93-.L92
-	.byte	3,1,1,5,53,7,9
-	.half	.L94-.L93
-	.byte	1,5,76,9
-	.half	.L95-.L94
-	.byte	1,5,5,9
-	.half	.L7-.L95
-	.byte	1,5,24,9
-	.half	.L96-.L7
-	.byte	1,5,1,9
 	.half	.L97-.L96
+	.byte	3,1,1,5,55,7,9
+	.half	.L98-.L97
+	.byte	1,5,78,9
+	.half	.L99-.L98
+	.byte	1,5,5,9
+	.half	.L3-.L99
+	.byte	1,5,25,9
+	.half	.L100-.L3
+	.byte	1,5,29,9
+	.half	.L101-.L100
+	.byte	3,1,1,5,57,7,9
+	.half	.L102-.L101
+	.byte	1,5,80,9
+	.half	.L103-.L102
+	.byte	1,5,5,9
+	.half	.L5-.L103
+	.byte	1,5,26,9
+	.half	.L104-.L5
+	.byte	1,5,27,9
+	.half	.L105-.L104
+	.byte	3,1,1,5,53,7,9
+	.half	.L106-.L105
+	.byte	1,5,76,9
+	.half	.L107-.L106
+	.byte	1,5,5,9
+	.half	.L7-.L107
+	.byte	1,5,24,9
+	.half	.L108-.L7
+	.byte	1,5,1,9
+	.half	.L109-.L108
 	.byte	3,1,1,7,9
-	.half	.L28-.L97
+	.half	.L36-.L109
 	.byte	0,1,1
-.L81:
+.L93:
 	.sdecl	'.debug_ranges',debug,cluster('set_camera_type')
 	.sect	'.debug_ranges'
-.L27:
-	.word	-1,.L15,0,.L28-.L15,0,0
+.L35:
+	.word	-1,.L23,0,.L36-.L23,0,0
 	.sdecl	'.debug_info',debug,cluster('set_wireless_type')
 	.sect	'.debug_info'
-.L29:
+.L37:
 	.word	297
 	.half	3
-	.word	.L30
+	.word	.L38
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1
-	.word	.L32,.L31
+	.word	.L40,.L39
 	.byte	2
-	.word	.L20
+	.word	.L28
 	.byte	3
-	.byte	'set_wireless_type',0,1,90,6,1,1,1
-	.word	.L17,.L67,.L16
+	.byte	'set_wireless_type',0,1,93,6,1,1,1
+	.word	.L25,.L79,.L24
 	.byte	4
-	.byte	'type_set',0,1,90,44
-	.word	.L68,.L69
+	.byte	'type_set',0,1,93,44
+	.word	.L80,.L81
 	.byte	4
-	.byte	'wireless_callback',0,1,90,72
-	.word	.L63,.L70
+	.byte	'wireless_callback',0,1,93,72
+	.word	.L75,.L82
 	.byte	5
-	.word	.L17,.L67
+	.word	.L25,.L79
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('set_wireless_type')
 	.sect	'.debug_abbrev'
-.L30:
+.L38:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('set_wireless_type')
 	.sect	'.debug_line'
-.L31:
-	.word	.L99-.L98
-.L98:
+.L39:
+	.word	.L111-.L110
+.L110:
 	.half	3
-	.word	.L101-.L100
-.L100:
+	.word	.L113-.L112
+.L112:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../libraries/zf_device/zf_device_type.c',0,0,0,0,0
-.L101:
+.L113:
 	.byte	5,5,7,0,5,2
-	.word	.L17
-	.byte	3,219,0,1,5,19,9
-	.half	.L102-.L17
-	.byte	1,5,37,9
-	.half	.L103-.L102
-	.byte	3,1,1,5,68,7,9
-	.half	.L104-.L103
-	.byte	1,5,91,9
-	.half	.L105-.L104
+	.word	.L25
+	.byte	3,222,0,1,5,19,9
+	.half	.L114-.L25
 	.byte	1,5,5,9
-	.half	.L9-.L105
-	.byte	1,5,34,9
-	.half	.L106-.L9
+	.half	.L115-.L114
+	.byte	3,1,1,5,40,7,9
+	.half	.L116-.L115
+	.byte	3,2,1,5,71,7,9
+	.half	.L117-.L116
+	.byte	1,5,94,9
+	.half	.L118-.L117
+	.byte	1,5,9,9
+	.half	.L10-.L118
+	.byte	1,5,37,9
+	.half	.L119-.L10
+	.byte	1,5,116,9
+	.half	.L120-.L119
+	.byte	1,5,10,9
+	.half	.L8-.L120
+	.byte	3,2,1,5,35,7,9
+	.half	.L121-.L8
+	.byte	3,2,1,5,66,7,9
+	.half	.L122-.L121
+	.byte	1,5,89,9
+	.half	.L123-.L122
+	.byte	1,5,9,9
+	.half	.L14-.L123
+	.byte	1,5,32,9
+	.half	.L124-.L14
+	.byte	1,5,111,9
+	.half	.L125-.L124
+	.byte	1,5,42,9
+	.half	.L12-.L125
+	.byte	3,4,1,5,73,7,9
+	.half	.L126-.L12
+	.byte	1,5,96,9
+	.half	.L127-.L126
+	.byte	1,5,9,9
+	.half	.L17-.L127
+	.byte	1,5,39,9
+	.half	.L128-.L17
 	.byte	1,5,1,9
-	.half	.L107-.L106
-	.byte	3,1,1,7,9
-	.half	.L33-.L107
+	.half	.L11-.L128
+	.byte	3,3,1,7,9
+	.half	.L41-.L11
 	.byte	0,1,1
-.L99:
+.L111:
 	.sdecl	'.debug_ranges',debug,cluster('set_wireless_type')
 	.sect	'.debug_ranges'
-.L32:
-	.word	-1,.L17,0,.L33-.L17,0,0
+.L40:
+	.word	-1,.L25,0,.L41-.L25,0,0
 	.sdecl	'.debug_info',debug,cluster('set_tof_type')
 	.sect	'.debug_info'
-.L34:
+.L42:
 	.word	288
 	.half	3
-	.word	.L35
+	.word	.L43
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1
-	.word	.L37,.L36
+	.word	.L45,.L44
 	.byte	2
-	.word	.L20
+	.word	.L28
 	.byte	3
-	.byte	'set_tof_type',0,1,104,6,1,1,1
-	.word	.L19,.L71,.L18
+	.byte	'set_tof_type',0,1,119,6,1,1,1
+	.word	.L27,.L83,.L26
 	.byte	4
-	.byte	'type_set',0,1,104,34
-	.word	.L72,.L73
+	.byte	'type_set',0,1,119,34
+	.word	.L84,.L85
 	.byte	4
-	.byte	'exti_callback',0,1,104,62
-	.word	.L63,.L74
+	.byte	'exti_callback',0,1,119,62
+	.word	.L75,.L86
 	.byte	5
-	.word	.L19,.L71
+	.word	.L27,.L83
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('set_tof_type')
 	.sect	'.debug_abbrev'
-.L35:
+.L43:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,63,12,17,1,18,1,64,6,0,0,4,5,0,3,8,58,15,59,15,57,15,73,16,2,6,0,0,5,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('set_tof_type')
 	.sect	'.debug_line'
-.L36:
-	.word	.L109-.L108
-.L108:
+.L44:
+	.word	.L130-.L129
+.L129:
 	.half	3
-	.word	.L111-.L110
-.L110:
+	.word	.L132-.L131
+.L131:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../libraries/zf_device/zf_device_type.c',0,0,0,0,0
-.L111:
+.L132:
 	.byte	5,5,7,0,5,2
-	.word	.L19
-	.byte	3,233,0,1,5,14,9
-	.half	.L112-.L19
+	.word	.L27
+	.byte	3,248,0,1,5,14,9
+	.half	.L133-.L27
 	.byte	1,5,32,9
-	.half	.L113-.L112
+	.half	.L134-.L133
 	.byte	3,1,1,5,59,7,9
-	.half	.L114-.L113
+	.half	.L135-.L134
 	.byte	1,5,82,9
-	.half	.L115-.L114
+	.half	.L136-.L135
 	.byte	1,5,5,9
-	.half	.L11-.L115
+	.half	.L19-.L136
 	.byte	1,5,29,9
-	.half	.L116-.L11
+	.half	.L137-.L19
 	.byte	1,5,1,9
-	.half	.L117-.L116
+	.half	.L138-.L137
 	.byte	3,1,1,7,9
-	.half	.L38-.L117
+	.half	.L46-.L138
 	.byte	0,1,1
-.L109:
+.L130:
 	.sdecl	'.debug_ranges',debug,cluster('set_tof_type')
 	.sect	'.debug_ranges'
-.L37:
-	.word	-1,.L19,0,.L38-.L19,0,0
+.L45:
+	.word	-1,.L27,0,.L46-.L27,0,0
 	.sdecl	'.debug_info',debug,cluster('type_default_callback')
 	.sect	'.debug_info'
-.L39:
+.L47:
 	.word	249
 	.half	3
-	.word	.L40
+	.word	.L48
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1
-	.word	.L42,.L41
+	.word	.L50,.L49
 	.byte	2
-	.word	.L20
+	.word	.L28
 	.byte	3
-	.byte	'type_default_callback',0,1,60,13,1,1
-	.word	.L13,.L75,.L12
+	.byte	'type_default_callback',0,1,63,13,1,1
+	.word	.L21,.L87,.L20
 	.byte	4
-	.word	.L13,.L75
+	.word	.L21,.L87
 	.byte	0,0
 	.sdecl	'.debug_abbrev',debug,cluster('type_default_callback')
 	.sect	'.debug_abbrev'
-.L40:
+.L48:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,85,6,16,6,0,0,2,61,0,24,16,0,0,3,46,1,3,8,58,15,59,15,57,15,54,15
 	.byte	39,12,17,1,18,1,64,6,0,0,4,11,0,17,1,18,1,0,0,0
 	.sdecl	'.debug_line',debug,cluster('type_default_callback')
 	.sect	'.debug_line'
-.L41:
-	.word	.L119-.L118
-.L118:
+.L49:
+	.word	.L140-.L139
+.L139:
 	.half	3
-	.word	.L121-.L120
-.L120:
+	.word	.L142-.L141
+.L141:
 	.byte	2,1,-4,9,10,0,1,1,1,1,0,0,0,1,0
 	.byte	'../libraries/zf_device/zf_device_type.c',0,0,0,0,0
-.L121:
+.L142:
 	.byte	5,1,7,0,5,2
-	.word	.L13
-	.byte	3,62,1,7,9
-	.half	.L43-.L13
+	.word	.L21
+	.byte	3,193,0,1,7,9
+	.half	.L51-.L21
 	.byte	0,1,1
-.L119:
+.L140:
 	.sdecl	'.debug_ranges',debug,cluster('type_default_callback')
 	.sect	'.debug_ranges'
-.L42:
-	.word	-1,.L13,0,.L43-.L13,0,0
+.L50:
+	.word	-1,.L21,0,.L51-.L21,0,0
 	.sdecl	'.debug_info',debug,cluster('wireless_type')
 	.sect	'.debug_info'
-.L44:
-	.word	220
-	.half	3
-	.word	.L45
-	.byte	4,1
-	.byte	'../libraries/zf_device/zf_device_type.c',0
-	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
-	.word	.L20
-	.byte	3
-	.byte	'wireless_type',0,2,47,21
-	.word	.L68
-	.byte	1,5,3
-	.word	wireless_type
-	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('wireless_type')
-	.sect	'.debug_abbrev'
-.L45:
-	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
-	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('wireless_module_uart_handler')
-	.sect	'.debug_info'
-.L46:
-	.word	235
-	.half	3
-	.word	.L47
-	.byte	4,1
-	.byte	'../libraries/zf_device/zf_device_type.c',0
-	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
-	.word	.L20
-	.byte	3
-	.byte	'wireless_module_uart_handler',0,2,48,21
-	.word	.L63
-	.byte	1,5,3
-	.word	wireless_module_uart_handler
-	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('wireless_module_uart_handler')
-	.sect	'.debug_abbrev'
-.L47:
-	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
-	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('camera_type')
-	.sect	'.debug_info'
-.L48:
-	.word	218
-	.half	3
-	.word	.L49
-	.byte	4,1
-	.byte	'../libraries/zf_device/zf_device_type.c',0
-	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
-	.word	.L20
-	.byte	3
-	.byte	'camera_type',0,2,42,21
-	.word	.L61
-	.byte	1,5,3
-	.word	camera_type
-	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('camera_type')
-	.sect	'.debug_abbrev'
-.L49:
-	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
-	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('camera_dma_handler')
-	.sect	'.debug_info'
-.L50:
-	.word	225
-	.half	3
-	.word	.L51
-	.byte	4,1
-	.byte	'../libraries/zf_device/zf_device_type.c',0
-	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
-	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
-	.word	.L20
-	.byte	3
-	.byte	'camera_dma_handler',0,2,45,21
-	.word	.L63
-	.byte	1,5,3
-	.word	camera_dma_handler
-	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('camera_dma_handler')
-	.sect	'.debug_abbrev'
-.L51:
-	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
-	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('camera_vsync_handler')
-	.sect	'.debug_info'
 .L52:
-	.word	227
+	.word	220
 	.half	3
 	.word	.L53
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
-	.word	.L20
+	.word	.L28
 	.byte	3
-	.byte	'camera_vsync_handler',0,2,44,21
-	.word	.L63
+	.byte	'wireless_type',0,2,47,21
+	.word	.L80
 	.byte	1,5,3
-	.word	camera_vsync_handler
+	.word	wireless_type
 	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('camera_vsync_handler')
+	.sdecl	'.debug_abbrev',debug,cluster('wireless_type')
 	.sect	'.debug_abbrev'
 .L53:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('camera_uart_handler')
+	.sdecl	'.debug_info',debug,cluster('wireless_module_uart_handler')
 	.sect	'.debug_info'
 .L54:
-	.word	226
+	.word	235
 	.half	3
 	.word	.L55
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
-	.word	.L20
+	.word	.L28
 	.byte	3
-	.byte	'camera_uart_handler',0,2,43,21
-	.word	.L63
+	.byte	'wireless_module_uart_handler',0,2,48,21
+	.word	.L75
 	.byte	1,5,3
-	.word	camera_uart_handler
+	.word	wireless_module_uart_handler
 	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('camera_uart_handler')
+	.sdecl	'.debug_abbrev',debug,cluster('wireless_module_uart_handler')
 	.sect	'.debug_abbrev'
 .L55:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('tof_type')
+	.sdecl	'.debug_info',debug,cluster('camera_type')
 	.sect	'.debug_info'
 .L56:
-	.word	215
+	.word	218
 	.half	3
 	.word	.L57
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
-	.word	.L20
+	.word	.L28
 	.byte	3
-	.byte	'tof_type',0,2,50,21
-	.word	.L72
+	.byte	'camera_type',0,2,42,21
+	.word	.L73
 	.byte	1,5,3
-	.word	tof_type
+	.word	camera_type
 	.byte	0
-	.sdecl	'.debug_abbrev',debug,cluster('tof_type')
+	.sdecl	'.debug_abbrev',debug,cluster('camera_type')
 	.sect	'.debug_abbrev'
 .L57:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
-	.sdecl	'.debug_info',debug,cluster('tof_module_exti_handler')
+	.sdecl	'.debug_info',debug,cluster('camera_dma_handler')
 	.sect	'.debug_info'
 .L58:
-	.word	230
+	.word	225
 	.half	3
 	.word	.L59
 	.byte	4,1
 	.byte	'../libraries/zf_device/zf_device_type.c',0
 	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
 	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
-	.word	.L20
+	.word	.L28
 	.byte	3
-	.byte	'tof_module_exti_handler',0,2,51,21
+	.byte	'camera_dma_handler',0,2,45,21
+	.word	.L75
+	.byte	1,5,3
+	.word	camera_dma_handler
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('camera_dma_handler')
+	.sect	'.debug_abbrev'
+.L59:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('camera_vsync_handler')
+	.sect	'.debug_info'
+.L60:
+	.word	227
+	.half	3
+	.word	.L61
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
+	.word	.L28
+	.byte	3
+	.byte	'camera_vsync_handler',0,2,44,21
+	.word	.L75
+	.byte	1,5,3
+	.word	camera_vsync_handler
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('camera_vsync_handler')
+	.sect	'.debug_abbrev'
+.L61:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('camera_uart_handler')
+	.sect	'.debug_info'
+.L62:
+	.word	226
+	.half	3
 	.word	.L63
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
+	.word	.L28
+	.byte	3
+	.byte	'camera_uart_handler',0,2,43,21
+	.word	.L75
+	.byte	1,5,3
+	.word	camera_uart_handler
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('camera_uart_handler')
+	.sect	'.debug_abbrev'
+.L63:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('wireless_module_spi_handler')
+	.sect	'.debug_info'
+.L64:
+	.word	234
+	.half	3
+	.word	.L65
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
+	.word	.L28
+	.byte	3
+	.byte	'wireless_module_spi_handler',0,2,49,21
+	.word	.L75
+	.byte	1,5,3
+	.word	wireless_module_spi_handler
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('wireless_module_spi_handler')
+	.sect	'.debug_abbrev'
+.L65:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('uart_receiver_handler')
+	.sect	'.debug_info'
+.L66:
+	.word	228
+	.half	3
+	.word	.L67
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
+	.word	.L28
+	.byte	3
+	.byte	'uart_receiver_handler',0,2,50,21
+	.word	.L75
+	.byte	1,5,3
+	.word	uart_receiver_handler
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('uart_receiver_handler')
+	.sect	'.debug_abbrev'
+.L67:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('tof_type')
+	.sect	'.debug_info'
+.L68:
+	.word	215
+	.half	3
+	.word	.L69
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
+	.word	.L28
+	.byte	3
+	.byte	'tof_type',0,2,53,21
+	.word	.L84
+	.byte	1,5,3
+	.word	tof_type
+	.byte	0
+	.sdecl	'.debug_abbrev',debug,cluster('tof_type')
+	.sect	'.debug_abbrev'
+.L69:
+	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
+	.byte	0,0,0
+	.sdecl	'.debug_info',debug,cluster('tof_module_exti_handler')
+	.sect	'.debug_info'
+.L70:
+	.word	230
+	.half	3
+	.word	.L71
+	.byte	4,1
+	.byte	'../libraries/zf_device/zf_device_type.c',0
+	.byte	'TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler',0
+	.byte	'D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\Debug\\',0,12,1,2
+	.word	.L28
+	.byte	3
+	.byte	'tof_module_exti_handler',0,2,54,21
+	.word	.L75
 	.byte	1,5,3
 	.word	tof_module_exti_handler
 	.byte	0
 	.sdecl	'.debug_abbrev',debug,cluster('tof_module_exti_handler')
 	.sect	'.debug_abbrev'
-.L59:
+.L71:
 	.byte	1,17,1,3,8,37,8,27,8,19,15,128,70,12,0,0,2,61,0,24,16,0,0,3,52,0,3,8,58,15,59,15,57,15,73,16,63,12,2,9
 	.byte	0,0,0
 	.sdecl	'.debug_loc',debug,cluster('set_camera_type')
 	.sect	'.debug_loc'
-.L65:
-	.word	-1,.L15,0,.L60-.L15
+.L77:
+	.word	-1,.L23,0,.L72-.L23
 	.half	1
 	.byte	101
 	.word	0,0
-.L14:
-	.word	-1,.L15,0,.L60-.L15
+.L22:
+	.word	-1,.L23,0,.L72-.L23
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L62:
-	.word	-1,.L15,0,.L60-.L15
+.L74:
+	.word	-1,.L23,0,.L72-.L23
 	.half	1
 	.byte	84
 	.word	0,0
-.L66:
-	.word	-1,.L15,0,.L60-.L15
+.L78:
+	.word	-1,.L23,0,.L72-.L23
 	.half	1
 	.byte	102
 	.word	0,0
-.L64:
-	.word	-1,.L15,0,.L60-.L15
+.L76:
+	.word	-1,.L23,0,.L72-.L23
 	.half	1
 	.byte	100
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('set_tof_type')
 	.sect	'.debug_loc'
-.L74:
-	.word	-1,.L19,0,.L71-.L19
+.L86:
+	.word	-1,.L27,0,.L83-.L27
 	.half	1
 	.byte	100
 	.word	0,0
-.L18:
-	.word	-1,.L19,0,.L71-.L19
+.L26:
+	.word	-1,.L27,0,.L83-.L27
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L73:
-	.word	-1,.L19,0,.L71-.L19
+.L85:
+	.word	-1,.L27,0,.L83-.L27
 	.half	1
 	.byte	84
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('set_wireless_type')
 	.sect	'.debug_loc'
-.L16:
-	.word	-1,.L17,0,.L67-.L17
+.L24:
+	.word	-1,.L25,0,.L79-.L25
 	.half	2
 	.byte	138,0
 	.word	0,0
-.L69:
-	.word	-1,.L17,0,.L67-.L17
+.L81:
+	.word	-1,.L25,0,.L79-.L25
 	.half	1
 	.byte	84
 	.word	0,0
-.L70:
-	.word	-1,.L17,0,.L67-.L17
+.L82:
+	.word	-1,.L25,0,.L79-.L25
 	.half	1
 	.byte	100
 	.word	0,0
 	.sdecl	'.debug_loc',debug,cluster('type_default_callback')
 	.sect	'.debug_loc'
-.L12:
-	.word	-1,.L13,0,.L75-.L13
+.L20:
+	.word	-1,.L21,0,.L87-.L21
 	.half	2
 	.byte	138,0
 	.word	0,0
 	.sdecl	'.debug_frame',debug
 	.sect	'.debug_frame'
-.L122:
+.L143:
 	.word	48
 	.word	-1
 	.byte	3,0,2,1,27,12,26,0,8,26,8,27,8,30,8,29,8,28,8,16,8,17,8,24,8,25,8,31,8,32,8,33,8,34,8,35,8,36,8,37,8,38
@@ -884,21 +1006,21 @@ tof_module_exti_handler:	.type	object
 	.sdecl	'.debug_frame',debug,cluster('type_default_callback')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L122,.L13,.L75-.L13
+	.word	.L143,.L21,.L87-.L21
 	.byte	8,18,8,19,8,20,8,21,8,22,8,23
 	.sdecl	'.debug_frame',debug,cluster('set_camera_type')
 	.sect	'.debug_frame'
 	.word	20
-	.word	.L122,.L15,.L60-.L15
+	.word	.L143,.L23,.L72-.L23
 	.byte	8,18,8,19,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('set_wireless_type')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L122,.L17,.L67-.L17
+	.word	.L143,.L25,.L79-.L25
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	.sdecl	'.debug_frame',debug,cluster('set_tof_type')
 	.sect	'.debug_frame'
 	.word	24
-	.word	.L122,.L19,.L71-.L19
+	.word	.L143,.L27,.L83-.L27
 	.byte	8,18,8,19,8,21,8,22,8,23,0,0
 	; Module end

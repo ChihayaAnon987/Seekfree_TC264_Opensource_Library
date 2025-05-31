@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc9324a --dep-file=Ifx_Fifo.d -c99 --fp-model=1cFLNRSTZ -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x -D__CPU__=tc26xb -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_common -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_components -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_device -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_driver -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/infineon_libraries/iLLD/TC26B/Tricore/_Lib/DataHandling/Ifx_Fifo.src ../libraries/infineon_libraries/iLLD/TC26B/Tricore/_Lib/DataHandling/Ifx_Fifo.c"
+	.compiler_invocation	"ctc -f cc40064a --dep-file=Ifx_Fifo.d -c99 --fp-model=1cFLNRSTZ -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x -D__CPU__=tc26xb -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code\\\\TLD7002_control -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code\\\\xfapi -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_common -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_components -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_device -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_driver -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/infineon_libraries/iLLD/TC26B/Tricore/_Lib/DataHandling/Ifx_Fifo.src ../libraries/infineon_libraries/iLLD/TC26B/Tricore/_Lib/DataHandling/Ifx_Fifo.c"
 	.compiler_name		"ctc"
 	;source	'../libraries/infineon_libraries/iLLD/TC26B/Tricore/_Lib/DataHandling/Ifx_Fifo.c'
 
@@ -16624,9 +16624,9 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L300:
 	.word	0,0
-.L274:
-	.word	0,0
 .L322:
+	.word	0,0
+.L274:
 	.word	0,0
 .L286:
 	.word	0,0
@@ -16652,20 +16652,20 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L323:
-	.word	-1,.L181,.L526-.L181,.L527-.L181
+.L301:
+	.word	-1,.L181,.L519-.L181,.L520-.L181
 	.half	1
-	.byte	95
+	.byte	81
 	.word	0,0
 .L278:
 	.word	-1,.L181,.L514-.L181,.L515-.L181
 	.half	1
 	.byte	95
 	.word	0,0
-.L301:
-	.word	-1,.L181,.L519-.L181,.L520-.L181
+.L323:
+	.word	-1,.L181,.L526-.L181,.L527-.L181
 	.half	1
-	.byte	81
+	.byte	95
 	.word	0,0
 .L268:
 	.word	-1,.L181,.L513-.L181,.L11-.L181
@@ -16701,15 +16701,15 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L304:
 	.word	0,0
-.L296:
-	.word	-1,.L181,.L523-.L181,.L524-.L181
-	.half	2
-	.byte	144,33
-	.word	0,0
 .L320:
 	.word	-1,.L181,.L532-.L181,.L33-.L181
 	.half	2
 	.byte	144,32
+	.word	0,0
+.L296:
+	.word	-1,.L181,.L523-.L181,.L524-.L181
+	.half	2
+	.byte	144,33
 	.word	0,0
 .L267:
 	.word	-1,.L181,0,.L261-.L181
@@ -16764,11 +16764,11 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L347:
 	.word	0,0
-.L332:
-	.word	0,0
 .L355:
 	.word	0,0
 .L342:
+	.word	0,0
+.L332:
 	.word	0,0
 .L336:
 	.word	0,0
@@ -16794,20 +16794,20 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	83
 	.word	0,0
-.L343:
-	.word	-1,.L191,.L596-.L191,.L597-.L191
-	.half	5
-	.byte	144,32,157,32,0
+.L356:
+	.word	-1,.L191,.L602-.L191,.L603-.L191
+	.half	1
+	.byte	95
 	.word	0,0
 .L333:
 	.word	-1,.L191,.L591-.L191,.L592-.L191
 	.half	1
 	.byte	95
 	.word	0,0
-.L356:
-	.word	-1,.L191,.L602-.L191,.L603-.L191
-	.half	1
-	.byte	95
+.L343:
+	.word	-1,.L191,.L596-.L191,.L597-.L191
+	.half	5
+	.byte	144,32,157,32,0
 	.word	0,0
 .L330:
 	.word	-1,.L191,.L589-.L191,.L96-.L191
@@ -16828,14 +16828,6 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L357:
-	.word	-1,.L191,.L606-.L191,.L607-.L191
-	.half	2
-	.byte	144,33
-	.word	.L607-.L191,.L608-.L191
-	.half	2
-	.byte	144,32
-	.word	0,0
 .L345:
 	.word	-1,.L191,.L595-.L191,.L599-.L191
 	.half	2
@@ -16844,15 +16836,23 @@ __Ifx_Fifo_write_function_end:
 	.half	2
 	.byte	144,32
 	.word	0,0
-.L344:
-	.word	0,0
-.L353:
-	.word	-1,.L191,.L608-.L191,.L119-.L191
+.L357:
+	.word	-1,.L191,.L606-.L191,.L607-.L191
+	.half	2
+	.byte	144,33
+	.word	.L607-.L191,.L608-.L191
 	.half	2
 	.byte	144,32
 	.word	0,0
+.L344:
+	.word	0,0
 .L340:
 	.word	-1,.L191,.L600-.L191,.L105-.L191
+	.half	2
+	.byte	144,32
+	.word	0,0
+.L353:
+	.word	-1,.L191,.L608-.L191,.L119-.L191
 	.half	2
 	.byte	144,32
 	.word	0,0
@@ -17086,11 +17086,11 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L398:
 	.word	0,0
-.L393:
-	.word	0,0
 .L405:
 	.word	0,0
 .L413:
+	.word	0,0
+.L393:
 	.word	0,0
 .L399:
 	.word	0,0
@@ -17113,18 +17113,13 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L404:
-	.word	-1,.L185,.L563-.L185,.L564-.L185
-	.half	1
-	.byte	95
-	.word	0,0
 .L412:
 	.word	-1,.L185,.L571-.L185,.L572-.L185
 	.half	1
 	.byte	95
 	.word	0,0
-.L414:
-	.word	-1,.L185,.L569-.L185,.L570-.L185
+.L404:
+	.word	-1,.L185,.L563-.L185,.L564-.L185
 	.half	1
 	.byte	95
 	.word	0,0
@@ -17133,8 +17128,21 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
+.L414:
+	.word	-1,.L185,.L569-.L185,.L570-.L185
+	.half	1
+	.byte	95
+	.word	0,0
 .L406:
 	.word	-1,.L185,.L561-.L185,.L562-.L185
+	.half	1
+	.byte	95
+	.word	0,0
+.L410:
+	.word	-1,.L185,.L568-.L185,.L76-.L185
+	.half	1
+	.byte	95
+	.word	.L572-.L185,.L75-.L185
 	.half	1
 	.byte	95
 	.word	0,0
@@ -17149,14 +17157,6 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L410:
-	.word	-1,.L185,.L568-.L185,.L76-.L185
-	.half	1
-	.byte	95
-	.word	.L572-.L185,.L75-.L185
-	.half	1
-	.byte	95
-	.word	0,0
 .L415:
 	.word	-1,.L185,.L573-.L185,.L574-.L185
 	.half	2
@@ -17165,19 +17165,19 @@ __Ifx_Fifo_write_function_end:
 	.half	2
 	.byte	144,32
 	.word	0,0
-.L407:
-	.word	-1,.L185,.L565-.L185,.L566-.L185
-	.half	2
-	.byte	144,33
-	.word	.L566-.L185,.L567-.L185
-	.half	2
-	.byte	144,32
-	.word	0,0
 .L396:
 	.word	-1,.L185,.L548-.L185,.L549-.L185
 	.half	2
 	.byte	144,33
 	.word	.L549-.L185,.L550-.L185
+	.half	2
+	.byte	144,32
+	.word	0,0
+.L407:
+	.word	-1,.L185,.L565-.L185,.L566-.L185
+	.half	2
+	.byte	144,33
+	.word	.L566-.L185,.L567-.L185
 	.half	2
 	.byte	144,32
 	.word	0,0
@@ -17326,11 +17326,11 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L437:
 	.word	0,0
-.L452:
+.L432:
 	.word	0,0
 .L444:
 	.word	0,0
-.L432:
+.L452:
 	.word	0,0
 .L438:
 	.word	0,0
@@ -17348,6 +17348,11 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	100
 	.word	0,0
+.L451:
+	.word	-1,.L195,.L647-.L195,.L648-.L195
+	.half	1
+	.byte	95
+	.word	0,0
 .L431:
 	.word	-1,.L195,.L623-.L195,.L136-.L195
 	.half	1
@@ -17358,13 +17363,8 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L451:
-	.word	-1,.L195,.L647-.L195,.L648-.L195
-	.half	1
-	.byte	95
-	.word	0,0
-.L445:
-	.word	-1,.L195,.L637-.L195,.L638-.L195
+.L453:
+	.word	-1,.L195,.L645-.L195,.L646-.L195
 	.half	1
 	.byte	95
 	.word	0,0
@@ -17373,16 +17373,8 @@ __Ifx_Fifo_write_function_end:
 	.half	1
 	.byte	95
 	.word	0,0
-.L453:
-	.word	-1,.L195,.L645-.L195,.L646-.L195
-	.half	1
-	.byte	95
-	.word	0,0
-.L449:
-	.word	-1,.L195,.L644-.L195,.L162-.L195
-	.half	1
-	.byte	95
-	.word	.L648-.L195,.L161-.L195
+.L445:
+	.word	-1,.L195,.L637-.L195,.L638-.L195
 	.half	1
 	.byte	95
 	.word	0,0
@@ -17396,6 +17388,22 @@ __Ifx_Fifo_write_function_end:
 	.word	.L156-.L195,.L159-.L195
 	.half	1
 	.byte	95
+	.word	0,0
+.L449:
+	.word	-1,.L195,.L644-.L195,.L162-.L195
+	.half	1
+	.byte	95
+	.word	.L648-.L195,.L161-.L195
+	.half	1
+	.byte	95
+	.word	0,0
+.L446:
+	.word	-1,.L195,.L641-.L195,.L642-.L195
+	.half	2
+	.byte	144,33
+	.word	.L642-.L195,.L643-.L195
+	.half	2
+	.byte	144,32
 	.word	0,0
 .L454:
 	.word	-1,.L195,.L649-.L195,.L650-.L195
@@ -17413,20 +17421,7 @@ __Ifx_Fifo_write_function_end:
 	.half	2
 	.byte	144,32
 	.word	0,0
-.L446:
-	.word	-1,.L195,.L641-.L195,.L642-.L195
-	.half	2
-	.byte	144,33
-	.word	.L642-.L195,.L643-.L195
-	.half	2
-	.byte	144,32
-	.word	0,0
 .L434:
-	.word	0,0
-.L442:
-	.word	-1,.L195,.L643-.L195,.L148-.L195
-	.half	2
-	.byte	144,32
 	.word	0,0
 .L450:
 	.word	-1,.L195,.L651-.L195,.L163-.L195
@@ -17435,6 +17430,11 @@ __Ifx_Fifo_write_function_end:
 	.word	0,0
 .L430:
 	.word	-1,.L195,.L626-.L195,.L136-.L195
+	.half	2
+	.byte	144,32
+	.word	0,0
+.L442:
+	.word	-1,.L195,.L643-.L195,.L148-.L195
 	.half	2
 	.byte	144,32
 	.word	0,0

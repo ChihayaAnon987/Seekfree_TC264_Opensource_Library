@@ -1,6 +1,6 @@
 	; Module start
 	.compiler_version	"TASKING VX-toolset for AURIX Development Studio (non-commercial): C compiler v1.1r8 Build 22011964"
-	.compiler_invocation	"ctc -f cc35500a --dep-file=zf_device_bluetooth_ch9141.d -c99 --fp-model=1cFLNRSTZ -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x -D__CPU__=tc26xb -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_common -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_components -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_device -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_driver -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/zf_device/zf_device_bluetooth_ch9141.src ../libraries/zf_device/zf_device_bluetooth_ch9141.c"
+	.compiler_invocation	"ctc -f cc60460a --dep-file=zf_device_bluetooth_ch9141.d -c99 --fp-model=1cFLNRSTZ -D__CPU__=tc26xb -D__CPU_TC26XB__ --core=tc1.6.x -D__CPU__=tc26xb -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code\\\\TLD7002_control -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\code\\\\xfapi -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Configurations -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Platform\\\\Tricore\\\\Compilers -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Infra\\\\Sfr\\\\TC26B\\\\_Reg -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\If\\\\Ccu6If -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\StdIf -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Bsp -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\SysSe\\\\Math -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\Service\\\\CpuGeneric\\\\_Utilities -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Asc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Asclin\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Ccu6\\\\Timer -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\CStart -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Irq -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Cpu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Dma -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Dma\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Flash\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12 -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\IncrEnc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gpt12\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Atom\\\\Pwm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Gtm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Mtu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Port\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\SpiMaster -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Qspi\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Scu\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Src\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Stm\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Adc -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\Vadc\\\\Std -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Impl -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_Lib\\\\DataHandling -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\infineon_libraries\\\\iLLD\\\\TC26B\\\\Tricore\\\\_PinMap -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_common -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_components -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_device -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\libraries\\\\zf_driver -ID:\\\\ADS\\\\ADS_TC264\\\\Seekfree_TC264_Opensource_Library\\\\user -g2 -w544 -w557 -t4 --language=+volatile -N0 -O0 -Y0 -Z0 --compact-max-size=200 --misrac-version=2004 -o libraries/zf_device/zf_device_bluetooth_ch9141.src ../libraries/zf_device/zf_device_bluetooth_ch9141.c"
 	.compiler_name		"ctc"
 	;source	'../libraries/zf_device/zf_device_bluetooth_ch9141.c'
 
@@ -498,7 +498,7 @@ bluetooth_ch9141_data:	.type	object
 	.sdecl	'.debug_info',debug
 	.sect	'.debug_info'
 .L44:
-	.word	104457
+	.word	104468
 	.half	3
 	.word	.L45
 	.byte	4
@@ -4607,18 +4607,18 @@ bluetooth_ch9141_data:	.type	object
 	.word	21818
 	.byte	28
 	.word	21831
-	.byte	0,6,0,0,17,22,103,9,1,18
+	.byte	0,6,0,0,17,22,104,9,1,18
 	.byte	'UART_0',0,0,18
 	.byte	'UART_1',0,1,18
 	.byte	'UART_2',0,2,18
 	.byte	'UART_3',0,3,0,21
 	.word	644
 	.byte	24
-	.byte	'uart_write_byte',0,22,118,9,1,1,1,1,5
-	.byte	'uartn',0,22,118,62
+	.byte	'uart_write_byte',0,22,119,9,1,1,1,1,5
+	.byte	'uartn',0,22,119,62
 	.word	25970
 	.byte	5
-	.byte	'dat',0,22,118,81
+	.byte	'dat',0,22,119,81
 	.word	26012
 	.byte	0,21
 	.word	644
@@ -4626,36 +4626,36 @@ bluetooth_ch9141_data:	.type	object
 	.byte	3
 	.word	26068
 	.byte	24
-	.byte	'uart_write_buffer',0,22,119,9,1,1,1,1,5
-	.byte	'uartn',0,22,119,62
+	.byte	'uart_write_buffer',0,22,120,9,1,1,1,1,5
+	.byte	'uartn',0,22,120,62
 	.word	25970
 	.byte	5
-	.byte	'buff',0,22,119,82
+	.byte	'buff',0,22,120,82
 	.word	26073
 	.byte	5
-	.byte	'len',0,22,119,95
+	.byte	'len',0,22,120,95
 	.word	10305
 	.byte	0
 .L110:
 	.byte	3
 	.word	644
 	.byte	22
-	.byte	'uart_query_byte',0,22,123,9
+	.byte	'uart_query_byte',0,22,124,9
 	.word	644
 	.byte	1,1,1,1,5
-	.byte	'uartn',0,22,123,62
+	.byte	'uartn',0,22,124,62
 	.word	25970
 	.byte	5
-	.byte	'dat',0,22,123,76
+	.byte	'dat',0,22,124,76
 	.word	26144
 	.byte	0,24
-	.byte	'uart_rx_interrupt',0,22,126,9,1,1,1,1,5
-	.byte	'uartn',0,22,126,62
+	.byte	'uart_rx_interrupt',0,22,127,9,1,1,1,1,5
+	.byte	'uartn',0,22,127,62
 	.word	25970
 	.byte	5
-	.byte	'status',0,22,126,76
+	.byte	'status',0,22,127,76
 	.word	10305
-	.byte	0,17,22,43,9,1,18
+	.byte	0,17,22,44,9,1,18
 	.byte	'UART0_TX_P14_0',0,0,18
 	.byte	'UART0_TX_P14_1',0,1,18
 	.byte	'UART0_TX_P15_2',0,2,18
@@ -4681,7 +4681,7 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'UART3_TX_P15_7',0,22,18
 	.byte	'UART3_TX_P20_0',0,23,18
 	.byte	'UART3_TX_P20_3',0,24,18
-	.byte	'UART3_TX_P21_7',0,25,0,17,22,77,9,1,18
+	.byte	'UART3_TX_P21_7',0,25,0,17,22,78,9,1,18
 	.byte	'UART0_RX_P14_1',0,0,18
 	.byte	'UART0_RX_P15_3',0,1,18
 	.byte	'UART1_RX_P02_3',0,2,18
@@ -4699,38 +4699,39 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'UART3_RX_P15_7',0,14,18
 	.byte	'UART3_RX_P20_3',0,15,18
 	.byte	'UART3_RX_P21_6',0,16,0,24
-	.byte	'uart_init',0,22,129,1,9,1,1,1,1,5
-	.byte	'uartn',0,22,129,1,62
+	.byte	'uart_init',0,22,130,1,9,1,1,1,1,5
+	.byte	'uartn',0,22,130,1,62
 	.word	25970
 	.byte	5
-	.byte	'baud',0,22,129,1,76
+	.byte	'baud',0,22,130,1,76
 	.word	10305
 	.byte	5
-	.byte	'tx_pin',0,22,129,1,99
+	.byte	'tx_pin',0,22,130,1,99
 	.word	26260
 	.byte	5
-	.byte	'rx_pin',0,22,129,1,124
+	.byte	'rx_pin',0,22,130,1,124
 	.word	26712
 	.byte	0,24
 	.byte	'system_delay_ms',0,23,46,9,1,1,1,1,5
 	.byte	'time',0,23,46,45
 	.word	10305
-	.byte	0,17,24,53,9,1,18
+	.byte	0,17,24,54,9,1,18
 	.byte	'NO_WIRELESS',0,0,18
 	.byte	'WIRELESS_UART',0,1,18
 	.byte	'BLE6A20',0,2,18
 	.byte	'BLUETOOTH_CH9141',0,3,18
 	.byte	'WIFI_UART',0,4,18
-	.byte	'RECEIVER_UART',0,5,0,30
-	.byte	'callback_function',0,24,73,16
+	.byte	'WIFI_SPI',0,5,18
+	.byte	'RECEIVER_UART',0,6,0,30
+	.byte	'callback_function',0,24,75,16
 	.word	208
 	.byte	24
-	.byte	'set_wireless_type',0,24,91,8,1,1,1,1,5
-	.byte	'type_set',0,24,91,53
+	.byte	'set_wireless_type',0,24,94,8,1,1,1,1,5
+	.byte	'type_set',0,24,94,53
 	.word	27128
 	.byte	5
-	.byte	'wireless_callback',0,24,91,81
-	.word	27221
+	.byte	'wireless_callback',0,24,94,81
+	.word	27232
 	.byte	0,3
 	.word	205
 .L90:
@@ -4747,10 +4748,10 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'__ptrdiff_t',0,25,1,1
 	.word	485
 	.byte	32,1,3
-	.word	27402
+	.word	27413
 	.byte	30
 	.byte	'__codeptr',0,25,1,1
-	.word	27404
+	.word	27415
 	.byte	30
 	.byte	'__intptr_t',0,25,1,1
 	.word	485
@@ -4812,16 +4813,16 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'Ifx_RxSel_g',0,6,18
 	.byte	'Ifx_RxSel_h',0,7,0,30
 	.byte	'Ifx_RxSel',0,28,140,1,3
-	.word	27714
+	.word	27725
 	.byte	17,28,164,1,9,1,18
 	.byte	'Ifx_DataBufferMode_normal',0,0,18
 	.byte	'Ifx_DataBufferMode_timeStampSingle',0,1,0,30
 	.byte	'Ifx_DataBufferMode',0,28,169,1,2
-	.word	27852
+	.word	27863
 	.byte	7
 	.byte	'char',0,1,6,30
 	.byte	'int8',0,29,54,29
-	.word	27952
+	.word	27963
 	.byte	30
 	.byte	'int16',0,29,55,29
 	.word	18033
@@ -5018,18 +5019,18 @@ bluetooth_ch9141_data:	.type	object
 	.word	8601
 	.byte	30
 	.byte	'Ifx_P',0,6,139,6,3
-	.word	29433
+	.word	29444
 	.byte	17,30,236,10,9,1,18
 	.byte	'IfxScu_CCUCON0_CLKSEL_fBack',0,0,18
 	.byte	'IfxScu_CCUCON0_CLKSEL_fPll',0,1,0,30
 	.byte	'IfxScu_CCUCON0_CLKSEL',0,30,240,10,3
-	.word	29453
+	.word	29464
 	.byte	17,30,250,10,9,1,18
 	.byte	'IfxScu_WDTCON1_IR_divBy16384',0,0,18
 	.byte	'IfxScu_WDTCON1_IR_divBy256',0,1,18
 	.byte	'IfxScu_WDTCON1_IR_divBy64',0,2,0,30
 	.byte	'IfxScu_WDTCON1_IR',0,30,255,10,3
-	.word	29550
+	.word	29561
 	.byte	10
 	.byte	'_Ifx_SCU_ACCEN0_Bits',0,4,45,16,4,11
 	.byte	'EN0',0,1
@@ -5129,14 +5130,14 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_ACCEN0_Bits',0,4,79,3
-	.word	29672
+	.word	29683
 	.byte	10
 	.byte	'_Ifx_SCU_ACCEN1_Bits',0,4,82,16,4,11
 	.byte	'reserved_0',0,4
 	.word	469
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_SCU_ACCEN1_Bits',0,4,85,3
-	.word	30229
+	.word	30240
 	.byte	10
 	.byte	'_Ifx_SCU_ARSTDIS_Bits',0,4,88,16,4,11
 	.byte	'STM0DIS',0,1
@@ -5152,7 +5153,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	29,0,2,35,0,0,30
 	.byte	'Ifx_SCU_ARSTDIS_Bits',0,4,94,3
-	.word	30306
+	.word	30317
 	.byte	10
 	.byte	'_Ifx_SCU_CCUCON0_Bits',0,4,97,16,4,11
 	.byte	'BAUD1DIV',0,1
@@ -5192,7 +5193,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_CCUCON0_Bits',0,4,111,3
-	.word	30442
+	.word	30453
 	.byte	10
 	.byte	'_Ifx_SCU_CCUCON1_Bits',0,4,114,16,4,11
 	.byte	'CANDIV',0,1
@@ -5226,7 +5227,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_CCUCON1_Bits',0,4,126,3
-	.word	30722
+	.word	30733
 	.byte	10
 	.byte	'_Ifx_SCU_CCUCON2_Bits',0,4,129,1,16,4,11
 	.byte	'BBBDIV',0,1
@@ -5242,7 +5243,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_CCUCON2_Bits',0,4,135,1,3
-	.word	30960
+	.word	30971
 	.byte	10
 	.byte	'_Ifx_SCU_CCUCON3_Bits',0,4,138,1,16,4,11
 	.byte	'PLLDIV',0,1
@@ -5276,7 +5277,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_CCUCON3_Bits',0,4,150,1,3
-	.word	31088
+	.word	31099
 	.byte	10
 	.byte	'_Ifx_SCU_CCUCON4_Bits',0,4,153,1,16,4,11
 	.byte	'SPBDIV',0,1
@@ -5310,7 +5311,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_CCUCON4_Bits',0,4,165,1,3
-	.word	31331
+	.word	31342
 	.byte	10
 	.byte	'_Ifx_SCU_CCUCON5_Bits',0,4,168,1,16,4,11
 	.byte	'MAXDIV',0,1
@@ -5326,7 +5327,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_CCUCON5_Bits',0,4,174,1,3
-	.word	31566
+	.word	31577
 	.byte	10
 	.byte	'_Ifx_SCU_CCUCON6_Bits',0,4,177,1,16,4,11
 	.byte	'CPU0DIV',0,1
@@ -5336,7 +5337,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	26,0,2,35,0,0,30
 	.byte	'Ifx_SCU_CCUCON6_Bits',0,4,181,1,3
-	.word	31694
+	.word	31705
 	.byte	10
 	.byte	'_Ifx_SCU_CCUCON7_Bits',0,4,184,1,16,4,11
 	.byte	'CPU1DIV',0,1
@@ -5346,7 +5347,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	26,0,2,35,0,0,30
 	.byte	'Ifx_SCU_CCUCON7_Bits',0,4,188,1,3
-	.word	31794
+	.word	31805
 	.byte	10
 	.byte	'_Ifx_SCU_CHIPID_Bits',0,4,191,1,16,4,11
 	.byte	'CHREV',0,1
@@ -5377,7 +5378,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_CHIPID_Bits',0,4,202,1,3
-	.word	31894
+	.word	31905
 	.byte	10
 	.byte	'_Ifx_SCU_DTSCON_Bits',0,4,205,1,16,4,11
 	.byte	'PWD',0,1
@@ -5399,7 +5400,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_DTSCON_Bits',0,4,213,1,3
-	.word	32102
+	.word	32113
 	.byte	10
 	.byte	'_Ifx_SCU_DTSLIM_Bits',0,4,216,1,16,4,11
 	.byte	'LOWER',0,2
@@ -5424,7 +5425,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_DTSLIM_Bits',0,4,225,1,3
-	.word	32267
+	.word	32278
 	.byte	10
 	.byte	'_Ifx_SCU_DTSSTAT_Bits',0,4,228,1,16,4,11
 	.byte	'RESULT',0,2
@@ -5443,7 +5444,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_SCU_DTSSTAT_Bits',0,4,235,1,3
-	.word	32450
+	.word	32461
 	.byte	10
 	.byte	'_Ifx_SCU_EICR_Bits',0,4,238,1,16,4,11
 	.byte	'reserved_0',0,1
@@ -5498,7 +5499,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EICR_Bits',0,4,129,2,3
-	.word	32604
+	.word	32615
 	.byte	10
 	.byte	'_Ifx_SCU_EIFR_Bits',0,4,132,2,16,4,11
 	.byte	'INTF0',0,1
@@ -5529,7 +5530,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	24,0,2,35,0,0,30
 	.byte	'Ifx_SCU_EIFR_Bits',0,4,143,2,3
-	.word	32968
+	.word	32979
 	.byte	10
 	.byte	'_Ifx_SCU_EMSR_Bits',0,4,146,2,16,4,11
 	.byte	'POL',0,1
@@ -5566,7 +5567,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	4,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EMSR_Bits',0,4,159,2,3
-	.word	33179
+	.word	33190
 	.byte	10
 	.byte	'_Ifx_SCU_ESRCFG_Bits',0,4,162,2,16,4,11
 	.byte	'reserved_0',0,1
@@ -5579,7 +5580,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	23,0,2,35,0,0,30
 	.byte	'Ifx_SCU_ESRCFG_Bits',0,4,167,2,3
-	.word	33431
+	.word	33442
 	.byte	10
 	.byte	'_Ifx_SCU_ESROCFG_Bits',0,4,170,2,16,4,11
 	.byte	'ARI',0,1
@@ -5592,7 +5593,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	30,0,2,35,0,0,30
 	.byte	'Ifx_SCU_ESROCFG_Bits',0,4,175,2,3
-	.word	33549
+	.word	33560
 	.byte	10
 	.byte	'_Ifx_SCU_EVR13CON_Bits',0,4,178,2,16,4,11
 	.byte	'reserved_0',0,4
@@ -5611,7 +5612,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVR13CON_Bits',0,4,185,2,3
-	.word	33660
+	.word	33671
 	.byte	10
 	.byte	'_Ifx_SCU_EVR33CON_Bits',0,4,188,2,16,4,11
 	.byte	'reserved_0',0,4
@@ -5630,7 +5631,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVR33CON_Bits',0,4,195,2,3
-	.word	33823
+	.word	33834
 	.byte	10
 	.byte	'_Ifx_SCU_EVRADCSTAT_Bits',0,4,198,2,16,4,11
 	.byte	'ADC13V',0,1
@@ -5649,7 +5650,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRADCSTAT_Bits',0,4,205,2,3
-	.word	33986
+	.word	33997
 	.byte	10
 	.byte	'_Ifx_SCU_EVRDVSTAT_Bits',0,4,208,2,16,4,11
 	.byte	'DVS13TRIM',0,1
@@ -5668,7 +5669,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRDVSTAT_Bits',0,4,215,2,3
-	.word	34144
+	.word	34155
 	.byte	10
 	.byte	'_Ifx_SCU_EVRMONCTRL_Bits',0,4,218,2,16,4,11
 	.byte	'EVR13OVMOD',0,1
@@ -5708,7 +5709,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	10,0,2,35,2,0,30
 	.byte	'Ifx_SCU_EVRMONCTRL_Bits',0,4,232,2,3
-	.word	34309
+	.word	34320
 	.byte	10
 	.byte	'_Ifx_SCU_EVROSCCTRL_Bits',0,4,235,2,16,4,11
 	.byte	'OSCTRIM',0,2
@@ -5736,7 +5737,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVROSCCTRL_Bits',0,4,245,2,3
-	.word	34638
+	.word	34649
 	.byte	10
 	.byte	'_Ifx_SCU_EVROVMON_Bits',0,4,248,2,16,4,11
 	.byte	'EVR13OVVAL',0,1
@@ -5755,7 +5756,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVROVMON_Bits',0,4,255,2,3
-	.word	34859
+	.word	34870
 	.byte	10
 	.byte	'_Ifx_SCU_EVRRSTCON_Bits',0,4,130,3,16,4,11
 	.byte	'RST13TRIM',0,1
@@ -5789,7 +5790,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRRSTCON_Bits',0,4,142,3,3
-	.word	35022
+	.word	35033
 	.byte	10
 	.byte	'_Ifx_SCU_EVRSDCOEFF1_Bits',0,4,145,3,16,4,11
 	.byte	'SD5P',0,1
@@ -5808,7 +5809,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF1_Bits',0,4,152,3,3
-	.word	35294
+	.word	35305
 	.byte	10
 	.byte	'_Ifx_SCU_EVRSDCOEFF2_Bits',0,4,155,3,16,4,11
 	.byte	'SD33P',0,1
@@ -5827,7 +5828,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF2_Bits',0,4,162,3,3
-	.word	35447
+	.word	35458
 	.byte	10
 	.byte	'_Ifx_SCU_EVRSDCOEFF3_Bits',0,4,165,3,16,4,11
 	.byte	'CT5REG0',0,1
@@ -5846,7 +5847,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF3_Bits',0,4,172,3,3
-	.word	35603
+	.word	35614
 	.byte	10
 	.byte	'_Ifx_SCU_EVRSDCOEFF4_Bits',0,4,175,3,16,4,11
 	.byte	'CT5REG3',0,1
@@ -5862,7 +5863,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF4_Bits',0,4,181,3,3
-	.word	35765
+	.word	35776
 	.byte	10
 	.byte	'_Ifx_SCU_EVRSDCOEFF5_Bits',0,4,184,3,16,4,11
 	.byte	'CT33REG0',0,1
@@ -5881,7 +5882,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF5_Bits',0,4,191,3,3
-	.word	35908
+	.word	35919
 	.byte	10
 	.byte	'_Ifx_SCU_EVRSDCOEFF6_Bits',0,4,194,3,16,4,11
 	.byte	'CT33REG3',0,1
@@ -5897,7 +5898,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF6_Bits',0,4,200,3,3
-	.word	36073
+	.word	36084
 	.byte	10
 	.byte	'_Ifx_SCU_EVRSDCTRL1_Bits',0,4,203,3,16,4,11
 	.byte	'SDFREQSPRD',0,2
@@ -5919,7 +5920,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRSDCTRL1_Bits',0,4,211,3,3
-	.word	36218
+	.word	36229
 	.byte	10
 	.byte	'_Ifx_SCU_EVRSDCTRL2_Bits',0,4,214,3,16,4,11
 	.byte	'DRVP',0,1
@@ -5941,7 +5942,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRSDCTRL2_Bits',0,4,222,3,3
-	.word	36399
+	.word	36410
 	.byte	10
 	.byte	'_Ifx_SCU_EVRSDCTRL3_Bits',0,4,225,3,16,4,11
 	.byte	'SDPWMPRE',0,1
@@ -5960,7 +5961,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRSDCTRL3_Bits',0,4,232,3,3
-	.word	36573
+	.word	36584
 	.byte	10
 	.byte	'_Ifx_SCU_EVRSDCTRL4_Bits',0,4,235,3,16,4,11
 	.byte	'reserved_0',0,1
@@ -5976,7 +5977,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRSDCTRL4_Bits',0,4,241,3,3
-	.word	36733
+	.word	36744
 	.byte	10
 	.byte	'_Ifx_SCU_EVRSTAT_Bits',0,4,244,3,16,4,11
 	.byte	'EVR13',0,1
@@ -6016,7 +6017,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	21,0,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSTAT_Bits',0,4,130,4,3
-	.word	36877
+	.word	36888
 	.byte	10
 	.byte	'_Ifx_SCU_EVRTRIM_Bits',0,4,133,4,16,4,11
 	.byte	'EVR13TRIM',0,1
@@ -6032,7 +6033,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRTRIM_Bits',0,4,139,4,3
-	.word	37151
+	.word	37162
 	.byte	10
 	.byte	'_Ifx_SCU_EVRUVMON_Bits',0,4,142,4,16,4,11
 	.byte	'EVR13UVVAL',0,1
@@ -6051,7 +6052,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EVRUVMON_Bits',0,4,149,4,3
-	.word	37290
+	.word	37301
 	.byte	10
 	.byte	'_Ifx_SCU_EXTCON_Bits',0,4,152,4,16,4,11
 	.byte	'EN0',0,1
@@ -6082,7 +6083,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	8,0,2,35,3,0,30
 	.byte	'Ifx_SCU_EXTCON_Bits',0,4,163,4,3
-	.word	37453
+	.word	37464
 	.byte	10
 	.byte	'_Ifx_SCU_FDR_Bits',0,4,166,4,16,4,11
 	.byte	'STEP',0,2
@@ -6104,7 +6105,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_FDR_Bits',0,4,174,4,3
-	.word	37671
+	.word	37682
 	.byte	10
 	.byte	'_Ifx_SCU_FMR_Bits',0,4,177,4,16,4,11
 	.byte	'FS0',0,1
@@ -6162,7 +6163,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	8,0,2,35,3,0,30
 	.byte	'Ifx_SCU_FMR_Bits',0,4,197,4,3
-	.word	37834
+	.word	37845
 	.byte	10
 	.byte	'_Ifx_SCU_ID_Bits',0,4,200,4,16,4,11
 	.byte	'MODREV',0,1
@@ -6175,7 +6176,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_SCU_ID_Bits',0,4,205,4,3
-	.word	38170
+	.word	38181
 	.byte	10
 	.byte	'_Ifx_SCU_IGCR_Bits',0,4,208,4,16,4,11
 	.byte	'IPEN00',0,1
@@ -6245,7 +6246,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	2,0,2,35,3,0,30
 	.byte	'Ifx_SCU_IGCR_Bits',0,4,232,4,3
-	.word	38277
+	.word	38288
 	.byte	10
 	.byte	'_Ifx_SCU_IN_Bits',0,4,235,4,16,4,11
 	.byte	'P0',0,1
@@ -6258,7 +6259,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	30,0,2,35,0,0,30
 	.byte	'Ifx_SCU_IN_Bits',0,4,240,4,3
-	.word	38729
+	.word	38740
 	.byte	10
 	.byte	'_Ifx_SCU_IOCR_Bits',0,4,243,4,16,4,11
 	.byte	'reserved_0',0,1
@@ -6277,7 +6278,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_SCU_IOCR_Bits',0,4,250,4,3
-	.word	38828
+	.word	38839
 	.byte	10
 	.byte	'_Ifx_SCU_LBISTCTRL0_Bits',0,4,253,4,16,4,11
 	.byte	'LBISTREQ',0,1
@@ -6293,7 +6294,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_SCU_LBISTCTRL0_Bits',0,4,131,5,3
-	.word	38978
+	.word	38989
 	.byte	10
 	.byte	'_Ifx_SCU_LBISTCTRL1_Bits',0,4,134,5,16,4,11
 	.byte	'SEED',0,4
@@ -6312,7 +6313,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	4,0,2,35,3,0,30
 	.byte	'Ifx_SCU_LBISTCTRL1_Bits',0,4,141,5,3
-	.word	39127
+	.word	39138
 	.byte	10
 	.byte	'_Ifx_SCU_LBISTCTRL2_Bits',0,4,144,5,16,4,11
 	.byte	'SIGNATURE',0,4
@@ -6325,7 +6326,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_LBISTCTRL2_Bits',0,4,149,5,3
-	.word	39288
+	.word	39299
 	.byte	10
 	.byte	'_Ifx_SCU_LCLCON_Bits',0,4,152,5,16,4,11
 	.byte	'reserved_0',0,2
@@ -6341,7 +6342,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_LCLCON_Bits',0,4,158,5,3
-	.word	39418
+	.word	39429
 	.byte	10
 	.byte	'_Ifx_SCU_LCLTEST_Bits',0,4,161,5,16,4,11
 	.byte	'LCLT0',0,1
@@ -6354,7 +6355,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	30,0,2,35,0,0,30
 	.byte	'Ifx_SCU_LCLTEST_Bits',0,4,166,5,3
-	.word	39550
+	.word	39561
 	.byte	10
 	.byte	'_Ifx_SCU_MANID_Bits',0,4,169,5,16,4,11
 	.byte	'DEPT',0,1
@@ -6367,7 +6368,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_SCU_MANID_Bits',0,4,174,5,3
-	.word	39665
+	.word	39676
 	.byte	10
 	.byte	'_Ifx_SCU_OMR_Bits',0,4,177,5,16,4,11
 	.byte	'PS0',0,1
@@ -6389,7 +6390,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	14,0,2,35,2,0,30
 	.byte	'Ifx_SCU_OMR_Bits',0,4,185,5,3
-	.word	39776
+	.word	39787
 	.byte	10
 	.byte	'_Ifx_SCU_OSCCON_Bits',0,4,188,5,16,4,11
 	.byte	'reserved_0',0,1
@@ -6450,7 +6451,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	4,0,2,35,3,0,30
 	.byte	'Ifx_SCU_OSCCON_Bits',0,4,209,5,3
-	.word	39934
+	.word	39945
 	.byte	10
 	.byte	'_Ifx_SCU_OUT_Bits',0,4,212,5,16,4,11
 	.byte	'P0',0,1
@@ -6463,7 +6464,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	30,0,2,35,0,0,30
 	.byte	'Ifx_SCU_OUT_Bits',0,4,217,5,3
-	.word	40346
+	.word	40357
 	.byte	10
 	.byte	'_Ifx_SCU_OVCCON_Bits',0,4,220,5,16,4,11
 	.byte	'CSEL0',0,1
@@ -6500,7 +6501,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	6,0,2,35,3,0,30
 	.byte	'Ifx_SCU_OVCCON_Bits',0,4,233,5,3
-	.word	40447
+	.word	40458
 	.byte	10
 	.byte	'_Ifx_SCU_OVCENABLE_Bits',0,4,236,5,16,4,11
 	.byte	'OVEN0',0,1
@@ -6516,7 +6517,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	29,0,2,35,0,0,30
 	.byte	'Ifx_SCU_OVCENABLE_Bits',0,4,242,5,3
-	.word	40714
+	.word	40725
 	.byte	10
 	.byte	'_Ifx_SCU_PDISC_Bits',0,4,245,5,16,4,11
 	.byte	'PDIS0',0,1
@@ -6529,7 +6530,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	30,0,2,35,0,0,30
 	.byte	'Ifx_SCU_PDISC_Bits',0,4,250,5,3
-	.word	40850
+	.word	40861
 	.byte	10
 	.byte	'_Ifx_SCU_PDR_Bits',0,4,253,5,16,4,11
 	.byte	'PD0',0,1
@@ -6548,7 +6549,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	24,0,2,35,0,0,30
 	.byte	'Ifx_SCU_PDR_Bits',0,4,132,6,3
-	.word	40961
+	.word	40972
 	.byte	10
 	.byte	'_Ifx_SCU_PDRR_Bits',0,4,135,6,16,4,11
 	.byte	'PDR0',0,1
@@ -6579,7 +6580,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	24,0,2,35,0,0,30
 	.byte	'Ifx_SCU_PDRR_Bits',0,4,146,6,3
-	.word	41094
+	.word	41105
 	.byte	10
 	.byte	'_Ifx_SCU_PLLCON0_Bits',0,4,149,6,16,4,11
 	.byte	'VCOBYP',0,1
@@ -6628,7 +6629,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	4,0,2,35,3,0,30
 	.byte	'Ifx_SCU_PLLCON0_Bits',0,4,166,6,3
-	.word	41297
+	.word	41308
 	.byte	10
 	.byte	'_Ifx_SCU_PLLCON1_Bits',0,4,169,6,16,4,11
 	.byte	'K2DIV',0,1
@@ -6650,7 +6651,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	9,0,2,35,2,0,30
 	.byte	'Ifx_SCU_PLLCON1_Bits',0,4,177,6,3
-	.word	41653
+	.word	41664
 	.byte	10
 	.byte	'_Ifx_SCU_PLLCON2_Bits',0,4,180,6,16,4,11
 	.byte	'MODCFG',0,2
@@ -6660,7 +6661,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_SCU_PLLCON2_Bits',0,4,184,6,3
-	.word	41831
+	.word	41842
 	.byte	10
 	.byte	'_Ifx_SCU_PLLERAYCON0_Bits',0,4,187,6,16,4,11
 	.byte	'VCOBYP',0,1
@@ -6709,7 +6710,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	4,0,2,35,3,0,30
 	.byte	'Ifx_SCU_PLLERAYCON0_Bits',0,4,204,6,3
-	.word	41931
+	.word	41942
 	.byte	10
 	.byte	'_Ifx_SCU_PLLERAYCON1_Bits',0,4,207,6,16,4,11
 	.byte	'K2DIV',0,1
@@ -6731,7 +6732,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	9,0,2,35,2,0,30
 	.byte	'Ifx_SCU_PLLERAYCON1_Bits',0,4,215,6,3
-	.word	42301
+	.word	42312
 	.byte	10
 	.byte	'_Ifx_SCU_PLLERAYSTAT_Bits',0,4,218,6,16,4,11
 	.byte	'VCOBYST',0,1
@@ -6756,7 +6757,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	26,0,2,35,0,0,30
 	.byte	'Ifx_SCU_PLLERAYSTAT_Bits',0,4,227,6,3
-	.word	42487
+	.word	42498
 	.byte	10
 	.byte	'_Ifx_SCU_PLLSTAT_Bits',0,4,230,6,16,4,11
 	.byte	'VCOBYST',0,1
@@ -6787,7 +6788,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	24,0,2,35,0,0,30
 	.byte	'Ifx_SCU_PLLSTAT_Bits',0,4,241,6,3
-	.word	42685
+	.word	42696
 	.byte	10
 	.byte	'_Ifx_SCU_PMCSR_Bits',0,4,244,6,16,4,11
 	.byte	'REQSLP',0,1
@@ -6806,7 +6807,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	21,0,2,35,0,0,30
 	.byte	'Ifx_SCU_PMCSR_Bits',0,4,251,6,3
-	.word	42918
+	.word	42929
 	.byte	10
 	.byte	'_Ifx_SCU_PMSWCR0_Bits',0,4,254,6,16,4,11
 	.byte	'reserved_0',0,1
@@ -6885,7 +6886,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_PMSWCR0_Bits',0,4,153,7,3
-	.word	43070
+	.word	43081
 	.byte	10
 	.byte	'_Ifx_SCU_PMSWCR1_Bits',0,4,156,7,16,4,11
 	.byte	'SCRSTEN',0,1
@@ -6925,7 +6926,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_PMSWCR1_Bits',0,4,170,7,3
-	.word	43637
+	.word	43648
 	.byte	10
 	.byte	'_Ifx_SCU_PMSWCR2_Bits',0,4,173,7,16,4,11
 	.byte	'SCRINT',0,1
@@ -6965,7 +6966,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_SCU_PMSWCR2_Bits',0,4,187,7,3
-	.word	43931
+	.word	43942
 	.byte	10
 	.byte	'_Ifx_SCU_PMSWSTAT_Bits',0,4,190,7,16,4,11
 	.byte	'reserved_0',0,1
@@ -7035,7 +7036,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	4,0,2,35,3,0,30
 	.byte	'Ifx_SCU_PMSWSTAT_Bits',0,4,214,7,3
-	.word	44209
+	.word	44220
 	.byte	10
 	.byte	'_Ifx_SCU_PMSWSTATCLR_Bits',0,4,217,7,16,4,11
 	.byte	'reserved_0',0,1
@@ -7072,7 +7073,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	14,0,2,35,2,0,30
 	.byte	'Ifx_SCU_PMSWSTATCLR_Bits',0,4,230,7,3
-	.word	44705
+	.word	44716
 	.byte	10
 	.byte	'_Ifx_SCU_RSTCON2_Bits',0,4,233,7,16,4,11
 	.byte	'reserved_0',0,1
@@ -7100,7 +7101,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_SCU_RSTCON2_Bits',0,4,243,7,3
-	.word	45018
+	.word	45029
 	.byte	10
 	.byte	'_Ifx_SCU_RSTCON_Bits',0,4,246,7,16,4,11
 	.byte	'ESR0',0,1
@@ -7131,7 +7132,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_SCU_RSTCON_Bits',0,4,129,8,3
-	.word	45227
+	.word	45238
 	.byte	10
 	.byte	'_Ifx_SCU_RSTSTAT_Bits',0,4,132,8,16,4,11
 	.byte	'ESR0',0,1
@@ -7198,7 +7199,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	3,0,2,35,3,0,30
 	.byte	'Ifx_SCU_RSTSTAT_Bits',0,4,155,8,3
-	.word	45438
+	.word	45449
 	.byte	10
 	.byte	'_Ifx_SCU_SAFECON_Bits',0,4,158,8,16,4,11
 	.byte	'HBT',0,1
@@ -7208,7 +7209,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	31,0,2,35,0,0,30
 	.byte	'Ifx_SCU_SAFECON_Bits',0,4,162,8,3
-	.word	45870
+	.word	45881
 	.byte	10
 	.byte	'_Ifx_SCU_STSTAT_Bits',0,4,165,8,16,4,11
 	.byte	'HWCFG',0,1
@@ -7245,7 +7246,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	7,0,2,35,3,0,30
 	.byte	'Ifx_SCU_STSTAT_Bits',0,4,178,8,3
-	.word	45966
+	.word	45977
 	.byte	10
 	.byte	'_Ifx_SCU_SWRSTCON_Bits',0,4,181,8,16,4,11
 	.byte	'reserved_0',0,1
@@ -7258,7 +7259,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	30,0,2,35,0,0,30
 	.byte	'Ifx_SCU_SWRSTCON_Bits',0,4,186,8,3
-	.word	46226
+	.word	46237
 	.byte	10
 	.byte	'_Ifx_SCU_SYSCON_Bits',0,4,189,8,16,4,11
 	.byte	'CCTRIG0',0,1
@@ -7283,7 +7284,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	23,0,2,35,0,0,30
 	.byte	'Ifx_SCU_SYSCON_Bits',0,4,198,8,3
-	.word	46351
+	.word	46362
 	.byte	10
 	.byte	'_Ifx_SCU_TRAPCLR_Bits',0,4,201,8,16,4,11
 	.byte	'ESR0T',0,1
@@ -7302,7 +7303,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	28,0,2,35,0,0,30
 	.byte	'Ifx_SCU_TRAPCLR_Bits',0,4,208,8,3
-	.word	46548
+	.word	46559
 	.byte	10
 	.byte	'_Ifx_SCU_TRAPDIS_Bits',0,4,211,8,16,4,11
 	.byte	'ESR0T',0,1
@@ -7321,7 +7322,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	28,0,2,35,0,0,30
 	.byte	'Ifx_SCU_TRAPDIS_Bits',0,4,218,8,3
-	.word	46701
+	.word	46712
 	.byte	10
 	.byte	'_Ifx_SCU_TRAPSET_Bits',0,4,221,8,16,4,11
 	.byte	'ESR0T',0,1
@@ -7340,7 +7341,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	28,0,2,35,0,0,30
 	.byte	'Ifx_SCU_TRAPSET_Bits',0,4,228,8,3
-	.word	46854
+	.word	46865
 	.byte	10
 	.byte	'_Ifx_SCU_TRAPSTAT_Bits',0,4,231,8,16,4,11
 	.byte	'ESR0T',0,1
@@ -7359,7 +7360,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	28,0,2,35,0,0,30
 	.byte	'Ifx_SCU_TRAPSTAT_Bits',0,4,238,8,3
-	.word	47007
+	.word	47018
 	.byte	30
 	.byte	'Ifx_SCU_WDTCPU_CON0_Bits',0,4,247,8,3
 	.word	508
@@ -7384,7 +7385,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	16,0,2,35,0,0,30
 	.byte	'Ifx_SCU_WDTS_CON0_Bits',0,4,159,9,3
-	.word	47262
+	.word	47273
 	.byte	10
 	.byte	'_Ifx_SCU_WDTS_CON1_Bits',0,4,162,9,16,4,11
 	.byte	'CLRIRF',0,1
@@ -7421,7 +7422,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_SCU_WDTS_CON1_Bits',0,4,175,9,3
-	.word	47388
+	.word	47399
 	.byte	10
 	.byte	'_Ifx_SCU_WDTS_SR_Bits',0,4,178,9,16,4,11
 	.byte	'AE',0,1
@@ -7458,7 +7459,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_SCU_WDTS_SR_Bits',0,4,191,9,3
-	.word	47640
+	.word	47651
 	.byte	12,4,199,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7467,10 +7468,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	29672
+	.word	29683
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_ACCEN0',0,4,204,9,3
-	.word	47859
+	.word	47870
 	.byte	12,4,207,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7479,10 +7480,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	30229
+	.word	30240
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_ACCEN1',0,4,212,9,3
-	.word	47923
+	.word	47934
 	.byte	12,4,215,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7491,10 +7492,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	30306
+	.word	30317
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_ARSTDIS',0,4,220,9,3
-	.word	47987
+	.word	47998
 	.byte	12,4,223,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7503,10 +7504,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	30442
+	.word	30453
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_CCUCON0',0,4,228,9,3
-	.word	48052
+	.word	48063
 	.byte	12,4,231,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7515,10 +7516,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	30722
+	.word	30733
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_CCUCON1',0,4,236,9,3
-	.word	48117
+	.word	48128
 	.byte	12,4,239,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7527,10 +7528,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	30960
+	.word	30971
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_CCUCON2',0,4,244,9,3
-	.word	48182
+	.word	48193
 	.byte	12,4,247,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7539,10 +7540,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	31088
+	.word	31099
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_CCUCON3',0,4,252,9,3
-	.word	48247
+	.word	48258
 	.byte	12,4,255,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7551,10 +7552,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	31331
+	.word	31342
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_CCUCON4',0,4,132,10,3
-	.word	48312
+	.word	48323
 	.byte	12,4,135,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7563,10 +7564,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	31566
+	.word	31577
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_CCUCON5',0,4,140,10,3
-	.word	48377
+	.word	48388
 	.byte	12,4,143,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7575,10 +7576,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	31694
+	.word	31705
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_CCUCON6',0,4,148,10,3
-	.word	48442
+	.word	48453
 	.byte	12,4,151,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7587,10 +7588,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	31794
+	.word	31805
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_CCUCON7',0,4,156,10,3
-	.word	48507
+	.word	48518
 	.byte	12,4,159,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7599,10 +7600,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	31894
+	.word	31905
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_CHIPID',0,4,164,10,3
-	.word	48572
+	.word	48583
 	.byte	12,4,167,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7611,10 +7612,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	32102
+	.word	32113
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_DTSCON',0,4,172,10,3
-	.word	48636
+	.word	48647
 	.byte	12,4,175,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7623,10 +7624,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	32267
+	.word	32278
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_DTSLIM',0,4,180,10,3
-	.word	48700
+	.word	48711
 	.byte	12,4,183,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7635,10 +7636,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	32450
+	.word	32461
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_DTSSTAT',0,4,188,10,3
-	.word	48764
+	.word	48775
 	.byte	12,4,191,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7647,10 +7648,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	32604
+	.word	32615
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EICR',0,4,196,10,3
-	.word	48829
+	.word	48840
 	.byte	12,4,199,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7659,10 +7660,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	32968
+	.word	32979
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EIFR',0,4,204,10,3
-	.word	48891
+	.word	48902
 	.byte	12,4,207,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7671,10 +7672,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	33179
+	.word	33190
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EMSR',0,4,212,10,3
-	.word	48953
+	.word	48964
 	.byte	12,4,215,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7683,10 +7684,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	33431
+	.word	33442
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_ESRCFG',0,4,220,10,3
-	.word	49015
+	.word	49026
 	.byte	12,4,223,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7695,10 +7696,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	33549
+	.word	33560
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_ESROCFG',0,4,228,10,3
-	.word	49079
+	.word	49090
 	.byte	12,4,231,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7707,10 +7708,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	33660
+	.word	33671
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVR13CON',0,4,236,10,3
-	.word	49144
+	.word	49155
 	.byte	12,4,239,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7719,10 +7720,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	33823
+	.word	33834
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVR33CON',0,4,244,10,3
-	.word	49210
+	.word	49221
 	.byte	12,4,247,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7731,10 +7732,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	33986
+	.word	33997
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRADCSTAT',0,4,252,10,3
-	.word	49276
+	.word	49287
 	.byte	12,4,255,10,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7743,10 +7744,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	34144
+	.word	34155
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRDVSTAT',0,4,132,11,3
-	.word	49344
+	.word	49355
 	.byte	12,4,135,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7755,10 +7756,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	34309
+	.word	34320
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRMONCTRL',0,4,140,11,3
-	.word	49411
+	.word	49422
 	.byte	12,4,143,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7767,10 +7768,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	34638
+	.word	34649
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVROSCCTRL',0,4,148,11,3
-	.word	49479
+	.word	49490
 	.byte	12,4,151,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7779,10 +7780,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	34859
+	.word	34870
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVROVMON',0,4,156,11,3
-	.word	49547
+	.word	49558
 	.byte	12,4,159,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7791,10 +7792,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	35022
+	.word	35033
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRRSTCON',0,4,164,11,3
-	.word	49613
+	.word	49624
 	.byte	12,4,167,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7803,10 +7804,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	35294
+	.word	35305
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF1',0,4,172,11,3
-	.word	49680
+	.word	49691
 	.byte	12,4,175,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7815,10 +7816,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	35447
+	.word	35458
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF2',0,4,180,11,3
-	.word	49749
+	.word	49760
 	.byte	12,4,183,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7827,10 +7828,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	35603
+	.word	35614
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF3',0,4,188,11,3
-	.word	49818
+	.word	49829
 	.byte	12,4,191,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7839,10 +7840,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	35765
+	.word	35776
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF4',0,4,196,11,3
-	.word	49887
+	.word	49898
 	.byte	12,4,199,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7851,10 +7852,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	35908
+	.word	35919
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF5',0,4,204,11,3
-	.word	49956
+	.word	49967
 	.byte	12,4,207,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7863,10 +7864,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	36073
+	.word	36084
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSDCOEFF6',0,4,212,11,3
-	.word	50025
+	.word	50036
 	.byte	12,4,215,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7875,10 +7876,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	36218
+	.word	36229
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSDCTRL1',0,4,220,11,3
-	.word	50094
+	.word	50105
 	.byte	12,4,223,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7887,10 +7888,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	36399
+	.word	36410
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSDCTRL2',0,4,228,11,3
-	.word	50162
+	.word	50173
 	.byte	12,4,231,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7899,10 +7900,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	36573
+	.word	36584
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSDCTRL3',0,4,236,11,3
-	.word	50230
+	.word	50241
 	.byte	12,4,239,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7911,10 +7912,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	36733
+	.word	36744
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSDCTRL4',0,4,244,11,3
-	.word	50298
+	.word	50309
 	.byte	12,4,247,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7923,10 +7924,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	36877
+	.word	36888
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRSTAT',0,4,252,11,3
-	.word	50366
+	.word	50377
 	.byte	12,4,255,11,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7935,10 +7936,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	37151
+	.word	37162
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRTRIM',0,4,132,12,3
-	.word	50431
+	.word	50442
 	.byte	12,4,135,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7947,10 +7948,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	37290
+	.word	37301
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EVRUVMON',0,4,140,12,3
-	.word	50496
+	.word	50507
 	.byte	12,4,143,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7959,10 +7960,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	37453
+	.word	37464
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_EXTCON',0,4,148,12,3
-	.word	50562
+	.word	50573
 	.byte	12,4,151,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7971,10 +7972,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	37671
+	.word	37682
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_FDR',0,4,156,12,3
-	.word	50626
+	.word	50637
 	.byte	12,4,159,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7983,10 +7984,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	37834
+	.word	37845
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_FMR',0,4,164,12,3
-	.word	50687
+	.word	50698
 	.byte	12,4,167,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -7995,10 +7996,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	38170
+	.word	38181
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_ID',0,4,172,12,3
-	.word	50748
+	.word	50759
 	.byte	12,4,175,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8007,10 +8008,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	38277
+	.word	38288
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_IGCR',0,4,180,12,3
-	.word	50808
+	.word	50819
 	.byte	12,4,183,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8019,10 +8020,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	38729
+	.word	38740
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_IN',0,4,188,12,3
-	.word	50870
+	.word	50881
 	.byte	12,4,191,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8031,10 +8032,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	38828
+	.word	38839
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_IOCR',0,4,196,12,3
-	.word	50930
+	.word	50941
 	.byte	12,4,199,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8043,10 +8044,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	38978
+	.word	38989
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_LBISTCTRL0',0,4,204,12,3
-	.word	50992
+	.word	51003
 	.byte	12,4,207,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8055,10 +8056,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	39127
+	.word	39138
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_LBISTCTRL1',0,4,212,12,3
-	.word	51060
+	.word	51071
 	.byte	12,4,215,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8067,10 +8068,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	39288
+	.word	39299
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_LBISTCTRL2',0,4,220,12,3
-	.word	51128
+	.word	51139
 	.byte	12,4,223,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8079,10 +8080,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	39418
+	.word	39429
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_LCLCON',0,4,228,12,3
-	.word	51196
+	.word	51207
 	.byte	12,4,231,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8091,10 +8092,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	39550
+	.word	39561
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_LCLTEST',0,4,236,12,3
-	.word	51260
+	.word	51271
 	.byte	12,4,239,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8103,10 +8104,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	39665
+	.word	39676
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_MANID',0,4,244,12,3
-	.word	51325
+	.word	51336
 	.byte	12,4,247,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8115,10 +8116,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	39776
+	.word	39787
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_OMR',0,4,252,12,3
-	.word	51388
+	.word	51399
 	.byte	12,4,255,12,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8127,10 +8128,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	39934
+	.word	39945
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_OSCCON',0,4,132,13,3
-	.word	51449
+	.word	51460
 	.byte	12,4,135,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8139,10 +8140,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	40346
+	.word	40357
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_OUT',0,4,140,13,3
-	.word	51513
+	.word	51524
 	.byte	12,4,143,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8151,10 +8152,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	40447
+	.word	40458
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_OVCCON',0,4,148,13,3
-	.word	51574
+	.word	51585
 	.byte	12,4,151,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8163,10 +8164,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	40714
+	.word	40725
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_OVCENABLE',0,4,156,13,3
-	.word	51638
+	.word	51649
 	.byte	12,4,159,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8175,10 +8176,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	40850
+	.word	40861
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PDISC',0,4,164,13,3
-	.word	51705
+	.word	51716
 	.byte	12,4,167,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8187,10 +8188,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	40961
+	.word	40972
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PDR',0,4,172,13,3
-	.word	51768
+	.word	51779
 	.byte	12,4,175,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8199,10 +8200,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	41094
+	.word	41105
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PDRR',0,4,180,13,3
-	.word	51829
+	.word	51840
 	.byte	12,4,183,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8211,10 +8212,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	41297
+	.word	41308
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PLLCON0',0,4,188,13,3
-	.word	51891
+	.word	51902
 	.byte	12,4,191,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8223,10 +8224,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	41653
+	.word	41664
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PLLCON1',0,4,196,13,3
-	.word	51956
+	.word	51967
 	.byte	12,4,199,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8235,10 +8236,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	41831
+	.word	41842
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PLLCON2',0,4,204,13,3
-	.word	52021
+	.word	52032
 	.byte	12,4,207,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8247,10 +8248,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	41931
+	.word	41942
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PLLERAYCON0',0,4,212,13,3
-	.word	52086
+	.word	52097
 	.byte	12,4,215,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8259,10 +8260,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	42301
+	.word	42312
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PLLERAYCON1',0,4,220,13,3
-	.word	52155
+	.word	52166
 	.byte	12,4,223,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8271,10 +8272,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	42487
+	.word	42498
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PLLERAYSTAT',0,4,228,13,3
-	.word	52224
+	.word	52235
 	.byte	12,4,231,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8283,10 +8284,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	42685
+	.word	42696
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PLLSTAT',0,4,236,13,3
-	.word	52293
+	.word	52304
 	.byte	12,4,239,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8295,10 +8296,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	42918
+	.word	42929
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PMCSR',0,4,244,13,3
-	.word	52358
+	.word	52369
 	.byte	12,4,247,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8307,10 +8308,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	43070
+	.word	43081
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PMSWCR0',0,4,252,13,3
-	.word	52421
+	.word	52432
 	.byte	12,4,255,13,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8319,10 +8320,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	43637
+	.word	43648
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PMSWCR1',0,4,132,14,3
-	.word	52486
+	.word	52497
 	.byte	12,4,135,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8331,10 +8332,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	43931
+	.word	43942
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PMSWCR2',0,4,140,14,3
-	.word	52551
+	.word	52562
 	.byte	12,4,143,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8343,10 +8344,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	44209
+	.word	44220
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PMSWSTAT',0,4,148,14,3
-	.word	52616
+	.word	52627
 	.byte	12,4,151,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8355,10 +8356,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	44705
+	.word	44716
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_PMSWSTATCLR',0,4,156,14,3
-	.word	52682
+	.word	52693
 	.byte	12,4,159,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8367,10 +8368,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	45227
+	.word	45238
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_RSTCON',0,4,164,14,3
-	.word	52751
+	.word	52762
 	.byte	12,4,167,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8379,10 +8380,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	45018
+	.word	45029
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_RSTCON2',0,4,172,14,3
-	.word	52815
+	.word	52826
 	.byte	12,4,175,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8391,10 +8392,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	45438
+	.word	45449
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_RSTSTAT',0,4,180,14,3
-	.word	52880
+	.word	52891
 	.byte	12,4,183,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8403,10 +8404,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	45870
+	.word	45881
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_SAFECON',0,4,188,14,3
-	.word	52945
+	.word	52956
 	.byte	12,4,191,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8415,10 +8416,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	45966
+	.word	45977
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_STSTAT',0,4,196,14,3
-	.word	53010
+	.word	53021
 	.byte	12,4,199,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8427,10 +8428,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	46226
+	.word	46237
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_SWRSTCON',0,4,204,14,3
-	.word	53074
+	.word	53085
 	.byte	12,4,207,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8439,10 +8440,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	46351
+	.word	46362
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_SYSCON',0,4,212,14,3
-	.word	53140
+	.word	53151
 	.byte	12,4,215,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8451,10 +8452,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	46548
+	.word	46559
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_TRAPCLR',0,4,220,14,3
-	.word	53204
+	.word	53215
 	.byte	12,4,223,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8463,10 +8464,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	46701
+	.word	46712
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_TRAPDIS',0,4,228,14,3
-	.word	53269
+	.word	53280
 	.byte	12,4,231,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8475,10 +8476,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	46854
+	.word	46865
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_TRAPSET',0,4,236,14,3
-	.word	53334
+	.word	53345
 	.byte	12,4,239,14,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8487,10 +8488,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	47007
+	.word	47018
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_TRAPSTAT',0,4,244,14,3
-	.word	53399
+	.word	53410
 	.byte	30
 	.byte	'Ifx_SCU_WDTCPU_CON0',0,4,252,14,3
 	.word	604
@@ -8508,10 +8509,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	47262
+	.word	47273
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_WDTS_CON0',0,4,148,15,3
-	.word	53550
+	.word	53561
 	.byte	12,4,151,15,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8520,10 +8521,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	47388
+	.word	47399
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_WDTS_CON1',0,4,156,15,3
-	.word	53617
+	.word	53628
 	.byte	12,4,159,15,9,4,13
 	.byte	'U',0
 	.word	469
@@ -8532,42 +8533,42 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	47640
+	.word	47651
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_SCU_WDTS_SR',0,4,164,15,3
-	.word	53684
+	.word	53695
 	.byte	14
 	.word	1158
 	.byte	30
 	.byte	'Ifx_SCU_WDTCPU',0,4,180,15,3
-	.word	53749
+	.word	53760
 	.byte	10
 	.byte	'_Ifx_SCU_WDTS',0,4,183,15,25,12,13
 	.byte	'CON0',0
-	.word	53550
+	.word	53561
 	.byte	4,2,35,0,13
 	.byte	'CON1',0
-	.word	53617
+	.word	53628
 	.byte	4,2,35,4,13
 	.byte	'SR',0
-	.word	53684
+	.word	53695
 	.byte	4,2,35,8,0,14
-	.word	53778
+	.word	53789
 	.byte	30
 	.byte	'Ifx_SCU_WDTS',0,4,188,15,3
-	.word	53839
+	.word	53850
 	.byte	15,8
-	.word	49015
+	.word	49026
 	.byte	16,1,0,15,20
 	.word	644
 	.byte	16,19,0,15,8
-	.word	52358
+	.word	52369
 	.byte	16,1,0,14
-	.word	53778
+	.word	53789
 	.byte	15,24
 	.word	1158
 	.byte	16,1,0,14
-	.word	53898
+	.word	53909
 	.byte	15,16
 	.word	644
 	.byte	16,15,0,15,28
@@ -8575,9 +8576,9 @@ bluetooth_ch9141_data:	.type	object
 	.byte	16,27,0,15,40
 	.word	644
 	.byte	16,39,0,15,16
-	.word	48829
+	.word	48840
 	.byte	16,3,0,15,16
-	.word	50808
+	.word	50819
 	.byte	16,3,0,15,180,3
 	.word	644
 	.byte	16,179,3,0,10
@@ -8586,324 +8587,324 @@ bluetooth_ch9141_data:	.type	object
 	.word	4281
 	.byte	8,2,35,0,13
 	.byte	'ID',0
-	.word	50748
+	.word	50759
 	.byte	4,2,35,8,13
 	.byte	'reserved_C',0
 	.word	2462
 	.byte	4,2,35,12,13
 	.byte	'OSCCON',0
-	.word	51449
+	.word	51460
 	.byte	4,2,35,16,13
 	.byte	'PLLSTAT',0
-	.word	52293
+	.word	52304
 	.byte	4,2,35,20,13
 	.byte	'PLLCON0',0
-	.word	51891
+	.word	51902
 	.byte	4,2,35,24,13
 	.byte	'PLLCON1',0
-	.word	51956
+	.word	51967
 	.byte	4,2,35,28,13
 	.byte	'PLLCON2',0
-	.word	52021
+	.word	52032
 	.byte	4,2,35,32,13
 	.byte	'PLLERAYSTAT',0
-	.word	52224
+	.word	52235
 	.byte	4,2,35,36,13
 	.byte	'PLLERAYCON0',0
-	.word	52086
+	.word	52097
 	.byte	4,2,35,40,13
 	.byte	'PLLERAYCON1',0
-	.word	52155
+	.word	52166
 	.byte	4,2,35,44,13
 	.byte	'CCUCON0',0
-	.word	48052
+	.word	48063
 	.byte	4,2,35,48,13
 	.byte	'CCUCON1',0
-	.word	48117
+	.word	48128
 	.byte	4,2,35,52,13
 	.byte	'FDR',0
-	.word	50626
+	.word	50637
 	.byte	4,2,35,56,13
 	.byte	'EXTCON',0
-	.word	50562
+	.word	50573
 	.byte	4,2,35,60,13
 	.byte	'CCUCON2',0
-	.word	48182
+	.word	48193
 	.byte	4,2,35,64,13
 	.byte	'CCUCON3',0
-	.word	48247
+	.word	48258
 	.byte	4,2,35,68,13
 	.byte	'CCUCON4',0
-	.word	48312
+	.word	48323
 	.byte	4,2,35,72,13
 	.byte	'CCUCON5',0
-	.word	48377
+	.word	48388
 	.byte	4,2,35,76,13
 	.byte	'RSTSTAT',0
-	.word	52880
+	.word	52891
 	.byte	4,2,35,80,13
 	.byte	'reserved_54',0
 	.word	2462
 	.byte	4,2,35,84,13
 	.byte	'RSTCON',0
-	.word	52751
+	.word	52762
 	.byte	4,2,35,88,13
 	.byte	'ARSTDIS',0
-	.word	47987
+	.word	47998
 	.byte	4,2,35,92,13
 	.byte	'SWRSTCON',0
-	.word	53074
+	.word	53085
 	.byte	4,2,35,96,13
 	.byte	'RSTCON2',0
-	.word	52815
+	.word	52826
 	.byte	4,2,35,100,13
 	.byte	'reserved_68',0
 	.word	2462
 	.byte	4,2,35,104,13
 	.byte	'EVRRSTCON',0
-	.word	49613
+	.word	49624
 	.byte	4,2,35,108,13
 	.byte	'ESRCFG',0
-	.word	53866
+	.word	53877
 	.byte	8,2,35,112,13
 	.byte	'ESROCFG',0
-	.word	49079
+	.word	49090
 	.byte	4,2,35,120,13
 	.byte	'SYSCON',0
-	.word	53140
+	.word	53151
 	.byte	4,2,35,124,13
 	.byte	'CCUCON6',0
-	.word	48442
+	.word	48453
 	.byte	4,3,35,128,1,13
 	.byte	'CCUCON7',0
-	.word	48507
+	.word	48518
 	.byte	4,3,35,132,1,13
 	.byte	'reserved_88',0
-	.word	53875
+	.word	53886
 	.byte	20,3,35,136,1,13
 	.byte	'PDR',0
-	.word	51768
+	.word	51779
 	.byte	4,3,35,156,1,13
 	.byte	'IOCR',0
-	.word	50930
+	.word	50941
 	.byte	4,3,35,160,1,13
 	.byte	'OUT',0
-	.word	51513
+	.word	51524
 	.byte	4,3,35,164,1,13
 	.byte	'OMR',0
-	.word	51388
+	.word	51399
 	.byte	4,3,35,168,1,13
 	.byte	'IN',0
-	.word	50870
+	.word	50881
 	.byte	4,3,35,172,1,13
 	.byte	'EVRSTAT',0
-	.word	50366
+	.word	50377
 	.byte	4,3,35,176,1,13
 	.byte	'EVRDVSTAT',0
-	.word	49344
+	.word	49355
 	.byte	4,3,35,180,1,13
 	.byte	'EVR13CON',0
-	.word	49144
+	.word	49155
 	.byte	4,3,35,184,1,13
 	.byte	'EVR33CON',0
-	.word	49210
+	.word	49221
 	.byte	4,3,35,188,1,13
 	.byte	'STSTAT',0
-	.word	53010
+	.word	53021
 	.byte	4,3,35,192,1,13
 	.byte	'reserved_C4',0
 	.word	2462
 	.byte	4,3,35,196,1,13
 	.byte	'PMSWCR0',0
-	.word	52421
+	.word	52432
 	.byte	4,3,35,200,1,13
 	.byte	'PMSWSTAT',0
-	.word	52616
+	.word	52627
 	.byte	4,3,35,204,1,13
 	.byte	'PMSWSTATCLR',0
-	.word	52682
+	.word	52693
 	.byte	4,3,35,208,1,13
 	.byte	'PMCSR',0
-	.word	53884
+	.word	53895
 	.byte	8,3,35,212,1,13
 	.byte	'reserved_DC',0
 	.word	2462
 	.byte	4,3,35,220,1,13
 	.byte	'DTSSTAT',0
-	.word	48764
+	.word	48775
 	.byte	4,3,35,224,1,13
 	.byte	'DTSCON',0
-	.word	48636
+	.word	48647
 	.byte	4,3,35,228,1,13
 	.byte	'PMSWCR1',0
-	.word	52486
+	.word	52497
 	.byte	4,3,35,232,1,13
 	.byte	'PMSWCR2',0
-	.word	52551
+	.word	52562
 	.byte	4,3,35,236,1,13
 	.byte	'WDTS',0
-	.word	53893
+	.word	53904
 	.byte	12,3,35,240,1,13
 	.byte	'EMSR',0
-	.word	48953
+	.word	48964
 	.byte	4,3,35,252,1,13
 	.byte	'WDTCPU',0
-	.word	53907
+	.word	53918
 	.byte	24,3,35,128,2,13
 	.byte	'reserved_118',0
 	.word	4621
 	.byte	12,3,35,152,2,13
 	.byte	'TRAPSTAT',0
-	.word	53399
+	.word	53410
 	.byte	4,3,35,164,2,13
 	.byte	'TRAPSET',0
-	.word	53334
+	.word	53345
 	.byte	4,3,35,168,2,13
 	.byte	'TRAPCLR',0
-	.word	53204
+	.word	53215
 	.byte	4,3,35,172,2,13
 	.byte	'TRAPDIS',0
-	.word	53269
+	.word	53280
 	.byte	4,3,35,176,2,13
 	.byte	'reserved_134',0
 	.word	2462
 	.byte	4,3,35,180,2,13
 	.byte	'LCLCON1',0
-	.word	51196
+	.word	51207
 	.byte	4,3,35,184,2,13
 	.byte	'LCLTEST',0
-	.word	51260
+	.word	51271
 	.byte	4,3,35,188,2,13
 	.byte	'CHIPID',0
-	.word	48572
+	.word	48583
 	.byte	4,3,35,192,2,13
 	.byte	'MANID',0
-	.word	51325
+	.word	51336
 	.byte	4,3,35,196,2,13
 	.byte	'reserved_148',0
 	.word	4281
 	.byte	8,3,35,200,2,13
 	.byte	'SAFECON',0
-	.word	52945
+	.word	52956
 	.byte	4,3,35,208,2,13
 	.byte	'reserved_154',0
-	.word	53912
+	.word	53923
 	.byte	16,3,35,212,2,13
 	.byte	'LBISTCTRL0',0
-	.word	50992
+	.word	51003
 	.byte	4,3,35,228,2,13
 	.byte	'LBISTCTRL1',0
-	.word	51060
+	.word	51071
 	.byte	4,3,35,232,2,13
 	.byte	'LBISTCTRL2',0
-	.word	51128
+	.word	51139
 	.byte	4,3,35,236,2,13
 	.byte	'reserved_170',0
-	.word	53921
+	.word	53932
 	.byte	28,3,35,240,2,13
 	.byte	'PDISC',0
-	.word	51705
+	.word	51716
 	.byte	4,3,35,140,3,13
 	.byte	'reserved_190',0
 	.word	4281
 	.byte	8,3,35,144,3,13
 	.byte	'EVRTRIM',0
-	.word	50431
+	.word	50442
 	.byte	4,3,35,152,3,13
 	.byte	'EVRADCSTAT',0
-	.word	49276
+	.word	49287
 	.byte	4,3,35,156,3,13
 	.byte	'EVRUVMON',0
-	.word	50496
+	.word	50507
 	.byte	4,3,35,160,3,13
 	.byte	'EVROVMON',0
-	.word	49547
+	.word	49558
 	.byte	4,3,35,164,3,13
 	.byte	'EVRMONCTRL',0
-	.word	49411
+	.word	49422
 	.byte	4,3,35,168,3,13
 	.byte	'reserved_1AC',0
 	.word	2462
 	.byte	4,3,35,172,3,13
 	.byte	'EVRSDCTRL1',0
-	.word	50094
+	.word	50105
 	.byte	4,3,35,176,3,13
 	.byte	'EVRSDCTRL2',0
-	.word	50162
+	.word	50173
 	.byte	4,3,35,180,3,13
 	.byte	'EVRSDCTRL3',0
-	.word	50230
+	.word	50241
 	.byte	4,3,35,184,3,13
 	.byte	'EVRSDCTRL4',0
-	.word	50298
+	.word	50309
 	.byte	4,3,35,188,3,13
 	.byte	'EVRSDCOEFF1',0
-	.word	49680
+	.word	49691
 	.byte	4,3,35,192,3,13
 	.byte	'EVRSDCOEFF2',0
-	.word	49749
+	.word	49760
 	.byte	4,3,35,196,3,13
 	.byte	'EVRSDCOEFF3',0
-	.word	49818
+	.word	49829
 	.byte	4,3,35,200,3,13
 	.byte	'EVRSDCOEFF4',0
-	.word	49887
+	.word	49898
 	.byte	4,3,35,204,3,13
 	.byte	'EVRSDCOEFF5',0
-	.word	49956
+	.word	49967
 	.byte	4,3,35,208,3,13
 	.byte	'EVRSDCOEFF6',0
-	.word	50025
+	.word	50036
 	.byte	4,3,35,212,3,13
 	.byte	'EVROSCCTRL',0
-	.word	49479
+	.word	49490
 	.byte	4,3,35,216,3,13
 	.byte	'reserved_1DC',0
 	.word	2462
 	.byte	4,3,35,220,3,13
 	.byte	'OVCENABLE',0
-	.word	51638
+	.word	51649
 	.byte	4,3,35,224,3,13
 	.byte	'OVCCON',0
-	.word	51574
+	.word	51585
 	.byte	4,3,35,228,3,13
 	.byte	'reserved_1E8',0
-	.word	53930
+	.word	53941
 	.byte	40,3,35,232,3,13
 	.byte	'EICR',0
-	.word	53939
+	.word	53950
 	.byte	16,3,35,144,4,13
 	.byte	'EIFR',0
-	.word	48891
+	.word	48902
 	.byte	4,3,35,160,4,13
 	.byte	'FMR',0
-	.word	50687
+	.word	50698
 	.byte	4,3,35,164,4,13
 	.byte	'PDRR',0
-	.word	51829
+	.word	51840
 	.byte	4,3,35,168,4,13
 	.byte	'IGCR',0
-	.word	53948
+	.word	53959
 	.byte	16,3,35,172,4,13
 	.byte	'reserved_23C',0
 	.word	2462
 	.byte	4,3,35,188,4,13
 	.byte	'DTSLIM',0
-	.word	48700
+	.word	48711
 	.byte	4,3,35,192,4,13
 	.byte	'reserved_244',0
-	.word	53957
+	.word	53968
 	.byte	180,3,3,35,196,4,13
 	.byte	'ACCEN1',0
-	.word	47923
+	.word	47934
 	.byte	4,3,35,248,7,13
 	.byte	'ACCEN0',0
-	.word	47859
+	.word	47870
 	.byte	4,3,35,252,7,0,14
-	.word	53968
+	.word	53979
 	.byte	30
 	.byte	'Ifx_SCU',0,4,181,16,3
-	.word	55958
+	.word	55969
 	.byte	30
 	.byte	'IfxPort_InputMode',0,5,89,3
 	.word	9214
@@ -8927,7 +8928,7 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxPort_PadDriver_ttlSpeed3',0,10,18
 	.byte	'IfxPort_PadDriver_ttlSpeed4',0,11,0,30
 	.byte	'IfxPort_PadDriver',0,5,158,1,3
-	.word	56061
+	.word	56072
 	.byte	30
 	.byte	'IfxPort_State',0,5,178,1,3
 	.word	9802
@@ -8939,7 +8940,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,2,35,4,0,30
 	.byte	'IfxPort_Pin',0,5,194,1,3
-	.word	56526
+	.word	56537
 	.byte	30
 	.byte	'gpio_pin_enum',0,21,89,2
 	.word	23089
@@ -9115,19 +9116,19 @@ bluetooth_ch9141_data:	.type	object
 	.word	13426
 	.byte	30
 	.byte	'Ifx_ASCLIN_LIN',0,13,140,5,3
-	.word	58252
+	.word	58263
 	.byte	14
 	.word	17043
 	.byte	30
 	.byte	'Ifx_ASCLIN',0,13,181,5,3
-	.word	58281
+	.word	58292
 	.byte	10
 	.byte	'_Ifx_CPU_A_Bits',0,31,45,16,4,11
 	.byte	'ADDR',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_A_Bits',0,31,48,3
-	.word	58306
+	.word	58317
 	.byte	10
 	.byte	'_Ifx_CPU_BIV_Bits',0,31,51,16,4,11
 	.byte	'VSS',0,4
@@ -9137,7 +9138,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	31,0,2,35,0,0,30
 	.byte	'Ifx_CPU_BIV_Bits',0,31,55,3
-	.word	58367
+	.word	58378
 	.byte	10
 	.byte	'_Ifx_CPU_BTV_Bits',0,31,58,16,4,11
 	.byte	'reserved_0',0,4
@@ -9147,7 +9148,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	31,0,2,35,0,0,30
 	.byte	'Ifx_CPU_BTV_Bits',0,31,62,3
-	.word	58446
+	.word	58457
 	.byte	10
 	.byte	'_Ifx_CPU_CCNT_Bits',0,31,65,16,4,11
 	.byte	'CountValue',0,4
@@ -9157,7 +9158,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	1,0,2,35,0,0,30
 	.byte	'Ifx_CPU_CCNT_Bits',0,31,69,3
-	.word	58532
+	.word	58543
 	.byte	10
 	.byte	'_Ifx_CPU_CCTRL_Bits',0,31,72,16,4,11
 	.byte	'CM',0,4
@@ -9179,7 +9180,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	21,0,2,35,0,0,30
 	.byte	'Ifx_CPU_CCTRL_Bits',0,31,80,3
-	.word	58621
+	.word	58632
 	.byte	10
 	.byte	'_Ifx_CPU_COMPAT_Bits',0,31,83,16,4,11
 	.byte	'reserved_0',0,4
@@ -9195,7 +9196,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	27,0,2,35,0,0,30
 	.byte	'Ifx_CPU_COMPAT_Bits',0,31,89,3
-	.word	58767
+	.word	58778
 	.byte	10
 	.byte	'_Ifx_CPU_CORE_ID_Bits',0,31,92,16,4,11
 	.byte	'CORE_ID',0,4
@@ -9205,7 +9206,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	29,0,2,35,0,0,30
 	.byte	'Ifx_CPU_CORE_ID_Bits',0,31,96,3
-	.word	58894
+	.word	58905
 	.byte	10
 	.byte	'_Ifx_CPU_CPR_L_Bits',0,31,99,16,4,11
 	.byte	'reserved_0',0,4
@@ -9215,7 +9216,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	29,0,2,35,0,0,30
 	.byte	'Ifx_CPU_CPR_L_Bits',0,31,103,3
-	.word	58992
+	.word	59003
 	.byte	10
 	.byte	'_Ifx_CPU_CPR_U_Bits',0,31,106,16,4,11
 	.byte	'reserved_0',0,4
@@ -9225,7 +9226,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	29,0,2,35,0,0,30
 	.byte	'Ifx_CPU_CPR_U_Bits',0,31,110,3
-	.word	59085
+	.word	59096
 	.byte	10
 	.byte	'_Ifx_CPU_CPU_ID_Bits',0,31,113,16,4,11
 	.byte	'MODREV',0,4
@@ -9238,7 +9239,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	16,0,2,35,0,0,30
 	.byte	'Ifx_CPU_CPU_ID_Bits',0,31,118,3
-	.word	59178
+	.word	59189
 	.byte	10
 	.byte	'_Ifx_CPU_CPXE_Bits',0,31,121,16,4,11
 	.byte	'XE',0,4
@@ -9248,7 +9249,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	24,0,2,35,0,0,30
 	.byte	'Ifx_CPU_CPXE_Bits',0,31,125,3
-	.word	59285
+	.word	59296
 	.byte	10
 	.byte	'_Ifx_CPU_CREVT_Bits',0,31,128,1,16,4,11
 	.byte	'EVTA',0,4
@@ -9270,7 +9271,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	24,0,2,35,0,0,30
 	.byte	'Ifx_CPU_CREVT_Bits',0,31,136,1,3
-	.word	59372
+	.word	59383
 	.byte	10
 	.byte	'_Ifx_CPU_CUS_ID_Bits',0,31,139,1,16,4,11
 	.byte	'CID',0,4
@@ -9280,14 +9281,14 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	29,0,2,35,0,0,30
 	.byte	'Ifx_CPU_CUS_ID_Bits',0,31,143,1,3
-	.word	59526
+	.word	59537
 	.byte	10
 	.byte	'_Ifx_CPU_D_Bits',0,31,146,1,16,4,11
 	.byte	'DATA',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_D_Bits',0,31,149,1,3
-	.word	59620
+	.word	59631
 	.byte	10
 	.byte	'_Ifx_CPU_DATR_Bits',0,31,152,1,16,4,11
 	.byte	'reserved_0',0,4
@@ -9318,7 +9319,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	16,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DATR_Bits',0,31,163,1,3
-	.word	59683
+	.word	59694
 	.byte	10
 	.byte	'_Ifx_CPU_DBGSR_Bits',0,31,166,1,16,4,11
 	.byte	'DE',0,4
@@ -9349,7 +9350,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	19,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DBGSR_Bits',0,31,177,1,3
-	.word	59901
+	.word	59912
 	.byte	10
 	.byte	'_Ifx_CPU_DBGTCR_Bits',0,31,180,1,16,4,11
 	.byte	'DTA',0,4
@@ -9359,7 +9360,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	31,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DBGTCR_Bits',0,31,184,1,3
-	.word	60116
+	.word	60127
 	.byte	10
 	.byte	'_Ifx_CPU_DCON0_Bits',0,31,187,1,16,4,11
 	.byte	'reserved_0',0,4
@@ -9372,7 +9373,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	30,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DCON0_Bits',0,31,192,1,3
-	.word	60210
+	.word	60221
 	.byte	10
 	.byte	'_Ifx_CPU_DCON2_Bits',0,31,195,1,16,4,11
 	.byte	'DCACHE_SZE',0,4
@@ -9382,7 +9383,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	16,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DCON2_Bits',0,31,199,1,3
-	.word	60326
+	.word	60337
 	.byte	10
 	.byte	'_Ifx_CPU_DCX_Bits',0,31,202,1,16,4,11
 	.byte	'reserved_0',0,4
@@ -9392,21 +9393,21 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	26,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DCX_Bits',0,31,206,1,3
-	.word	60427
+	.word	60438
 	.byte	10
 	.byte	'_Ifx_CPU_DEADD_Bits',0,31,209,1,16,4,11
 	.byte	'ERROR_ADDRESS',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DEADD_Bits',0,31,212,1,3
-	.word	60520
+	.word	60531
 	.byte	10
 	.byte	'_Ifx_CPU_DIEAR_Bits',0,31,215,1,16,4,11
 	.byte	'TA',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DIEAR_Bits',0,31,218,1,3
-	.word	60600
+	.word	60611
 	.byte	10
 	.byte	'_Ifx_CPU_DIETR_Bits',0,31,221,1,16,4,11
 	.byte	'IED',0,4
@@ -9440,7 +9441,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	18,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DIETR_Bits',0,31,233,1,3
-	.word	60669
+	.word	60680
 	.byte	10
 	.byte	'_Ifx_CPU_DMS_Bits',0,31,236,1,16,4,11
 	.byte	'reserved_0',0,4
@@ -9450,7 +9451,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	31,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DMS_Bits',0,31,240,1,3
-	.word	60898
+	.word	60909
 	.byte	10
 	.byte	'_Ifx_CPU_DPR_L_Bits',0,31,243,1,16,4,11
 	.byte	'reserved_0',0,4
@@ -9460,7 +9461,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	29,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DPR_L_Bits',0,31,247,1,3
-	.word	60991
+	.word	61002
 	.byte	10
 	.byte	'_Ifx_CPU_DPR_U_Bits',0,31,250,1,16,4,11
 	.byte	'reserved_0',0,4
@@ -9470,7 +9471,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	29,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DPR_U_Bits',0,31,254,1,3
-	.word	61086
+	.word	61097
 	.byte	10
 	.byte	'_Ifx_CPU_DPRE_Bits',0,31,129,2,16,4,11
 	.byte	'RE',0,4
@@ -9480,7 +9481,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	16,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DPRE_Bits',0,31,133,2,3
-	.word	61181
+	.word	61192
 	.byte	10
 	.byte	'_Ifx_CPU_DPWE_Bits',0,31,136,2,16,4,11
 	.byte	'WE',0,4
@@ -9490,7 +9491,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	16,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DPWE_Bits',0,31,140,2,3
-	.word	61271
+	.word	61282
 	.byte	10
 	.byte	'_Ifx_CPU_DSTR_Bits',0,31,143,2,16,4,11
 	.byte	'SRE',0,4
@@ -9542,7 +9543,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	7,0,2,35,0,0,30
 	.byte	'Ifx_CPU_DSTR_Bits',0,31,161,2,3
-	.word	61361
+	.word	61372
 	.byte	10
 	.byte	'_Ifx_CPU_EXEVT_Bits',0,31,164,2,16,4,11
 	.byte	'EVTA',0,4
@@ -9564,7 +9565,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	24,0,2,35,0,0,30
 	.byte	'Ifx_CPU_EXEVT_Bits',0,31,172,2,3
-	.word	61685
+	.word	61696
 	.byte	10
 	.byte	'_Ifx_CPU_FCX_Bits',0,31,175,2,16,4,11
 	.byte	'FCXO',0,4
@@ -9577,7 +9578,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	12,0,2,35,0,0,30
 	.byte	'Ifx_CPU_FCX_Bits',0,31,180,2,3
-	.word	61839
+	.word	61850
 	.byte	10
 	.byte	'_Ifx_CPU_FPU_TRAP_CON_Bits',0,31,183,2,16,4,11
 	.byte	'TST',0,4
@@ -9632,7 +9633,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	1,0,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_CON_Bits',0,31,202,2,3
-	.word	61945
+	.word	61956
 	.byte	10
 	.byte	'_Ifx_CPU_FPU_TRAP_OPC_Bits',0,31,205,2,16,4,11
 	.byte	'OPC',0,4
@@ -9651,35 +9652,35 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	12,0,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_OPC_Bits',0,31,212,2,3
-	.word	62294
+	.word	62305
 	.byte	10
 	.byte	'_Ifx_CPU_FPU_TRAP_PC_Bits',0,31,215,2,16,4,11
 	.byte	'PC',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_PC_Bits',0,31,218,2,3
-	.word	62454
+	.word	62465
 	.byte	10
 	.byte	'_Ifx_CPU_FPU_TRAP_SRC1_Bits',0,31,221,2,16,4,11
 	.byte	'SRC1',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_SRC1_Bits',0,31,224,2,3
-	.word	62535
+	.word	62546
 	.byte	10
 	.byte	'_Ifx_CPU_FPU_TRAP_SRC2_Bits',0,31,227,2,16,4,11
 	.byte	'SRC2',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_SRC2_Bits',0,31,230,2,3
-	.word	62622
+	.word	62633
 	.byte	10
 	.byte	'_Ifx_CPU_FPU_TRAP_SRC3_Bits',0,31,233,2,16,4,11
 	.byte	'SRC3',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_SRC3_Bits',0,31,236,2,3
-	.word	62709
+	.word	62720
 	.byte	10
 	.byte	'_Ifx_CPU_ICNT_Bits',0,31,239,2,16,4,11
 	.byte	'CountValue',0,4
@@ -9689,7 +9690,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	1,0,2,35,0,0,30
 	.byte	'Ifx_CPU_ICNT_Bits',0,31,243,2,3
-	.word	62796
+	.word	62807
 	.byte	10
 	.byte	'_Ifx_CPU_ICR_Bits',0,31,246,2,16,4,11
 	.byte	'CCPN',0,4
@@ -9708,14 +9709,14 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	6,0,2,35,0,0,30
 	.byte	'Ifx_CPU_ICR_Bits',0,31,253,2,3
-	.word	62887
+	.word	62898
 	.byte	10
 	.byte	'_Ifx_CPU_ISP_Bits',0,31,128,3,16,4,11
 	.byte	'ISP',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_ISP_Bits',0,31,131,3,3
-	.word	63030
+	.word	63041
 	.byte	10
 	.byte	'_Ifx_CPU_LCX_Bits',0,31,134,3,16,4,11
 	.byte	'LCXO',0,4
@@ -9728,7 +9729,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	12,0,2,35,0,0,30
 	.byte	'Ifx_CPU_LCX_Bits',0,31,139,3,3
-	.word	63096
+	.word	63107
 	.byte	10
 	.byte	'_Ifx_CPU_M1CNT_Bits',0,31,142,3,16,4,11
 	.byte	'CountValue',0,4
@@ -9738,7 +9739,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	1,0,2,35,0,0,30
 	.byte	'Ifx_CPU_M1CNT_Bits',0,31,146,3,3
-	.word	63202
+	.word	63213
 	.byte	10
 	.byte	'_Ifx_CPU_M2CNT_Bits',0,31,149,3,16,4,11
 	.byte	'CountValue',0,4
@@ -9748,7 +9749,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	1,0,2,35,0,0,30
 	.byte	'Ifx_CPU_M2CNT_Bits',0,31,153,3,3
-	.word	63295
+	.word	63306
 	.byte	10
 	.byte	'_Ifx_CPU_M3CNT_Bits',0,31,156,3,16,4,11
 	.byte	'CountValue',0,4
@@ -9758,7 +9759,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	1,0,2,35,0,0,30
 	.byte	'Ifx_CPU_M3CNT_Bits',0,31,160,3,3
-	.word	63388
+	.word	63399
 	.byte	10
 	.byte	'_Ifx_CPU_PC_Bits',0,31,163,3,16,4,11
 	.byte	'reserved_0',0,4
@@ -9768,7 +9769,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	31,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PC_Bits',0,31,167,3,3
-	.word	63481
+	.word	63492
 	.byte	10
 	.byte	'_Ifx_CPU_PCON0_Bits',0,31,170,3,16,4,11
 	.byte	'reserved_0',0,4
@@ -9781,7 +9782,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	30,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PCON0_Bits',0,31,175,3,3
-	.word	63566
+	.word	63577
 	.byte	10
 	.byte	'_Ifx_CPU_PCON1_Bits',0,31,178,3,16,4,11
 	.byte	'PCINV',0,4
@@ -9794,7 +9795,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	30,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PCON1_Bits',0,31,183,3,3
-	.word	63682
+	.word	63693
 	.byte	10
 	.byte	'_Ifx_CPU_PCON2_Bits',0,31,186,3,16,4,11
 	.byte	'PCACHE_SZE',0,4
@@ -9804,7 +9805,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	16,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PCON2_Bits',0,31,190,3,3
-	.word	63793
+	.word	63804
 	.byte	10
 	.byte	'_Ifx_CPU_PCXI_Bits',0,31,193,3,16,4,11
 	.byte	'PCXO',0,4
@@ -9823,14 +9824,14 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	10,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PCXI_Bits',0,31,200,3,3
-	.word	63894
+	.word	63905
 	.byte	10
 	.byte	'_Ifx_CPU_PIEAR_Bits',0,31,203,3,16,4,11
 	.byte	'TA',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PIEAR_Bits',0,31,206,3,3
-	.word	64024
+	.word	64035
 	.byte	10
 	.byte	'_Ifx_CPU_PIETR_Bits',0,31,209,3,16,4,11
 	.byte	'IED',0,4
@@ -9864,7 +9865,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	18,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PIETR_Bits',0,31,221,3,3
-	.word	64093
+	.word	64104
 	.byte	10
 	.byte	'_Ifx_CPU_PMA0_Bits',0,31,224,3,16,4,11
 	.byte	'reserved_0',0,4
@@ -9877,7 +9878,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	16,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PMA0_Bits',0,31,229,3,3
-	.word	64322
+	.word	64333
 	.byte	10
 	.byte	'_Ifx_CPU_PMA1_Bits',0,31,232,3,16,4,11
 	.byte	'reserved_0',0,4
@@ -9890,7 +9891,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	16,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PMA1_Bits',0,31,237,3,3
-	.word	64435
+	.word	64446
 	.byte	10
 	.byte	'_Ifx_CPU_PMA2_Bits',0,31,240,3,16,4,11
 	.byte	'PSI',0,4
@@ -9900,7 +9901,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	16,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PMA2_Bits',0,31,244,3,3
-	.word	64548
+	.word	64559
 	.byte	10
 	.byte	'_Ifx_CPU_PSTR_Bits',0,31,247,3,16,4,11
 	.byte	'FRE',0,4
@@ -9928,7 +9929,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	17,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PSTR_Bits',0,31,129,4,3
-	.word	64639
+	.word	64650
 	.byte	10
 	.byte	'_Ifx_CPU_PSW_Bits',0,31,132,4,16,4,11
 	.byte	'CDC',0,4
@@ -9971,7 +9972,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	1,0,2,35,0,0,30
 	.byte	'Ifx_CPU_PSW_Bits',0,31,147,4,3
-	.word	64842
+	.word	64853
 	.byte	10
 	.byte	'_Ifx_CPU_SEGEN_Bits',0,31,150,4,16,4,11
 	.byte	'ADFLIP',0,4
@@ -9987,7 +9988,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	1,0,2,35,0,0,30
 	.byte	'Ifx_CPU_SEGEN_Bits',0,31,156,4,3
-	.word	65085
+	.word	65096
 	.byte	10
 	.byte	'_Ifx_CPU_SMACON_Bits',0,31,159,4,16,4,11
 	.byte	'PC',0,4
@@ -10021,35 +10022,35 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	7,0,2,35,0,0,30
 	.byte	'Ifx_CPU_SMACON_Bits',0,31,171,4,3
-	.word	65213
+	.word	65224
 	.byte	10
 	.byte	'_Ifx_CPU_SPROT_ACCENA_Bits',0,31,174,4,16,4,11
 	.byte	'EN',0,4
 	.word	469
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_ACCENA_Bits',0,31,177,4,3
-	.word	65454
+	.word	65465
 	.byte	10
 	.byte	'_Ifx_CPU_SPROT_ACCENB_Bits',0,31,180,4,16,4,11
 	.byte	'reserved_0',0,4
 	.word	469
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_ACCENB_Bits',0,31,183,4,3
-	.word	65537
+	.word	65548
 	.byte	10
 	.byte	'_Ifx_CPU_SPROT_RGN_ACCENA_Bits',0,31,186,4,16,4,11
 	.byte	'EN',0,4
 	.word	469
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_RGN_ACCENA_Bits',0,31,189,4,3
-	.word	65628
+	.word	65639
 	.byte	10
 	.byte	'_Ifx_CPU_SPROT_RGN_ACCENB_Bits',0,31,192,4,16,4,11
 	.byte	'reserved_0',0,4
 	.word	469
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_RGN_ACCENB_Bits',0,31,195,4,3
-	.word	65719
+	.word	65730
 	.byte	10
 	.byte	'_Ifx_CPU_SPROT_RGN_LA_Bits',0,31,198,4,16,4,11
 	.byte	'reserved_0',0,1
@@ -10059,7 +10060,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	27,0,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_RGN_LA_Bits',0,31,202,4,3
-	.word	65818
+	.word	65829
 	.byte	10
 	.byte	'_Ifx_CPU_SPROT_RGN_UA_Bits',0,31,205,4,16,4,11
 	.byte	'reserved_0',0,1
@@ -10069,7 +10070,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	27,0,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_RGN_UA_Bits',0,31,209,4,3
-	.word	65925
+	.word	65936
 	.byte	10
 	.byte	'_Ifx_CPU_SWEVT_Bits',0,31,212,4,16,4,11
 	.byte	'EVTA',0,4
@@ -10091,7 +10092,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	24,0,2,35,0,0,30
 	.byte	'Ifx_CPU_SWEVT_Bits',0,31,220,4,3
-	.word	66032
+	.word	66043
 	.byte	10
 	.byte	'_Ifx_CPU_SYSCON_Bits',0,31,223,4,16,4,11
 	.byte	'FCDSF',0,4
@@ -10113,7 +10114,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	27,0,2,35,0,0,30
 	.byte	'Ifx_CPU_SYSCON_Bits',0,31,231,4,3
-	.word	66186
+	.word	66197
 	.byte	10
 	.byte	'_Ifx_CPU_TASK_ASI_Bits',0,31,234,4,16,4,11
 	.byte	'ASI',0,4
@@ -10123,7 +10124,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	27,0,2,35,0,0,30
 	.byte	'Ifx_CPU_TASK_ASI_Bits',0,31,238,4,3
-	.word	66347
+	.word	66358
 	.byte	10
 	.byte	'_Ifx_CPU_TPS_CON_Bits',0,31,241,4,16,4,11
 	.byte	'TEXP0',0,4
@@ -10145,21 +10146,21 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	15,0,2,35,0,0,30
 	.byte	'Ifx_CPU_TPS_CON_Bits',0,31,249,4,3
-	.word	66445
+	.word	66456
 	.byte	10
 	.byte	'_Ifx_CPU_TPS_TIMER_Bits',0,31,252,4,16,4,11
 	.byte	'Timer',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_TPS_TIMER_Bits',0,31,255,4,3
-	.word	66617
+	.word	66628
 	.byte	10
 	.byte	'_Ifx_CPU_TR_ADR_Bits',0,31,130,5,16,4,11
 	.byte	'ADDR',0,4
 	.word	492
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_CPU_TR_ADR_Bits',0,31,133,5,3
-	.word	66697
+	.word	66708
 	.byte	10
 	.byte	'_Ifx_CPU_TR_EVT_Bits',0,31,136,5,16,4,11
 	.byte	'EVTA',0,4
@@ -10208,7 +10209,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	3,0,2,35,0,0,30
 	.byte	'Ifx_CPU_TR_EVT_Bits',0,31,153,5,3
-	.word	66770
+	.word	66781
 	.byte	10
 	.byte	'_Ifx_CPU_TRIG_ACC_Bits',0,31,156,5,16,4,11
 	.byte	'T0',0,4
@@ -10239,7 +10240,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	492
 	.byte	24,0,2,35,0,0,30
 	.byte	'Ifx_CPU_TRIG_ACC_Bits',0,31,167,5,3
-	.word	67088
+	.word	67099
 	.byte	12,31,175,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10248,10 +10249,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	58306
+	.word	58317
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_A',0,31,180,5,3
-	.word	67283
+	.word	67294
 	.byte	12,31,183,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10260,10 +10261,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	58367
+	.word	58378
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_BIV',0,31,188,5,3
-	.word	67342
+	.word	67353
 	.byte	12,31,191,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10272,10 +10273,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	58446
+	.word	58457
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_BTV',0,31,196,5,3
-	.word	67403
+	.word	67414
 	.byte	12,31,199,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10284,10 +10285,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	58532
+	.word	58543
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_CCNT',0,31,204,5,3
-	.word	67464
+	.word	67475
 	.byte	12,31,207,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10296,10 +10297,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	58621
+	.word	58632
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_CCTRL',0,31,212,5,3
-	.word	67526
+	.word	67537
 	.byte	12,31,215,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10308,10 +10309,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	58767
+	.word	58778
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_COMPAT',0,31,220,5,3
-	.word	67589
+	.word	67600
 	.byte	12,31,223,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10320,10 +10321,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	58894
+	.word	58905
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_CORE_ID',0,31,228,5,3
-	.word	67653
+	.word	67664
 	.byte	12,31,231,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10332,10 +10333,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	58992
+	.word	59003
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_CPR_L',0,31,236,5,3
-	.word	67718
+	.word	67729
 	.byte	12,31,239,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10344,10 +10345,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	59085
+	.word	59096
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_CPR_U',0,31,244,5,3
-	.word	67781
+	.word	67792
 	.byte	12,31,247,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10356,10 +10357,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	59178
+	.word	59189
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_CPU_ID',0,31,252,5,3
-	.word	67844
+	.word	67855
 	.byte	12,31,255,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10368,10 +10369,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	59285
+	.word	59296
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_CPXE',0,31,132,6,3
-	.word	67908
+	.word	67919
 	.byte	12,31,135,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10380,10 +10381,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	59372
+	.word	59383
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_CREVT',0,31,140,6,3
-	.word	67970
+	.word	67981
 	.byte	12,31,143,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10392,10 +10393,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	59526
+	.word	59537
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_CUS_ID',0,31,148,6,3
-	.word	68033
+	.word	68044
 	.byte	12,31,151,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10404,10 +10405,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	59620
+	.word	59631
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_D',0,31,156,6,3
-	.word	68097
+	.word	68108
 	.byte	12,31,159,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10416,10 +10417,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	59683
+	.word	59694
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DATR',0,31,164,6,3
-	.word	68156
+	.word	68167
 	.byte	12,31,167,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10428,10 +10429,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	59901
+	.word	59912
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DBGSR',0,31,172,6,3
-	.word	68218
+	.word	68229
 	.byte	12,31,175,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10440,10 +10441,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	60116
+	.word	60127
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DBGTCR',0,31,180,6,3
-	.word	68281
+	.word	68292
 	.byte	12,31,183,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10452,10 +10453,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	60210
+	.word	60221
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DCON0',0,31,188,6,3
-	.word	68345
+	.word	68356
 	.byte	12,31,191,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10464,10 +10465,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	60326
+	.word	60337
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DCON2',0,31,196,6,3
-	.word	68408
+	.word	68419
 	.byte	12,31,199,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10476,10 +10477,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	60427
+	.word	60438
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DCX',0,31,204,6,3
-	.word	68471
+	.word	68482
 	.byte	12,31,207,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10488,10 +10489,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	60520
+	.word	60531
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DEADD',0,31,212,6,3
-	.word	68532
+	.word	68543
 	.byte	12,31,215,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10500,10 +10501,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	60600
+	.word	60611
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DIEAR',0,31,220,6,3
-	.word	68595
+	.word	68606
 	.byte	12,31,223,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10512,10 +10513,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	60669
+	.word	60680
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DIETR',0,31,228,6,3
-	.word	68658
+	.word	68669
 	.byte	12,31,231,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10524,10 +10525,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	60898
+	.word	60909
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DMS',0,31,236,6,3
-	.word	68721
+	.word	68732
 	.byte	12,31,239,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10536,10 +10537,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	60991
+	.word	61002
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DPR_L',0,31,244,6,3
-	.word	68782
+	.word	68793
 	.byte	12,31,247,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10548,10 +10549,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	61086
+	.word	61097
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DPR_U',0,31,252,6,3
-	.word	68845
+	.word	68856
 	.byte	12,31,255,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10560,10 +10561,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	61181
+	.word	61192
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DPRE',0,31,132,7,3
-	.word	68908
+	.word	68919
 	.byte	12,31,135,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10572,10 +10573,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	61271
+	.word	61282
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DPWE',0,31,140,7,3
-	.word	68970
+	.word	68981
 	.byte	12,31,143,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10584,10 +10585,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	61361
+	.word	61372
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_DSTR',0,31,148,7,3
-	.word	69032
+	.word	69043
 	.byte	12,31,151,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10596,10 +10597,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	61685
+	.word	61696
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_EXEVT',0,31,156,7,3
-	.word	69094
+	.word	69105
 	.byte	12,31,159,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10608,10 +10609,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	61839
+	.word	61850
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_FCX',0,31,164,7,3
-	.word	69157
+	.word	69168
 	.byte	12,31,167,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10620,10 +10621,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	61945
+	.word	61956
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_CON',0,31,172,7,3
-	.word	69218
+	.word	69229
 	.byte	12,31,175,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10632,10 +10633,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	62294
+	.word	62305
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_OPC',0,31,180,7,3
-	.word	69288
+	.word	69299
 	.byte	12,31,183,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10644,10 +10645,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	62454
+	.word	62465
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_PC',0,31,188,7,3
-	.word	69358
+	.word	69369
 	.byte	12,31,191,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10656,10 +10657,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	62535
+	.word	62546
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_SRC1',0,31,196,7,3
-	.word	69427
+	.word	69438
 	.byte	12,31,199,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10668,10 +10669,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	62622
+	.word	62633
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_SRC2',0,31,204,7,3
-	.word	69498
+	.word	69509
 	.byte	12,31,207,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10680,10 +10681,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	62709
+	.word	62720
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_FPU_TRAP_SRC3',0,31,212,7,3
-	.word	69569
+	.word	69580
 	.byte	12,31,215,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10692,10 +10693,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	62796
+	.word	62807
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_ICNT',0,31,220,7,3
-	.word	69640
+	.word	69651
 	.byte	12,31,223,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10704,10 +10705,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	62887
+	.word	62898
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_ICR',0,31,228,7,3
-	.word	69702
+	.word	69713
 	.byte	12,31,231,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10716,10 +10717,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	63030
+	.word	63041
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_ISP',0,31,236,7,3
-	.word	69763
+	.word	69774
 	.byte	12,31,239,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10728,10 +10729,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	63096
+	.word	63107
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_LCX',0,31,244,7,3
-	.word	69824
+	.word	69835
 	.byte	12,31,247,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10740,10 +10741,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	63202
+	.word	63213
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_M1CNT',0,31,252,7,3
-	.word	69885
+	.word	69896
 	.byte	12,31,255,7,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10752,10 +10753,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	63295
+	.word	63306
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_M2CNT',0,31,132,8,3
-	.word	69948
+	.word	69959
 	.byte	12,31,135,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10764,10 +10765,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	63388
+	.word	63399
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_M3CNT',0,31,140,8,3
-	.word	70011
+	.word	70022
 	.byte	12,31,143,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10776,10 +10777,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	63481
+	.word	63492
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PC',0,31,148,8,3
-	.word	70074
+	.word	70085
 	.byte	12,31,151,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10788,10 +10789,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	63566
+	.word	63577
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PCON0',0,31,156,8,3
-	.word	70134
+	.word	70145
 	.byte	12,31,159,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10800,10 +10801,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	63682
+	.word	63693
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PCON1',0,31,164,8,3
-	.word	70197
+	.word	70208
 	.byte	12,31,167,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10812,10 +10813,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	63793
+	.word	63804
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PCON2',0,31,172,8,3
-	.word	70260
+	.word	70271
 	.byte	12,31,175,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10824,10 +10825,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	63894
+	.word	63905
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PCXI',0,31,180,8,3
-	.word	70323
+	.word	70334
 	.byte	12,31,183,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10836,10 +10837,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	64024
+	.word	64035
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PIEAR',0,31,188,8,3
-	.word	70385
+	.word	70396
 	.byte	12,31,191,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10848,10 +10849,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	64093
+	.word	64104
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PIETR',0,31,196,8,3
-	.word	70448
+	.word	70459
 	.byte	12,31,199,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10860,10 +10861,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	64322
+	.word	64333
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PMA0',0,31,204,8,3
-	.word	70511
+	.word	70522
 	.byte	12,31,207,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10872,10 +10873,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	64435
+	.word	64446
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PMA1',0,31,212,8,3
-	.word	70573
+	.word	70584
 	.byte	12,31,215,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10884,10 +10885,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	64548
+	.word	64559
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PMA2',0,31,220,8,3
-	.word	70635
+	.word	70646
 	.byte	12,31,223,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10896,10 +10897,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	64639
+	.word	64650
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PSTR',0,31,228,8,3
-	.word	70697
+	.word	70708
 	.byte	12,31,231,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10908,10 +10909,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	64842
+	.word	64853
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_PSW',0,31,236,8,3
-	.word	70759
+	.word	70770
 	.byte	12,31,239,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10920,10 +10921,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	65085
+	.word	65096
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_SEGEN',0,31,244,8,3
-	.word	70820
+	.word	70831
 	.byte	12,31,247,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10932,10 +10933,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	65213
+	.word	65224
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_SMACON',0,31,252,8,3
-	.word	70883
+	.word	70894
 	.byte	12,31,255,8,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10944,10 +10945,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	65454
+	.word	65465
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_ACCENA',0,31,132,9,3
-	.word	70947
+	.word	70958
 	.byte	12,31,135,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10956,10 +10957,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	65537
+	.word	65548
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_ACCENB',0,31,140,9,3
-	.word	71017
+	.word	71028
 	.byte	12,31,143,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10968,10 +10969,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	65628
+	.word	65639
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_RGN_ACCENA',0,31,148,9,3
-	.word	71087
+	.word	71098
 	.byte	12,31,151,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10980,10 +10981,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	65719
+	.word	65730
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_RGN_ACCENB',0,31,156,9,3
-	.word	71161
+	.word	71172
 	.byte	12,31,159,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -10992,10 +10993,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	65818
+	.word	65829
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_RGN_LA',0,31,164,9,3
-	.word	71235
+	.word	71246
 	.byte	12,31,167,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -11004,10 +11005,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	65925
+	.word	65936
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_SPROT_RGN_UA',0,31,172,9,3
-	.word	71305
+	.word	71316
 	.byte	12,31,175,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -11016,10 +11017,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	66032
+	.word	66043
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_SWEVT',0,31,180,9,3
-	.word	71375
+	.word	71386
 	.byte	12,31,183,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -11028,10 +11029,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	66186
+	.word	66197
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_SYSCON',0,31,188,9,3
-	.word	71438
+	.word	71449
 	.byte	12,31,191,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -11040,10 +11041,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	66347
+	.word	66358
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_TASK_ASI',0,31,196,9,3
-	.word	71502
+	.word	71513
 	.byte	12,31,199,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -11052,10 +11053,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	66445
+	.word	66456
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_TPS_CON',0,31,204,9,3
-	.word	71568
+	.word	71579
 	.byte	12,31,207,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -11064,10 +11065,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	66617
+	.word	66628
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_TPS_TIMER',0,31,212,9,3
-	.word	71633
+	.word	71644
 	.byte	12,31,215,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -11076,10 +11077,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	66697
+	.word	66708
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_TR_ADR',0,31,220,9,3
-	.word	71700
+	.word	71711
 	.byte	12,31,223,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -11088,10 +11089,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	66770
+	.word	66781
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_TR_EVT',0,31,228,9,3
-	.word	71764
+	.word	71775
 	.byte	12,31,231,9,9,4,13
 	.byte	'U',0
 	.word	469
@@ -11100,78 +11101,78 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	67088
+	.word	67099
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_CPU_TRIG_ACC',0,31,236,9,3
-	.word	71828
+	.word	71839
 	.byte	10
 	.byte	'_Ifx_CPU_CPR',0,31,247,9,25,8,13
 	.byte	'L',0
-	.word	67718
+	.word	67729
 	.byte	4,2,35,0,13
 	.byte	'U',0
-	.word	67781
+	.word	67792
 	.byte	4,2,35,4,0,14
-	.word	71894
+	.word	71905
 	.byte	30
 	.byte	'Ifx_CPU_CPR',0,31,251,9,3
-	.word	71936
+	.word	71947
 	.byte	10
 	.byte	'_Ifx_CPU_DPR',0,31,254,9,25,8,13
 	.byte	'L',0
-	.word	68782
+	.word	68793
 	.byte	4,2,35,0,13
 	.byte	'U',0
-	.word	68845
+	.word	68856
 	.byte	4,2,35,4,0,14
-	.word	71962
+	.word	71973
 	.byte	30
 	.byte	'Ifx_CPU_DPR',0,31,130,10,3
-	.word	72004
+	.word	72015
 	.byte	10
 	.byte	'_Ifx_CPU_SPROT_RGN',0,31,133,10,25,16,13
 	.byte	'LA',0
-	.word	71235
+	.word	71246
 	.byte	4,2,35,0,13
 	.byte	'UA',0
-	.word	71305
+	.word	71316
 	.byte	4,2,35,4,13
 	.byte	'ACCENA',0
-	.word	71087
+	.word	71098
 	.byte	4,2,35,8,13
 	.byte	'ACCENB',0
-	.word	71161
+	.word	71172
 	.byte	4,2,35,12,0,14
-	.word	72030
+	.word	72041
 	.byte	30
 	.byte	'Ifx_CPU_SPROT_RGN',0,31,139,10,3
-	.word	72112
+	.word	72123
 	.byte	15,12
-	.word	71633
+	.word	71644
 	.byte	16,2,0,10
 	.byte	'_Ifx_CPU_TPS',0,31,142,10,25,16,13
 	.byte	'CON',0
-	.word	71568
+	.word	71579
 	.byte	4,2,35,0,13
 	.byte	'TIMER',0
-	.word	72144
+	.word	72155
 	.byte	12,2,35,4,0,14
-	.word	72153
+	.word	72164
 	.byte	30
 	.byte	'Ifx_CPU_TPS',0,31,146,10,3
-	.word	72201
+	.word	72212
 	.byte	10
 	.byte	'_Ifx_CPU_TR',0,31,149,10,25,8,13
 	.byte	'EVT',0
-	.word	71764
+	.word	71775
 	.byte	4,2,35,0,13
 	.byte	'ADR',0
-	.word	71700
+	.word	71711
 	.byte	4,2,35,4,0,14
-	.word	72227
+	.word	72238
 	.byte	30
 	.byte	'Ifx_CPU_TR',0,31,153,10,3
-	.word	72272
+	.word	72283
 	.byte	15,176,32
 	.word	644
 	.byte	16,175,32,0,15,208,223,1
@@ -11189,33 +11190,33 @@ bluetooth_ch9141_data:	.type	object
 	.byte	16,251,23,0,15,228,63
 	.word	644
 	.byte	16,227,63,0,15,128,1
-	.word	71962
+	.word	71973
 	.byte	16,15,0,14
-	.word	72387
+	.word	72398
 	.byte	15,128,31
 	.word	644
 	.byte	16,255,30,0,15,64
-	.word	71894
+	.word	71905
 	.byte	16,7,0,14
-	.word	72413
+	.word	72424
 	.byte	15,192,31
 	.word	644
 	.byte	16,191,31,0,15,16
-	.word	67908
+	.word	67919
 	.byte	16,3,0,15,16
-	.word	68908
+	.word	68919
 	.byte	16,3,0,15,16
-	.word	68970
+	.word	68981
 	.byte	16,3,0,15,208,7
 	.word	644
 	.byte	16,207,7,0,14
-	.word	72153
+	.word	72164
 	.byte	15,240,23
 	.word	644
 	.byte	16,239,23,0,15,64
-	.word	72227
+	.word	72238
 	.byte	16,7,0,14
-	.word	72492
+	.word	72503
 	.byte	15,192,23
 	.word	644
 	.byte	16,191,23,0,15,232,1
@@ -11225,293 +11226,293 @@ bluetooth_ch9141_data:	.type	object
 	.byte	16,179,1,0,15,172,1
 	.word	644
 	.byte	16,171,1,0,15,64
-	.word	68097
+	.word	68108
 	.byte	16,15,0,15,64
 	.word	644
 	.byte	16,63,0,15,64
-	.word	67283
+	.word	67294
 	.byte	16,15,0,10
 	.byte	'_Ifx_CPU',0,31,166,10,25,128,128,4,13
 	.byte	'reserved_0',0
-	.word	72297
+	.word	72308
 	.byte	176,32,2,35,0,13
 	.byte	'SEGEN',0
-	.word	70820
+	.word	70831
 	.byte	4,3,35,176,32,13
 	.byte	'reserved_1034',0
-	.word	72308
+	.word	72319
 	.byte	208,223,1,3,35,180,32,13
 	.byte	'TASK_ASI',0
-	.word	71502
+	.word	71513
 	.byte	4,4,35,132,128,2,13
 	.byte	'reserved_8008',0
-	.word	72321
+	.word	72332
 	.byte	248,1,4,35,136,128,2,13
 	.byte	'PMA0',0
-	.word	70511
+	.word	70522
 	.byte	4,4,35,128,130,2,13
 	.byte	'PMA1',0
-	.word	70573
+	.word	70584
 	.byte	4,4,35,132,130,2,13
 	.byte	'PMA2',0
-	.word	70635
+	.word	70646
 	.byte	4,4,35,136,130,2,13
 	.byte	'reserved_810C',0
-	.word	72332
+	.word	72343
 	.byte	244,29,4,35,140,130,2,13
 	.byte	'DCON2',0
-	.word	68408
+	.word	68419
 	.byte	4,4,35,128,160,2,13
 	.byte	'reserved_9004',0
 	.word	4281
 	.byte	8,4,35,132,160,2,13
 	.byte	'SMACON',0
-	.word	70883
+	.word	70894
 	.byte	4,4,35,140,160,2,13
 	.byte	'DSTR',0
-	.word	69032
+	.word	69043
 	.byte	4,4,35,144,160,2,13
 	.byte	'reserved_9014',0
 	.word	2462
 	.byte	4,4,35,148,160,2,13
 	.byte	'DATR',0
-	.word	68156
+	.word	68167
 	.byte	4,4,35,152,160,2,13
 	.byte	'DEADD',0
-	.word	68532
+	.word	68543
 	.byte	4,4,35,156,160,2,13
 	.byte	'DIEAR',0
-	.word	68595
+	.word	68606
 	.byte	4,4,35,160,160,2,13
 	.byte	'DIETR',0
-	.word	68658
+	.word	68669
 	.byte	4,4,35,164,160,2,13
 	.byte	'reserved_9028',0
 	.word	3652
 	.byte	24,4,35,168,160,2,13
 	.byte	'DCON0',0
-	.word	68345
+	.word	68356
 	.byte	4,4,35,192,160,2,13
 	.byte	'reserved_9044',0
-	.word	72343
+	.word	72354
 	.byte	188,3,4,35,196,160,2,13
 	.byte	'PSTR',0
-	.word	70697
+	.word	70708
 	.byte	4,4,35,128,164,2,13
 	.byte	'PCON1',0
-	.word	70197
+	.word	70208
 	.byte	4,4,35,132,164,2,13
 	.byte	'PCON2',0
-	.word	70260
+	.word	70271
 	.byte	4,4,35,136,164,2,13
 	.byte	'PCON0',0
-	.word	70134
+	.word	70145
 	.byte	4,4,35,140,164,2,13
 	.byte	'PIEAR',0
-	.word	70385
+	.word	70396
 	.byte	4,4,35,144,164,2,13
 	.byte	'PIETR',0
-	.word	70448
+	.word	70459
 	.byte	4,4,35,148,164,2,13
 	.byte	'reserved_9218',0
-	.word	72354
+	.word	72365
 	.byte	232,3,4,35,152,164,2,13
 	.byte	'COMPAT',0
-	.word	67589
+	.word	67600
 	.byte	4,4,35,128,168,2,13
 	.byte	'reserved_9404',0
-	.word	72365
+	.word	72376
 	.byte	252,23,4,35,132,168,2,13
 	.byte	'FPU_TRAP_CON',0
-	.word	69218
+	.word	69229
 	.byte	4,4,35,128,192,2,13
 	.byte	'FPU_TRAP_PC',0
-	.word	69358
+	.word	69369
 	.byte	4,4,35,132,192,2,13
 	.byte	'FPU_TRAP_OPC',0
-	.word	69288
+	.word	69299
 	.byte	4,4,35,136,192,2,13
 	.byte	'reserved_A00C',0
 	.word	2462
 	.byte	4,4,35,140,192,2,13
 	.byte	'FPU_TRAP_SRC1',0
-	.word	69427
+	.word	69438
 	.byte	4,4,35,144,192,2,13
 	.byte	'FPU_TRAP_SRC2',0
-	.word	69498
+	.word	69509
 	.byte	4,4,35,148,192,2,13
 	.byte	'FPU_TRAP_SRC3',0
-	.word	69569
+	.word	69580
 	.byte	4,4,35,152,192,2,13
 	.byte	'reserved_A01C',0
-	.word	72376
+	.word	72387
 	.byte	228,63,4,35,156,192,2,13
 	.byte	'DPR',0
-	.word	72397
+	.word	72408
 	.byte	128,1,4,35,128,128,3,13
 	.byte	'reserved_C080',0
-	.word	72402
+	.word	72413
 	.byte	128,31,4,35,128,129,3,13
 	.byte	'CPR',0
-	.word	72422
+	.word	72433
 	.byte	64,4,35,128,160,3,13
 	.byte	'reserved_D040',0
-	.word	72427
+	.word	72438
 	.byte	192,31,4,35,192,160,3,13
 	.byte	'CPXE',0
-	.word	72438
+	.word	72449
 	.byte	16,4,35,128,192,3,13
 	.byte	'DPRE',0
-	.word	72447
+	.word	72458
 	.byte	16,4,35,144,192,3,13
 	.byte	'DPWE',0
-	.word	72456
+	.word	72467
 	.byte	16,4,35,160,192,3,13
 	.byte	'reserved_E030',0
-	.word	72465
+	.word	72476
 	.byte	208,7,4,35,176,192,3,13
 	.byte	'TPS',0
-	.word	72476
+	.word	72487
 	.byte	16,4,35,128,200,3,13
 	.byte	'reserved_E410',0
-	.word	72481
+	.word	72492
 	.byte	240,23,4,35,144,200,3,13
 	.byte	'TR',0
-	.word	72501
+	.word	72512
 	.byte	64,4,35,128,224,3,13
 	.byte	'reserved_F040',0
-	.word	72506
+	.word	72517
 	.byte	192,23,4,35,192,224,3,13
 	.byte	'CCTRL',0
-	.word	67526
+	.word	67537
 	.byte	4,4,35,128,248,3,13
 	.byte	'CCNT',0
-	.word	67464
+	.word	67475
 	.byte	4,4,35,132,248,3,13
 	.byte	'ICNT',0
-	.word	69640
+	.word	69651
 	.byte	4,4,35,136,248,3,13
 	.byte	'M1CNT',0
-	.word	69885
+	.word	69896
 	.byte	4,4,35,140,248,3,13
 	.byte	'M2CNT',0
-	.word	69948
+	.word	69959
 	.byte	4,4,35,144,248,3,13
 	.byte	'M3CNT',0
-	.word	70011
+	.word	70022
 	.byte	4,4,35,148,248,3,13
 	.byte	'reserved_FC18',0
-	.word	72517
+	.word	72528
 	.byte	232,1,4,35,152,248,3,13
 	.byte	'DBGSR',0
-	.word	68218
+	.word	68229
 	.byte	4,4,35,128,250,3,13
 	.byte	'reserved_FD04',0
 	.word	2462
 	.byte	4,4,35,132,250,3,13
 	.byte	'EXEVT',0
-	.word	69094
+	.word	69105
 	.byte	4,4,35,136,250,3,13
 	.byte	'CREVT',0
-	.word	67970
+	.word	67981
 	.byte	4,4,35,140,250,3,13
 	.byte	'SWEVT',0
-	.word	71375
+	.word	71386
 	.byte	4,4,35,144,250,3,13
 	.byte	'reserved_FD14',0
-	.word	53921
+	.word	53932
 	.byte	28,4,35,148,250,3,13
 	.byte	'TRIG_ACC',0
-	.word	71828
+	.word	71839
 	.byte	4,4,35,176,250,3,13
 	.byte	'reserved_FD34',0
 	.word	4621
 	.byte	12,4,35,180,250,3,13
 	.byte	'DMS',0
-	.word	68721
+	.word	68732
 	.byte	4,4,35,192,250,3,13
 	.byte	'DCX',0
-	.word	68471
+	.word	68482
 	.byte	4,4,35,196,250,3,13
 	.byte	'DBGTCR',0
-	.word	68281
+	.word	68292
 	.byte	4,4,35,200,250,3,13
 	.byte	'reserved_FD4C',0
-	.word	72528
+	.word	72539
 	.byte	180,1,4,35,204,250,3,13
 	.byte	'PCXI',0
-	.word	70323
+	.word	70334
 	.byte	4,4,35,128,252,3,13
 	.byte	'PSW',0
-	.word	70759
+	.word	70770
 	.byte	4,4,35,132,252,3,13
 	.byte	'PC',0
-	.word	70074
+	.word	70085
 	.byte	4,4,35,136,252,3,13
 	.byte	'reserved_FE0C',0
 	.word	4281
 	.byte	8,4,35,140,252,3,13
 	.byte	'SYSCON',0
-	.word	71438
+	.word	71449
 	.byte	4,4,35,148,252,3,13
 	.byte	'CPU_ID',0
-	.word	67844
+	.word	67855
 	.byte	4,4,35,152,252,3,13
 	.byte	'CORE_ID',0
-	.word	67653
+	.word	67664
 	.byte	4,4,35,156,252,3,13
 	.byte	'BIV',0
-	.word	67342
+	.word	67353
 	.byte	4,4,35,160,252,3,13
 	.byte	'BTV',0
-	.word	67403
+	.word	67414
 	.byte	4,4,35,164,252,3,13
 	.byte	'ISP',0
-	.word	69763
+	.word	69774
 	.byte	4,4,35,168,252,3,13
 	.byte	'ICR',0
-	.word	69702
+	.word	69713
 	.byte	4,4,35,172,252,3,13
 	.byte	'reserved_FE30',0
 	.word	4281
 	.byte	8,4,35,176,252,3,13
 	.byte	'FCX',0
-	.word	69157
+	.word	69168
 	.byte	4,4,35,184,252,3,13
 	.byte	'LCX',0
-	.word	69824
+	.word	69835
 	.byte	4,4,35,188,252,3,13
 	.byte	'reserved_FE40',0
-	.word	53912
+	.word	53923
 	.byte	16,4,35,192,252,3,13
 	.byte	'CUS_ID',0
-	.word	68033
+	.word	68044
 	.byte	4,4,35,208,252,3,13
 	.byte	'reserved_FE54',0
-	.word	72539
+	.word	72550
 	.byte	172,1,4,35,212,252,3,13
 	.byte	'D',0
-	.word	72550
+	.word	72561
 	.byte	64,4,35,128,254,3,13
 	.byte	'reserved_FF40',0
-	.word	72559
+	.word	72570
 	.byte	64,4,35,192,254,3,13
 	.byte	'A',0
-	.word	72568
+	.word	72579
 	.byte	64,4,35,128,255,3,13
 	.byte	'reserved_FFC0',0
-	.word	72559
+	.word	72570
 	.byte	64,4,35,192,255,3,0,14
-	.word	72577
+	.word	72588
 	.byte	30
 	.byte	'Ifx_CPU',0,31,130,11,3
-	.word	74368
+	.word	74379
 	.byte	17,8,127,9,1,18
 	.byte	'IfxCpu_Id_0',0,0,18
 	.byte	'IfxCpu_Id_1',0,1,18
 	.byte	'IfxCpu_Id_none',0,2,0,30
 	.byte	'IfxCpu_Id',0,8,132,1,3
-	.word	74390
+	.word	74401
 	.byte	30
 	.byte	'IfxCpu_ResourceCpu',0,8,161,1,3
 	.word	9983
@@ -11526,10 +11527,10 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'SR',0
 	.word	10866
 	.byte	4,2,35,0,0,14
-	.word	74535
+	.word	74546
 	.byte	30
 	.byte	'Ifx_SRC_AGBT',0,11,89,3
-	.word	74567
+	.word	74578
 	.byte	10
 	.byte	'_Ifx_SRC_ASCLIN',0,11,92,25,12,13
 	.byte	'TX',0
@@ -11541,30 +11542,30 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'ERR',0
 	.word	10866
 	.byte	4,2,35,8,0,14
-	.word	74593
+	.word	74604
 	.byte	30
 	.byte	'Ifx_SRC_ASCLIN',0,11,97,3
-	.word	74652
+	.word	74663
 	.byte	10
 	.byte	'_Ifx_SRC_BCUSPB',0,11,100,25,4,13
 	.byte	'SBSRC',0
 	.word	10866
 	.byte	4,2,35,0,0,14
-	.word	74680
+	.word	74691
 	.byte	30
 	.byte	'Ifx_SRC_BCUSPB',0,11,103,3
-	.word	74717
+	.word	74728
 	.byte	15,64
 	.word	10866
 	.byte	16,15,0,10
 	.byte	'_Ifx_SRC_CAN',0,11,106,25,64,13
 	.byte	'INT',0
-	.word	74745
+	.word	74756
 	.byte	64,2,35,0,0,14
-	.word	74754
+	.word	74765
 	.byte	30
 	.byte	'Ifx_SRC_CAN',0,11,109,3
-	.word	74786
+	.word	74797
 	.byte	10
 	.byte	'_Ifx_SRC_CCU6',0,11,112,25,16,13
 	.byte	'SR0',0
@@ -11579,21 +11580,21 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'SR3',0
 	.word	10866
 	.byte	4,2,35,12,0,14
-	.word	74811
+	.word	74822
 	.byte	30
 	.byte	'Ifx_SRC_CCU6',0,11,118,3
-	.word	74883
+	.word	74894
 	.byte	15,8
 	.word	10866
 	.byte	16,1,0,10
 	.byte	'_Ifx_SRC_CERBERUS',0,11,121,25,8,13
 	.byte	'SR',0
-	.word	74909
+	.word	74920
 	.byte	8,2,35,0,0,14
-	.word	74918
+	.word	74929
 	.byte	30
 	.byte	'Ifx_SRC_CERBERUS',0,11,124,3
-	.word	74954
+	.word	74965
 	.byte	10
 	.byte	'_Ifx_SRC_CIF',0,11,127,25,16,13
 	.byte	'MI',0
@@ -11608,19 +11609,19 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'MJPEG',0
 	.word	10866
 	.byte	4,2,35,12,0,14
-	.word	74984
+	.word	74995
 	.byte	30
 	.byte	'Ifx_SRC_CIF',0,11,133,1,3
-	.word	75057
+	.word	75068
 	.byte	10
 	.byte	'_Ifx_SRC_CPU',0,11,136,1,25,4,13
 	.byte	'SBSRC',0
 	.word	10866
 	.byte	4,2,35,0,0,14
-	.word	75083
+	.word	75094
 	.byte	30
 	.byte	'Ifx_SRC_CPU',0,11,139,1,3
-	.word	75118
+	.word	75129
 	.byte	15,192,1
 	.word	10866
 	.byte	16,47,0,10
@@ -11632,12 +11633,12 @@ bluetooth_ch9141_data:	.type	object
 	.word	4621
 	.byte	12,2,35,4,13
 	.byte	'CH',0
-	.word	75144
+	.word	75155
 	.byte	192,1,2,35,16,0,14
-	.word	75154
+	.word	75165
 	.byte	30
 	.byte	'Ifx_SRC_DMA',0,11,147,1,3
-	.word	75221
+	.word	75232
 	.byte	10
 	.byte	'_Ifx_SRC_DSADC',0,11,150,1,25,8,13
 	.byte	'SRM',0
@@ -11646,32 +11647,32 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'SRA',0
 	.word	10866
 	.byte	4,2,35,4,0,14
-	.word	75247
+	.word	75258
 	.byte	30
 	.byte	'Ifx_SRC_DSADC',0,11,154,1,3
-	.word	75295
+	.word	75306
 	.byte	10
 	.byte	'_Ifx_SRC_EMEM',0,11,157,1,25,4,13
 	.byte	'SR',0
 	.word	10866
 	.byte	4,2,35,0,0,14
-	.word	75323
+	.word	75334
 	.byte	30
 	.byte	'Ifx_SRC_EMEM',0,11,160,1,3
-	.word	75356
+	.word	75367
 	.byte	10
 	.byte	'_Ifx_SRC_ERAY',0,11,163,1,25,80,13
 	.byte	'INT',0
-	.word	74909
+	.word	74920
 	.byte	8,2,35,0,13
 	.byte	'TINT',0
-	.word	74909
+	.word	74920
 	.byte	8,2,35,8,13
 	.byte	'NDAT',0
-	.word	74909
+	.word	74920
 	.byte	8,2,35,16,13
 	.byte	'MBSC',0
-	.word	74909
+	.word	74920
 	.byte	8,2,35,24,13
 	.byte	'OBUSY',0
 	.word	10866
@@ -11680,30 +11681,30 @@ bluetooth_ch9141_data:	.type	object
 	.word	10866
 	.byte	4,2,35,36,13
 	.byte	'reserved_28',0
-	.word	53930
+	.word	53941
 	.byte	40,2,35,40,0,14
-	.word	75383
+	.word	75394
 	.byte	30
 	.byte	'Ifx_SRC_ERAY',0,11,172,1,3
-	.word	75510
+	.word	75521
 	.byte	10
 	.byte	'_Ifx_SRC_ETH',0,11,175,1,25,4,13
 	.byte	'SR',0
 	.word	10866
 	.byte	4,2,35,0,0,14
-	.word	75537
+	.word	75548
 	.byte	30
 	.byte	'Ifx_SRC_ETH',0,11,178,1,3
-	.word	75569
+	.word	75580
 	.byte	10
 	.byte	'_Ifx_SRC_FCE',0,11,181,1,25,4,13
 	.byte	'SR',0
 	.word	10866
 	.byte	4,2,35,0,0,14
-	.word	75595
+	.word	75606
 	.byte	30
 	.byte	'Ifx_SRC_FCE',0,11,184,1,3
-	.word	75627
+	.word	75638
 	.byte	10
 	.byte	'_Ifx_SRC_FFT',0,11,187,1,25,12,13
 	.byte	'DONE',0
@@ -11715,10 +11716,10 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'RFS',0
 	.word	10866
 	.byte	4,2,35,8,0,14
-	.word	75653
+	.word	75664
 	.byte	30
 	.byte	'Ifx_SRC_FFT',0,11,192,1,3
-	.word	75713
+	.word	75724
 	.byte	10
 	.byte	'_Ifx_SRC_GPSR',0,11,195,1,25,32,13
 	.byte	'SR0',0
@@ -11734,12 +11735,12 @@ bluetooth_ch9141_data:	.type	object
 	.word	10866
 	.byte	4,2,35,12,13
 	.byte	'reserved_10',0
-	.word	53912
+	.word	53923
 	.byte	16,2,35,16,0,14
-	.word	75739
+	.word	75750
 	.byte	30
 	.byte	'Ifx_SRC_GPSR',0,11,202,1,3
-	.word	75833
+	.word	75844
 	.byte	10
 	.byte	'_Ifx_SRC_GPT12',0,11,205,1,25,48,13
 	.byte	'CIRQ',0
@@ -11763,16 +11764,16 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'reserved_18',0
 	.word	3652
 	.byte	24,2,35,24,0,14
-	.word	75860
+	.word	75871
 	.byte	30
 	.byte	'Ifx_SRC_GPT12',0,11,214,1,3
-	.word	75977
+	.word	75988
 	.byte	15,12
 	.word	10866
 	.byte	16,2,0,15,32
 	.word	10866
 	.byte	16,7,0,15,32
-	.word	76014
+	.word	76025
 	.byte	16,0,0,15,88
 	.word	644
 	.byte	16,87,0,15,108
@@ -11780,17 +11781,17 @@ bluetooth_ch9141_data:	.type	object
 	.byte	16,26,0,15,96
 	.word	644
 	.byte	16,95,0,15,96
-	.word	76014
+	.word	76025
 	.byte	16,2,0,15,160,3
 	.word	644
 	.byte	16,159,3,0,15,64
-	.word	76014
+	.word	76025
 	.byte	16,1,0,15,192,3
 	.word	644
 	.byte	16,191,3,0,15,16
 	.word	10866
 	.byte	16,3,0,15,64
-	.word	76099
+	.word	76110
 	.byte	16,3,0,15,192,2
 	.word	644
 	.byte	16,191,2,0,15,52
@@ -11801,7 +11802,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	10866
 	.byte	4,2,35,0,13
 	.byte	'ARUIRQ',0
-	.word	76005
+	.word	76016
 	.byte	12,2,35,4,13
 	.byte	'reserved_10',0
 	.word	2462
@@ -11813,22 +11814,22 @@ bluetooth_ch9141_data:	.type	object
 	.word	10866
 	.byte	4,2,35,24,13
 	.byte	'SPEIRQ',0
-	.word	74909
+	.word	74920
 	.byte	8,2,35,28,13
 	.byte	'reserved_24',0
 	.word	4281
 	.byte	8,2,35,36,13
 	.byte	'PSM',0
-	.word	76023
+	.word	76034
 	.byte	32,2,35,44,13
 	.byte	'reserved_4C',0
-	.word	76032
+	.word	76043
 	.byte	88,2,35,76,13
 	.byte	'DPLL',0
-	.word	76041
+	.word	76052
 	.byte	108,3,35,164,1,13
 	.byte	'reserved_110',0
-	.word	76050
+	.word	76061
 	.byte	96,3,35,144,2,13
 	.byte	'ERR',0
 	.word	10866
@@ -11837,51 +11838,51 @@ bluetooth_ch9141_data:	.type	object
 	.word	4621
 	.byte	12,3,35,244,2,13
 	.byte	'TIM',0
-	.word	76059
+	.word	76070
 	.byte	96,3,35,128,3,13
 	.byte	'reserved_1E0',0
-	.word	76068
+	.word	76079
 	.byte	160,3,3,35,224,3,13
 	.byte	'MCS',0
-	.word	76059
+	.word	76070
 	.byte	96,3,35,128,7,13
 	.byte	'reserved_3E0',0
-	.word	76068
+	.word	76079
 	.byte	160,3,3,35,224,7,13
 	.byte	'TOM',0
-	.word	76079
+	.word	76090
 	.byte	64,3,35,128,11,13
 	.byte	'reserved_5C0',0
-	.word	76088
+	.word	76099
 	.byte	192,3,3,35,192,11,13
 	.byte	'ATOM',0
-	.word	76108
+	.word	76119
 	.byte	64,3,35,128,15,13
 	.byte	'reserved_7C0',0
-	.word	76117
+	.word	76128
 	.byte	192,2,3,35,192,15,13
 	.byte	'MCSW0',0
-	.word	76005
+	.word	76016
 	.byte	12,3,35,128,18,13
 	.byte	'reserved_90C',0
-	.word	76128
+	.word	76139
 	.byte	52,3,35,140,18,13
 	.byte	'MCSW1',0
-	.word	76005
+	.word	76016
 	.byte	12,3,35,192,18,0,14
-	.word	76137
+	.word	76148
 	.byte	30
 	.byte	'Ifx_SRC_GTM',0,11,243,1,3
-	.word	76597
+	.word	76608
 	.byte	10
 	.byte	'_Ifx_SRC_HSCT',0,11,246,1,25,4,13
 	.byte	'SR',0
 	.word	10866
 	.byte	4,2,35,0,0,14
-	.word	76623
+	.word	76634
 	.byte	30
 	.byte	'Ifx_SRC_HSCT',0,11,249,1,3
-	.word	76656
+	.word	76667
 	.byte	10
 	.byte	'_Ifx_SRC_HSSL',0,11,252,1,25,16,13
 	.byte	'COK',0
@@ -11896,10 +11897,10 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'TRG',0
 	.word	10866
 	.byte	4,2,35,12,0,14
-	.word	76683
+	.word	76694
 	.byte	30
 	.byte	'Ifx_SRC_HSSL',0,11,130,2,3
-	.word	76756
+	.word	76767
 	.byte	15,56
 	.word	644
 	.byte	16,55,0,10
@@ -11923,21 +11924,21 @@ bluetooth_ch9141_data:	.type	object
 	.word	10866
 	.byte	4,2,35,20,13
 	.byte	'reserved_18',0
-	.word	76783
+	.word	76794
 	.byte	56,2,35,24,0,14
-	.word	76792
+	.word	76803
 	.byte	30
 	.byte	'Ifx_SRC_I2C',0,11,142,2,3
-	.word	76915
+	.word	76926
 	.byte	10
 	.byte	'_Ifx_SRC_LMU',0,11,145,2,25,4,13
 	.byte	'SR',0
 	.word	10866
 	.byte	4,2,35,0,0,14
-	.word	76941
+	.word	76952
 	.byte	30
 	.byte	'Ifx_SRC_LMU',0,11,148,2,3
-	.word	76973
+	.word	76984
 	.byte	10
 	.byte	'_Ifx_SRC_MSC',0,11,151,2,25,20,13
 	.byte	'SR0',0
@@ -11955,37 +11956,37 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'SR4',0
 	.word	10866
 	.byte	4,2,35,16,0,14
-	.word	76999
+	.word	77010
 	.byte	30
 	.byte	'Ifx_SRC_MSC',0,11,158,2,3
-	.word	77084
+	.word	77095
 	.byte	10
 	.byte	'_Ifx_SRC_PMU',0,11,161,2,25,4,13
 	.byte	'SR',0
 	.word	10866
 	.byte	4,2,35,0,0,14
-	.word	77110
+	.word	77121
 	.byte	30
 	.byte	'Ifx_SRC_PMU',0,11,164,2,3
-	.word	77142
+	.word	77153
 	.byte	10
 	.byte	'_Ifx_SRC_PSI5',0,11,167,2,25,32,13
 	.byte	'SR',0
-	.word	76014
+	.word	76025
 	.byte	32,2,35,0,0,14
-	.word	77168
+	.word	77179
 	.byte	30
 	.byte	'Ifx_SRC_PSI5',0,11,170,2,3
-	.word	77201
+	.word	77212
 	.byte	10
 	.byte	'_Ifx_SRC_PSI5S',0,11,173,2,25,32,13
 	.byte	'SR',0
-	.word	76014
+	.word	76025
 	.byte	32,2,35,0,0,14
-	.word	77228
+	.word	77239
 	.byte	30
 	.byte	'Ifx_SRC_PSI5S',0,11,176,2,3
-	.word	77262
+	.word	77273
 	.byte	10
 	.byte	'_Ifx_SRC_QSPI',0,11,179,2,25,24,13
 	.byte	'TX',0
@@ -12006,51 +12007,51 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'U',0
 	.word	10866
 	.byte	4,2,35,20,0,14
-	.word	77290
+	.word	77301
 	.byte	30
 	.byte	'Ifx_SRC_QSPI',0,11,187,2,3
-	.word	77383
+	.word	77394
 	.byte	10
 	.byte	'_Ifx_SRC_SCR',0,11,190,2,25,4,13
 	.byte	'SR',0
 	.word	10866
 	.byte	4,2,35,0,0,14
-	.word	77410
+	.word	77421
 	.byte	30
 	.byte	'Ifx_SRC_SCR',0,11,193,2,3
-	.word	77442
+	.word	77453
 	.byte	10
 	.byte	'_Ifx_SRC_SCU',0,11,196,2,25,20,13
 	.byte	'DTS',0
 	.word	10866
 	.byte	4,2,35,0,13
 	.byte	'ERU',0
-	.word	76099
+	.word	76110
 	.byte	16,2,35,4,0,14
-	.word	77468
+	.word	77479
 	.byte	30
 	.byte	'Ifx_SRC_SCU',0,11,200,2,3
-	.word	77514
+	.word	77525
 	.byte	15,24
 	.word	10866
 	.byte	16,5,0,10
 	.byte	'_Ifx_SRC_SENT',0,11,203,2,25,24,13
 	.byte	'SR',0
-	.word	77540
+	.word	77551
 	.byte	24,2,35,0,0,14
-	.word	77549
+	.word	77560
 	.byte	30
 	.byte	'Ifx_SRC_SENT',0,11,206,2,3
-	.word	77582
+	.word	77593
 	.byte	10
 	.byte	'_Ifx_SRC_SMU',0,11,209,2,25,12,13
 	.byte	'SR',0
-	.word	76005
+	.word	76016
 	.byte	12,2,35,0,0,14
-	.word	77609
+	.word	77620
 	.byte	30
 	.byte	'Ifx_SRC_SMU',0,11,212,2,3
-	.word	77641
+	.word	77652
 	.byte	10
 	.byte	'_Ifx_SRC_STM',0,11,215,2,25,8,13
 	.byte	'SR0',0
@@ -12059,10 +12060,10 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'SR1',0
 	.word	10866
 	.byte	4,2,35,4,0,14
-	.word	77667
+	.word	77678
 	.byte	30
 	.byte	'Ifx_SRC_STM',0,11,219,2,3
-	.word	77713
+	.word	77724
 	.byte	10
 	.byte	'_Ifx_SRC_VADCCG',0,11,222,2,25,16,13
 	.byte	'SR0',0
@@ -12077,10 +12078,10 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'SR3',0
 	.word	10866
 	.byte	4,2,35,12,0,14
-	.word	77739
+	.word	77750
 	.byte	30
 	.byte	'Ifx_SRC_VADCCG',0,11,228,2,3
-	.word	77814
+	.word	77825
 	.byte	10
 	.byte	'_Ifx_SRC_VADCG',0,11,231,2,25,16,13
 	.byte	'SR0',0
@@ -12095,479 +12096,479 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'SR3',0
 	.word	10866
 	.byte	4,2,35,12,0,14
-	.word	77843
+	.word	77854
 	.byte	30
 	.byte	'Ifx_SRC_VADCG',0,11,237,2,3
-	.word	77917
+	.word	77928
 	.byte	10
 	.byte	'_Ifx_SRC_XBAR',0,11,240,2,25,4,13
 	.byte	'SRC',0
 	.word	10866
 	.byte	4,2,35,0,0,14
-	.word	77945
+	.word	77956
 	.byte	30
 	.byte	'Ifx_SRC_XBAR',0,11,243,2,3
-	.word	77979
+	.word	77990
 	.byte	15,4
-	.word	74535
+	.word	74546
 	.byte	16,0,0,14
-	.word	78006
+	.word	78017
 	.byte	10
 	.byte	'_Ifx_SRC_GAGBT',0,11,128,3,25,4,13
 	.byte	'AGBT',0
-	.word	78015
+	.word	78026
 	.byte	4,2,35,0,0,14
-	.word	78020
+	.word	78031
 	.byte	30
 	.byte	'Ifx_SRC_GAGBT',0,11,131,3,3
-	.word	78056
+	.word	78067
 	.byte	15,48
-	.word	74593
+	.word	74604
 	.byte	16,3,0,14
-	.word	78084
+	.word	78095
 	.byte	10
 	.byte	'_Ifx_SRC_GASCLIN',0,11,134,3,25,48,13
 	.byte	'ASCLIN',0
-	.word	78093
+	.word	78104
 	.byte	48,2,35,0,0,14
-	.word	78098
+	.word	78109
 	.byte	30
 	.byte	'Ifx_SRC_GASCLIN',0,11,137,3,3
-	.word	78138
+	.word	78149
 	.byte	14
-	.word	74680
+	.word	74691
 	.byte	10
 	.byte	'_Ifx_SRC_GBCU',0,11,140,3,25,4,13
 	.byte	'SPB',0
-	.word	78168
+	.word	78179
 	.byte	4,2,35,0,0,14
-	.word	78173
+	.word	78184
 	.byte	30
 	.byte	'Ifx_SRC_GBCU',0,11,143,3,3
-	.word	78207
+	.word	78218
 	.byte	15,64
-	.word	74754
+	.word	74765
 	.byte	16,0,0,14
-	.word	78234
+	.word	78245
 	.byte	10
 	.byte	'_Ifx_SRC_GCAN',0,11,146,3,25,64,13
 	.byte	'CAN',0
-	.word	78243
+	.word	78254
 	.byte	64,2,35,0,0,14
-	.word	78248
+	.word	78259
 	.byte	30
 	.byte	'Ifx_SRC_GCAN',0,11,149,3,3
-	.word	78282
+	.word	78293
 	.byte	15,32
-	.word	74811
+	.word	74822
 	.byte	16,1,0,14
-	.word	78309
+	.word	78320
 	.byte	10
 	.byte	'_Ifx_SRC_GCCU6',0,11,152,3,25,32,13
 	.byte	'CCU6',0
-	.word	78318
+	.word	78329
 	.byte	32,2,35,0,0,14
-	.word	78323
+	.word	78334
 	.byte	30
 	.byte	'Ifx_SRC_GCCU6',0,11,155,3,3
-	.word	78359
+	.word	78370
 	.byte	14
-	.word	74918
+	.word	74929
 	.byte	10
 	.byte	'_Ifx_SRC_GCERBERUS',0,11,158,3,25,8,13
 	.byte	'CERBERUS',0
-	.word	78387
+	.word	78398
 	.byte	8,2,35,0,0,14
-	.word	78392
+	.word	78403
 	.byte	30
 	.byte	'Ifx_SRC_GCERBERUS',0,11,161,3,3
-	.word	78436
+	.word	78447
 	.byte	15,16
-	.word	74984
+	.word	74995
 	.byte	16,0,0,14
-	.word	78468
+	.word	78479
 	.byte	10
 	.byte	'_Ifx_SRC_GCIF',0,11,164,3,25,16,13
 	.byte	'CIF',0
-	.word	78477
+	.word	78488
 	.byte	16,2,35,0,0,14
-	.word	78482
+	.word	78493
 	.byte	30
 	.byte	'Ifx_SRC_GCIF',0,11,167,3,3
-	.word	78516
+	.word	78527
 	.byte	15,8
-	.word	75083
+	.word	75094
 	.byte	16,1,0,14
-	.word	78543
+	.word	78554
 	.byte	10
 	.byte	'_Ifx_SRC_GCPU',0,11,170,3,25,8,13
 	.byte	'CPU',0
-	.word	78552
+	.word	78563
 	.byte	8,2,35,0,0,14
-	.word	78557
+	.word	78568
 	.byte	30
 	.byte	'Ifx_SRC_GCPU',0,11,173,3,3
-	.word	78591
+	.word	78602
 	.byte	15,208,1
-	.word	75154
+	.word	75165
 	.byte	16,0,0,14
-	.word	78618
+	.word	78629
 	.byte	10
 	.byte	'_Ifx_SRC_GDMA',0,11,176,3,25,208,1,13
 	.byte	'DMA',0
-	.word	78628
+	.word	78639
 	.byte	208,1,2,35,0,0,14
-	.word	78633
+	.word	78644
 	.byte	30
 	.byte	'Ifx_SRC_GDMA',0,11,179,3,3
-	.word	78669
+	.word	78680
 	.byte	14
-	.word	75247
+	.word	75258
 	.byte	14
-	.word	75247
+	.word	75258
 	.byte	14
-	.word	75247
+	.word	75258
 	.byte	10
 	.byte	'_Ifx_SRC_GDSADC',0,11,182,3,25,32,13
 	.byte	'DSADC0',0
-	.word	78696
+	.word	78707
 	.byte	8,2,35,0,13
 	.byte	'reserved_8',0
 	.word	4281
 	.byte	8,2,35,8,13
 	.byte	'DSADC2',0
-	.word	78701
+	.word	78712
 	.byte	8,2,35,16,13
 	.byte	'DSADC3',0
-	.word	78706
+	.word	78717
 	.byte	8,2,35,24,0,14
-	.word	78711
+	.word	78722
 	.byte	30
 	.byte	'Ifx_SRC_GDSADC',0,11,188,3,3
-	.word	78802
+	.word	78813
 	.byte	15,4
-	.word	75323
+	.word	75334
 	.byte	16,0,0,14
-	.word	78831
+	.word	78842
 	.byte	10
 	.byte	'_Ifx_SRC_GEMEM',0,11,191,3,25,4,13
 	.byte	'EMEM',0
-	.word	78840
+	.word	78851
 	.byte	4,2,35,0,0,14
-	.word	78845
+	.word	78856
 	.byte	30
 	.byte	'Ifx_SRC_GEMEM',0,11,194,3,3
-	.word	78881
+	.word	78892
 	.byte	15,80
-	.word	75383
+	.word	75394
 	.byte	16,0,0,14
-	.word	78909
+	.word	78920
 	.byte	10
 	.byte	'_Ifx_SRC_GERAY',0,11,197,3,25,80,13
 	.byte	'ERAY',0
-	.word	78918
+	.word	78929
 	.byte	80,2,35,0,0,14
-	.word	78923
+	.word	78934
 	.byte	30
 	.byte	'Ifx_SRC_GERAY',0,11,200,3,3
-	.word	78959
+	.word	78970
 	.byte	15,4
-	.word	75537
+	.word	75548
 	.byte	16,0,0,14
-	.word	78987
+	.word	78998
 	.byte	10
 	.byte	'_Ifx_SRC_GETH',0,11,203,3,25,4,13
 	.byte	'ETH',0
-	.word	78996
+	.word	79007
 	.byte	4,2,35,0,0,14
-	.word	79001
+	.word	79012
 	.byte	30
 	.byte	'Ifx_SRC_GETH',0,11,206,3,3
-	.word	79035
+	.word	79046
 	.byte	15,4
-	.word	75595
+	.word	75606
 	.byte	16,0,0,14
-	.word	79062
+	.word	79073
 	.byte	10
 	.byte	'_Ifx_SRC_GFCE',0,11,209,3,25,4,13
 	.byte	'FCE',0
-	.word	79071
+	.word	79082
 	.byte	4,2,35,0,0,14
-	.word	79076
+	.word	79087
 	.byte	30
 	.byte	'Ifx_SRC_GFCE',0,11,212,3,3
-	.word	79110
+	.word	79121
 	.byte	15,12
-	.word	75653
+	.word	75664
 	.byte	16,0,0,14
-	.word	79137
+	.word	79148
 	.byte	10
 	.byte	'_Ifx_SRC_GFFT',0,11,215,3,25,12,13
 	.byte	'FFT',0
-	.word	79146
+	.word	79157
 	.byte	12,2,35,0,0,14
-	.word	79151
+	.word	79162
 	.byte	30
 	.byte	'Ifx_SRC_GFFT',0,11,218,3,3
-	.word	79185
+	.word	79196
 	.byte	15,64
-	.word	75739
+	.word	75750
 	.byte	16,1,0,14
-	.word	79212
+	.word	79223
 	.byte	10
 	.byte	'_Ifx_SRC_GGPSR',0,11,221,3,25,64,13
 	.byte	'GPSR',0
-	.word	79221
+	.word	79232
 	.byte	64,2,35,0,0,14
-	.word	79226
+	.word	79237
 	.byte	30
 	.byte	'Ifx_SRC_GGPSR',0,11,224,3,3
-	.word	79262
+	.word	79273
 	.byte	15,48
-	.word	75860
+	.word	75871
 	.byte	16,0,0,14
-	.word	79290
+	.word	79301
 	.byte	10
 	.byte	'_Ifx_SRC_GGPT12',0,11,227,3,25,48,13
 	.byte	'GPT12',0
-	.word	79299
+	.word	79310
 	.byte	48,2,35,0,0,14
-	.word	79304
+	.word	79315
 	.byte	30
 	.byte	'Ifx_SRC_GGPT12',0,11,230,3,3
-	.word	79342
+	.word	79353
 	.byte	15,204,18
-	.word	76137
+	.word	76148
 	.byte	16,0,0,14
-	.word	79371
+	.word	79382
 	.byte	10
 	.byte	'_Ifx_SRC_GGTM',0,11,233,3,25,204,18,13
 	.byte	'GTM',0
-	.word	79381
+	.word	79392
 	.byte	204,18,2,35,0,0,14
-	.word	79386
+	.word	79397
 	.byte	30
 	.byte	'Ifx_SRC_GGTM',0,11,236,3,3
-	.word	79422
+	.word	79433
 	.byte	15,4
-	.word	76623
+	.word	76634
 	.byte	16,0,0,14
-	.word	79449
+	.word	79460
 	.byte	10
 	.byte	'_Ifx_SRC_GHSCT',0,11,239,3,25,4,13
 	.byte	'HSCT',0
-	.word	79458
+	.word	79469
 	.byte	4,2,35,0,0,14
-	.word	79463
+	.word	79474
 	.byte	30
 	.byte	'Ifx_SRC_GHSCT',0,11,242,3,3
-	.word	79499
+	.word	79510
 	.byte	15,64
-	.word	76683
+	.word	76694
 	.byte	16,3,0,14
-	.word	79527
+	.word	79538
 	.byte	10
 	.byte	'_Ifx_SRC_GHSSL',0,11,245,3,25,68,13
 	.byte	'HSSL',0
-	.word	79536
+	.word	79547
 	.byte	64,2,35,0,13
 	.byte	'EXI',0
 	.word	10866
 	.byte	4,2,35,64,0,14
-	.word	79541
+	.word	79552
 	.byte	30
 	.byte	'Ifx_SRC_GHSSL',0,11,249,3,3
-	.word	79590
+	.word	79601
 	.byte	15,80
-	.word	76792
+	.word	76803
 	.byte	16,0,0,14
-	.word	79618
+	.word	79629
 	.byte	10
 	.byte	'_Ifx_SRC_GI2C',0,11,252,3,25,80,13
 	.byte	'I2C',0
-	.word	79627
+	.word	79638
 	.byte	80,2,35,0,0,14
-	.word	79632
+	.word	79643
 	.byte	30
 	.byte	'Ifx_SRC_GI2C',0,11,255,3,3
-	.word	79666
+	.word	79677
 	.byte	15,4
-	.word	76941
+	.word	76952
 	.byte	16,0,0,14
-	.word	79693
+	.word	79704
 	.byte	10
 	.byte	'_Ifx_SRC_GLMU',0,11,130,4,25,4,13
 	.byte	'LMU',0
-	.word	79702
+	.word	79713
 	.byte	4,2,35,0,0,14
-	.word	79707
+	.word	79718
 	.byte	30
 	.byte	'Ifx_SRC_GLMU',0,11,133,4,3
-	.word	79741
+	.word	79752
 	.byte	15,40
-	.word	76999
+	.word	77010
 	.byte	16,1,0,14
-	.word	79768
+	.word	79779
 	.byte	10
 	.byte	'_Ifx_SRC_GMSC',0,11,136,4,25,40,13
 	.byte	'MSC',0
-	.word	79777
+	.word	79788
 	.byte	40,2,35,0,0,14
-	.word	79782
+	.word	79793
 	.byte	30
 	.byte	'Ifx_SRC_GMSC',0,11,139,4,3
-	.word	79816
+	.word	79827
 	.byte	15,8
-	.word	77110
+	.word	77121
 	.byte	16,1,0,14
-	.word	79843
+	.word	79854
 	.byte	10
 	.byte	'_Ifx_SRC_GPMU',0,11,142,4,25,8,13
 	.byte	'PMU',0
-	.word	79852
+	.word	79863
 	.byte	8,2,35,0,0,14
-	.word	79857
+	.word	79868
 	.byte	30
 	.byte	'Ifx_SRC_GPMU',0,11,145,4,3
-	.word	79891
+	.word	79902
 	.byte	15,32
-	.word	77168
+	.word	77179
 	.byte	16,0,0,14
-	.word	79918
+	.word	79929
 	.byte	10
 	.byte	'_Ifx_SRC_GPSI5',0,11,148,4,25,32,13
 	.byte	'PSI5',0
-	.word	79927
+	.word	79938
 	.byte	32,2,35,0,0,14
-	.word	79932
+	.word	79943
 	.byte	30
 	.byte	'Ifx_SRC_GPSI5',0,11,151,4,3
-	.word	79968
+	.word	79979
 	.byte	15,32
-	.word	77228
+	.word	77239
 	.byte	16,0,0,14
-	.word	79996
+	.word	80007
 	.byte	10
 	.byte	'_Ifx_SRC_GPSI5S',0,11,154,4,25,32,13
 	.byte	'PSI5S',0
-	.word	80005
+	.word	80016
 	.byte	32,2,35,0,0,14
-	.word	80010
+	.word	80021
 	.byte	30
 	.byte	'Ifx_SRC_GPSI5S',0,11,157,4,3
-	.word	80048
+	.word	80059
 	.byte	15,96
-	.word	77290
+	.word	77301
 	.byte	16,3,0,14
-	.word	80077
+	.word	80088
 	.byte	10
 	.byte	'_Ifx_SRC_GQSPI',0,11,160,4,25,96,13
 	.byte	'QSPI',0
-	.word	80086
+	.word	80097
 	.byte	96,2,35,0,0,14
-	.word	80091
+	.word	80102
 	.byte	30
 	.byte	'Ifx_SRC_GQSPI',0,11,163,4,3
-	.word	80127
+	.word	80138
 	.byte	15,4
-	.word	77410
+	.word	77421
 	.byte	16,0,0,14
-	.word	80155
+	.word	80166
 	.byte	10
 	.byte	'_Ifx_SRC_GSCR',0,11,166,4,25,4,13
 	.byte	'SCR',0
-	.word	80164
+	.word	80175
 	.byte	4,2,35,0,0,14
-	.word	80169
+	.word	80180
 	.byte	30
 	.byte	'Ifx_SRC_GSCR',0,11,169,4,3
-	.word	80203
+	.word	80214
 	.byte	14
-	.word	77468
+	.word	77479
 	.byte	10
 	.byte	'_Ifx_SRC_GSCU',0,11,172,4,25,20,13
 	.byte	'SCU',0
-	.word	80230
+	.word	80241
 	.byte	20,2,35,0,0,14
-	.word	80235
+	.word	80246
 	.byte	30
 	.byte	'Ifx_SRC_GSCU',0,11,175,4,3
-	.word	80269
+	.word	80280
 	.byte	15,24
-	.word	77549
+	.word	77560
 	.byte	16,0,0,14
-	.word	80296
+	.word	80307
 	.byte	10
 	.byte	'_Ifx_SRC_GSENT',0,11,178,4,25,24,13
 	.byte	'SENT',0
-	.word	80305
+	.word	80316
 	.byte	24,2,35,0,0,14
-	.word	80310
+	.word	80321
 	.byte	30
 	.byte	'Ifx_SRC_GSENT',0,11,181,4,3
-	.word	80346
+	.word	80357
 	.byte	15,12
-	.word	77609
+	.word	77620
 	.byte	16,0,0,14
-	.word	80374
+	.word	80385
 	.byte	10
 	.byte	'_Ifx_SRC_GSMU',0,11,184,4,25,12,13
 	.byte	'SMU',0
-	.word	80383
+	.word	80394
 	.byte	12,2,35,0,0,14
-	.word	80388
+	.word	80399
 	.byte	30
 	.byte	'Ifx_SRC_GSMU',0,11,187,4,3
-	.word	80422
+	.word	80433
 	.byte	15,16
-	.word	77667
+	.word	77678
 	.byte	16,1,0,14
-	.word	80449
+	.word	80460
 	.byte	10
 	.byte	'_Ifx_SRC_GSTM',0,11,190,4,25,16,13
 	.byte	'STM',0
-	.word	80458
+	.word	80469
 	.byte	16,2,35,0,0,14
-	.word	80463
+	.word	80474
 	.byte	30
 	.byte	'Ifx_SRC_GSTM',0,11,193,4,3
-	.word	80497
+	.word	80508
 	.byte	15,64
-	.word	77843
+	.word	77854
 	.byte	16,3,0,14
-	.word	80524
+	.word	80535
 	.byte	15,224,1
 	.word	644
 	.byte	16,223,1,0,15,32
-	.word	77739
+	.word	77750
 	.byte	16,1,0,14
-	.word	80549
+	.word	80560
 	.byte	10
 	.byte	'_Ifx_SRC_GVADC',0,11,196,4,25,192,2,13
 	.byte	'G',0
-	.word	80533
+	.word	80544
 	.byte	64,2,35,0,13
 	.byte	'reserved_40',0
-	.word	80538
+	.word	80549
 	.byte	224,1,2,35,64,13
 	.byte	'CG',0
-	.word	80558
+	.word	80569
 	.byte	32,3,35,160,2,0,14
-	.word	80563
+	.word	80574
 	.byte	30
 	.byte	'Ifx_SRC_GVADC',0,11,201,4,3
-	.word	80632
+	.word	80643
 	.byte	14
-	.word	77945
+	.word	77956
 	.byte	10
 	.byte	'_Ifx_SRC_GXBAR',0,11,204,4,25,4,13
 	.byte	'XBAR',0
-	.word	80660
+	.word	80671
 	.byte	4,2,35,0,0,14
-	.word	80665
+	.word	80676
 	.byte	30
 	.byte	'Ifx_SRC_GXBAR',0,11,207,4,3
-	.word	80701
+	.word	80712
 	.byte	30
 	.byte	'Ifx_STM_ACCEN0_Bits',0,16,79,3
 	.word	20796
@@ -12704,12 +12705,12 @@ bluetooth_ch9141_data:	.type	object
 	.word	21365
 	.byte	30
 	.byte	'Ifx_STM',0,16,201,3,3
-	.word	81812
+	.word	81823
 	.byte	17,7,144,1,9,1,18
 	.byte	'IfxCpu_CounterMode_normal',0,0,18
 	.byte	'IfxCpu_CounterMode_task',0,1,0,30
 	.byte	'IfxCpu_CounterMode',0,7,148,1,3
-	.word	81834
+	.word	81845
 	.byte	20,7,160,1,9,6,13
 	.byte	'counter',0
 	.word	10305
@@ -12718,25 +12719,25 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,2,35,4,0,30
 	.byte	'IfxCpu_Counter',0,7,164,1,3
-	.word	81923
+	.word	81934
 	.byte	20,7,172,1,9,32,13
 	.byte	'instruction',0
-	.word	81923
+	.word	81934
 	.byte	6,2,35,0,13
 	.byte	'clock',0
-	.word	81923
+	.word	81934
 	.byte	6,2,35,6,13
 	.byte	'counter1',0
-	.word	81923
+	.word	81934
 	.byte	6,2,35,12,13
 	.byte	'counter2',0
-	.word	81923
+	.word	81934
 	.byte	6,2,35,18,13
 	.byte	'counter3',0
-	.word	81923
+	.word	81934
 	.byte	6,2,35,24,0,30
 	.byte	'IfxCpu_Perf',0,7,179,1,3
-	.word	81989
+	.word	82000
 	.byte	10
 	.byte	'_Ifx_FLASH_ACCEN0_Bits',0,32,45,16,4,11
 	.byte	'EN0',0,1
@@ -12836,14 +12837,14 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_ACCEN0_Bits',0,32,79,3
-	.word	82107
+	.word	82118
 	.byte	10
 	.byte	'_Ifx_FLASH_ACCEN1_Bits',0,32,82,16,4,11
 	.byte	'reserved_0',0,4
 	.word	469
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_ACCEN1_Bits',0,32,85,3
-	.word	82668
+	.word	82679
 	.byte	10
 	.byte	'_Ifx_FLASH_CBAB_CFG_Bits',0,32,88,16,4,11
 	.byte	'SEL',0,1
@@ -12862,7 +12863,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	22,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_CBAB_CFG_Bits',0,32,95,3
-	.word	82749
+	.word	82760
 	.byte	10
 	.byte	'_Ifx_FLASH_CBAB_STAT_Bits',0,32,98,16,4,11
 	.byte	'VLD0',0,1
@@ -12899,7 +12900,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	22,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_CBAB_STAT_Bits',0,32,111,3
-	.word	82902
+	.word	82913
 	.byte	10
 	.byte	'_Ifx_FLASH_CBAB_TOP_Bits',0,32,114,16,4,11
 	.byte	'reserved_0',0,1
@@ -12918,7 +12919,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_CBAB_TOP_Bits',0,32,121,3
-	.word	83150
+	.word	83161
 	.byte	10
 	.byte	'_Ifx_FLASH_COMM0_Bits',0,32,124,16,4,11
 	.byte	'STATUS',0,1
@@ -12928,7 +12929,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	24,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_COMM0_Bits',0,32,128,1,3
-	.word	83296
+	.word	83307
 	.byte	10
 	.byte	'_Ifx_FLASH_COMM1_Bits',0,32,131,1,16,4,11
 	.byte	'STATUS',0,1
@@ -12941,7 +12942,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_FLASH_COMM1_Bits',0,32,136,1,3
-	.word	83394
+	.word	83405
 	.byte	10
 	.byte	'_Ifx_FLASH_COMM2_Bits',0,32,139,1,16,4,11
 	.byte	'STATUS',0,1
@@ -12954,7 +12955,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_FLASH_COMM2_Bits',0,32,144,1,3
-	.word	83510
+	.word	83521
 	.byte	10
 	.byte	'_Ifx_FLASH_ECCRD_Bits',0,32,147,1,16,4,11
 	.byte	'RCODE',0,4
@@ -12970,7 +12971,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_ECCRD_Bits',0,32,153,1,3
-	.word	83626
+	.word	83637
 	.byte	10
 	.byte	'_Ifx_FLASH_ECCRP_Bits',0,32,156,1,16,4,11
 	.byte	'RCODE',0,4
@@ -12986,7 +12987,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_ECCRP_Bits',0,32,162,1,3
-	.word	83766
+	.word	83777
 	.byte	10
 	.byte	'_Ifx_FLASH_ECCW_Bits',0,32,165,1,16,4,11
 	.byte	'WCODE',0,4
@@ -13002,7 +13003,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_ECCW_Bits',0,32,171,1,3
-	.word	83906
+	.word	83917
 	.byte	10
 	.byte	'_Ifx_FLASH_FCON_Bits',0,32,174,1,16,4,11
 	.byte	'WSPFLASH',0,1
@@ -13057,7 +13058,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_FCON_Bits',0,32,193,1,3
-	.word	84045
+	.word	84056
 	.byte	10
 	.byte	'_Ifx_FLASH_FPRO_Bits',0,32,196,1,16,4,11
 	.byte	'PROINP',0,1
@@ -13121,7 +13122,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	8,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_FPRO_Bits',0,32,218,1,3
-	.word	84407
+	.word	84418
 	.byte	10
 	.byte	'_Ifx_FLASH_FSR_Bits',0,32,221,1,16,4,11
 	.byte	'FABUSY',0,1
@@ -13218,7 +13219,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_FSR_Bits',0,32,254,1,3
-	.word	84848
+	.word	84859
 	.byte	10
 	.byte	'_Ifx_FLASH_ID_Bits',0,32,129,2,16,4,11
 	.byte	'MODREV',0,1
@@ -13231,7 +13232,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_FLASH_ID_Bits',0,32,134,2,3
-	.word	85454
+	.word	85465
 	.byte	10
 	.byte	'_Ifx_FLASH_MARD_Bits',0,32,137,2,16,4,11
 	.byte	'HMARGIN',0,1
@@ -13259,7 +13260,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_FLASH_MARD_Bits',0,32,147,2,3
-	.word	85565
+	.word	85576
 	.byte	10
 	.byte	'_Ifx_FLASH_MARP_Bits',0,32,150,2,16,4,11
 	.byte	'SELP0',0,1
@@ -13284,7 +13285,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_FLASH_MARP_Bits',0,32,159,2,3
-	.word	85779
+	.word	85790
 	.byte	10
 	.byte	'_Ifx_FLASH_PROCOND_Bits',0,32,162,2,16,4,11
 	.byte	'L',0,1
@@ -13333,7 +13334,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_PROCOND_Bits',0,32,179,2,3
-	.word	85966
+	.word	85977
 	.byte	10
 	.byte	'_Ifx_FLASH_PROCONDBG_Bits',0,32,182,2,16,4,11
 	.byte	'OCDSDIS',0,1
@@ -13349,7 +13350,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	28,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_PROCONDBG_Bits',0,32,188,2,3
-	.word	86290
+	.word	86301
 	.byte	10
 	.byte	'_Ifx_FLASH_PROCONHSM_Bits',0,32,191,2,16,4,11
 	.byte	'HSMDBGDIS',0,1
@@ -13371,7 +13372,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_FLASH_PROCONHSM_Bits',0,32,199,2,3
-	.word	86433
+	.word	86444
 	.byte	10
 	.byte	'_Ifx_FLASH_PROCONHSMCOTP_Bits',0,32,202,2,16,4,11
 	.byte	'HSMBOOTEN',0,1
@@ -13420,7 +13421,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	14,0,2,35,2,0,30
 	.byte	'Ifx_FLASH_PROCONHSMCOTP_Bits',0,32,219,2,3
-	.word	86622
+	.word	86633
 	.byte	10
 	.byte	'_Ifx_FLASH_PROCONOTP_Bits',0,32,222,2,16,4,11
 	.byte	'S0ROM',0,1
@@ -13514,7 +13515,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_PROCONOTP_Bits',0,32,254,2,3
-	.word	86985
+	.word	86996
 	.byte	10
 	.byte	'_Ifx_FLASH_PROCONP_Bits',0,32,129,3,16,4,11
 	.byte	'S0L',0,1
@@ -13605,7 +13606,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_PROCONP_Bits',0,32,160,3,3
-	.word	87580
+	.word	87591
 	.byte	10
 	.byte	'_Ifx_FLASH_PROCONWOP_Bits',0,32,163,3,16,4,11
 	.byte	'S0WOP',0,1
@@ -13696,7 +13697,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_PROCONWOP_Bits',0,32,194,3,3
-	.word	88104
+	.word	88115
 	.byte	10
 	.byte	'_Ifx_FLASH_RDB_CFG0_Bits',0,32,197,3,16,4,11
 	.byte	'TAG',0,1
@@ -13706,7 +13707,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	26,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_RDB_CFG0_Bits',0,32,201,3,3
-	.word	88686
+	.word	88697
 	.byte	10
 	.byte	'_Ifx_FLASH_RDB_CFG1_Bits',0,32,204,3,16,4,11
 	.byte	'TAG',0,1
@@ -13716,7 +13717,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	26,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_RDB_CFG1_Bits',0,32,208,3,3
-	.word	88788
+	.word	88799
 	.byte	10
 	.byte	'_Ifx_FLASH_RDB_CFG2_Bits',0,32,211,3,16,4,11
 	.byte	'TAG',0,1
@@ -13726,7 +13727,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	26,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_RDB_CFG2_Bits',0,32,215,3,3
-	.word	88890
+	.word	88901
 	.byte	10
 	.byte	'_Ifx_FLASH_RRAD_Bits',0,32,218,3,16,4,11
 	.byte	'reserved_0',0,1
@@ -13736,7 +13737,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	29,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_RRAD_Bits',0,32,222,3,3
-	.word	88992
+	.word	89003
 	.byte	10
 	.byte	'_Ifx_FLASH_RRCT_Bits',0,32,225,3,16,4,11
 	.byte	'STRT',0,1
@@ -13767,21 +13768,21 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	16,0,2,35,2,0,30
 	.byte	'Ifx_FLASH_RRCT_Bits',0,32,236,3,3
-	.word	89086
+	.word	89097
 	.byte	10
 	.byte	'_Ifx_FLASH_RRD0_Bits',0,32,239,3,16,4,11
 	.byte	'DATA',0,4
 	.word	469
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_RRD0_Bits',0,32,242,3,3
-	.word	89296
+	.word	89307
 	.byte	10
 	.byte	'_Ifx_FLASH_RRD1_Bits',0,32,245,3,16,4,11
 	.byte	'DATA',0,4
 	.word	469
 	.byte	32,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_RRD1_Bits',0,32,248,3,3
-	.word	89369
+	.word	89380
 	.byte	10
 	.byte	'_Ifx_FLASH_UBAB_CFG_Bits',0,32,251,3,16,4,11
 	.byte	'SEL',0,1
@@ -13800,7 +13801,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	22,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_UBAB_CFG_Bits',0,32,130,4,3
-	.word	89442
+	.word	89453
 	.byte	10
 	.byte	'_Ifx_FLASH_UBAB_STAT_Bits',0,32,133,4,16,4,11
 	.byte	'VLD0',0,1
@@ -13810,7 +13811,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	469
 	.byte	31,0,2,35,0,0,30
 	.byte	'Ifx_FLASH_UBAB_STAT_Bits',0,32,137,4,3
-	.word	89597
+	.word	89608
 	.byte	10
 	.byte	'_Ifx_FLASH_UBAB_TOP_Bits',0,32,140,4,16,4,11
 	.byte	'reserved_0',0,1
@@ -13829,7 +13830,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,0,2,35,3,0,30
 	.byte	'Ifx_FLASH_UBAB_TOP_Bits',0,32,147,4,3
-	.word	89702
+	.word	89713
 	.byte	12,32,155,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13838,10 +13839,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	82107
+	.word	82118
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_ACCEN0',0,32,160,4,3
-	.word	89850
+	.word	89861
 	.byte	12,32,163,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13850,10 +13851,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	82668
+	.word	82679
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_ACCEN1',0,32,168,4,3
-	.word	89916
+	.word	89927
 	.byte	12,32,171,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13862,10 +13863,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	82749
+	.word	82760
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_CBAB_CFG',0,32,176,4,3
-	.word	89982
+	.word	89993
 	.byte	12,32,179,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13874,10 +13875,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	82902
+	.word	82913
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_CBAB_STAT',0,32,184,4,3
-	.word	90050
+	.word	90061
 	.byte	12,32,187,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13886,10 +13887,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	83150
+	.word	83161
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_CBAB_TOP',0,32,192,4,3
-	.word	90119
+	.word	90130
 	.byte	12,32,195,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13898,10 +13899,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	83296
+	.word	83307
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_COMM0',0,32,200,4,3
-	.word	90187
+	.word	90198
 	.byte	12,32,203,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13910,10 +13911,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	83394
+	.word	83405
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_COMM1',0,32,208,4,3
-	.word	90252
+	.word	90263
 	.byte	12,32,211,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13922,10 +13923,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	83510
+	.word	83521
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_COMM2',0,32,216,4,3
-	.word	90317
+	.word	90328
 	.byte	12,32,219,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13934,10 +13935,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	83626
+	.word	83637
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_ECCRD',0,32,224,4,3
-	.word	90382
+	.word	90393
 	.byte	12,32,227,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13946,10 +13947,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	83766
+	.word	83777
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_ECCRP',0,32,232,4,3
-	.word	90447
+	.word	90458
 	.byte	12,32,235,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13958,10 +13959,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	83906
+	.word	83917
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_ECCW',0,32,240,4,3
-	.word	90512
+	.word	90523
 	.byte	12,32,243,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13970,10 +13971,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	84045
+	.word	84056
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_FCON',0,32,248,4,3
-	.word	90576
+	.word	90587
 	.byte	12,32,251,4,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13982,10 +13983,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	84407
+	.word	84418
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_FPRO',0,32,128,5,3
-	.word	90640
+	.word	90651
 	.byte	12,32,131,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -13994,10 +13995,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	84848
+	.word	84859
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_FSR',0,32,136,5,3
-	.word	90704
+	.word	90715
 	.byte	12,32,139,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14006,10 +14007,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	85454
+	.word	85465
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_ID',0,32,144,5,3
-	.word	90767
+	.word	90778
 	.byte	12,32,147,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14018,10 +14019,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	85565
+	.word	85576
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_MARD',0,32,152,5,3
-	.word	90829
+	.word	90840
 	.byte	12,32,155,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14030,10 +14031,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	85779
+	.word	85790
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_MARP',0,32,160,5,3
-	.word	90893
+	.word	90904
 	.byte	12,32,163,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14042,10 +14043,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	85966
+	.word	85977
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_PROCOND',0,32,168,5,3
-	.word	90957
+	.word	90968
 	.byte	12,32,171,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14054,10 +14055,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	86290
+	.word	86301
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_PROCONDBG',0,32,176,5,3
-	.word	91024
+	.word	91035
 	.byte	12,32,179,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14066,10 +14067,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	86433
+	.word	86444
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_PROCONHSM',0,32,184,5,3
-	.word	91093
+	.word	91104
 	.byte	12,32,187,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14078,10 +14079,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	86622
+	.word	86633
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_PROCONHSMCOTP',0,32,192,5,3
-	.word	91162
+	.word	91173
 	.byte	12,32,195,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14090,10 +14091,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	86985
+	.word	86996
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_PROCONOTP',0,32,200,5,3
-	.word	91235
+	.word	91246
 	.byte	12,32,203,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14102,10 +14103,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	87580
+	.word	87591
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_PROCONP',0,32,208,5,3
-	.word	91304
+	.word	91315
 	.byte	12,32,211,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14114,10 +14115,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	88104
+	.word	88115
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_PROCONWOP',0,32,216,5,3
-	.word	91371
+	.word	91382
 	.byte	12,32,219,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14126,10 +14127,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	88686
+	.word	88697
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_RDB_CFG0',0,32,224,5,3
-	.word	91440
+	.word	91451
 	.byte	12,32,227,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14138,10 +14139,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	88788
+	.word	88799
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_RDB_CFG1',0,32,232,5,3
-	.word	91508
+	.word	91519
 	.byte	12,32,235,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14150,10 +14151,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	88890
+	.word	88901
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_RDB_CFG2',0,32,240,5,3
-	.word	91576
+	.word	91587
 	.byte	12,32,243,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14162,10 +14163,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	88992
+	.word	89003
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_RRAD',0,32,248,5,3
-	.word	91644
+	.word	91655
 	.byte	12,32,251,5,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14174,10 +14175,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	89086
+	.word	89097
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_RRCT',0,32,128,6,3
-	.word	91708
+	.word	91719
 	.byte	12,32,131,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14186,10 +14187,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	89296
+	.word	89307
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_RRD0',0,32,136,6,3
-	.word	91772
+	.word	91783
 	.byte	12,32,139,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14198,10 +14199,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	89369
+	.word	89380
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_RRD1',0,32,144,6,3
-	.word	91836
+	.word	91847
 	.byte	12,32,147,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14210,10 +14211,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	89442
+	.word	89453
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_UBAB_CFG',0,32,152,6,3
-	.word	91900
+	.word	91911
 	.byte	12,32,155,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14222,10 +14223,10 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	89597
+	.word	89608
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_UBAB_STAT',0,32,160,6,3
-	.word	91968
+	.word	91979
 	.byte	12,32,163,6,9,4,13
 	.byte	'U',0
 	.word	469
@@ -14234,55 +14235,55 @@ bluetooth_ch9141_data:	.type	object
 	.word	485
 	.byte	4,2,35,0,13
 	.byte	'B',0
-	.word	89702
+	.word	89713
 	.byte	4,2,35,0,0,30
 	.byte	'Ifx_FLASH_UBAB_TOP',0,32,168,6,3
-	.word	92037
+	.word	92048
 	.byte	10
 	.byte	'_Ifx_FLASH_CBAB',0,32,179,6,25,12,13
 	.byte	'CFG',0
-	.word	89982
+	.word	89993
 	.byte	4,2,35,0,13
 	.byte	'STAT',0
-	.word	90050
+	.word	90061
 	.byte	4,2,35,4,13
 	.byte	'TOP',0
-	.word	90119
+	.word	90130
 	.byte	4,2,35,8,0,14
-	.word	92105
+	.word	92116
 	.byte	30
 	.byte	'Ifx_FLASH_CBAB',0,32,184,6,3
-	.word	92168
+	.word	92179
 	.byte	10
 	.byte	'_Ifx_FLASH_RDB',0,32,187,6,25,12,13
 	.byte	'CFG0',0
-	.word	91440
+	.word	91451
 	.byte	4,2,35,0,13
 	.byte	'CFG1',0
-	.word	91508
+	.word	91519
 	.byte	4,2,35,4,13
 	.byte	'CFG2',0
-	.word	91576
+	.word	91587
 	.byte	4,2,35,8,0,14
-	.word	92197
+	.word	92208
 	.byte	30
 	.byte	'Ifx_FLASH_RDB',0,32,192,6,3
-	.word	92261
+	.word	92272
 	.byte	10
 	.byte	'_Ifx_FLASH_UBAB',0,32,195,6,25,12,13
 	.byte	'CFG',0
-	.word	91900
+	.word	91911
 	.byte	4,2,35,0,13
 	.byte	'STAT',0
-	.word	91968
+	.word	91979
 	.byte	4,2,35,4,13
 	.byte	'TOP',0
-	.word	92037
+	.word	92048
 	.byte	4,2,35,8,0,14
-	.word	92289
+	.word	92300
 	.byte	30
 	.byte	'Ifx_FLASH_UBAB',0,32,200,6,3
-	.word	92352
+	.word	92363
 	.byte	30
 	.byte	'IfxScuCcu_PllStepsFunctionHook',0,9,148,1,16
 	.word	208
@@ -14294,7 +14295,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	10305
 	.byte	4,2,35,4,0,30
 	.byte	'IfxScuCcu_CcuconRegConfig',0,9,216,5,3
-	.word	92421
+	.word	92432
 	.byte	20,9,221,5,9,8,13
 	.byte	'pDivider',0
 	.word	644
@@ -14309,7 +14310,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	265
 	.byte	4,2,35,4,0,30
 	.byte	'IfxScuCcu_InitialStepConfig',0,9,227,5,3
-	.word	92492
+	.word	92503
 	.byte	20,9,231,5,9,12,13
 	.byte	'k2Step',0
 	.word	644
@@ -14318,33 +14319,33 @@ bluetooth_ch9141_data:	.type	object
 	.word	265
 	.byte	4,2,35,2,13
 	.byte	'hookFunction',0
-	.word	92381
+	.word	92392
 	.byte	4,2,35,8,0,30
 	.byte	'IfxScuCcu_PllStepsConfig',0,9,236,5,3
-	.word	92609
+	.word	92620
 	.byte	3
 	.word	205
 	.byte	20,9,244,5,9,48,13
 	.byte	'ccucon0',0
-	.word	92421
+	.word	92432
 	.byte	8,2,35,0,13
 	.byte	'ccucon1',0
-	.word	92421
+	.word	92432
 	.byte	8,2,35,8,13
 	.byte	'ccucon2',0
-	.word	92421
+	.word	92432
 	.byte	8,2,35,16,13
 	.byte	'ccucon5',0
-	.word	92421
+	.word	92432
 	.byte	8,2,35,24,13
 	.byte	'ccucon6',0
-	.word	92421
+	.word	92432
 	.byte	8,2,35,32,13
 	.byte	'ccucon7',0
-	.word	92421
+	.word	92432
 	.byte	8,2,35,40,0,30
 	.byte	'IfxScuCcu_ClockDistributionConfig',0,9,252,5,3
-	.word	92711
+	.word	92722
 	.byte	20,9,128,6,9,8,13
 	.byte	'value',0
 	.word	10305
@@ -14353,126 +14354,126 @@ bluetooth_ch9141_data:	.type	object
 	.word	10305
 	.byte	4,2,35,4,0,30
 	.byte	'IfxScuCcu_FlashWaitstateConfig',0,9,132,6,3
-	.word	92863
+	.word	92874
 	.byte	3
-	.word	92609
+	.word	92620
 	.byte	20,9,137,6,9,16,13
 	.byte	'numOfPllDividerSteps',0
 	.word	644
 	.byte	1,2,35,0,13
 	.byte	'pllDividerStep',0
-	.word	92939
+	.word	92950
 	.byte	4,2,35,4,13
 	.byte	'pllInitialStep',0
-	.word	92492
+	.word	92503
 	.byte	8,2,35,8,0,30
 	.byte	'IfxScuCcu_SysPllConfig',0,9,142,6,3
-	.word	92944
+	.word	92955
 	.byte	17,33,69,9,1,18
 	.byte	'IfxSrc_Tos_cpu0',0,0,18
 	.byte	'IfxSrc_Tos_cpu1',0,1,18
 	.byte	'IfxSrc_Tos_dma',0,3,0,30
 	.byte	'IfxSrc_Tos',0,33,74,3
-	.word	93061
+	.word	93072
 	.byte	20,34,59,15,16,13
 	.byte	'module',0
 	.word	17490
 	.byte	4,2,35,0,13
 	.byte	'pin',0
-	.word	56526
+	.word	56537
 	.byte	8,2,35,4,13
 	.byte	'select',0
-	.word	27714
+	.word	27725
 	.byte	1,2,35,12,0,21
-	.word	93139
+	.word	93150
 	.byte	30
 	.byte	'IfxAsclin_Cts_In',0,34,64,3
-	.word	93190
+	.word	93201
 	.byte	20,34,67,15,16,13
 	.byte	'module',0
 	.word	17490
 	.byte	4,2,35,0,13
 	.byte	'pin',0
-	.word	56526
+	.word	56537
 	.byte	8,2,35,4,13
 	.byte	'select',0
-	.word	27714
+	.word	27725
 	.byte	1,2,35,12,0,21
-	.word	93220
+	.word	93231
 	.byte	30
 	.byte	'IfxAsclin_Rx_In',0,34,72,3
-	.word	93271
+	.word	93282
 	.byte	20,34,75,15,16,13
 	.byte	'module',0
 	.word	17490
 	.byte	4,2,35,0,13
 	.byte	'pin',0
-	.word	56526
+	.word	56537
 	.byte	8,2,35,4,13
 	.byte	'select',0
 	.word	9489
 	.byte	1,2,35,12,0,21
-	.word	93300
+	.word	93311
 	.byte	30
 	.byte	'IfxAsclin_Rts_Out',0,34,80,3
-	.word	93351
+	.word	93362
 	.byte	20,34,83,15,16,13
 	.byte	'module',0
 	.word	17490
 	.byte	4,2,35,0,13
 	.byte	'pin',0
-	.word	56526
+	.word	56537
 	.byte	8,2,35,4,13
 	.byte	'select',0
 	.word	9489
 	.byte	1,2,35,12,0,21
-	.word	93382
+	.word	93393
 	.byte	30
 	.byte	'IfxAsclin_Sclk_Out',0,34,88,3
-	.word	93433
+	.word	93444
 	.byte	20,34,91,15,16,13
 	.byte	'module',0
 	.word	17490
 	.byte	4,2,35,0,13
 	.byte	'pin',0
-	.word	56526
+	.word	56537
 	.byte	8,2,35,4,13
 	.byte	'select',0
 	.word	9489
 	.byte	1,2,35,12,0,21
-	.word	93465
+	.word	93476
 	.byte	30
 	.byte	'IfxAsclin_Slso_Out',0,34,96,3
-	.word	93516
+	.word	93527
 	.byte	20,34,99,15,16,13
 	.byte	'module',0
 	.word	17490
 	.byte	4,2,35,0,13
 	.byte	'pin',0
-	.word	56526
+	.word	56537
 	.byte	8,2,35,4,13
 	.byte	'select',0
 	.word	9489
 	.byte	1,2,35,12,0,21
-	.word	93548
+	.word	93559
 	.byte	30
 	.byte	'IfxAsclin_Tx_Out',0,34,104,3
-	.word	93599
+	.word	93610
 	.byte	17,12,82,9,1,18
 	.byte	'IfxAsclin_Checksum_classic',0,0,18
 	.byte	'IfxAsclin_Checksum_enhanced',0,1,0,30
 	.byte	'IfxAsclin_Checksum',0,12,86,3
-	.word	93629
+	.word	93640
 	.byte	17,12,91,9,1,18
 	.byte	'IfxAsclin_ChecksumInjection_notWritten',0,0,18
 	.byte	'IfxAsclin_ChecksumInjection_written',0,1,0,30
 	.byte	'IfxAsclin_ChecksumInjection',0,12,95,3
-	.word	93721
+	.word	93732
 	.byte	17,12,101,9,1,18
 	.byte	'IfxAsclin_ClockPolarity_idleLow',0,0,18
 	.byte	'IfxAsclin_ClockPolarity_idleHigh',0,1,0,30
 	.byte	'IfxAsclin_ClockPolarity',0,12,105,3
-	.word	93842
+	.word	93853
 	.byte	17,12,110,9,1,18
 	.byte	'IfxAsclin_ClockSource_noClock',0,0,18
 	.byte	'IfxAsclin_ClockSource_kernelClock',0,1,18
@@ -14481,7 +14482,7 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxAsclin_ClockSource_ascFastClock',0,8,18
 	.byte	'IfxAsclin_ClockSource_ascSlowClock',0,16,0,30
 	.byte	'IfxAsclin_ClockSource',0,12,118,3
-	.word	93949
+	.word	93960
 	.byte	30
 	.byte	'IfxAsclin_CtsInputSelect',0,12,129,1,3
 	.word	17557
@@ -14503,19 +14504,19 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxAsclin_DataLength_15',0,14,18
 	.byte	'IfxAsclin_DataLength_16',0,15,0,30
 	.byte	'IfxAsclin_DataLength',0,12,152,1,3
-	.word	94238
+	.word	94249
 	.byte	17,12,157,1,9,1,18
 	.byte	'IfxAsclin_FrameMode_initialise',0,0,18
 	.byte	'IfxAsclin_FrameMode_asc',0,1,18
 	.byte	'IfxAsclin_FrameMode_spi',0,2,18
 	.byte	'IfxAsclin_FrameMode_lin',0,3,0,30
 	.byte	'IfxAsclin_FrameMode',0,12,163,1,3
-	.word	94682
+	.word	94693
 	.byte	17,12,168,1,9,1,18
 	.byte	'IfxAsclin_HeaderResponseSelect_headerAndResponse',0,0,18
 	.byte	'IfxAsclin_HeaderResponseSelect_headerOnly',0,1,0,30
 	.byte	'IfxAsclin_HeaderResponseSelect',0,12,172,1,3
-	.word	94829
+	.word	94840
 	.byte	17,12,179,1,9,1,18
 	.byte	'IfxAsclin_IdleDelay_0',0,0,18
 	.byte	'IfxAsclin_IdleDelay_1',0,1,18
@@ -14526,7 +14527,7 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxAsclin_IdleDelay_6',0,6,18
 	.byte	'IfxAsclin_IdleDelay_7',0,7,0,30
 	.byte	'IfxAsclin_IdleDelay',0,12,189,1,3
-	.word	94971
+	.word	94982
 	.byte	17,12,195,1,9,1,18
 	.byte	'IfxAsclin_LeadDelay_0',0,0,18
 	.byte	'IfxAsclin_LeadDelay_1',0,1,18
@@ -14537,17 +14538,17 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxAsclin_LeadDelay_6',0,6,18
 	.byte	'IfxAsclin_LeadDelay_7',0,7,0,30
 	.byte	'IfxAsclin_LeadDelay',0,12,205,1,3
-	.word	95199
+	.word	95210
 	.byte	17,12,210,1,9,1,18
 	.byte	'IfxAsclin_LinMode_slave',0,0,18
 	.byte	'IfxAsclin_LinMode_master',0,1,0,30
 	.byte	'IfxAsclin_LinMode',0,12,214,1,3
-	.word	95427
+	.word	95438
 	.byte	17,12,219,1,9,1,18
 	.byte	'IfxAsclin_LinResponseTimeoutMode_frameTimeout',0,0,18
 	.byte	'IfxAsclin_LinResponseTimeoutMode_responseTimeout',0,1,0,30
 	.byte	'IfxAsclin_LinResponseTimeoutMode',0,12,223,1,3
-	.word	95514
+	.word	95525
 	.byte	17,12,228,1,9,1,18
 	.byte	'IfxAsclin_OversamplingFactor_4',0,3,18
 	.byte	'IfxAsclin_OversamplingFactor_5',0,4,18
@@ -14563,22 +14564,22 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxAsclin_OversamplingFactor_15',0,14,18
 	.byte	'IfxAsclin_OversamplingFactor_16',0,15,0,30
 	.byte	'IfxAsclin_OversamplingFactor',0,12,243,1,3
-	.word	95662
+	.word	95673
 	.byte	17,12,248,1,9,1,18
 	.byte	'IfxAsclin_ParityType_even',0,0,18
 	.byte	'IfxAsclin_ParityType_odd',0,1,0,30
 	.byte	'IfxAsclin_ParityType',0,12,252,1,3
-	.word	96143
+	.word	96154
 	.byte	17,12,129,2,9,1,18
 	.byte	'IfxAsclin_ReceiveBufferMode_rxFifo',0,0,18
 	.byte	'IfxAsclin_ReceiveBufferMode_rxBuffer',0,1,0,30
 	.byte	'IfxAsclin_ReceiveBufferMode',0,12,133,2,3
-	.word	96235
+	.word	96246
 	.byte	17,12,138,2,9,1,18
 	.byte	'IfxAsclin_RtsCtsPolarity_activeHigh',0,0,18
 	.byte	'IfxAsclin_RtsCtsPolarity_activeLow',0,1,0,30
 	.byte	'IfxAsclin_RtsCtsPolarity',0,12,142,2,3
-	.word	96355
+	.word	96366
 	.byte	17,12,147,2,9,1,18
 	.byte	'IfxAsclin_RxFifoInterruptLevel_1',0,0,18
 	.byte	'IfxAsclin_RxFifoInterruptLevel_2',0,1,18
@@ -14597,14 +14598,14 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxAsclin_RxFifoInterruptLevel_15',0,14,18
 	.byte	'IfxAsclin_RxFifoInterruptLevel_16',0,15,0,30
 	.byte	'IfxAsclin_RxFifoInterruptLevel',0,12,165,2,3
-	.word	96471
+	.word	96482
 	.byte	17,12,170,2,9,1,18
 	.byte	'IfxAsclin_RxFifoOutletWidth_0',0,0,18
 	.byte	'IfxAsclin_RxFifoOutletWidth_1',0,1,18
 	.byte	'IfxAsclin_RxFifoOutletWidth_2',0,2,18
 	.byte	'IfxAsclin_RxFifoOutletWidth_3',0,3,0,30
 	.byte	'IfxAsclin_RxFifoOutletWidth',0,12,176,2,3
-	.word	97085
+	.word	97096
 	.byte	30
 	.byte	'IfxAsclin_RxInputSelect',0,12,191,2,3
 	.word	17741
@@ -14625,27 +14626,27 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxAsclin_SamplePointPosition_14',0,14,18
 	.byte	'IfxAsclin_SamplePointPosition_15',0,15,0,30
 	.byte	'IfxAsclin_SamplePointPosition',0,12,213,2,3
-	.word	97290
+	.word	97301
 	.byte	17,12,218,2,9,1,18
 	.byte	'IfxAsclin_SamplesPerBit_one',0,0,18
 	.byte	'IfxAsclin_SamplesPerBit_three',0,1,0,30
 	.byte	'IfxAsclin_SamplesPerBit',0,12,222,2,3
-	.word	97852
+	.word	97863
 	.byte	17,12,228,2,9,1,18
 	.byte	'IfxAsclin_ShiftDirection_lsbFirst',0,0,18
 	.byte	'IfxAsclin_ShiftDirection_msbFirst',0,1,0,30
 	.byte	'IfxAsclin_ShiftDirection',0,12,232,2,3
-	.word	97954
+	.word	97965
 	.byte	17,12,238,2,9,1,18
 	.byte	'IfxAsclin_SlavePolarity_idleLow',0,0,18
 	.byte	'IfxAsclin_SlavePolarity_idlehigh',0,1,0,30
 	.byte	'IfxAsclin_SlavePolarity',0,12,242,2,3
-	.word	98067
+	.word	98078
 	.byte	17,12,247,2,9,1,18
 	.byte	'IfxAsclin_SleepMode_enable',0,0,18
 	.byte	'IfxAsclin_SleepMode_disable',0,1,0,30
 	.byte	'IfxAsclin_SleepMode',0,12,251,2,3
-	.word	98176
+	.word	98187
 	.byte	17,12,136,3,9,1,18
 	.byte	'IfxAsclin_StopBit_0',0,0,18
 	.byte	'IfxAsclin_StopBit_1',0,1,18
@@ -14656,20 +14657,20 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxAsclin_StopBit_6',0,6,18
 	.byte	'IfxAsclin_StopBit_7',0,7,0,30
 	.byte	'IfxAsclin_StopBit',0,12,146,3,3
-	.word	98271
+	.word	98282
 	.byte	17,12,150,3,9,1,18
 	.byte	'IfxAsclin_SuspendMode_none',0,0,18
 	.byte	'IfxAsclin_SuspendMode_hard',0,1,18
 	.byte	'IfxAsclin_SuspendMode_soft',0,2,0,30
 	.byte	'IfxAsclin_SuspendMode',0,12,155,3,3
-	.word	98481
+	.word	98492
 	.byte	17,12,160,3,9,1,18
 	.byte	'IfxAsclin_TxFifoInletWidth_0',0,0,18
 	.byte	'IfxAsclin_TxFifoInletWidth_1',0,1,18
 	.byte	'IfxAsclin_TxFifoInletWidth_2',0,2,18
 	.byte	'IfxAsclin_TxFifoInletWidth_3',0,3,0,30
 	.byte	'IfxAsclin_TxFifoInletWidth',0,12,166,3,3
-	.word	98606
+	.word	98617
 	.byte	17,12,171,3,9,1,18
 	.byte	'IfxAsclin_TxFifoInterruptLevel_0',0,0,18
 	.byte	'IfxAsclin_TxFifoInterruptLevel_1',0,1,18
@@ -14688,7 +14689,7 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxAsclin_TxFifoInterruptLevel_14',0,14,18
 	.byte	'IfxAsclin_TxFifoInterruptLevel_15',0,15,0,30
 	.byte	'IfxAsclin_TxFifoInterruptLevel',0,12,189,3,3
-	.word	98773
+	.word	98784
 	.byte	30
 	.byte	'Ifx_Fifo_Shared',0,14,66,3
 	.word	18058
@@ -14699,12 +14700,12 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxStm_Comparator_0',0,0,18
 	.byte	'IfxStm_Comparator_1',0,1,0,30
 	.byte	'IfxStm_Comparator',0,15,155,1,3
-	.word	99427
+	.word	99438
 	.byte	17,15,159,1,9,1,18
 	.byte	'IfxStm_ComparatorInterrupt_ir0',0,0,18
 	.byte	'IfxStm_ComparatorInterrupt_ir1',0,1,0,30
 	.byte	'IfxStm_ComparatorInterrupt',0,15,163,1,3
-	.word	99505
+	.word	99516
 	.byte	17,15,167,1,9,1,18
 	.byte	'IfxStm_ComparatorOffset_0',0,0,18
 	.byte	'IfxStm_ComparatorOffset_1',0,1,18
@@ -14739,7 +14740,7 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxStm_ComparatorOffset_30',0,30,18
 	.byte	'IfxStm_ComparatorOffset_31',0,31,0,30
 	.byte	'IfxStm_ComparatorOffset',0,15,201,1,3
-	.word	99614
+	.word	99625
 	.byte	17,15,205,1,9,1,18
 	.byte	'IfxStm_ComparatorSize_1Bit',0,0,18
 	.byte	'IfxStm_ComparatorSize_2Bits',0,1,18
@@ -14774,18 +14775,18 @@ bluetooth_ch9141_data:	.type	object
 	.byte	'IfxStm_ComparatorSize_31Bits',0,30,18
 	.byte	'IfxStm_ComparatorSize_32Bits',0,31,0,30
 	.byte	'IfxStm_ComparatorSize',0,15,239,1,3
-	.word	100572
+	.word	100583
 	.byte	17,15,244,1,9,1,18
 	.byte	'IfxStm_SleepMode_enable',0,0,18
 	.byte	'IfxStm_SleepMode_disable',0,1,0,30
 	.byte	'IfxStm_SleepMode',0,15,248,1,3
-	.word	101592
+	.word	101603
 	.byte	17,15,252,1,9,1,18
 	.byte	'IfxStm_SuspendMode_none',0,0,18
 	.byte	'IfxStm_SuspendMode_hard',0,1,18
 	.byte	'IfxStm_SuspendMode_soft',0,2,0,30
 	.byte	'IfxStm_SuspendMode',0,15,129,2,3
-	.word	101678
+	.word	101689
 	.byte	30
 	.byte	'IfxStdIf_InterfaceDriver',0,35,118,15
 	.word	383
@@ -14798,47 +14799,47 @@ bluetooth_ch9141_data:	.type	object
 	.byte	34
 	.word	383
 	.byte	34
-	.word	101824
+	.word	101835
 	.byte	34
 	.word	22006
 	.byte	0,3
-	.word	101829
+	.word	101840
 	.byte	30
 	.byte	'IfxStdIf_DPipe_Write',0,36,92,19
-	.word	101857
+	.word	101868
 	.byte	30
 	.byte	'IfxStdIf_DPipe_Read',0,36,107,19
-	.word	101857
+	.word	101868
 	.byte	33
 	.word	18046
 	.byte	1,1,34
 	.word	383
 	.byte	0,3
-	.word	101919
+	.word	101930
 	.byte	30
 	.byte	'IfxStdIf_DPipe_GetReadCount',0,36,115,18
-	.word	101932
+	.word	101943
 	.byte	14
 	.word	644
 	.byte	3
-	.word	101973
+	.word	101984
 	.byte	33
-	.word	101978
+	.word	101989
 	.byte	1,1,34
 	.word	383
 	.byte	0,3
-	.word	101983
+	.word	101994
 	.byte	30
 	.byte	'IfxStdIf_DPipe_GetReadEvent',0,36,123,36
-	.word	101996
+	.word	102007
 	.byte	30
 	.byte	'IfxStdIf_DPipe_GetWriteCount',0,36,147,1,18
-	.word	101932
+	.word	101943
 	.byte	3
-	.word	101983
+	.word	101994
 	.byte	30
 	.byte	'IfxStdIf_DPipe_GetWriteEvent',0,36,155,1,37
-	.word	102075
+	.word	102086
 	.byte	33
 	.word	644
 	.byte	1,1,34
@@ -14848,13 +14849,13 @@ bluetooth_ch9141_data:	.type	object
 	.byte	34
 	.word	22006
 	.byte	0,3
-	.word	102118
+	.word	102129
 	.byte	30
 	.byte	'IfxStdIf_DPipe_CanReadCount',0,36,166,1,19
-	.word	102141
+	.word	102152
 	.byte	30
 	.byte	'IfxStdIf_DPipe_CanWriteCount',0,36,177,1,19
-	.word	102141
+	.word	102152
 	.byte	33
 	.word	644
 	.byte	1,1,34
@@ -14862,157 +14863,157 @@ bluetooth_ch9141_data:	.type	object
 	.byte	34
 	.word	22006
 	.byte	0,3
-	.word	102221
+	.word	102232
 	.byte	30
 	.byte	'IfxStdIf_DPipe_FlushTx',0,36,186,1,19
-	.word	102239
+	.word	102250
 	.byte	35,1,1,34
 	.word	383
 	.byte	0,3
-	.word	102276
+	.word	102287
 	.byte	30
 	.byte	'IfxStdIf_DPipe_ClearTx',0,36,200,1,16
-	.word	102285
+	.word	102296
 	.byte	30
 	.byte	'IfxStdIf_DPipe_ClearRx',0,36,193,1,16
-	.word	102285
+	.word	102296
 	.byte	30
 	.byte	'IfxStdIf_DPipe_OnReceive',0,36,208,1,16
-	.word	102285
+	.word	102296
 	.byte	30
 	.byte	'IfxStdIf_DPipe_OnTransmit',0,36,215,1,16
-	.word	102285
+	.word	102296
 	.byte	30
 	.byte	'IfxStdIf_DPipe_OnError',0,36,222,1,16
-	.word	102285
+	.word	102296
 	.byte	33
 	.word	10305
 	.byte	1,1,34
 	.word	383
 	.byte	0,3
-	.word	102455
+	.word	102466
 	.byte	30
 	.byte	'IfxStdIf_DPipe_GetSendCount',0,36,131,1,18
-	.word	102468
+	.word	102479
 	.byte	33
 	.word	22006
 	.byte	1,1,34
 	.word	383
 	.byte	0,3
-	.word	102510
+	.word	102521
 	.byte	30
 	.byte	'IfxStdIf_DPipe_GetTxTimeStamp',0,36,139,1,24
-	.word	102523
+	.word	102534
 	.byte	30
 	.byte	'IfxStdIf_DPipe_ResetSendCount',0,36,229,1,16
-	.word	102285
+	.word	102296
 	.byte	10
 	.byte	'IfxStdIf_DPipe_',0,36,233,1,8,76,13
 	.byte	'driver',0
-	.word	101791
+	.word	101802
 	.byte	4,2,35,0,13
 	.byte	'txDisabled',0
 	.word	644
 	.byte	1,2,35,4,13
 	.byte	'write',0
-	.word	101862
+	.word	101873
 	.byte	4,2,35,8,13
 	.byte	'read',0
-	.word	101891
+	.word	101902
 	.byte	4,2,35,12,13
 	.byte	'getReadCount',0
-	.word	101937
+	.word	101948
 	.byte	4,2,35,16,13
 	.byte	'getReadEvent',0
-	.word	102001
+	.word	102012
 	.byte	4,2,35,20,13
 	.byte	'getWriteCount',0
-	.word	102037
+	.word	102048
 	.byte	4,2,35,24,13
 	.byte	'getWriteEvent',0
-	.word	102080
+	.word	102091
 	.byte	4,2,35,28,13
 	.byte	'canReadCount',0
-	.word	102146
+	.word	102157
 	.byte	4,2,35,32,13
 	.byte	'canWriteCount',0
-	.word	102183
+	.word	102194
 	.byte	4,2,35,36,13
 	.byte	'flushTx',0
-	.word	102244
+	.word	102255
 	.byte	4,2,35,40,13
 	.byte	'clearTx',0
-	.word	102290
+	.word	102301
 	.byte	4,2,35,44,13
 	.byte	'clearRx',0
-	.word	102322
+	.word	102333
 	.byte	4,2,35,48,13
 	.byte	'onReceive',0
-	.word	102354
+	.word	102365
 	.byte	4,2,35,52,13
 	.byte	'onTransmit',0
-	.word	102388
+	.word	102399
 	.byte	4,2,35,56,13
 	.byte	'onError',0
-	.word	102423
+	.word	102434
 	.byte	4,2,35,60,13
 	.byte	'getSendCount',0
-	.word	102473
+	.word	102484
 	.byte	4,2,35,64,13
 	.byte	'getTxTimeStamp',0
-	.word	102528
+	.word	102539
 	.byte	4,2,35,68,13
 	.byte	'resetSendCount',0
-	.word	102567
+	.word	102578
 	.byte	4,2,35,72,0,30
 	.byte	'IfxStdIf_DPipe',0,36,71,32
-	.word	102606
+	.word	102617
 	.byte	3
 	.word	377
 	.byte	3
-	.word	101829
+	.word	101840
 	.byte	3
-	.word	101829
+	.word	101840
 	.byte	3
-	.word	101919
+	.word	101930
 	.byte	3
-	.word	101983
+	.word	101994
 	.byte	3
-	.word	101919
+	.word	101930
 	.byte	3
-	.word	101983
+	.word	101994
 	.byte	3
-	.word	102118
+	.word	102129
 	.byte	3
-	.word	102118
+	.word	102129
 	.byte	3
-	.word	102221
+	.word	102232
 	.byte	3
-	.word	102276
+	.word	102287
 	.byte	3
-	.word	102276
+	.word	102287
 	.byte	3
-	.word	102276
+	.word	102287
 	.byte	3
-	.word	102276
+	.word	102287
 	.byte	3
-	.word	102276
+	.word	102287
 	.byte	3
-	.word	102455
+	.word	102466
 	.byte	3
-	.word	102510
+	.word	102521
 	.byte	3
-	.word	102276
+	.word	102287
 	.byte	14
 	.word	644
 	.byte	3
-	.word	103119
+	.word	103130
 	.byte	30
 	.byte	'IfxStdIf_DPipe_WriteEvent',0,36,73,32
-	.word	103124
+	.word	103135
 	.byte	30
 	.byte	'IfxStdIf_DPipe_ReadEvent',0,36,74,32
-	.word	103124
+	.word	103135
 	.byte	20,37,252,1,9,1,11
 	.byte	'parityError',0,1
 	.word	644
@@ -15030,7 +15031,7 @@ bluetooth_ch9141_data:	.type	object
 	.word	644
 	.byte	1,3,2,35,0,0,30
 	.byte	'IfxAsclin_Asc_ErrorFlags',0,37,131,2,3
-	.word	103196
+	.word	103207
 	.byte	20,37,137,2,9,8,13
 	.byte	'baudrate',0
 	.word	265
@@ -15039,61 +15040,61 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	2,2,35,4,13
 	.byte	'oversampling',0
-	.word	95662
+	.word	95673
 	.byte	1,2,35,6,0,30
 	.byte	'IfxAsclin_Asc_BaudRate',0,37,142,2,3
-	.word	103361
+	.word	103372
 	.byte	20,37,146,2,9,2,13
 	.byte	'medianFilter',0
-	.word	97852
+	.word	97863
 	.byte	1,2,35,0,13
 	.byte	'samplePointPosition',0
-	.word	97290
+	.word	97301
 	.byte	1,2,35,1,0,30
 	.byte	'IfxAsclin_Asc_BitTimingControl',0,37,150,2,3
-	.word	103459
+	.word	103470
 	.byte	20,37,154,2,9,6,13
 	.byte	'inWidth',0
-	.word	98606
+	.word	98617
 	.byte	1,2,35,0,13
 	.byte	'outWidth',0
-	.word	97085
+	.word	97096
 	.byte	1,2,35,1,13
 	.byte	'txFifoInterruptLevel',0
-	.word	98773
+	.word	98784
 	.byte	1,2,35,2,13
 	.byte	'rxFifoInterruptLevel',0
-	.word	96471
+	.word	96482
 	.byte	1,2,35,3,13
 	.byte	'buffMode',0
-	.word	96235
+	.word	96246
 	.byte	1,2,35,4,0,30
 	.byte	'IfxAsclin_Asc_FifoControl',0,37,161,2,3
-	.word	103557
+	.word	103568
 	.byte	20,37,165,2,9,8,13
 	.byte	'idleDelay',0
-	.word	94971
+	.word	94982
 	.byte	1,2,35,0,13
 	.byte	'stopBit',0
-	.word	98271
+	.word	98282
 	.byte	1,2,35,1,13
 	.byte	'frameMode',0
-	.word	94682
+	.word	94693
 	.byte	1,2,35,2,13
 	.byte	'shiftDir',0
-	.word	97954
+	.word	97965
 	.byte	1,2,35,3,13
 	.byte	'parityType',0
-	.word	96143
+	.word	96154
 	.byte	1,2,35,4,13
 	.byte	'dataLength',0
-	.word	94238
+	.word	94249
 	.byte	1,2,35,5,13
 	.byte	'parityBit',0
 	.word	644
 	.byte	1,2,35,6,0,30
 	.byte	'IfxAsclin_Asc_FrameControl',0,37,174,2,3
-	.word	103712
+	.word	103723
 	.byte	20,37,178,2,9,8,13
 	.byte	'txPriority',0
 	.word	661
@@ -15105,82 +15106,82 @@ bluetooth_ch9141_data:	.type	object
 	.word	661
 	.byte	2,2,35,4,13
 	.byte	'typeOfService',0
-	.word	93061
+	.word	93072
 	.byte	1,2,35,6,0,30
 	.byte	'IfxAsclin_Asc_InterruptConfig',0,37,184,2,3
-	.word	103887
+	.word	103898
 	.byte	21
-	.word	93139
+	.word	93150
 	.byte	3
-	.word	104016
+	.word	104027
 	.byte	21
-	.word	93220
+	.word	93231
 	.byte	3
-	.word	104026
+	.word	104037
 	.byte	21
-	.word	93300
+	.word	93311
 	.byte	3
-	.word	104036
+	.word	104047
 	.byte	21
-	.word	93548
+	.word	93559
 	.byte	3
-	.word	104046
+	.word	104057
 	.byte	20,37,188,2,9,32,13
 	.byte	'cts',0
-	.word	104021
+	.word	104032
 	.byte	4,2,35,0,13
 	.byte	'ctsMode',0
 	.word	9214
 	.byte	1,2,35,4,13
 	.byte	'rx',0
-	.word	104031
+	.word	104042
 	.byte	4,2,35,8,13
 	.byte	'rxMode',0
 	.word	9214
 	.byte	1,2,35,12,13
 	.byte	'rts',0
-	.word	104041
+	.word	104052
 	.byte	4,2,35,16,13
 	.byte	'rtsMode',0
 	.word	9419
 	.byte	1,2,35,20,13
 	.byte	'tx',0
-	.word	104051
+	.word	104062
 	.byte	4,2,35,24,13
 	.byte	'txMode',0
 	.word	9419
 	.byte	1,2,35,28,13
 	.byte	'pinDriver',0
-	.word	56061
+	.word	56072
 	.byte	1,2,35,29,0,30
 	.byte	'IfxAsclin_Asc_Pins',0,37,199,2,3
-	.word	104056
+	.word	104067
 	.byte	12,37,205,2,9,1,13
 	.byte	'ALL',0
 	.word	644
 	.byte	1,2,35,0,13
 	.byte	'flags',0
-	.word	103196
+	.word	103207
 	.byte	1,2,35,0,0,30
 	.byte	'IfxAsclin_Asc_ErrorFlagsUnion',0,37,209,2,3
-	.word	104226
+	.word	104237
 	.byte	30
-	.byte	'uart_tx_pin_enum',0,22,74,2
+	.byte	'uart_tx_pin_enum',0,22,75,2
 	.word	26260
 	.byte	30
-	.byte	'uart_rx_pin_enum',0,22,100,2
+	.byte	'uart_rx_pin_enum',0,22,101,2
 	.word	26712
 	.byte	30
-	.byte	'uart_index_enum',0,22,109,2
+	.byte	'uart_index_enum',0,22,110,2
 	.word	25970
 	.byte	30
-	.byte	'wireless_type_enum',0,24,61,2
+	.byte	'wireless_type_enum',0,24,63,2
 	.word	27128
 	.byte	15,4
 	.word	644
 	.byte	16,3,0,36
 	.byte	'camera_send_image_frame_header',0,38,48,14
-	.word	104401
+	.word	104412
 	.byte	1,1
 .L120:
 	.byte	15,64

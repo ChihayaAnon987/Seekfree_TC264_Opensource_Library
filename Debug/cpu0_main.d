@@ -286,6 +286,8 @@ cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\
 "D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_device\zf_device_ips114.h" :
 cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_device\zf_device_ips200.h"
 "D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_device\zf_device_ips200.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_device\zf_device_ips200pro.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_device\zf_device_ips200pro.h" :
 cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_device\zf_device_key.h"
 "D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_device\zf_device_key.h" :
 cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_device\zf_device_mpu6050.h"
@@ -312,6 +314,10 @@ cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\
 "D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_device\zf_device_wifi_spi.h" :
 cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_device\zf_device_wireless_uart.h"
 "D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_device\zf_device_wireless_uart.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\TLD7002_control\zf_device_dot_matrix_screen.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\TLD7002_control\zf_device_dot_matrix_screen.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\TLD7002_control\zf_device_tld7002.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\TLD7002_control\zf_device_tld7002.h" :
 cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_components\seekfree_assistant.h"
 "D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_components\seekfree_assistant.h" :
 cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_components\seekfree_assistant_interface.h"
@@ -334,3 +340,23 @@ cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\Remot
 "D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\RemoteCtrl.h" :
 cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\Kalman.h"
 "D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\Kalman.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\Camera.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\Camera.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\Picture.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\Picture.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\asr_audio.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\asr_audio.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_common\zf_common_headfile.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\libraries\\zf_common\zf_common_headfile.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\hmac_sha256.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\hmac_sha256.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\base64.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\base64.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\asr_ctrl.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\asr_ctrl.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\sha1.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\sha1.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\websocket_client.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\websocket_client.h" :
+cpu0_main.o :	"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\utf8.h"
+"D:\\ADS\\ADS_TC264\\Seekfree_TC264_Opensource_Library\\code\\xfapi\utf8.h" :
