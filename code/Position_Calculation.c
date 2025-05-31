@@ -11,16 +11,16 @@
 int16 Track_Points_NUM =   0;       // 当前追踪第几个点
 double Angle_Error     =   0;       // 方向角与航向角之差
 int16  Target_Encoder  =   0;       // 转速
-int16  Fly_Slope_Alpha = 200;       // 飞坡系数
-float  K_Straight      = 1.7;       // 走直线系数
+int16  Fly_Slope_Alpha = 400;       // 飞坡系数
+float  K_Straight      = 1.8;       // 走直线系数
 int8   Hole_Point      =  52;       // 标记桥洞点位
 int8   Ramp_Point      =  52;       // 标记坡道点位
-int8   Turn_Point      =  55;       // 标记掉头点位
+int8   Turn_Point      =  57;       // 标记掉头点位
 double Turn_Angle      =   0;       // 掉头方向
 int8   Action_Flag[ACTION_COUNT]  = {0};    // 科目四动作标志位
 int8   Task_Four_Turn_Flag        = 0;      // 科目四转圈标志位
-float  Snack_Advance              = 3;      // 蛇形前进偏移
-float  Snack_Back                 = 3;      // 蛇形后退偏移
+float  Snack_Advance              = 4.0f;      // 蛇形前进偏移
+float  Snack_Back                 = 3.0f;      // 蛇形后退偏移
 float  Task4_Start_Direc          = 0;      // 科目四发车角度
 
 /****************************************************************************************************

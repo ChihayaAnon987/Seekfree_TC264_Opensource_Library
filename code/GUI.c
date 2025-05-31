@@ -1810,7 +1810,7 @@ void Key_Ctrl_Menu()
                     {
                         Track_Points_NUM = Task1_Start_Point;
                         Task_Flag = 1;
-                        Turn_Angle = get_two_points_azimuth(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 2].latitude, Point[Task1_Start_Point + 2].lonitude);
+                        Turn_Angle = get_two_points_azimuth(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 3].latitude, Point[Task1_Start_Point + 3].lonitude);
                         Task1_Road_Fix();
                         initCoordinateSystem();
                         LED_Buzzer_Flag_Ctrl(LED3); // ÔÝÊ±Ìæ»»
@@ -2465,7 +2465,7 @@ void Key_Ctrl_Menu()
             {
                 Track_Points_NUM = Task1_Start_Point;
                 Task_Flag = 1;
-                Turn_Angle = get_two_points_azimuth(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 2].latitude, Point[Task1_Start_Point + 2].lonitude);
+                Turn_Angle = get_two_points_azimuth(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 3].latitude, Point[Task1_Start_Point + 3].lonitude);
                 initCoordinateSystem();
                 ips200_clear();
             }
