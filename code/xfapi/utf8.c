@@ -108,20 +108,20 @@ void Recognize_Command()
                     bestIndex = i;
                 }
             }
-            printf("%d\r\n", i);
+            // printf("%d\r\n", i);
         }
 
         // 如果没有匹配到任何命令，则结束解析
         if (bestIndex == -1)
         {
-            printf("在位置 %d 无法匹配到任何命令，解析终止！\n", pos);
+            // printf("在位置 %d 无法匹配到任何命令，解析终止！\n", pos);
             break;
         }
 
         // 如果匹配不在当前位置，则说明前面的部分未识别
         if (bestOffset > 0)
         {
-            printf("提示：在位置 %d 有 %d 个字符未能匹配，自动跳过这些字符。\n", pos, bestOffset);
+            // printf("提示：在位置 %d 有 %d 个字符未能匹配，自动跳过这些字符。\n", pos, bestOffset);
             pos += bestOffset;
         }
         // 记录匹配到的命令的标志位
@@ -133,11 +133,11 @@ void Recognize_Command()
     }
 
     // 输出解析结果
-    printf("解析得到的 Action_Flag 标志位如下：\n");
-    for (int16 i = 0; i < cmdFound; i++)
-    {
-        printf("Action_Flag[%d] = %d\n", i, Action_Flag[i]);
-    }
+    // printf("解析得到的 Action_Flag 标志位如下：\n");
+    // for (int16 i = 0; i < cmdFound; i++)
+    // {
+    //     printf("Action_Flag[%d] = %d\n", i, Action_Flag[i]);
+    // }
 }
 
 int raw = 0;  // 行

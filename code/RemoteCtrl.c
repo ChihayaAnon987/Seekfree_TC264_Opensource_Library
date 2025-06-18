@@ -78,6 +78,7 @@ void RemoteCtrl_Direction_Speed()
             {
                 CenterAngle = angle[2];
                 Center_Flag = 1;
+                Angle_Error = 0;
             }
         }
         else

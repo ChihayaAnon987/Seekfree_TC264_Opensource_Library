@@ -39,15 +39,6 @@ void Track_Follow()
     // 调试用
     // Angle = Test_Angle;
 
-
-    // 改进点
-    // 1.Angle是GPS的方向角，通过对GPS的滤波，可以得到更加准确的方向角
-    // 2.Z_360是IMU的航向角，通过对IMU的滤波，可以得到更加准确的航向角（卡尔曼滤波和四元数，上面这两点是数据处理）
-    // 3.加入舵机PD控制
-    // 4.加入电机PID控制
-    // 5.MPC控制和曲率前馈
-    // 1234均已实现的差不多，等待实际测试
-
     if(Star_Time == 0)
     {
         Star_Time = System_Time;
@@ -440,7 +431,7 @@ void Point_Switch()
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);
                         #endif
-                        if(fabs(angle[2] - 180) < 5)
+                        if(fabs(angle[2] - 180) < 30)
                         {
                             break;
                         }
@@ -464,7 +455,7 @@ void Point_Switch()
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);
                         #endif
-                        if(fabs(angle[2] - 180) < 5)
+                        if(fabs(angle[2] - 180) < 30)
                         {
                             break;
                         }
@@ -495,7 +486,7 @@ void Point_Switch()
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);
                         #endif
-                        if(fabs(angle[2] - 180) < 5)
+                        if(fabs(angle[2] - 180) < 30)
                         {
                             break;
                         }
@@ -518,7 +509,7 @@ void Point_Switch()
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);
                         #endif
-                        if(fabs(angle[2] - 180) < 5)
+                        if(fabs(angle[2] - 180) < 30)
                         {
                             break;
                         }
@@ -549,7 +540,7 @@ void Point_Switch()
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);
                         #endif
-                        if(fabs(angle[2] - 180) < 5)
+                        if(fabs(angle[2] - 180) < 30)
                         {
                             break;
                         }
@@ -572,7 +563,7 @@ void Point_Switch()
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);
                         #endif
-                        if(fabs(angle[2] - 180) < 5)
+                        if(fabs(angle[2] - 180) < 30)
                         {
                             break;
                         }
