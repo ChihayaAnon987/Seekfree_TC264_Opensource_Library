@@ -41,6 +41,7 @@ FuzzyCommand fuzzyTable[] =
     {"向前直行十米", HEAD_STRAIGHT},
     {"向前直行10米", HEAD_STRAIGHT},
     {"向前直行", HEAD_STRAIGHT},
+    {"向前", HEAD_STRAIGHT},
 
     {"后退直行十米", BACK_STRAIGHT},
     {"后退直行10米", BACK_STRAIGHT},

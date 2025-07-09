@@ -4,7 +4,7 @@
 #define ASR_TARGET_IP           "ws-api.xfyun.cn"
 #define ASR_TARGET_PORT         "80"
 #define ASR_DOMAIN              "wss://ws-api.xfyun.cn/v2/iat"
-#define ASR_AUDIO_ADC           ADC0_CH1_A1
+#define ASR_AUDIO_ADC           ADC0_CH4_A4
 #define ASR_BUTTON              P20_6
 #define ASR_PIT                 CCU61_CH1
 

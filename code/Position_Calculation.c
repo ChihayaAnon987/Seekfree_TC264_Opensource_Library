@@ -77,7 +77,6 @@ void Task4_Finish()
         {
             case FLASHING_LIGHT:
             {
-                
                 dot_matrix_screen_set_brightness(5000);         // 设置点阵亮度
                 dot_matrix_screen_show_string("123");           // 双闪灯123
                 system_delay_ms(2900);
@@ -406,10 +405,10 @@ void Point_Switch()
     }
     else if(Track_Points_NUM == Task4_Start_Point)
     {
-        if(Distance > GpsDistance[Track_Points_NUM])
-        {
-            LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
-        }
+        // if(Distance > GpsDistance[Track_Points_NUM])
+        // {
+        //     LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+        // }
     }
     else if(Track_Points_NUM == Task1_Start_Point + 2) // 科目一拐弯
     {

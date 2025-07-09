@@ -30,7 +30,7 @@ void CPU0_Init()
 #endif
     Oscilloscope_Init(8);                                           // 逐飞示波器初始化
     pit_ms_init(CCU60_CH0, 5);                                      // 中断，IMU数据采集
-    pit_ms_init(CCU60_CH1, 5);                                      // 中断 编码器、舵机电机PID
+    // pit_ms_init(CCU60_CH1, 5);                                      // 中断 编码器、舵机电机PID
     pit_ms_init(CCU61_CH0, 100);                                    // 中断 GPS数据解析
     // pit_ms_init(CCU61_CH1, 5);                                      // 中断 遥控器
 }

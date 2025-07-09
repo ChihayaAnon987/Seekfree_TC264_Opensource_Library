@@ -10,9 +10,9 @@
 
 //===================================================宏定义BEG===================================================
 #define VERSION_INFO             ("V6.4.5")                  // 版本号
-#define UART_RECEIVER_ENABLE     (1)                         // 0: 不启用遥控器    1: 启用遥控器
+#define UART_RECEIVER_ENABLE     (0)                         // 0: 不启用遥控器    1: 启用遥控器
 #define WIRELESS_UART_ENABLE     (0)                         // 0: 不启用无线串口  1: 启用无线串口
-#define WIFI_UART_ENABLE         (0)                         // 0: 不启用WIFI串口  1: 启用WIFI串口  遥控器、无线串口、WIFI串口只能启用一个
+#define WIFI_UART_ENABLE         (1)                         // 0: 不启用WIFI串口  1: 启用WIFI串口  遥控器、无线串口、WIFI串口只能启用一个
 #define CAR_NUMBER               (0)                         // 0: 0号车           1: 1号车
 #define MT9V03X_ENABLE           (0)                         // 0: 不启用摄像头    1: 启用摄像头
 #define BLDC_ENABLE              (1)                         // 0: 不启用无刷      1: 启用无刷
@@ -36,7 +36,7 @@
 #define KEY5                    (P20_2)                      // 按键5 控制引脚
 
 #define SWITCH1                 (P33_11)                     // 开关1 控制引脚
-#define SWITCH2                 (P33_12)                     // 开关2 控制引脚
+#define SWITCH2                 (P21_2 )                     // 开关2 控制引脚
 
 #if BLDC_ENABLE
 #define PWM_CH1             ATOM0_CH7_P02_7

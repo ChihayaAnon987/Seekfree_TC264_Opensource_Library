@@ -84,7 +84,7 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
     #endif
 #endif
     // Servo_SetTest(Servo_Angle);
-    Encoder_Get();
+    // Encoder_Get();
 
 }
 
@@ -174,7 +174,10 @@ IFX_INTERRUPT(exti_ch3_ch7_isr, 0, EXTI_CH3_CH7_INT_PRIO)
     if(exti_flag_get(ERU_CH7_REQ16_P15_1))          // Í¨µÀ7ÖÐ¶Ï
     {
         exti_flag_clear(ERU_CH7_REQ16_P15_1);
-        dot_matrix_screen_scan();
+        if(Target_Encoder == 0)
+        {
+            dot_matrix_screen_scan();
+        }
 
 
 

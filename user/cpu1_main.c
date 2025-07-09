@@ -64,7 +64,9 @@ void core1_main(void)
         Menu_Control();
         key_scanner();
         Key_Ctrl_Menu();
-
+        #if WIFI_UART_ENABLE
+            audio_loop();
+        #endif
 
         // 此处编写需要循环执行的代码
     }

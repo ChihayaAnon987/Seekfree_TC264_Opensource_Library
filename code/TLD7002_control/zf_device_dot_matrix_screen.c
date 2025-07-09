@@ -311,7 +311,6 @@ void dot_matrix_screen_scan(void)
     static uint8 entry_num; // 进入此函数的次数
     uint8 display_row_now;  // 当前正在显示第几行
     display_row_now = entry_num / 2;
-    printf("a1");
     if(0 == (entry_num % 2))
     {
         if(0 == display_row_now)

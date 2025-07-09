@@ -19,8 +19,8 @@
 #define BACK_STRAIGHT                    (     8    )        // 后退直行十米
 #define SNAKE_ADVANCE                    (     9    )        // 蛇形前进十米
 #define SNAKE_BACK                       (    10    )        // 蛇形后退十米
-#define ROTATE_ANTICLOCK                 (    11    )        // 逆时针转一圈
-#define ROTATE_CLOCKWISE                 (    12    )        // 顺时针转一圈
+#define ROTATE_CLOCKWISE                 (    11    )        // 顺时针转一圈
+#define ROTATE_ANTICLOCK                 (    12    )        // 逆时针转一圈
 #define PARK_AREA_ONE                    (    13    )        // 停进停车区一
 #define PARK_AREA_TWO                    (    14    )        // 停进停车区二
 #define PARK_AREA_THREE                  (    15    )        // 停进停车区三

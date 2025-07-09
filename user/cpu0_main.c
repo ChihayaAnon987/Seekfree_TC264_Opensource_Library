@@ -92,9 +92,6 @@ int core0_main(void)
                 PDLocServoCtrl();
             }
         #endif
-        #if WIFI_UART_ENABLE
-            audio_loop();
-        #endif
         if(Start_Flag == 1)
         {
             system_delay_ms(1000);
@@ -162,7 +159,6 @@ int core0_main(void)
         }
 
 #endif
-        // 此处编写需要循环执行的代码
     }
 }
 

@@ -53,7 +53,7 @@
 
 #define TLD7002_UART_INDEX      (UART_1)            // 串口号
 #define TLD7002_UART_BAUD       (2000000)           // 波特率
-#define TLD7002_UART_RX         (UART1_TX_P02_2)    // TLD7002驱动模块的RX与单片机的TX连接
+#define TLD7002_UART_RX         (UART1_TX_P33_12)    // TLD7002驱动模块的RX与单片机的TX连接
 #define TLD7002_UART_HLSIL      (UART1_RX_P33_13)   // TLD7002驱动模块的HSLI_L与单片机的RX引脚连接
 
 #define TLD7002_GPIN0_PIN       (P32_4)             // GPIN0引脚定义
