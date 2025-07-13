@@ -84,6 +84,11 @@ FuzzyCommand fuzzyTable[] =
     {"3", PARK_AREA_THREE},
 };
 
+void set_dictation_result()
+{
+    strcpy(Dictation_Result, "打开双闪灯，打开左转灯，蛇形后退10米，顺时针转一圈，停进停车区二。");
+}
+
 void Recognize_Command()
 {
     int16 FUZZY_COUNT = sizeof(fuzzyTable) / sizeof(fuzzyTable[0]);

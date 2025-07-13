@@ -77,7 +77,7 @@ float  GpsSpeed    = 0;             // 速度
 float  GpsAccel    = 0;             // 加速度
 float  GpsMaxSpeed = 0;             // 最大速度
 float  GpsMaxAccel = 0;             // 最大加速度
-int8   Task1_Points = 5;            // 科目一所用点位数量
+int8   Task1_Points = 6;            // 科目一所用点位数量
 int8   Task2_Bucket = 4;            // 科目二锥桶数量
 float  Bucket_Dista = 2.5f;         // 锥桶间距
 float  Start_To_Bucket = 0;         // 起点到锥桶的偏移量
@@ -441,20 +441,24 @@ void updateCarPosition()
 
 void Task1_Road_Fix()
 {
-    Point[Task1_Start_Point + 1].lonitude = Point[Task1_Start_Point].lonitude;
     Point[Task1_Start_Point + 2].lonitude = Point[Task1_Start_Point].lonitude;
+    Point[Task1_Start_Point + 3].latitude = Point[Task1_Start_Point + 2].latitude;
+    
+    Point[Task1_Start_Point + 5].latitude = Point[Task1_Start_Point].latitude;
+    Point[Task1_Start_Point + 5].lonitude = Point[Task1_Start_Point + 3].lonitude;
+    
+    Point[Task1_Start_Point + 1].lonitude = Point[Task1_Start_Point].lonitude;
+    Point[Task1_Start_Point + 4].lonitude = Point[Task1_Start_Point + 3].lonitude;
     if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 2].latitude)  // 向北发车
     {
         Point[Task1_Start_Point + 1].latitude = Point[Task1_Start_Point + 2].latitude - METER_TO_LAT(5);
+        Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point + 5].latitude + METER_TO_LAT(5);
     }
     else
     {
         Point[Task1_Start_Point + 1].latitude = Point[Task1_Start_Point + 2].latitude + METER_TO_LAT(5);
+        Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point + 5].latitude - METER_TO_LAT(5);
     }
-
-    Point[Task1_Start_Point + 4].lonitude = Point[Task1_Start_Point + 3].lonitude;
-    Point[Task1_Start_Point + 3].latitude = Point[Task1_Start_Point + 2].latitude;
-    Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point].latitude;
 
 }
 
@@ -508,7 +512,10 @@ void Task2_Road_Gen()
     Point[Task2_Start_Point + Task2_Bucket + 3].latitude = Point[Task2_Road_Genera + Task2_Bucket + 1].latitude + Toward * 0.000002 * Task2_Scales;
     Point[Task2_Start_Point + Task2_Bucket + 3].lonitude = Point[Task2_Start_Point + Task2_Bucket + 5].lonitude;
 
-    // Point[Task2_Start_Point + Task2_Bucket + 5].lonitude -= Toward * 0.000008;
+    // 根据车模特性调整
+    Point[Task2_Start_Point + Task2_Bucket + 4].latitude -= Toward * 0.000008;
+    Point[Task2_Start_Point + Task2_Bucket + 5].lonitude -= Toward * 0.000008;
+    Point[Task2_Start_Point + Task2_Bucket + 7].lonitude -= Toward * 0.000008;
     
     // 起点到锥桶, 拐弯区到锥桶点赋值
     Point[Task2_Start_Point + 1].latitude = Point[Task2_Start_Point + 2].latitude - Toward * METER_TO_LAT(3); // 3m

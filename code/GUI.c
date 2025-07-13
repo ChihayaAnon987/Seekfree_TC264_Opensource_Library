@@ -133,7 +133,7 @@ void main_menu0(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 
 void main_menu1(void)
@@ -161,7 +161,7 @@ void main_menu1(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 
 void main_menu2(void)
@@ -189,7 +189,7 @@ void main_menu2(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 
 void main_menu3(void)
@@ -217,7 +217,7 @@ void main_menu3(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 
 void main_menu4(void)
@@ -245,7 +245,7 @@ void main_menu4(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 
 void main_menu5(void)
@@ -273,7 +273,7 @@ void main_menu5(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 
 void main_menu6(void)
@@ -301,7 +301,7 @@ void main_menu6(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 
 void main_menu7(void)
@@ -329,7 +329,7 @@ void main_menu7(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 
 void main_menu8(void)
@@ -357,7 +357,7 @@ void main_menu8(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 
 void main_menu9(void)
@@ -385,7 +385,7 @@ void main_menu9(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 
 void main_menu10(void)
@@ -413,7 +413,7 @@ void main_menu10(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 
 void main_menu11(void)
@@ -441,7 +441,7 @@ void main_menu11(void)
     ips200_show_chinese(112, 16 * 4, 16, TeamName4[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 5, 16, TeamName5[0], 1, RGB565_PURPLE);
     ips200_show_chinese(112, 16 * 6, 16, TeamName6[0], 1, RGB565_PURPLE);
-    ips200_show_rgb565_image(114, 185, (const uint16 *)my_picture, 126, 135, 126, 135, 1);
+    ips200_show_rgb565_image(105, 185, (const uint16 *)my_picture, 135, 135, 135, 135, 1);
 }
 /////////////////////////////////二层菜单-------------------------------------------------
 void CaiDian_menu(void)
@@ -558,6 +558,7 @@ void spd_menu(void)
     ips200_show_string(  0, 16 * 10, "KEY2:Point+1");
     ips200_show_string(120, 16 *  9, "KEY3:Duty+100");
     ips200_show_string(120, 16 * 10, "KEY4:Duty-100");
+    ips200_show_string(  0, 16 * 11, "KEY5:Save");
 
 
 }
@@ -585,6 +586,7 @@ void Distance_menu(void)
     ips200_show_string(  0, 16 * 10, "KEY2:Point+1");
     ips200_show_string(120, 16 *  9, "KEY3:Dist+0.10");
     ips200_show_string(120, 16 * 10, "KEY4:Dist-0.10");
+    ips200_show_string(  0, 16 * 11, "KEY5:Save");
 
 }
 
@@ -626,6 +628,7 @@ void TaskPoint(void)
     ips200_show_string(  0, 16 * 10, "KEY2:Task+1");
     ips200_show_string(120, 16 *  9, "KEY3:Point+1");
     ips200_show_string(120, 16 * 10, "KEY4:Point-1");
+    ips200_show_string(  0, 16 * 11, "KEY5:Save");
 
 }
 
@@ -1288,6 +1291,7 @@ void LoopEnable_menu()
     ips200_show_string(  0, 16 * 10, "KEY2:Down");
     ips200_show_string(120, 16 *  9, "KEY3:+0.01");
     ips200_show_string(120, 16 * 10, "KEY4:-0.01");
+    ips200_show_string(  0, 16 * 11, "KEY5:Save");
 }
 
 void LoopDisable_menu()
@@ -1337,6 +1341,7 @@ void LoopDisable_menu()
     ips200_show_string(  0, 16 * 10, "KEY2:Down");
     ips200_show_string(120, 16 *  9, "KEY3:+0.01");
     ips200_show_string(120, 16 * 10, "KEY4:-0.01");
+    ips200_show_string(  0, 16 * 11, "KEY5:Save");
 }
 
 void Param_Set_menu()
@@ -1372,8 +1377,9 @@ void Param_Set_menu()
     }
     ips200_show_string(  0, 16 *  9, "KEY1:Up");
     ips200_show_string(  0, 16 * 10, "KEY2:Down");
-    ips200_show_string(120, 16 *  9, "KEY3:K+");
+    ips200_show_string(120, 16 *  9, "KEY3:K+/TurnDir");
     ips200_show_string(120, 16 * 10, "KEY4:K-");
+    ips200_show_string(  0, 16 * 11, "KEY5:Save");
 }
 
 void Key_Ctrl_Menu()
@@ -1459,13 +1465,13 @@ void Key_Ctrl_Menu()
             {
                 Parameter_set0.ServePID[0] -= 0.01;
             }
-            if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
-            {
-                FLASH_SAV_PAR();
-            }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
                 FLASH_GET_PAR();
+            }
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
+            {
+                FLASH_SAV_PAR();
             }
         }
 
@@ -1480,13 +1486,13 @@ void Key_Ctrl_Menu()
             {
                 Parameter_set0.ServePID[1] -= 0.1;
             }
-            if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
-            {
-                FLASH_SAV_PAR();
-            }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
                 FLASH_GET_PAR();
+            }
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
+            {
+                FLASH_SAV_PAR();
             }
         }
 
@@ -1501,13 +1507,13 @@ void Key_Ctrl_Menu()
             {
                 Parameter_set0.ServePID[2] -= 0.01;
             }
-            if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
-            {
-                FLASH_SAV_PAR();
-            }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
                 FLASH_GET_PAR();
+            }
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
+            {
+                FLASH_SAV_PAR();
             }
         }
 
@@ -1536,7 +1542,7 @@ void Key_Ctrl_Menu()
                     Test_Encoder -= 100;
                 }
             }
-            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
             {
                 FLASH_SAV_PAR();
             }
@@ -1567,7 +1573,7 @@ void Key_Ctrl_Menu()
                     Test_Encoder -= 100;
                 }
             }
-            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
             {
                 FLASH_SAV_PAR();
             }
@@ -1598,7 +1604,7 @@ void Key_Ctrl_Menu()
                     Test_Encoder -= 100;
                 }
             }
-            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
             {
                 FLASH_SAV_PAR();
             }
@@ -1656,7 +1662,7 @@ void Key_Ctrl_Menu()
                 Point1 = Task3_Start_Point;
                 ips200_clear();
             }
-            if(key_get_state(KEY_4) == KEY_LONG_PRESS)
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
             {
                 FLASH_SAV_PAR();
             }
@@ -1713,6 +1719,11 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_4) == KEY_LONG_PRESS)
             {
+                Point1 = Task4_Start_Point;
+                ips200_clear();
+            }
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
+            {
                 FLASH_SAV_PAR();
             }
         }
@@ -1764,7 +1775,7 @@ void Key_Ctrl_Menu()
                     Task3_Points -= 1;
                 }
             }
-            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
             {
                 FLASH_SAV_PAR();
             }
@@ -2160,13 +2171,13 @@ void Key_Ctrl_Menu()
                     Encoder1200_ServoPD.Kd -= 0.01;
                 }
             }
-            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
-            {
-                FLASH_SAV_PAR();
-            }
             if(key_get_state(KEY_2) == KEY_LONG_PRESS)
             {
                 FLASH_PRI_PAR();
+            }
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
+            {
+                FLASH_SAV_PAR();
             }
         }
 
@@ -2322,13 +2333,13 @@ void Key_Ctrl_Menu()
                     From_9000_To_9900_ServoPD.Kd -= 0.01;
                 }
             }
-            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
-            {
-                FLASH_SAV_PAR();
-            }
             if(key_get_state(KEY_2) == KEY_LONG_PRESS)
             {
                 FLASH_PRI_PAR();
+            }
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
+            {
+                FLASH_SAV_PAR();
             }
         }
 
@@ -2436,10 +2447,6 @@ void Key_Ctrl_Menu()
                     Task3_Width -= 0.05f;
                 }
             }
-            if(key_get_state(KEY_1) == KEY_LONG_PRESS)
-            {
-                FLASH_SAV_PAR();
-            }
             if(key_get_state(KEY_2) == KEY_LONG_PRESS)
             {
                 FLASH_PRI_PAR();
@@ -2456,6 +2463,10 @@ void Key_Ctrl_Menu()
                 }
                 LED_Buzzer_Flag_Ctrl(LED3); // 暂时替换
                 system_delay_ms(500);
+            }
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
+            {
+                FLASH_SAV_PAR();
             }
         }
         
@@ -2520,6 +2531,10 @@ void Key_Ctrl_Menu()
             {
                 Start_Flag = 1;
                 LED_Buzzer_Flag_Ctrl(LED3);
+            }
+            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
+            {
+                set_dictation_result();     // 直接把听写结果设置为提前写好的
             }
         }
     }

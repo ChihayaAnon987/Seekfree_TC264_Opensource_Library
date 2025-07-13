@@ -83,7 +83,7 @@ extern const uint8      Chinese64[8][16];   // Æ÷
 extern const uint8      Chinese99[8][16];   // ??
 
 
-extern const uint8      my_picture[34020];
+extern const uint8      my_picture[36450];
 
 
 #endif /* CODE_PICTURE_H_ */

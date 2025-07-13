@@ -26,6 +26,7 @@ extern FuzzyCommand fuzzyTable[];
 //===================================================函数声明BEG===================================================
 void Recognize_Command(void);                                  // 识别语音听写返回的命令
 void process_string(const char *str);                          // 在屏幕上显示命令
+void set_dictation_result(void);                               // 设置Dictation_Result
 //===================================================函数声明END===================================================
 
 
