@@ -77,7 +77,7 @@ float  GpsSpeed    = 0;             // 速度
 float  GpsAccel    = 0;             // 加速度
 float  GpsMaxSpeed = 0;             // 最大速度
 float  GpsMaxAccel = 0;             // 最大加速度
-int8   Task1_Points = 6;            // 科目一所用点位数量
+int8   Task1_Points = 5;            // 科目一所用点位数量
 int8   Task2_Bucket = 4;            // 科目二锥桶数量
 float  Bucket_Dista = 2.5f;         // 锥桶间距
 float  Start_To_Bucket = 0;         // 起点到锥桶的偏移量
@@ -95,32 +95,32 @@ double max_latitude = 0;
 double max_distance = 0;
 float  GpsDistance[NUM_GPS_DATA] = 
 {
-    2.5, 5.0, 3.5, 3.5,   0,   0,   0,   0, 1.5,   0,  // 0 - 9
+    2.5, 5.0, 3.5, 3.5, 5.0, 0.0,   0,   0, 1.5,   0,  // 0 - 9
 
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 10 - 19
-    3.0, 1.4, 1.4, 1.4, 1.6, 1.4, 1.4, 1.4, 1.4, 1.4,  // 20 - 29
-    1.4, 1.4, 1.4, 2.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 30 - 39
+    2.5, 1.7, 1.5, 1.5, 1.5, 1.5, 1.7, 1.5, 2.0, 1.7,  // 20 - 29
+    1.5, 1.5, 1.5, 2.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 30 - 39
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 40 - 49
 
     2.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 50 - 59
     1.5, 1.5, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 60 - 69
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 70 - 79
-   10.0, 1.5, 1.5, 1.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 80 - 89
+   10.0, 0.5, 0.5, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 80 - 89
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0   // 90 - 99
 };  // 存储换点距离的数组
 int16  GpsTgtEncod[NUM_GPS_DATA] = 
 {
-    2900, 5000, 2000, 5000,    0,    0,    0,    0, 3000, 3000,  // 0 - 9
+    3500, 7500, 2000, 2000, 8000,    0,    0,    0, 3000, 3000,  // 0 - 9
 
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0,  // 10 - 19
-    2500, 2500, 1000, 1500, 1500, 1500, 2500, 1100, 1800, 1400,  // 20 - 29
-    1500, 1500, 1500, 4000,    0,    0,    0,    0,    0,    0,  // 30 - 39
+    3000, 4000, 1500, 2000, 2000, 2000, 5000, 1500, 3000, 1500,  // 20 - 29
+    2000, 2000, 2000, 6000,    0,    0,    0,    0,    0,    0,  // 30 - 39
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0,  // 40 - 49
 
     2500, 2500, 2000, 2000, 3000, 3000, 3000, 4000, 1500, 3000,  // 50 - 59
     2000, 2000,10000,    0,    0,    0,    0,    0,    0,    0,  // 60 - 69
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0,  // 70 - 79
-    1000, 1000, 1000, 1000,    0,    0,    0,    0,    0,    0,  // 80 - 89
+    1500, 1500, 1500, 1500,    0,    0,    0,    0,    0,    0,  // 80 - 89
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0   // 90 - 99
 };  // 存储点位速度的数组
 
@@ -441,24 +441,22 @@ void updateCarPosition()
 
 void Task1_Road_Fix()
 {
-    Point[Task1_Start_Point + 2].lonitude = Point[Task1_Start_Point].lonitude;
-    Point[Task1_Start_Point + 3].latitude = Point[Task1_Start_Point + 2].latitude;
-    
-    Point[Task1_Start_Point + 5].latitude = Point[Task1_Start_Point].latitude;
-    Point[Task1_Start_Point + 5].lonitude = Point[Task1_Start_Point + 3].lonitude;
-    
     Point[Task1_Start_Point + 1].lonitude = Point[Task1_Start_Point].lonitude;
-    Point[Task1_Start_Point + 4].lonitude = Point[Task1_Start_Point + 3].lonitude;
+    Point[Task1_Start_Point + 2].lonitude = Point[Task1_Start_Point].lonitude;
     if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 2].latitude)  // 向北发车
     {
         Point[Task1_Start_Point + 1].latitude = Point[Task1_Start_Point + 2].latitude - METER_TO_LAT(5);
-        Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point + 5].latitude + METER_TO_LAT(5);
     }
     else
     {
         Point[Task1_Start_Point + 1].latitude = Point[Task1_Start_Point + 2].latitude + METER_TO_LAT(5);
-        Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point + 5].latitude - METER_TO_LAT(5);
     }
+
+    Point[Task1_Start_Point + 4].lonitude = Point[Task1_Start_Point + 3].lonitude;
+    Point[Task1_Start_Point + 3].latitude = Point[Task1_Start_Point + 2].latitude;
+    Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point].latitude;
+
+    FLASH_FIX_GPS();
 
 }
 
