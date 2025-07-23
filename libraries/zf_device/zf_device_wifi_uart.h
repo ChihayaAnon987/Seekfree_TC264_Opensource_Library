@@ -73,7 +73,7 @@
 #if     (WIFI_UART_AUTO_CONNECT > 3)
 #error "WIFI_UART_AUTO_CONNECT 的值只能为 [0,1,2,3]"
 #else
-#define WIFI_UART_TARGET_IP     "192.168.45.36"                                 // 连接目标的 IP
+#define WIFI_UART_TARGET_IP     "192.168.230.36"                                 // 连接目标的 IP
 #define WIFI_UART_TARGET_PORT   "8080"                                          // 连接目标的端口
 #define WIFI_UART_LOCAL_PORT    "8080"                                          // 本机端口
 #endif

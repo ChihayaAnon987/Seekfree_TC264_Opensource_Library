@@ -77,7 +77,7 @@ float  GpsSpeed    = 0;             // 速度
 float  GpsAccel    = 0;             // 加速度
 float  GpsMaxSpeed = 0;             // 最大速度
 float  GpsMaxAccel = 0;             // 最大加速度
-int8   Task1_Points = 5;            // 科目一所用点位数量
+int8   Task1_Points = 6;            // 科目一所用点位数量
 int8   Task2_Bucket = 4;            // 科目二锥桶数量
 float  Bucket_Dista = 2.5f;         // 锥桶间距
 float  Start_To_Bucket = 0;         // 起点到锥桶的偏移量
@@ -95,7 +95,7 @@ double max_latitude = 0;
 double max_distance = 0;
 float  GpsDistance[NUM_GPS_DATA] = 
 {
-    2.5, 5.0, 3.5, 3.5, 5.0, 0.0,   0,   0, 1.5,   0,  // 0 - 9
+    2.5, 5.0, 3.5, 3.5, 4.0, 5.0,   0,   0, 1.5,   0,  // 0 - 9
 
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 10 - 19
     2.5, 1.7, 1.5, 1.5, 1.5, 1.5, 1.7, 1.5, 2.0, 1.7,  // 20 - 29
@@ -110,7 +110,7 @@ float  GpsDistance[NUM_GPS_DATA] =
 };  // 存储换点距离的数组
 int16  GpsTgtEncod[NUM_GPS_DATA] = 
 {
-    3500, 7500, 2000, 2000, 8000,    0,    0,    0, 3000, 3000,  // 0 - 9
+    3500, 6000, 1500, 1500, 3000, 6000,    0,    0, 3000, 3000,  // 0 - 9
 
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0,  // 10 - 19
     3000, 4000, 1500, 2000, 2000, 2000, 5000, 1500, 3000, 1500,  // 20 - 29
@@ -118,9 +118,9 @@ int16  GpsTgtEncod[NUM_GPS_DATA] =
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0,  // 40 - 49
 
     2500, 2500, 2000, 2000, 3000, 3000, 3000, 4000, 1500, 3000,  // 50 - 59
-    2000, 2000,10000,    0,    0,    0,    0,    0,    0,    0,  // 60 - 69
+    2000, 2000, 6000,    0,    0,    0,    0,    0,    0,    0,  // 60 - 69
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0,  // 70 - 79
-    1500, 1500, 1500, 1500,    0,    0,    0,    0,    0,    0,  // 80 - 89
+     900,  900,  900,  900,    0,    0,    0,    0,    0,    0,  // 80 - 89
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0   // 90 - 99
 };  // 存储点位速度的数组
 
@@ -289,7 +289,7 @@ void drawPoints()
 
     if(start_point == Task1_Start_Point)
     {
-        double distance = get_two_points_distance(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 1].latitude, Point[Task1_Start_Point].lonitude);
+        double distance = get_two_points_distance(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 2].latitude, Point[Task1_Start_Point].lonitude);
         ips200_show_string(128, 16 * 0, "Dista:");
         ips200_show_string(128, 16 * 16, "MaxDt:");
         ips200_show_float (176, 16 * 0, distance, 3, 2);
@@ -374,71 +374,110 @@ void updateCarPosition()
         last_Lon = gnss.longitude;
     }
 
-    if((func_index == enum_third_menu09 && gpio_get_level(SWITCH1)) || (func_index == enum_secon_menu08 && Map_Flag == -1))
+    if(start_point == Task1_Start_Point)
     {
-        if(start_point == Task1_Start_Point)
+        if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 2].latitude) // 向北发车
         {
-            if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 2].latitude) // 向北发车
+            if(gnss.latitude > max_latitude)
             {
-                if(gnss.latitude > max_latitude)
-                {
-                    max_latitude = gnss.latitude;
-                    max_distance = get_two_points_distance(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, max_latitude, Point[Task1_Start_Point].lonitude);
-                }
-            }
-            else // 向南发车
-            {
-                if(gnss.latitude < max_latitude)
-                {
-                    max_latitude = gnss.latitude;
-                    max_distance = get_two_points_distance(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, max_latitude, Point[Task1_Start_Point].lonitude);
-                }
+                max_latitude = gnss.latitude;
+                max_distance = get_two_points_distance(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, max_latitude, Point[Task1_Start_Point].lonitude);
             }
         }
-
-        if(start_point == Task2_Start_Point)
+        else // 向南发车
         {
-            if(Point[Task2_Road_Genera].latitude < Point[Task2_Road_Genera + 1].latitude) // 向北发车
+            if(gnss.latitude < max_latitude)
             {
-                if(gnss.latitude > max_latitude)
-                {
-                    max_latitude = gnss.latitude;
-                    max_distance = get_two_points_distance(Point[Task2_Road_Genera].latitude, Point[Task2_Road_Genera].lonitude, max_latitude, Point[Task2_Road_Genera].lonitude);
-                }
-            }
-            else // 向南发车
-            {
-                if(gnss.latitude < max_latitude)
-                {
-                    max_latitude = gnss.latitude;
-                    max_distance = get_two_points_distance(Point[Task2_Road_Genera].latitude, Point[Task2_Road_Genera].lonitude, max_latitude, Point[Task2_Road_Genera].lonitude);
-                }
+                max_latitude = gnss.latitude;
+                max_distance = get_two_points_distance(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, max_latitude, Point[Task1_Start_Point].lonitude);
             }
         }
+    }
 
-        if(start_point == Task3_Start_Point)
+    if(start_point == Task2_Start_Point)
+    {
+        if(Point[Task2_Road_Genera].latitude < Point[Task2_Road_Genera + 1].latitude) // 向北发车
         {
-            if(Point[Task3_Start_Point].latitude < Point[Turn_Point].latitude) // 向北发车
+            if(gnss.latitude > max_latitude)
             {
-                if(gnss.latitude > max_latitude)
-                {
-                    max_latitude = gnss.latitude;
-                    max_distance = get_two_points_distance(Point[Task3_Start_Point].latitude, Point[Task3_Start_Point].lonitude, max_latitude, Point[Task3_Start_Point].lonitude);
-                }
+                max_latitude = gnss.latitude;
+                max_distance = get_two_points_distance(Point[Task2_Road_Genera].latitude, Point[Task2_Road_Genera].lonitude, max_latitude, Point[Task2_Road_Genera].lonitude);
             }
-            else // 向南发车
+        }
+        else // 向南发车
+        {
+            if(gnss.latitude < max_latitude)
             {
-                if(gnss.latitude < max_latitude)
-                {
-                    max_latitude = gnss.latitude;
-                    max_distance = get_two_points_distance(Point[Task3_Start_Point].latitude, Point[Task3_Start_Point].lonitude, max_latitude, Point[Task3_Start_Point].lonitude);
-                }
+                max_latitude = gnss.latitude;
+                max_distance = get_two_points_distance(Point[Task2_Road_Genera].latitude, Point[Task2_Road_Genera].lonitude, max_latitude, Point[Task2_Road_Genera].lonitude);
+            }
+        }
+    }
+
+    if(start_point == Task3_Start_Point)
+    {
+        if(Point[Task3_Start_Point].latitude < Point[Turn_Point].latitude) // 向北发车
+        {
+            if(gnss.latitude > max_latitude)
+            {
+                max_latitude = gnss.latitude;
+                max_distance = get_two_points_distance(Point[Task3_Start_Point].latitude, Point[Task3_Start_Point].lonitude, max_latitude, Point[Task3_Start_Point].lonitude);
+            }
+        }
+        else // 向南发车
+        {
+            if(gnss.latitude < max_latitude)
+            {
+                max_latitude = gnss.latitude;
+                max_distance = get_two_points_distance(Point[Task3_Start_Point].latitude, Point[Task3_Start_Point].lonitude, max_latitude, Point[Task3_Start_Point].lonitude);
             }
         }
     }
 }
 
 
+// void Task1_Road_Fix()
+// {
+//     // Point[Task1_Start_Point + 1].lonitude = Point[Task1_Start_Point].lonitude;
+//     // Point[Task1_Start_Point + 2].lonitude = Point[Task1_Start_Point].lonitude;
+//     // if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 2].latitude)  // 向北发车
+//     // {
+//     //     Point[Task1_Start_Point + 1].latitude = Point[Task1_Start_Point + 2].latitude - METER_TO_LAT(5);
+//     // }
+//     // else
+//     // {
+//     //     Point[Task1_Start_Point + 1].latitude = Point[Task1_Start_Point + 2].latitude + METER_TO_LAT(5);
+//     // }
+
+//     // Point[Task1_Start_Point + 4].lonitude = Point[Task1_Start_Point + 3].lonitude;
+//     // Point[Task1_Start_Point + 3].latitude = Point[Task1_Start_Point + 2].latitude;
+//     // Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point].latitude;
+//     Point[Task1_Start_Point + 1].lonitude = Point[Task1_Start_Point].lonitude;
+//     Point[Task1_Start_Point + 1].latitude = (Point[Task1_Start_Point].latitude + Point[Task1_Start_Point + 3].latitude) / 2;
+//     Point[Task1_Start_Point + 5].lonitude = Point[Task1_Start_Point + 4].lonitude;
+//     Point[Task1_Start_Point + 5].latitude = (Point[Task1_Start_Point].latitude + Point[Task1_Start_Point + 3].latitude) / 2;
+
+//     Point[Task1_Start_Point + 2].lonitude = Point[Task1_Start_Point].lonitude;
+//     if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 3].latitude)  // 向北发车
+//     {
+//         Point[Task1_Start_Point + 2].latitude = Point[Task1_Start_Point + 3].latitude - METER_TO_LAT(5);
+//     }
+//     else
+//     {
+//         Point[Task1_Start_Point + 2].latitude = Point[Task1_Start_Point + 3].latitude + METER_TO_LAT(5);
+//     }
+//     Point[Task1_Start_Point + 3].lonitude = Point[Task1_Start_Point].lonitude;
+
+//     Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point + 3].latitude;
+//     Point[Task1_Start_Point + 6].latitude = Point[Task1_Start_Point].latitude;
+//     Point[Task1_Start_Point + 6].lonitude = Point[Task1_Start_Point + 4].lonitude;
+
+
+
+
+//     FLASH_FIX_GPS();
+
+// }
 void Task1_Road_Fix()
 {
     Point[Task1_Start_Point + 1].lonitude = Point[Task1_Start_Point].lonitude;
@@ -446,18 +485,19 @@ void Task1_Road_Fix()
     if(Point[Task1_Start_Point].latitude < Point[Task1_Start_Point + 2].latitude)  // 向北发车
     {
         Point[Task1_Start_Point + 1].latitude = Point[Task1_Start_Point + 2].latitude - METER_TO_LAT(5);
+        Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point + 2].latitude - METER_TO_LAT(5);
     }
     else
     {
         Point[Task1_Start_Point + 1].latitude = Point[Task1_Start_Point + 2].latitude + METER_TO_LAT(5);
+        Point[Task2_Start_Point + 4].latitude = Point[Task1_Start_Point + 2].latitude + METER_TO_LAT(5);
     }
-
-    Point[Task1_Start_Point + 4].lonitude = Point[Task1_Start_Point + 3].lonitude;
     Point[Task1_Start_Point + 3].latitude = Point[Task1_Start_Point + 2].latitude;
-    Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point].latitude;
+    Point[Task1_Start_Point + 4].lonitude = Point[Task1_Start_Point + 3].lonitude;
+    Point[Task1_Start_Point + 5].latitude = Point[Task1_Start_Point].latitude;
+    Point[Task1_Start_Point + 5].lonitude = Point[Task1_Start_Point + 3].lonitude;
 
     FLASH_FIX_GPS();
-
 }
 
 
@@ -511,7 +551,7 @@ void Task2_Road_Gen()
     Point[Task2_Start_Point + Task2_Bucket + 3].lonitude = Point[Task2_Start_Point + Task2_Bucket + 5].lonitude;
 
     // 根据车模特性调整
-    Point[Task2_Start_Point + Task2_Bucket + 4].latitude -= Toward * 0.000008;
+    Point[Task2_Start_Point + Task2_Bucket + 4].lonitude -= Toward * 0.000008;
     Point[Task2_Start_Point + Task2_Bucket + 5].lonitude -= Toward * 0.000008;
     Point[Task2_Start_Point + Task2_Bucket + 7].lonitude -= Toward * 0.000008;
     

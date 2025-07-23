@@ -1170,7 +1170,7 @@ void Task_Four(void)
     }
     else
     {
-        ips200_show_string(224, 268, "?");
+        ips200_show_float(224, 268, Task4_Start_Direc, 3, 1);
     }
 
     process_string(Dictation_Result);
@@ -1372,8 +1372,29 @@ void Param_Set_menu()
     {
         ips200_show_string(  24, 16 * 0, "Start_To_Bucket:");
         ips200_show_string(  24, 16 * 1, "Task3_Width:");
+        ips200_show_string(  24, 16 * 2, "Task4_Dir:  ");
         ips200_show_float(  152, 16 * 0, Start_To_Bucket, 1, 3);
         ips200_show_float(  120, 16 * 1, Task3_Width, 1, 3);
+        if(Task4_Start_Direc == 0)
+        {
+            ips200_show_string(120, 16 * 2, "N");
+        }
+        else if(Task4_Start_Direc == 90)
+        {
+            ips200_show_string(120, 16 * 2, "E");
+        }
+        else if(Task4_Start_Direc == 180)
+        {
+            ips200_show_string(120, 16 * 2, "S");
+        }
+        else if(Task4_Start_Direc == 270)
+        {
+            ips200_show_string(120, 16 * 2, "W");
+        }
+        else
+        {
+            ips200_show_float(120, 16 * 2, Task4_Start_Direc, 3, 1);
+        }
     }
     ips200_show_string(  0, 16 *  9, "KEY1:Up");
     ips200_show_string(  0, 16 * 10, "KEY2:Down");
@@ -2355,7 +2376,7 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                if(Point4 < 9)
+                if(Point4 < 10)
                 {
                     Point4 = Point4 + 1;
                     ips200_clear();
@@ -2402,6 +2423,10 @@ void Key_Ctrl_Menu()
                 if(Point4 == 9)
                 {
                     Task3_Width += 0.05f;
+                }
+                if(Point4 == 10)
+                {
+                    Task4_Start_Direc = LimitFabs360(Task4_Start_Direc + 90);
                 }
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
@@ -2515,26 +2540,14 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
-                Track_Points_NUM = Task4_Start_Point;
-                if(Task_Flag == 4)
-                {
-                    Task4_Start_Direc = LimitFabs360(Task4_Start_Direc + 90);
-                    FLASH_SAV_PAR();
-                }
-                Task_Flag = 4;
-            }
-            if(key_get_state(KEY_3) == KEY_LONG_PRESS)
-            {
-                Recognize_Command();
+                set_dictation_result();     // 直接把听写结果设置为提前写好的
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
+                Track_Points_NUM = Task4_Start_Point;
+                Task_Flag = 4;
                 Start_Flag = 1;
                 LED_Buzzer_Flag_Ctrl(LED3);
-            }
-            if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
-            {
-                set_dictation_result();     // 直接把听写结果设置为提前写好的
             }
         }
     }
