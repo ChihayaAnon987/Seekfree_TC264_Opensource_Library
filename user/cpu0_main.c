@@ -58,6 +58,7 @@ int core0_main(void)
     FLASH_GET_GPS();                 // 从 Flash 读取 GPS 数据
     FLASH_GET_PAR();                 // 从 Flash 读取参数
 
+    // FLASH_SAV_PAR();
 
     // 此处编写用户代码 例如外设初始化代码等
     cpu_wait_event_ready();         // 等待所有核心初始化完毕

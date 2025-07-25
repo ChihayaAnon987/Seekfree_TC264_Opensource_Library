@@ -1683,6 +1683,11 @@ void Key_Ctrl_Menu()
                 Point1 = Task3_Start_Point;
                 ips200_clear();
             }
+            if(key_get_state(KEY_4) == KEY_LONG_PRESS)
+            {
+                Point1 = Task4_Start_Point;
+                ips200_clear();
+            }
             if(key_get_state(KEY_5) == KEY_SHORT_PRESS)
             {
                 FLASH_SAV_PAR();
