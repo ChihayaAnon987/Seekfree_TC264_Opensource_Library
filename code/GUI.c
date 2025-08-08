@@ -10,7 +10,7 @@
 Parameter_set Parameter_set0=
 {
     {1.34, 0.0, 0.7},            // 舵机PID
-    {1.0, 0.0, 0.0},            // 速度PID
+    {20.0, 0.1, 0.0},            // 速度PID
     3000,                       // 调试的速度
     1.5,                        // 换点距离
     SERVO_MOTOR_MID             // 舵机机械可调中值
@@ -1373,6 +1373,7 @@ void Param_Set_menu()
         ips200_show_string(  24, 16 * 0, "Start_To_Bucket:");
         ips200_show_string(  24, 16 * 1, "Task3_Width:");
         ips200_show_string(  24, 16 * 2, "Task4_Dir:  ");
+        ips200_show_string(  24, 16 * 3, "run_time:   ");
         ips200_show_float(  152, 16 * 0, Start_To_Bucket, 1, 3);
         ips200_show_float(  120, 16 * 1, Task3_Width, 1, 3);
         if(Task4_Start_Direc == 0)
@@ -1395,6 +1396,7 @@ void Param_Set_menu()
         {
             ips200_show_float(120, 16 * 2, Task4_Start_Direc, 3, 1);
         }
+        ips200_show_float(  120, 16 * 3, run_time, 2, 2);
     }
     ips200_show_string(  0, 16 *  9, "KEY1:Up");
     ips200_show_string(  0, 16 * 10, "KEY2:Down");
@@ -2381,7 +2383,7 @@ void Key_Ctrl_Menu()
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
-                if(Point4 < 10)
+                if(Point4 < 11)
                 {
                     Point4 = Point4 + 1;
                     ips200_clear();
@@ -2433,6 +2435,11 @@ void Key_Ctrl_Menu()
                 {
                     Task4_Start_Direc = LimitFabs360(Task4_Start_Direc + 90);
                 }
+                if(Point4 == 11)
+                {
+                    run_time += 0.5f;
+                }
+                
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {
@@ -2476,6 +2483,10 @@ void Key_Ctrl_Menu()
                 {
                     Task3_Width -= 0.05f;
                 }
+                if(Point4 == 11)
+                {
+                    run_time -= 0.5f;
+                }
             }
             if(key_get_state(KEY_2) == KEY_LONG_PRESS)
             {
@@ -2509,6 +2520,7 @@ void Key_Ctrl_Menu()
                 Turn_Angle = get_two_points_azimuth(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 3].latitude, Point[Task1_Start_Point + 3].lonitude);
                 initCoordinateSystem();
                 ips200_clear();
+                LED_Buzzer_Flag_Ctrl(LED4);
             }
             if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
             {
@@ -2517,6 +2529,7 @@ void Key_Ctrl_Menu()
                 Turn_Angle = get_two_points_azimuth(Point[Task2_Start_Point + Task2_Bucket + 2].latitude, Point[Task2_Start_Point + Task2_Bucket + 2].lonitude, Point[Task2_Start_Point + Task2_Bucket + 3].latitude, Point[Task2_Start_Point + Task2_Bucket + 3].lonitude);
                 initCoordinateSystem();
                 ips200_clear();
+                LED_Buzzer_Flag_Ctrl(LED4);
             }
             if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
             {
@@ -2525,6 +2538,7 @@ void Key_Ctrl_Menu()
                 Turn_Angle = get_two_points_azimuth(Point[Task3_Start_Point].latitude, Point[Task3_Start_Point].lonitude, Point[Turn_Point + 1].latitude, Point[Turn_Point + 1].lonitude);
                 initCoordinateSystem();
                 ips200_clear();
+                LED_Buzzer_Flag_Ctrl(LED4);
             }
             if(key_get_state(KEY_4) == KEY_SHORT_PRESS)
             {

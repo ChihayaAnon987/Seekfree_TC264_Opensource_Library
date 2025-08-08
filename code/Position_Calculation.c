@@ -22,6 +22,7 @@ int8   Task_Four_Turn_Flag        = 0;          // 科目四转圈标志位
 float  Snack_Advance              = -0.5f;      // 蛇形前进偏移
 float  Snack_Back                 = 1.5f;       // 蛇形后退偏移
 float  Task4_Start_Direc          = 0;          // 科目四发车角度
+float  run_time                   = 7.0f;       // 科目四行进时间
 
 /****************************************************************************************************
 //  @brief      核心循迹逻辑
@@ -152,7 +153,7 @@ void Task4_Finish()
                 {
                     Get_Gps();
                     Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
-                    if(System_Time - start_time > 6)
+                    if(System_Time - start_time > run_time)
                     {
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
                         break;
@@ -177,7 +178,7 @@ void Task4_Finish()
                 {
                     Get_Gps();
                     Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
-                    if(System_Time - start_time > 6)
+                    if(System_Time - start_time > run_time)
                     {
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
                         break;
@@ -198,19 +199,19 @@ void Task4_Finish()
                 // 蛇形前进十米
                 Track_Points_NUM = Task4_Start_Point;
                 float start_time = System_Time;
-                double angle = 0;
+                double x = 0;
                 while(TRUE)
                 {
                     Get_Gps();
                     Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
-                    if(System_Time - start_time > 6)
+                    if(System_Time - start_time > run_time && fabs(angle[2]) < 3)
                     {
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
                         break;
                     }
 
-                    Servo_Set(SERVO_MOTOR_MID - 15 * sin(angle) + Snack_Advance);
-                    angle += 0.1;
+                    Servo_Set(SERVO_MOTOR_MID - 15 * sin(x) + Snack_Advance);
+                    x += 0.1;
                     system_delay_ms(50);
                     Target_Encoder = GpsTgtEncod[Track_Points_NUM];
                     #if MOTOR_LOOP_ENABLE == 0
@@ -225,19 +226,19 @@ void Task4_Finish()
                 // 蛇形后退十米
                 Track_Points_NUM = Task4_Start_Point;
                 float start_time = System_Time;
-                double angle = 0;
+                double x = 0;
                 while(TRUE)
                 {
                     Get_Gps();
                     Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
-                    if(System_Time - start_time > 6)
+                    if(System_Time - start_time > run_time && fabs(angle[2]) < 3)
                     {
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
                         break;
                     }
 
-                    Servo_Set(SERVO_MOTOR_MID - 15 * sin(angle) + Snack_Back);
-                    angle += 0.1;
+                    Servo_Set(SERVO_MOTOR_MID - 15 * sin(x) + Snack_Back);
+                    x += 0.1;
                     system_delay_ms(50);
                     Target_Encoder = -GpsTgtEncod[Track_Points_NUM];
                     #if MOTOR_LOOP_ENABLE == 0
@@ -301,6 +302,15 @@ void Task4_Finish()
                     {
                         Track_Points_NUM = Task4_Start_Point + 4;
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                        Target_Encoder = -GpsTgtEncod[Track_Points_NUM];
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
+                        system_delay_ms(500);
+                        Target_Encoder = 0;
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
                         break;
                     }
                     Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
@@ -329,6 +339,15 @@ void Task4_Finish()
                     {
                         Track_Points_NUM = Task4_Start_Point + 4;
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                        Target_Encoder = -GpsTgtEncod[Track_Points_NUM];
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
+                        system_delay_ms(500);
+                        Target_Encoder = 0;
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
                         break;
                     }
                     Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
@@ -357,6 +376,15 @@ void Task4_Finish()
                     {
                         Track_Points_NUM = Task4_Start_Point + 4;
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
+                        Target_Encoder = -GpsTgtEncod[Track_Points_NUM];
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
+                        system_delay_ms(500);
+                        Target_Encoder = 0;
+                        #if MOTOR_LOOP_ENABLE == 0
+                            MOTOR_Ctrl(Target_Encoder);
+                        #endif
                         break;
                     }
                     Angle = get_two_points_azimuth(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);

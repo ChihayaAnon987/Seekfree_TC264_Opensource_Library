@@ -86,7 +86,7 @@ FuzzyCommand fuzzyTable[] =
 
 void set_dictation_result()
 {
-    strcpy(Dictation_Result, "打开双闪灯，打开左转灯，顺时针转一圈，逆时针转一圈，停进停车区二。");
+    strcpy(Dictation_Result, "蛇形前进十米，蛇形后退十米，停进停车区一");
     // strcpy(Dictation_Result, "顺时针，逆时针");
 }
 

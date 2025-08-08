@@ -43,6 +43,7 @@ extern int8   Task_Four_Turn_Flag;                             // 科目四转圈标志
 extern float  Snack_Advance;                                   // 蛇形前进偏移
 extern float  Snack_Back;                                      // 蛇形后退偏移
 extern float  Task4_Start_Direc;                               // 科目四发车角度
+extern float  run_time;                                        // 科目四行进时间
 //===================================================全局变量END===================================================
 
 

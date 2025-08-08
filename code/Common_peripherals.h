@@ -13,7 +13,7 @@
 #define UART_RECEIVER_ENABLE     (1)                         // 0: 不启用遥控器    1: 启用遥控器
 #define WIRELESS_UART_ENABLE     (0)                         // 0: 不启用无线串口  1: 启用无线串口
 #define WIFI_UART_ENABLE         (0)                         // 0: 不启用WIFI串口  1: 启用WIFI串口  遥控器、无线串口、WIFI串口只能启用一个
-#define CAR_NUMBER               (1)                         // 0: 0号车           1: 1号车
+#define CAR_NUMBER               (0)                         // 0: 0号车           1: 1号车
 #define MT9V03X_ENABLE           (0)                         // 0: 不启用摄像头    1: 启用摄像头
 #define BLDC_ENABLE              (1)                         // 0: 不启用无刷      1: 启用无刷
 #define MOTOR_LOOP_ENABLE        (0)                         // 0: 开环控制        1: 闭环PID控制
@@ -56,13 +56,13 @@
 #define SERVO_MOTOR_PWM             (ATOM1_CH1_P33_9)        // 定义主板上舵机对应引脚
 #define SERVO_MOTOR_FREQ            (300)                    // 定义主板上舵机频率  请务必注意范围 50-300
 #if CAR_NUMBER == 0
+#define SERVO_MOTOR_RMAX            (75)
+#define SERVO_MOTOR_MID             (104)
+#define SERVO_MOTOR_LMAX            (136)
+#elif CAR_NUMBER == 1
 #define SERVO_MOTOR_RMAX            (66)
 #define SERVO_MOTOR_MID             (92)
 #define SERVO_MOTOR_LMAX            (128)
-#elif CAR_NUMBER == 1
-#define SERVO_MOTOR_RMAX            (73)
-#define SERVO_MOTOR_MID             (105)
-#define SERVO_MOTOR_LMAX            (137)
 #endif
 
 #define SERVO_MOTOR_RMIN_DUTY       (SERVO_MOTOR_DUTY(SERVO_MOTOR_RMAX))     // 右，定义主板上舵机活动范围 占空比

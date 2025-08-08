@@ -85,6 +85,27 @@ IFX_INTERRUPT(cc60_pit_ch1_isr, 0, CCU6_0_CH1_ISR_PRIORITY)
 #endif
     // Servo_SetTest(Servo_Angle);
     // Encoder_Get();
+#if UART_RECEIVER_ENABLE
+    if(Start_Flag == 0)
+    {
+        if(Control_Flag == 1 || Control_Flag == 2)
+        {
+            PDLocServoCtrl();
+        }
+    }
+    else
+    {
+        if(Task_Flag != 4)
+        {
+            PDLocServoCtrl();
+        }
+    }
+#else
+    if(Task_Flag != 4)
+    {
+        PDLocServoCtrl();
+    }
+#endif
 
 }
 

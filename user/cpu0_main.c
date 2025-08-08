@@ -87,12 +87,6 @@ int core0_main(void)
             Delta_Lat = gnss.latitude  - Point[Task4_Start_Point].latitude;
             Delta_Lon = gnss.longitude - Point[Task4_Start_Point].lonitude;
         }
-        #if UART_RECEIVER_ENABLE
-            if(Control_Flag == 1 || Control_Flag == 2)
-            {
-                PDLocServoCtrl();
-            }
-        #endif
         if(Start_Flag == 1)
         {
             system_delay_ms(1000);
@@ -122,7 +116,6 @@ int core0_main(void)
                 else
                 {
                     Track_Follow();
-                    PDLocServoCtrl();
                     #if MOTOR_LOOP_ENABLE == 0
                         MOTOR_Ctrl(Target_Encoder);
                     #endif
@@ -137,12 +130,7 @@ int core0_main(void)
                 else
                 {
                     Track_Follow();
-                    PDLocServoCtrl();
                 }
-            }
-            if(Control_Flag == 2)
-            {
-                PDLocServoCtrl();
             }
         }
 #else
@@ -153,7 +141,6 @@ int core0_main(void)
         else
         {
             Track_Follow();
-            PDLocServoCtrl();                              // 舵机 PD位置式控制
             #if MOTOR_LOOP_ENABLE == 0
                 MOTOR_Ctrl(Target_Encoder);
             #endif

@@ -21,7 +21,7 @@
 #define POINT_SIZE          (      2      )                  // 点半径（像素）
 #define LAT_TO_METER        (  111319.0   )                  // 纬度变化1°对应的长度(m)
 #define LON_TO_METER        (  102907.0   )                  // 经度变化1°对应的长度(m)(深圳)
-// #define LON_TO_METER        (   96125.0   )                  // 经度变化1°对应的长度(m)(杭州)
+// #define LON_TO_METER        (   96106.0   )                  // 经度变化1°对应的长度(m)(杭州)
 #define METER_TO_LAT(x)     (x / LAT_TO_METER)               // 变化x米对应的纬度
 #define METER_TO_LON(x)     (x / LON_TO_METER)               // 变化x米对应的经度
 //===================================================宏定义END===================================================
