@@ -204,7 +204,7 @@ void Task4_Finish()
                 {
                     Get_Gps();
                     Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
-                    if(System_Time - start_time > run_time && fabs(angle[2]) < 3)
+                    if((System_Time - start_time > run_time && fabs(angle[2]) < 3) || System_Time - start_time >  1.5 * run_time)
                     {
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
                         break;
@@ -231,7 +231,7 @@ void Task4_Finish()
                 {
                     Get_Gps();
                     Distance = get_two_points_distance(gnss.latitude - Delta_Lat, gnss.longitude - Delta_Lon, Point[Track_Points_NUM].latitude, Point[Track_Points_NUM].lonitude);
-                    if(System_Time - start_time > run_time && fabs(angle[2]) < 3)
+                    if((System_Time - start_time > run_time && fabs(angle[2]) < 3) || System_Time - start_time >  1.5 * run_time)
                     {
                         LED_Buzzer_Flag_Ctrl(BUZZER_PIN);
                         break;
@@ -306,7 +306,7 @@ void Task4_Finish()
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);
                         #endif
-                        system_delay_ms(500);
+                        system_delay_ms(1000);
                         Target_Encoder = 0;
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);
@@ -343,7 +343,7 @@ void Task4_Finish()
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);
                         #endif
-                        system_delay_ms(500);
+                        system_delay_ms(1000);
                         Target_Encoder = 0;
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);
@@ -380,7 +380,7 @@ void Task4_Finish()
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);
                         #endif
-                        system_delay_ms(500);
+                        system_delay_ms(1000);
                         Target_Encoder = 0;
                         #if MOTOR_LOOP_ENABLE == 0
                             MOTOR_Ctrl(Target_Encoder);

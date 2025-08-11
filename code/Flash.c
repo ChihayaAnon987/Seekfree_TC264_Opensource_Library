@@ -33,7 +33,7 @@ void FLASH_SAV_GPS()
         flash_write_page_from_buffer(FLASH_SECTION_INDEX, FLASH_PAGE_INDEX);
         flash_buffer_clear();
 
-        LED_Buzzer_Flag_Ctrl(LED3); // 暂时替换
+        LED_Buzzer_Flag_Ctrl(LED3);
     }
 }
 
@@ -68,7 +68,7 @@ void FLASH_GET_GPS()
         }
         flash_buffer_clear();                                                    // 清空缓冲区
 
-        LED_Buzzer_Flag_Ctrl(LED3); // 暂时替换
+        LED_Buzzer_Flag_Ctrl(LED3);
     }
     else
     {
@@ -196,7 +196,7 @@ void FLASH_SAV_PAR()
         flash_union_buffer[i].int16_type = GpsTgtEncod[i - 100 - NUM_GPS_DATA];
     }
     // 指示灯亮，表明已读取
-    LED_Buzzer_Flag_Ctrl(LED3); // 暂时替换
+    LED_Buzzer_Flag_Ctrl(LED3);
 
 
     // 写入 Flash 页面
@@ -354,6 +354,6 @@ void FLASH_PRI_PAR()
             printf("GpsTgtEncod[%d]:%d\r\n", i, GpsTgtEncod[i]);
         }
     }
-    LED_Buzzer_Flag_Ctrl(LED3); // 暂时替换
+    LED_Buzzer_Flag_Ctrl(LED3);
     system_delay_ms(1000);
 }

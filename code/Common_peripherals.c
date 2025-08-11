@@ -39,12 +39,11 @@ void CPU1_Init()
 {
     Buzzer_Init();                                                  // 蜂鸣器初始化
     KEY_Init();                                                     // 按键初始化
+    key_init(10);                                                   // 按键初始化
 #if MT9V03X_ENABLE
     mt9v03x_init();                                                 // 总钻风初始化
 #endif
-    key_init(10);                                                   // 按键初始化
     ips200_Init();                                                  // 屏幕初始化
-//    Buzzer_Check(200);                                              // 自检，表示初始化成功
 }
 
 void ips200_Init()

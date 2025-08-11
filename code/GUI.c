@@ -1852,7 +1852,7 @@ void Key_Ctrl_Menu()
                         Turn_Angle = get_two_points_azimuth(Point[Task1_Start_Point].latitude, Point[Task1_Start_Point].lonitude, Point[Task1_Start_Point + 3].latitude, Point[Task1_Start_Point + 3].lonitude);
                         Task1_Road_Fix();
                         initCoordinateSystem();
-                        LED_Buzzer_Flag_Ctrl(LED3); // ÔÝÊ±Ìæ»»
+                        LED_Buzzer_Flag_Ctrl(LED3);
                         ips200_clear();
                     }
                     if(key_get_state(KEY_2) == KEY_SHORT_PRESS)
@@ -1862,7 +1862,7 @@ void Key_Ctrl_Menu()
                         Turn_Angle = get_two_points_azimuth(Point[Task2_Start_Point + Task2_Bucket + 2].latitude, Point[Task2_Start_Point + Task2_Bucket + 2].lonitude, Point[Task2_Start_Point + Task2_Bucket + 3].latitude, Point[Task2_Start_Point + Task2_Bucket + 3].lonitude);
                         Task2_Road_Gen();
                         initCoordinateSystem();
-                        LED_Buzzer_Flag_Ctrl(LED3); // ÔÝÊ±Ìæ»»
+                        LED_Buzzer_Flag_Ctrl(LED3);
                         ips200_clear();
                     }
                     if(key_get_state(KEY_3) == KEY_SHORT_PRESS)
@@ -1872,7 +1872,7 @@ void Key_Ctrl_Menu()
                         Turn_Angle = get_two_points_azimuth(Point[Task3_Start_Point].latitude, Point[Task3_Start_Point].lonitude, Point[Turn_Point + 1].latitude, Point[Turn_Point + 1].lonitude);
                         Task3_Road_Fix();
                         initCoordinateSystem();
-                        LED_Buzzer_Flag_Ctrl(LED3); // ÔÝÊ±Ìæ»»
+                        LED_Buzzer_Flag_Ctrl(LED3);
                         ips200_clear();
                     }
                 }
@@ -2502,7 +2502,7 @@ void Key_Ctrl_Menu()
                 {
                     Task3_Width = -Task3_Width;
                 }
-                LED_Buzzer_Flag_Ctrl(LED3); // ÔÝÊ±Ìæ»»
+                LED_Buzzer_Flag_Ctrl(LED3);
                 system_delay_ms(500);
             }
             if(key_get_state(KEY_5) == KEY_SHORT_PRESS)

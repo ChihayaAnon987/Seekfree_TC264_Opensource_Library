@@ -490,7 +490,7 @@ void Task1_Road_Fix()
     else
     {
         Point[Task1_Start_Point + 1].latitude = Point[Task1_Start_Point + 2].latitude + METER_TO_LAT(5);
-        Point[Task2_Start_Point + 4].latitude = Point[Task1_Start_Point + 2].latitude + METER_TO_LAT(5);
+        Point[Task1_Start_Point + 4].latitude = Point[Task1_Start_Point + 2].latitude + METER_TO_LAT(5);
     }
     Point[Task1_Start_Point + 3].latitude = Point[Task1_Start_Point + 2].latitude;
     Point[Task1_Start_Point + 4].lonitude = Point[Task1_Start_Point + 3].lonitude;

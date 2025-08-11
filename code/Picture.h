@@ -80,7 +80,7 @@ extern const uint8      Chinese61[8][16];   // ½Ó
 extern const uint8      Chinese62[8][16];   // ·þ
 extern const uint8      Chinese63[8][16];   // Îñ
 extern const uint8      Chinese64[8][16];   // Æ÷
-extern const uint8      Chinese99[8][16];   // ??
+extern const uint8      Chinese99[8][16];   // £¿
 
 
 extern const uint8      my_picture[36450];

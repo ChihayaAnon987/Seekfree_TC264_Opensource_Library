@@ -86,7 +86,7 @@ FuzzyCommand fuzzyTable[] =
 
 void set_dictation_result()
 {
-    strcpy(Dictation_Result, "蛇形前进十米，蛇形后退十米，停进停车区一");
+    strcpy(Dictation_Result, "蛇形前进十米，蛇形后退十米，停进停车区一。");
     // strcpy(Dictation_Result, "顺时针，逆时针");
 }
 
@@ -444,7 +444,7 @@ void handle_juhao(const char *p)
 
 void handle_unknown(const char *p)
 {
-    // ??
+    // ？
     ips200_show_chinese(5 + 32 * column, 45 + 32 * raw, 32, Chinese99[0], 1, RGB565_CYAN);
     if(column == 6) raw++;
     column = (column + 1) % 7;
