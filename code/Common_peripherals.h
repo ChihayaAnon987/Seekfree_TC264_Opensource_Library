@@ -9,7 +9,7 @@
 #define CODE_COMMON_PERIPHERALS_H_
 
 //===================================================宏定义BEG===================================================
-#define VERSION_INFO             ("V6.6.3")                  // 版本号
+#define VERSION_INFO             ("V6.6.4")                  // 版本号
 #define UART_RECEIVER_ENABLE     (1)                         // 0: 不启用遥控器    1: 启用遥控器
 #define WIRELESS_UART_ENABLE     (0)                         // 0: 不启用无线串口  1: 启用无线串口
 #define WIFI_UART_ENABLE         (0)                         // 0: 不启用WIFI串口  1: 启用WIFI串口  遥控器、无线串口、WIFI串口只能启用一个
@@ -56,9 +56,9 @@
 #define SERVO_MOTOR_PWM             (ATOM1_CH1_P33_9)        // 定义主板上舵机对应引脚
 #define SERVO_MOTOR_FREQ            (300)                    // 定义主板上舵机频率  请务必注意范围 50-300
 #if CAR_NUMBER == 0
-#define SERVO_MOTOR_RMAX            (74)
-#define SERVO_MOTOR_MID             (107)
-#define SERVO_MOTOR_LMAX            (133)
+#define SERVO_MOTOR_RMAX            (71)
+#define SERVO_MOTOR_MID             (106)
+#define SERVO_MOTOR_LMAX            (134)
 #elif CAR_NUMBER == 1
 #define SERVO_MOTOR_RMAX            (66)
 #define SERVO_MOTOR_MID             (92)

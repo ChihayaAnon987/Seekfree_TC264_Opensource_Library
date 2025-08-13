@@ -226,6 +226,7 @@ void FLASH_GET_PAR()
         Task1_Points = flash_union_buffer[8].int8_type ;
         Task2_Bucket = flash_union_buffer[9].int8_type ;
         Task3_Points = flash_union_buffer[10].int8_type;
+        Task2_Points = Task2_Bucket * 2 + 6;
 
         // ÏµÊý
         Fly_Slope_Alpha = flash_union_buffer[11].int16_type;

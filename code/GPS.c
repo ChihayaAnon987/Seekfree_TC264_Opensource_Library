@@ -81,7 +81,7 @@ int8   Task1_Points = 6;            // 科目一所用点位数量
 int8   Task2_Bucket = 4;            // 科目二锥桶数量
 float  Bucket_Dista = 2.5f;         // 锥桶间距
 float  Start_To_Bucket = 0;         // 起点到锥桶的偏移量
-int8   Task2_Points = 13;           // 科目二所用点位数量
+int8   Task2_Points = 14;           // 科目二所用点位数量
 int8   Task2_Scales = 5;            // 科目二标尺
 int8   Advan_Scales = 7;            // 预测标尺
 int8   Task3_Points = 13;            // 科目三所用点位数量
@@ -523,6 +523,7 @@ void Task2_Road_Gen()
         Point[i].lonitude = Point[Task2_Road_Genera + 1].lonitude;
         Point[i].latitude = Point[Task2_Road_Genera + 1].latitude + Toward * METER_TO_LAT(Bucket_Dista) * (i - Task2_Road_Genera - 1);
     }
+    Point[Task2_Road_Genera].lonitude = Point[Task2_Road_Genera + 1].lonitude;
     Point[Task2_Road_Genera + Task2_Bucket + 1].lonitude = Point[Task2_Road_Genera + 1].lonitude;
 
     // 起始点赋值

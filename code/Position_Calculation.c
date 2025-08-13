@@ -53,7 +53,7 @@ void Track_Follow()
     {
         Angle_Error = 0;
     }
-    else if(Track_Points_NUM == Task2_Start_Point + Task2_Points + 1)
+    else if(Track_Points_NUM == Task2_Start_Point + Task2_Points)
     {
         Angle_Error = 0;
     }
