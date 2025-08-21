@@ -100,39 +100,31 @@ int core0_main(void)
         Get_Gps();
         Point_Switch();
 #if UART_RECEIVER_ENABLE
-        // if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
-        // {
-        //     MOTOR_Ctrl(0);
-        //     LED_Buzzer_Flag_Ctrl(LED3);
-        // }
-        // else
-        // {
-            if(Control_Flag == 0)
+        if(Control_Flag == 0)
+        {
+            if(Task_Flag == 4)
             {
-                if(Task_Flag == 4)
-                {
-                    Task4_Finish();
-                }
-                else
-                {
-                    Track_Follow();
-                    #if MOTOR_LOOP_ENABLE == 0
-                        MOTOR_Ctrl(Target_Encoder);
-                    #endif
-                }
+                Task4_Finish();
             }
-            if(Control_Flag == 1)
+            else
             {
-                if(Task_Flag == 4)
-                {
-                    Task4_Finish();
-                }
-                else
-                {
-                    Track_Follow();
-                }
+                Track_Follow();
+                #if MOTOR_LOOP_ENABLE == 0
+                    MOTOR_Ctrl(Target_Encoder);
+                #endif
             }
-        // }
+        }
+        if(Control_Flag == 1)
+        {
+            if(Task_Flag == 4)
+            {
+                Task4_Finish();
+            }
+            else
+            {
+                Track_Follow();
+            }
+        }
 #else
         if(Task_Flag == 4)
         {
