@@ -21,19 +21,19 @@ int16 RemoteCtrl_Direction;            // 遥控器方向控制量
 
 void RemoteCtrl_Program()
 {
-    if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
-    {
-        MOTOR_Ctrl(0);
-    }
-    else
-    {
-        UART_RECEIVER_FALL();
-        CtrlMode_Switch();
-        Is_Channal_3_Press();
-        Is_Channal_5_Press();
-        Is_Channal_6_Press();
-        RemoteCtrl_Direction_Speed();
-    }
+    // if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
+    // {
+    //     MOTOR_Ctrl(0);
+    // }
+    // else
+    // {
+    // }
+    UART_RECEIVER_FALL();
+    CtrlMode_Switch();
+    Is_Channal_3_Press();
+    Is_Channal_5_Press();
+    Is_Channal_6_Press();
+    RemoteCtrl_Direction_Speed();
 }
 
 void RemoteCtrl_Direction_Speed()

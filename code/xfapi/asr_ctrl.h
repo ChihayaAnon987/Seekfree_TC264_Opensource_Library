@@ -12,6 +12,8 @@
 // #define ASR_WIFI_PASSWORD       "20483246"                            // wifi密码
 #define ASR_WIFI_SSID           "xiao bai"                            // wifi名称 wifi需要是2.4G频率
 #define ASR_WIFI_PASSWORD       "66666666"                            // wifi密码
+// #define ASR_WIFI_SSID           "xxxuan"                              // wifi名称 wifi需要是2.4G频率
+// #define ASR_WIFI_PASSWORD       "3.1415926"                           // wifi密码
 
 #define ASR_APIID               "2498716d"                              // 讯飞的id
 #define ASR_APISecret           "NjQxOTJiOWZhZTBlNDQxOGNiNmE5N2Q3"      // 讯飞的Secret

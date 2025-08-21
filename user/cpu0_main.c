@@ -100,13 +100,13 @@ int core0_main(void)
         Get_Gps();
         Point_Switch();
 #if UART_RECEIVER_ENABLE
-        if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
-        {
-            MOTOR_Ctrl(0);
-            LED_Buzzer_Flag_Ctrl(LED3);
-        }
-        else
-        {
+        // if(uart_receiver.state == 0 || uart_receiver.channel[0] == 0 || Fall_Flag == 1)
+        // {
+        //     MOTOR_Ctrl(0);
+        //     LED_Buzzer_Flag_Ctrl(LED3);
+        // }
+        // else
+        // {
             if(Control_Flag == 0)
             {
                 if(Task_Flag == 4)
@@ -132,7 +132,7 @@ int core0_main(void)
                     Track_Follow();
                 }
             }
-        }
+        // }
 #else
         if(Task_Flag == 4)
         {

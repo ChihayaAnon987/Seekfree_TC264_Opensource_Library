@@ -33,7 +33,7 @@ float  Star_Time      = 0;
 float  Stop_Time      = 0;
 double Actual_Dist    = 0;
 seekfree_assistant_oscilloscope_struct oscilloscope_data;
-gui_menu_enum func_index = 0;
+gui_menu_enum func_index = enum_secon_menu16;
 uint8_t data_buffer[32];
 uint8_t data_len;
 
@@ -1870,7 +1870,7 @@ void Key_Ctrl_Menu()
                         Track_Points_NUM = Task3_Start_Point;
                         Task_Flag = 3;
                         Turn_Angle = get_two_points_azimuth(Point[Task3_Start_Point].latitude, Point[Task3_Start_Point].lonitude, Point[Turn_Point + 1].latitude, Point[Turn_Point + 1].lonitude);
-                        Task3_Road_Fix();
+                        // Task3_Road_Fix();
                         initCoordinateSystem();
                         LED_Buzzer_Flag_Ctrl(LED3);
                         ips200_clear();

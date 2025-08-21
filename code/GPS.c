@@ -79,13 +79,13 @@ float  GpsMaxSpeed = 0;             // 最大速度
 float  GpsMaxAccel = 0;             // 最大加速度
 int8   Task1_Points = 6;            // 科目一所用点位数量
 int8   Task2_Bucket = 4;            // 科目二锥桶数量
-float  Bucket_Dista = 2.5f;         // 锥桶间距
+float  Bucket_Dista = 4.0f;         // 锥桶间距
 float  Start_To_Bucket = 0;         // 起点到锥桶的偏移量
 int8   Task2_Points = 14;           // 科目二所用点位数量
-int8   Task2_Scales = 5;            // 科目二标尺
-int8   Advan_Scales = 7;            // 预测标尺
+int8   Task2_Scales = 6;            // 科目二标尺
+int8   Advan_Scales = 9;            // 预测标尺
 int8   Task3_Points = 13;            // 科目三所用点位数量
-float  Task3_Width  = 3.75f;        // 科目三间距宽
+float  Task3_Width  = -3.75f;        // 科目三间距宽
 double min_dx, max_dx, min_dy, max_dy;
 double range_x, range_y;
 double scale;                       // 缩放因子（单位：像素/米）
@@ -95,14 +95,14 @@ double max_latitude = 0;
 double max_distance = 0;
 float  GpsDistance[NUM_GPS_DATA] = 
 {
-    2.5, 5.0, 3.5, 3.5, 4.0, 5.0,   0,   0, 1.5,   0,  // 0 - 9
+    2.5,12.0, 5.0, 3.5, 5.0, 6.0,   0,   0, 1.5,   0,  // 0 - 9
 
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 10 - 19
     2.5, 1.7, 1.5, 1.5, 1.5, 1.5, 1.7, 1.5, 2.0, 1.7,  // 20 - 29
     1.5, 1.5, 1.5, 2.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 30 - 39
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 40 - 49
 
-    2.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5,  // 50 - 59
+    2.5, 1.5, 1.5, 1.5, 1.5, 1.5, 1.5, 2.0, 1.5, 1.5,  // 50 - 59
     1.5, 1.5, 3.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 60 - 69
     0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 70 - 79
    10.0, 0.5, 0.5, 0.5, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0,  // 80 - 89
@@ -110,17 +110,17 @@ float  GpsDistance[NUM_GPS_DATA] =
 };  // 存储换点距离的数组
 int16  GpsTgtEncod[NUM_GPS_DATA] = 
 {
-    3500, 6000, 1500, 1500, 3000, 6000,    0,    0, 3000, 3000,  // 0 - 9
+    3500, 8000,    0, 1000, 4500, 7000,    0,    0, 2000, 2000,  // 0 - 9
 
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0,  // 10 - 19
-    3000, 4000, 1500, 2000, 2000, 2000, 5000, 1500, 3000, 1500,  // 20 - 29
-    2000, 2000, 2000, 6000,    0,    0,    0,    0,    0,    0,  // 30 - 39
+    3000, 3000, 1900, 1900, 1900, 1900, 3000,  500, 3000, 1900,  // 20 - 29
+    1900, 1900, 1900, 3500,    0,    0,    0,    0,    0,    0,  // 30 - 39
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0,  // 40 - 49
 
-    2500, 2500, 2000, 2000, 3000, 3000, 3000, 4000, 1500, 3000,  // 50 - 59
-    2000, 2000, 6000,    0,    0,    0,    0,    0,    0,    0,  // 60 - 69
+    2500, 2500, 2000, 2000, 2000, 1500, 1500, 3000, 1000, 3000,  // 50 - 59
+    2000, 2000, 4500,    0,    0,    0,    0,    0,    0,    0,  // 60 - 69
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0,  // 70 - 79
-     900,  900,  900,  900,    0,    0,    0,    0,    0,    0,  // 80 - 89
+     900, 1300, 1300, 1300,    0,    0,    0,    0,    0,    0,  // 80 - 89
        0,    0,    0,    0,    0,    0,    0,    0,    0,    0   // 90 - 99
 };  // 存储点位速度的数组
 
@@ -521,8 +521,15 @@ void Task2_Road_Gen()
     for(int i = Task2_Road_Genera + 2; i < Task2_Road_Genera + Task2_Bucket + 1; i++)
     {
         Point[i].lonitude = Point[Task2_Road_Genera + 1].lonitude;
-        Point[i].latitude = Point[Task2_Road_Genera + 1].latitude + Toward * METER_TO_LAT(Bucket_Dista) * (i - Task2_Road_Genera - 1);
+        // Point[i].latitude = Point[Task2_Road_Genera + 1].latitude + Toward * METER_TO_LAT(Bucket_Dista) * (i - Task2_Road_Genera - 1);
     }
+    // Point[i].latitude = Point[Task2_Road_Genera + 1].latitude + Toward * METER_TO_LAT(Bucket_Dista) * (i - Task2_Road_Genera - 1);
+
+    Point[12].latitude = Point[Task2_Road_Genera + 1].latitude + Toward * METER_TO_LAT(3);
+    Point[13].latitude = Point[Task2_Road_Genera + 1].latitude + Toward * METER_TO_LAT(7);
+    Point[14].latitude = Point[Task2_Road_Genera + 1].latitude + Toward * METER_TO_LAT(10);
+    Point[15].latitude = Point[Task2_Road_Genera + 1].latitude + Toward * METER_TO_LAT(14);
+
     Point[Task2_Road_Genera].lonitude = Point[Task2_Road_Genera + 1].lonitude;
     Point[Task2_Road_Genera + Task2_Bucket + 1].lonitude = Point[Task2_Road_Genera + 1].lonitude;
 
@@ -552,9 +559,9 @@ void Task2_Road_Gen()
     Point[Task2_Start_Point + Task2_Bucket + 3].lonitude = Point[Task2_Start_Point + Task2_Bucket + 5].lonitude;
 
     // 根据车模特性调整
-    Point[Task2_Start_Point + Task2_Bucket + 4].lonitude -= Toward * 0.000008;
-    Point[Task2_Start_Point + Task2_Bucket + 5].lonitude -= Toward * 0.000008;
-    Point[Task2_Start_Point + Task2_Bucket + 7].lonitude -= Toward * 0.000008;
+    // Point[Task2_Start_Point + Task2_Bucket + 4].lonitude -= Toward * 0.000008;
+    // Point[Task2_Start_Point + Task2_Bucket + 5].lonitude -= Toward * 0.000008;
+    // Point[Task2_Start_Point + Task2_Bucket + 7].lonitude -= Toward * 0.000008;
     
     // 起点到锥桶, 拐弯区到锥桶点赋值
     Point[Task2_Start_Point + 1].latitude = Point[Task2_Start_Point + 2].latitude - Toward * METER_TO_LAT(3); // 3m
